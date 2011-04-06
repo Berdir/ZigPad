@@ -13,6 +13,8 @@
 #import "LocalPicture.h"
 #import "Sequence.h"
 #import "Presentation.h"
+#import "Database.h"
+
 
 
 @implementation Importer
@@ -25,6 +27,8 @@ Config* configTag; //HelperClass to put Child-Tag Attributes to CoreDBFramework
 //for debugging purposes
 -(void)printDB
 {
+    
+    NSLog(@"Context: %@", context);
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Presentation" inManagedObjectContext:context];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init] ;
@@ -91,7 +95,7 @@ Config* configTag; //HelperClass to put Child-Tag Attributes to CoreDBFramework
 {
 
     NSLog(@"parser started");
-    context = [[[UIApplication sharedApplication] delegate] managedObjectContext];
+    context = [[Database sharedInstance] managedObjectContext];
    
     NSURL* xmlURL;
     if (url == nil) {url = @"xml-example.xml";}

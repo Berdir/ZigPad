@@ -13,6 +13,7 @@
 #import "LocalPicture.h"
 #import "Sequence.h"
 #import "Presentation.h"
+#import "Database.h"
 
 #import <CoreData/CoreData.h>
 
@@ -29,7 +30,7 @@ NSManagedObjectContext* context;
 {
     id i = [super init];
     managedObjectIDs = [[NSMutableDictionary alloc]init]; 
-    context =  [[[UIApplication sharedApplication] delegate] managedObjectContext];
+    context =  [[Database sharedInstance] managedObjectContext];
     return i;
 }
 
