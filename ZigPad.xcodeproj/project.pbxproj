@@ -25,6 +25,8 @@
 		B998B925134C6853003C2C7B /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B924134C6853003C2C7B /* GHUnitIOS.framework */; };
 		B998B928134C6930003C2C7B /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = B998B927134C6930003C2C7B /* GHUnitIOSTestMain.m */; };
 		B998B92B134C69AD003C2C7B /* ExampleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B998B92A134C69AD003C2C7B /* ExampleTest.m */; };
+		B9BC41B2134C86B60085D597 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B1134C86B60085D597 /* Importer.m */; };
+		B9BC41B5134C86CC0085D597 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B4134C86CC0085D597 /* Config.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,10 @@
 		B998B927134C6930003C2C7B /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitIOSTestMain.m; sourceTree = "<group>"; };
 		B998B929134C69AD003C2C7B /* ExampleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleTest.h; sourceTree = "<group>"; };
 		B998B92A134C69AD003C2C7B /* ExampleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleTest.m; sourceTree = "<group>"; };
+		B9BC41B0134C86B60085D597 /* Importer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Importer.h; sourceTree = "<group>"; };
+		B9BC41B1134C86B60085D597 /* Importer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Importer.m; sourceTree = "<group>"; };
+		B9BC41B3134C86CC0085D597 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		B9BC41B4134C86CC0085D597 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +120,11 @@
 		B998B8E6134C6768003C2C7B /* ZigPad */ = {
 			isa = PBXGroup;
 			children = (
+				B9BC41AF134C864A0085D597 /* Importer */,
 				B998B8EF134C6768003C2C7B /* ZigPadAppDelegate.h */,
 				B998B8F0134C6768003C2C7B /* ZigPadAppDelegate.m */,
 				B998B8F5134C6768003C2C7B /* MainWindow.xib */,
-				B998B8F8134C6768003C2C7B /* RootViewController.h */,
-				B998B8F9134C6768003C2C7B /* RootViewController.m */,
-				B998B8FB134C6768003C2C7B /* RootViewController.xib */,
+				B9BC41AA134C85F50085D597 /* UI */,
 				B998B8F2134C6768003C2C7B /* ZigPad.xcdatamodeld */,
 				B998B8E7134C6768003C2C7B /* Supporting Files */,
 			);
@@ -156,6 +161,27 @@
 				B998B912134C67B5003C2C7B /* Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B9BC41AA134C85F50085D597 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B998B8F8134C6768003C2C7B /* RootViewController.h */,
+				B998B8F9134C6768003C2C7B /* RootViewController.m */,
+				B998B8FB134C6768003C2C7B /* RootViewController.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		B9BC41AF134C864A0085D597 /* Importer */ = {
+			isa = PBXGroup;
+			children = (
+				B9BC41B3134C86CC0085D597 /* Config.h */,
+				B9BC41B4134C86CC0085D597 /* Config.m */,
+				B9BC41B0134C86B60085D597 /* Importer.h */,
+				B9BC41B1134C86B60085D597 /* Importer.m */,
+			);
+			name = Importer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +274,8 @@
 				B998B8F1134C6768003C2C7B /* ZigPadAppDelegate.m in Sources */,
 				B998B8F4134C6768003C2C7B /* ZigPad.xcdatamodeld in Sources */,
 				B998B8FA134C6768003C2C7B /* RootViewController.m in Sources */,
+				B9BC41B2134C86B60085D597 /* Importer.m in Sources */,
+				B9BC41B5134C86CC0085D597 /* Config.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +449,7 @@
 				B998B902134C6768003C2C7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B998B921134C67B5003C2C7B /* Build configuration list for PBXNativeTarget "Tests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +458,7 @@
 				B998B923134C67B5003C2C7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
