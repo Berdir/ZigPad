@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "Action.h"
 
 
 @interface Presentation : NSManagedObject {
@@ -18,5 +19,6 @@
 @property (nonatomic, retain) NSSet* sequences;
 
 - (void)addSequencesObject:(NSManagedObject *)value;
+- (Action*) getNextAction;
 
 @end
