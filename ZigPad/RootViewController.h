@@ -10,11 +10,15 @@
 #import "MBProgressHUD.h"
 
 
-@interface RootViewController : UITableViewController <MBProgressHUDDelegate> {
+@interface RootViewController : UITableViewController <MBProgressHUDDelegate, NSFetchedResultsControllerDelegate> {
     MBProgressHUD *HUD;
 }
 
 - (IBAction) update:(id) sender;
+
+
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;	
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 
 - (void)runUpdate;

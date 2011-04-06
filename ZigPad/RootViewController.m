@@ -7,25 +7,32 @@
 //
 
 #import "RootViewController.h"
-//#import "Detail.h"
 #import "MBProgressHUD.h"
 #import "Importer.h"
+#import "Presentation.h"
+#import "Database.h"
 
 
 @implementation RootViewController
+
+@synthesize fetchedResultsController=__fetchedResultsController;
+
+@synthesize managedObjectContext=__managedObjectContext;
 
 
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.managedObjectContext = [Database sharedInstance].managedObjectContext;
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-*/
+
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -63,12 +70,15 @@
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+    //return [[self.fetchedResultsController sections] count];
 }
 
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
 
@@ -82,14 +92,23 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	// Configure the cell.
-	[cell.textLabel setText: [NSString stringWithFormat:@"Führungsablauf %i", [indexPath row]]];
-    cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+    
+    // Configure the cell.
+    Presentation *p = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = p.name;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
+    Presentation *p = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSLog(@"Selected Presentation %@.", p.name);
+    Action *a;
+    int i = 0;
+    while ((a = [p getNextAction])) {
+        NSLog(@"%d. Action: %@.", ++i, a.name);
+    }
+    
 	/*Detail *dvController = [[Detail alloc] initWithNibName:@"Detail" bundle:[NSBundle mainBundle]];
 	dvController.selectedPresentation = [NSString stringWithFormat:@"Führungsablauf %i", [indexPath row]];
     dvController.step = 1;
@@ -188,6 +207,7 @@
     parser = nil;
 }
 
+
 #pragma mark -
 #pragma mark MBProgressHUDDelegate methods
 
@@ -198,9 +218,93 @@
 }
 
 - (void)dealloc {
+    [__fetchedResultsController release];
+    [__managedObjectContext release];
     [super dealloc];
 }
 
+#pragma mark - Fetched results controller
+- (NSFetchedResultsController*) fetchedResultsController {
+    if (__fetchedResultsController != nil) {
+        return __fetchedResultsController;
+    }
+    
+    // Set up the fetched result controlEler.
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Presentation" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    [fetchRequest setFetchBatchSize:20];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+    
+    aFetchedResultsController.delegate = self;
+    self.fetchedResultsController = aFetchedResultsController;
+    
+    [aFetchedResultsController release];
+    [fetchRequest release];
+    
+    NSError *error = nil;
+    if (![self.fetchedResultsController performFetch:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    return __fetchedResultsController;
+    
+}
+
+#pragma mark - Fetched results controller delegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath	 	
+{
+    UITableView *tableView = self.tableView;
+    switch(type) {
+      case NSFetchedResultsChangeInsert:
+        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+        break;
+      case NSFetchedResultsChangeDelete:
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        break;
+      case NSFetchedResultsChangeUpdate:
+        //[self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+        break;
+      case NSFetchedResultsChangeMove:
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]withRowAnimation:UITableViewRowAnimationFade];
+        break;
+    }
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView endUpdates];
+}
 
 @end
 
