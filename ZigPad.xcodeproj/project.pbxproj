@@ -21,7 +21,6 @@
 		B998B90A134C67B5003C2C7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8E0134C6768003C2C7B /* Foundation.framework */; };
 		B998B90B134C67B5003C2C7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8E2134C6768003C2C7B /* CoreGraphics.framework */; };
 		B998B911134C67B5003C2C7B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B998B90F134C67B5003C2C7B /* InfoPlist.strings */; };
-		B998B925134C6853003C2C7B /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B924134C6853003C2C7B /* GHUnitIOS.framework */; };
 		B998B928134C6930003C2C7B /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = B998B927134C6930003C2C7B /* GHUnitIOSTestMain.m */; };
 		B998B92B134C69AD003C2C7B /* ImporterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B998B92A134C69AD003C2C7B /* ImporterTest.m */; };
 		B9BC41B2134C86B60085D597 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B1134C86B60085D597 /* Importer.m */; };
@@ -45,6 +44,10 @@
 		B9BC41E5134CA8D30085D597 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E4134CA8D30085D597 /* MBProgressHUD.m */; };
 		B9BC41EA134CAD520085D597 /* ERD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */; };
 		B9BC41EB134CAD520085D597 /* ERD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */; };
+		B9BEEADA134CB5830085663E /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BEEAD9134CB5830085663E /* GHUnitIOS.framework */; };
+		B9BEEADD134CC5C20085663E /* testpic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B9BEEADC134CC5C20085663E /* testpic.jpg */; };
+		B9BEEADF134CD7AA0085663E /* testpic2.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BEEADE134CD7AA0085663E /* testpic2.png */; };
+		B9BEEAE1134CD8CB0085663E /* testpic3.gif in Resources */ = {isa = PBXBuildFile; fileRef = B9BEEAE0134CD8CB0085663E /* testpic3.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +92,10 @@
 		B9BC41DE134C91700085D597 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		B9BC41E3134CA8D30085D597 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
 		B9BC41E4134CA8D30085D597 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
+		B9BEEAD9134CB5830085663E /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = /System/Library/Frameworks/GHUnitIOS.framework; sourceTree = "<absolute>"; };
+		B9BEEADC134CC5C20085663E /* testpic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testpic.jpg; sourceTree = "<group>"; };
+		B9BEEADE134CD7AA0085663E /* testpic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testpic2.png; sourceTree = "<group>"; };
+		B9BEEAE0134CD8CB0085663E /* testpic3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = testpic3.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B998B925134C6853003C2C7B /* GHUnitIOS.framework in Frameworks */,
+				B9BEEADA134CB5830085663E /* GHUnitIOS.framework in Frameworks */,
 				B998B909134C67B5003C2C7B /* UIKit.framework in Frameworks */,
 				B998B90A134C67B5003C2C7B /* Foundation.framework in Frameworks */,
 				B998B90B134C67B5003C2C7B /* CoreGraphics.framework in Frameworks */,
@@ -141,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				B998B924134C6853003C2C7B /* GHUnitIOS.framework */,
+				B9BEEAD9134CB5830085663E /* GHUnitIOS.framework */,
 				B998B8DE134C6768003C2C7B /* UIKit.framework */,
 				B998B8E0134C6768003C2C7B /* Foundation.framework */,
 				B998B8E2134C6768003C2C7B /* CoreGraphics.framework */,
@@ -178,6 +186,9 @@
 		B998B90C134C67B5003C2C7B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B9BEEAE0134CD8CB0085663E /* testpic3.gif */,
+				B9BEEADE134CD7AA0085663E /* testpic2.png */,
+				B9BEEADC134CC5C20085663E /* testpic.jpg */,
 				B9BC41B6134C8A230085D597 /* xml-example.xml */,
 				B998B90D134C67B5003C2C7B /* Supporting Files */,
 				B998B927134C6930003C2C7B /* GHUnitIOSTestMain.m */,
@@ -315,6 +326,9 @@
 				B998B8F7134C6768003C2C7B /* MainWindow.xib in Resources */,
 				B998B8FD134C6768003C2C7B /* RootViewController.xib in Resources */,
 				B9BC41B7134C8A230085D597 /* xml-example.xml in Resources */,
+				B9BEEADD134CC5C20085663E /* testpic.jpg in Resources */,
+				B9BEEADF134CD7AA0085663E /* testpic2.png in Resources */,
+				B9BEEAE1134CD8CB0085663E /* testpic3.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
