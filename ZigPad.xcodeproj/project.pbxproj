@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B998B8DF134C6768003C2C7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8DE134C6768003C2C7B /* UIKit.framework */; };
+		B998B8E1134C6768003C2C7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8E0134C6768003C2C7B /* Foundation.framework */; };
+		B998B8E3134C6768003C2C7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8E2134C6768003C2C7B /* CoreGraphics.framework */; };
+		B998B8E5134C6768003C2C7B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8E4134C6768003C2C7B /* CoreData.framework */; };
+		B998B8EB134C6768003C2C7B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B998B8E9134C6768003C2C7B /* InfoPlist.strings */; };
+		B998B8EE134C6768003C2C7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B998B8ED134C6768003C2C7B /* main.m */; };
+		B998B8F1134C6768003C2C7B /* ZigPadAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B998B8F0134C6768003C2C7B /* ZigPadAppDelegate.m */; };
+		B998B8F4134C6768003C2C7B /* ZigPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B998B8F2134C6768003C2C7B /* ZigPad.xcdatamodeld */; };
+		B998B8F7134C6768003C2C7B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B998B8F5134C6768003C2C7B /* MainWindow.xib */; };
+		B998B8FA134C6768003C2C7B /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B998B8F9134C6768003C2C7B /* RootViewController.m */; };
+		B998B8FD134C6768003C2C7B /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B998B8FB134C6768003C2C7B /* RootViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B998B8DA134C6768003C2C7B /* ZigPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZigPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B998B8DE134C6768003C2C7B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B998B8E0134C6768003C2C7B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B998B8E2134C6768003C2C7B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B998B8E4134C6768003C2C7B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B998B8E8134C6768003C2C7B /* ZigPad-Info.plist */ = {isa = PBXFileReference; path = "ZigPad-Info.plist"; sourceTree = "<group>"; };
+		B998B8EA134C6768003C2C7B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B998B8EC134C6768003C2C7B /* ZigPad-Prefix.pch */ = {isa = PBXFileReference; path = "ZigPad-Prefix.pch"; sourceTree = "<group>"; };
+		B998B8ED134C6768003C2C7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B998B8EF134C6768003C2C7B /* ZigPadAppDelegate.h */ = {isa = PBXFileReference; path = ZigPadAppDelegate.h; sourceTree = "<group>"; };
+		B998B8F0134C6768003C2C7B /* ZigPadAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZigPadAppDelegate.m; sourceTree = "<group>"; };
+		B998B8F3134C6768003C2C7B /* ZigPad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZigPad.xcdatamodel; sourceTree = "<group>"; };
+		B998B8F6134C6768003C2C7B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		B998B8F8134C6768003C2C7B /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		B998B8F9134C6768003C2C7B /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		B998B8FC134C6768003C2C7B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B998B8D7134C6768003C2C7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B998B8DF134C6768003C2C7B /* UIKit.framework in Frameworks */,
+				B998B8E1134C6768003C2C7B /* Foundation.framework in Frameworks */,
+				B998B8E3134C6768003C2C7B /* CoreGraphics.framework in Frameworks */,
+				B998B8E5134C6768003C2C7B /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B998B8CF134C6768003C2C7B = {
+			isa = PBXGroup;
+			children = (
+				B998B8E6134C6768003C2C7B /* ZigPad */,
+				B998B8DD134C6768003C2C7B /* Frameworks */,
+				B998B8DB134C6768003C2C7B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B998B8DB134C6768003C2C7B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B998B8DA134C6768003C2C7B /* ZigPad.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B998B8DD134C6768003C2C7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B998B8DE134C6768003C2C7B /* UIKit.framework */,
+				B998B8E0134C6768003C2C7B /* Foundation.framework */,
+				B998B8E2134C6768003C2C7B /* CoreGraphics.framework */,
+				B998B8E4134C6768003C2C7B /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B998B8E6134C6768003C2C7B /* ZigPad */ = {
+			isa = PBXGroup;
+			children = (
+				B998B8EF134C6768003C2C7B /* ZigPadAppDelegate.h */,
+				B998B8F0134C6768003C2C7B /* ZigPadAppDelegate.m */,
+				B998B8F5134C6768003C2C7B /* MainWindow.xib */,
+				B998B8F8134C6768003C2C7B /* RootViewController.h */,
+				B998B8F9134C6768003C2C7B /* RootViewController.m */,
+				B998B8FB134C6768003C2C7B /* RootViewController.xib */,
+				B998B8F2134C6768003C2C7B /* ZigPad.xcdatamodeld */,
+				B998B8E7134C6768003C2C7B /* Supporting Files */,
+			);
+			path = ZigPad;
+			sourceTree = "<group>";
+		};
+		B998B8E7134C6768003C2C7B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B998B8E8134C6768003C2C7B /* ZigPad-Info.plist */,
+				B998B8E9134C6768003C2C7B /* InfoPlist.strings */,
+				B998B8EC134C6768003C2C7B /* ZigPad-Prefix.pch */,
+				B998B8ED134C6768003C2C7B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B998B8D9134C6768003C2C7B /* ZigPad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B998B900134C6768003C2C7B /* Build configuration list for PBXNativeTarget "ZigPad" */;
+			buildPhases = (
+				B998B8D6134C6768003C2C7B /* Sources */,
+				B998B8D7134C6768003C2C7B /* Frameworks */,
+				B998B8D8134C6768003C2C7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZigPad;
+			productName = ZigPad;
+			productReference = B998B8DA134C6768003C2C7B /* ZigPad.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B998B8D1134C6768003C2C7B /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = B998B8D4134C6768003C2C7B /* Build configuration list for PBXProject "ZigPad" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B998B8CF134C6768003C2C7B;
+			productRefGroup = B998B8DB134C6768003C2C7B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B998B8D9134C6768003C2C7B /* ZigPad */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B998B8D8134C6768003C2C7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B998B8EB134C6768003C2C7B /* InfoPlist.strings in Resources */,
+				B998B8F7134C6768003C2C7B /* MainWindow.xib in Resources */,
+				B998B8FD134C6768003C2C7B /* RootViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B998B8D6134C6768003C2C7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B998B8EE134C6768003C2C7B /* main.m in Sources */,
+				B998B8F1134C6768003C2C7B /* ZigPadAppDelegate.m in Sources */,
+				B998B8F4134C6768003C2C7B /* ZigPad.xcdatamodeld in Sources */,
+				B998B8FA134C6768003C2C7B /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B998B8E9134C6768003C2C7B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B998B8EA134C6768003C2C7B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B998B8F5134C6768003C2C7B /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B998B8F6134C6768003C2C7B /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		B998B8FB134C6768003C2C7B /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B998B8FC134C6768003C2C7B /* en */,
+			);
+			name = RootViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B998B8FE134C6768003C2C7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B998B8FF134C6768003C2C7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		B998B901134C6768003C2C7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZigPad/ZigPad-Prefix.pch";
+				INFOPLIST_FILE = "ZigPad/ZigPad-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B998B902134C6768003C2C7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZigPad/ZigPad-Prefix.pch";
+				INFOPLIST_FILE = "ZigPad/ZigPad-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B998B8D4134C6768003C2C7B /* Build configuration list for PBXProject "ZigPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B998B8FE134C6768003C2C7B /* Debug */,
+				B998B8FF134C6768003C2C7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B998B900134C6768003C2C7B /* Build configuration list for PBXNativeTarget "ZigPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B998B901134C6768003C2C7B /* Debug */,
+				B998B902134C6768003C2C7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B998B8F2134C6768003C2C7B /* ZigPad.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B998B8F3134C6768003C2C7B /* ZigPad.xcdatamodel */,
+			);
+			currentVersion = B998B8F3134C6768003C2C7B /* ZigPad.xcdatamodel */;
+			path = ZigPad.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B998B8D1134C6768003C2C7B /* Project object */;
+}
