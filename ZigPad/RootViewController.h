@@ -1,20 +1,22 @@
 //
 //  RootViewController.h
-//  ZigPad
+//  List
 //
-//  Created by ceesar on 06/04/11.
+//  Created by ceesar on 16/03/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
-#import <CoreData/CoreData.h>
 
-@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
-
+@interface RootViewController : UITableViewController <MBProgressHUDDelegate> {
+    MBProgressHUD *HUD;
 }
 
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+- (IBAction) update:(id) sender;
+
+
+- (void)runUpdate;
 
 @end

@@ -29,7 +29,6 @@
 		B9BC41B7134C8A230085D597 /* xml-example.xml in Resources */ = {isa = PBXBuildFile; fileRef = B9BC41B6134C8A230085D597 /* xml-example.xml */; };
 		B9BC41C2134C8E400085D597 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B1134C86B60085D597 /* Importer.m */; };
 		B9BC41C3134C8E470085D597 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B4134C86CC0085D597 /* Config.m */; };
-		B9BC41C6134C8E8A0085D597 /* ERD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41C4134C8E8A0085D597 /* ERD.xcdatamodeld */; };
 		B9BC41D2134C8EB40085D597 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41C9134C8EB40085D597 /* Action.m */; };
 		B9BC41D3134C8EB40085D597 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41C9134C8EB40085D597 /* Action.m */; };
 		B9BC41D4134C8EB40085D597 /* LocalPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41CB134C8EB40085D597 /* LocalPicture.m */; };
@@ -43,7 +42,9 @@
 		B9BC41DC134C8F000085D597 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8E4134C6768003C2C7B /* CoreData.framework */; };
 		B9BC41DF134C91700085D597 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41DE134C91700085D597 /* Database.m */; };
 		B9BC41E0134C91700085D597 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41DE134C91700085D597 /* Database.m */; };
-		B9BC41E2134C9F9F0085D597 /* ERD.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E1134C9F9F0085D597 /* ERD.xcdatamodel */; };
+		B9BC41E5134CA8D30085D597 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E4134CA8D30085D597 /* MBProgressHUD.m */; };
+		B9BC41EA134CAD520085D597 /* ERD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */; };
+		B9BC41EB134CAD520085D597 /* ERD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,7 +75,6 @@
 		B9BC41B3134C86CC0085D597 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		B9BC41B4134C86CC0085D597 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		B9BC41B6134C8A230085D597 /* xml-example.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "xml-example.xml"; sourceTree = "<group>"; };
-		B9BC41C5134C8E8A0085D597 /* ERD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ERD.xcdatamodel; sourceTree = "<group>"; };
 		B9BC41C8134C8EB40085D597 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		B9BC41C9134C8EB40085D597 /* Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
 		B9BC41CA134C8EB40085D597 /* LocalPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPicture.h; sourceTree = "<group>"; };
@@ -87,7 +87,8 @@
 		B9BC41D1134C8EB40085D597 /* Sequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sequence.m; sourceTree = "<group>"; };
 		B9BC41DD134C91700085D597 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		B9BC41DE134C91700085D597 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
-		B9BC41E1134C9F9F0085D597 /* ERD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ERD.xcdatamodel; sourceTree = "<group>"; };
+		B9BC41E3134CA8D30085D597 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
+		B9BC41E4134CA8D30085D597 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,8 +152,8 @@
 		B998B8E6134C6768003C2C7B /* ZigPad */ = {
 			isa = PBXGroup;
 			children = (
+				B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */,
 				B9BC41C7134C8EB40085D597 /* coredata */,
-				B9BC41C4134C8E8A0085D597 /* ERD.xcdatamodeld */,
 				B9BC41AF134C864A0085D597 /* Importer */,
 				B998B8EF134C6768003C2C7B /* ZigPadAppDelegate.h */,
 				B998B8F0134C6768003C2C7B /* ZigPadAppDelegate.m */,
@@ -177,7 +178,6 @@
 		B998B90C134C67B5003C2C7B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B9BC41E1134C9F9F0085D597 /* ERD.xcdatamodel */,
 				B9BC41B6134C8A230085D597 /* xml-example.xml */,
 				B998B90D134C67B5003C2C7B /* Supporting Files */,
 				B998B927134C6930003C2C7B /* GHUnitIOSTestMain.m */,
@@ -199,6 +199,7 @@
 		B9BC41AA134C85F50085D597 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B9BC41E6134CA8DB0085D597 /* MBProgressHUD */,
 				B998B8F8134C6768003C2C7B /* RootViewController.h */,
 				B998B8F9134C6768003C2C7B /* RootViewController.m */,
 				B998B8FB134C6768003C2C7B /* RootViewController.xib */,
@@ -234,6 +235,15 @@
 				B9BC41DE134C91700085D597 /* Database.m */,
 			);
 			path = coredata;
+			sourceTree = "<group>";
+		};
+		B9BC41E6134CA8DB0085D597 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				B9BC41E3134CA8D30085D597 /* MBProgressHUD.h */,
+				B9BC41E4134CA8D30085D597 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,14 +338,14 @@
 				B998B8FA134C6768003C2C7B /* RootViewController.m in Sources */,
 				B9BC41B2134C86B60085D597 /* Importer.m in Sources */,
 				B9BC41B5134C86CC0085D597 /* Config.m in Sources */,
-				B9BC41C6134C8E8A0085D597 /* ERD.xcdatamodeld in Sources */,
 				B9BC41D2134C8EB40085D597 /* Action.m in Sources */,
 				B9BC41D4134C8EB40085D597 /* LocalPicture.m in Sources */,
 				B9BC41D6134C8EB40085D597 /* Param.m in Sources */,
 				B9BC41D8134C8EB40085D597 /* Presentation.m in Sources */,
 				B9BC41DA134C8EB40085D597 /* Sequence.m in Sources */,
 				B9BC41DF134C91700085D597 /* Database.m in Sources */,
-				B9BC41E2134C9F9F0085D597 /* ERD.xcdatamodel in Sources */,
+				B9BC41E5134CA8D30085D597 /* MBProgressHUD.m in Sources */,
+				B9BC41EA134CAD520085D597 /* ERD.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +363,7 @@
 				B9BC41D9134C8EB40085D597 /* Presentation.m in Sources */,
 				B9BC41DB134C8EB40085D597 /* Sequence.m in Sources */,
 				B9BC41E0134C91700085D597 /* Database.m in Sources */,
+				B9BC41EB134CAD520085D597 /* ERD.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,7 +417,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -420,7 +431,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
@@ -531,13 +542,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B9BC41C4134C8E8A0085D597 /* ERD.xcdatamodeld */ = {
+		B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B9BC41C5134C8E8A0085D597 /* ERD.xcdatamodel */,
 			);
-			currentVersion = B9BC41C5134C8E8A0085D597 /* ERD.xcdatamodel */;
-			path = ERD.xcdatamodeld;
+			name = ERD.xcdatamodeld;
+			path = ../ERD.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -1,0 +1,3 @@
+[submodule "ZigPad/MBProgressHUD"]
+	path = ZigPad/MBProgressHUD
+	url = https://github.com/matej/MBProgressHUD.git
