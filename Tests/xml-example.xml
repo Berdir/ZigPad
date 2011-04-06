@@ -1,0 +1,31 @@
+<config>
+	<actions>
+		<action id="1" name="A sample action" type="command" favorite="0">
+			<param key="localPicture" picture="http://z.worldempire.ch/sites/default/files/desire.jpg"/>
+			<param key="command" value="OTHER_COMMAND"/>
+		</action>
+		<action id="4" name="Another action" type="command" favorite="1">
+			<param key="localPicture" picture="testpic.jpg"/>
+			<param key="command" value="EXAMPLE_COMMAND"/>
+		</action>
+		<action id="5" name="An image action test" type="image" favorite="5">
+			<param key="url" value="testpic.jpg"/>
+			<param key="localPicture" picture="http://www.die-seite.ch/movie.gif"/>
+		</action>
+	</actions>
+	<sequences>
+		<sequence id="2" name="A sample scene" icon="http://z.worldempire.ch/sites/default/files/lounge.jpg">
+			<actionRef ref="1"/>
+			<actionRef ref="4"/>	
+		</sequence>
+	</sequences>
+	<presentations>
+		<presentation id="5" name="Example presentation" comment="Just a useless comment">
+			<sequenceRef ref="2"/>
+		</presentation>
+	</presentations>
+	<serverConfig>
+		<server type="real" ip="192.168.4.99" port="8005"/>
+		<server type="simulator" ip="10.10.10.1" port="1234"/>
+	</serverConfig>
+</config>

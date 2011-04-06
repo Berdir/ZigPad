@@ -28,7 +28,7 @@
 }  
 
 - (void)testFoo {
-    NSString *a = @"foo";
+    NSString *a = @"bar";
     GHTestLog(@"I can log to the GHUnit test console: %@", a);
     
     // Assert a is not NULL, with no custom error description
