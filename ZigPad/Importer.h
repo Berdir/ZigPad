@@ -13,6 +13,6 @@
     
 }
 
--(void)parseXMLFile:(NSString*) fileName;
+-(bool)parseXMLFile:(NSString*) fileName;
 
 @end

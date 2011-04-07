@@ -21,6 +21,8 @@
 -(void)addSequenceRef:(NSDictionary*)attrib;
 -(void)addServer:(NSDictionary*)attrib;
 -(void)saveToDB;
+-(void)clearDB;
+-(void)printDB;
 
 @end
 

@@ -206,7 +206,7 @@
 
 - (void) runUpdate {
     Importer* parser = [[Importer alloc]init];
-    [parser parseXMLFile:@"http://z.worldempire.ch/1/zigpad/config.xml"];
+    bool success = [parser parseXMLFile:@"http://z.worldempire.ch/1/zigpad/config.xml"];
     [parser release];
     parser = nil;
 }

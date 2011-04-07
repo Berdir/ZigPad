@@ -54,9 +54,15 @@ NSManagedObjectContext* context;
         NSMutableURLRequest  *theRequest=[NSMutableURLRequest 
                                           requestWithURL:picURL
                                           cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:2.0];
-   
+        NSError* error = nil;
+        NSHTTPURLResponse* response = nil;
         data = [NSURLConnection sendSynchronousRequest:theRequest
-                                           returningResponse:nil error:nil];
+                                           returningResponse:&response error:&error];
+        if (([response statusCode]!=200)||([data length]==0) ) {
+            NSLog(@"Picture %@ not downloaded",url);
+            return nil;
+        }
+
         
         
     } else  //then load from local file
@@ -66,10 +72,12 @@ NSManagedObjectContext* context;
         NSString* fileName = [NSString stringWithFormat:@"%@/%@",rootdir,url];
         picURL = [NSURL fileURLWithPath:fileName];
         data = [[NSFileManager defaultManager] contentsAtPath:fileName];
+        if ([data length]==0 ) {
+            NSLog(@"Picture %@ not found",url);
+            return nil;
+        }
         
     }
-    
-    //NSLog(@" länge = %i", [data length]);
     
     //create a Coredata Object and fill with data
     LocalPicture*  lp = [NSEntityDescription insertNewObjectForEntityForName:@"LocalPicture" inManagedObjectContext:context]; 
@@ -77,6 +85,28 @@ NSManagedObjectContext* context;
     
     return lp;
 
+}
+
+//flush all entities from coredata framework
+-(void)clearDB
+{
+    NSArray* tableList =[[NSArray alloc]initWithObjects:@"Action",@"LocalPicture",@"Param",@"Presentation",@"Sequence", nil];
+    
+    for (NSString* table in tableList) {
+        NSFetchRequest * fetch;
+        @try {
+            fetch = [[NSFetchRequest alloc] init];
+            [fetch setEntity:[NSEntityDescription entityForName:table inManagedObjectContext:context]];
+            NSArray * result = [context executeFetchRequest:fetch error:nil];
+            for (id basket in result)
+                [context deleteObject:basket];
+        } @catch (NSException* ex){NSLog(@"Tabelle %@ nicht vorhanden",table);}
+        @finally {
+            [fetch release];
+        }
+    }
+    
+    [tableList release];
 }
 
 
@@ -113,6 +143,7 @@ NSManagedObjectContext* context;
         
         LocalPicture*  lp = [self loadPicture:picture]; 
         p.localImage = lp;
+        if (lp==nil) @throw([NSException exceptionWithName:@"PictureLoadingException" reason:@"could not load Picture" userInfo:nil]);
 
     }
     
@@ -137,6 +168,7 @@ NSManagedObjectContext* context;
     {
         LocalPicture*  lp  = [self loadPicture:icon];
         s.icon = lp;
+        if (lp==nil) @throw([NSException exceptionWithName:@"PictureLoadingException" reason:@"could not load Picture" userInfo:nil]);
     }    
 }
 
@@ -200,51 +232,57 @@ NSManagedObjectContext* context;
     NSError* err = nil;
     [context save:&err];
     if (err!=nil) {
-        NSLog([err localizedDescription]);
+        NSLog(@"DB-Save Error %@",[err localizedDescription]);
     }
     
 }
 
-
-
-
-
-@end
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-@implementation XMLElement
-
-@synthesize tagName=_tagName;
-
-NSDictionary* childTags;
-
--(void) initWithTagName:(NSString*) name
+//for debugging purposes
+-(void)printDB
 {
-    [super init];
-    _tagName = name;
-}
-
--(NSMutableArray*)getChildren:(NSString*)tagName
-{
+    
+    NSLog(@"Context: %@", context);
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Presentation" inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init] ;
+    [request setEntity:entityDescription];
+    
+    NSError* error = nil;
+    NSArray *result = [context executeFetchRequest:request error:&error];
+    
+    
+    for (Presentation *p in result) {
+        NSLog(@"Presentation %@ is a %@ :", p.name, p.comment);
+        
+        for (Sequence* s in p.sequences)
+        {
+            NSLog(@"    Sequence %@ with icon of size %i and command %@ has:", s.name, [s.icon.picture length], s.command);
+            for (Action* a in s.actions)
+            {
+                NSLog(@"        Action %@ with:", a.name);
+                for (Param* pa in a.params)
+                {
+                    NSLog(@"           Param:");
+                    NSLog(@"               key = %@ ", pa.key);
+                    NSLog(@"               value = %@ ", pa.value);
+                    NSLog(@"               Picture size = %i", [pa.localImage.picture length]);
+                    
+                }
+            }
+        }
+        
+    }
+    
+    
+    
+    [request release];
+    
     
 }
 
--(void) addChild:(XMLElement*) tag
-{
-    [childTag 
-}
+
+
 
 @end
- */
+
+
