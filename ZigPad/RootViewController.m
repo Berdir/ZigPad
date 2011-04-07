@@ -11,6 +11,7 @@
 #import "Importer.h"
 #import "Presentation.h"
 #import "Database.h"
+#import "Synchronizer.h"
 
 
 @implementation RootViewController
@@ -28,6 +29,9 @@
     [super viewDidLoad];
     
     self.managedObjectContext = [Database sharedInstance].managedObjectContext;
+    
+    Synchronizer *s = [[Synchronizer alloc] init];
+    [s lookForDevice];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;

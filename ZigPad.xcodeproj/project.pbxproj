@@ -45,6 +45,8 @@
 		B9BC41E5134CA8D30085D597 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E4134CA8D30085D597 /* MBProgressHUD.m */; };
 		B9BC41EA134CAD520085D597 /* ERD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */; };
 		B9BC41EB134CAD520085D597 /* ERD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */; };
+		B9BC41F7134DA5180085D597 /* Synchronizer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41F6134DA5180085D597 /* Synchronizer.m */; };
+		B9BC41FA134DA7510085D597 /* TCPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41F9134DA7510085D597 /* TCPServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,10 @@
 		B9BC41DE134C91700085D597 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		B9BC41E3134CA8D30085D597 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
 		B9BC41E4134CA8D30085D597 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
+		B9BC41F5134DA5180085D597 /* Synchronizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Synchronizer.h; sourceTree = "<group>"; };
+		B9BC41F6134DA5180085D597 /* Synchronizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Synchronizer.m; sourceTree = "<group>"; };
+		B9BC41F8134DA7510085D597 /* TCPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPServer.h; sourceTree = "<group>"; };
+		B9BC41F9134DA7510085D597 /* TCPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +158,7 @@
 		B998B8E6134C6768003C2C7B /* ZigPad */ = {
 			isa = PBXGroup;
 			children = (
+				B9BC41F4134DA4A90085D597 /* Synchronize */,
 				B9BC41C7134C8EB40085D597 /* coredata */,
 				B9BC41AF134C864A0085D597 /* Importer */,
 				B998B8EF134C6768003C2C7B /* ZigPadAppDelegate.h */,
@@ -244,6 +251,17 @@
 				B9BC41E4134CA8D30085D597 /* MBProgressHUD.m */,
 			);
 			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		B9BC41F4134DA4A90085D597 /* Synchronize */ = {
+			isa = PBXGroup;
+			children = (
+				B9BC41F8134DA7510085D597 /* TCPServer.h */,
+				B9BC41F9134DA7510085D597 /* TCPServer.m */,
+				B9BC41F5134DA5180085D597 /* Synchronizer.h */,
+				B9BC41F6134DA5180085D597 /* Synchronizer.m */,
+			);
+			name = Synchronize;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,6 +364,8 @@
 				B9BC41DF134C91700085D597 /* Database.m in Sources */,
 				B9BC41E5134CA8D30085D597 /* MBProgressHUD.m in Sources */,
 				B9BC41EA134CAD520085D597 /* ERD.xcdatamodeld in Sources */,
+				B9BC41F7134DA5180085D597 /* Synchronizer.m in Sources */,
+				B9BC41FA134DA7510085D597 /* TCPServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
