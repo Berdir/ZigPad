@@ -47,6 +47,8 @@
 		B9BC41EB134CAD520085D597 /* ERD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */; };
 		B9BC41F7134DA5180085D597 /* Synchronizer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41F6134DA5180085D597 /* Synchronizer.m */; };
 		B9BC41FA134DA7510085D597 /* TCPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41F9134DA7510085D597 /* TCPServer.m */; };
+		B9BC41FE134DAEB90085D597 /* Commander.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41FD134DAEB90085D597 /* Commander.m */; };
+		B9BC4209134DB1470085D597 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC4208134DB1470085D597 /* AsyncUdpSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +97,10 @@
 		B9BC41F6134DA5180085D597 /* Synchronizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Synchronizer.m; sourceTree = "<group>"; };
 		B9BC41F8134DA7510085D597 /* TCPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPServer.h; sourceTree = "<group>"; };
 		B9BC41F9134DA7510085D597 /* TCPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPServer.m; sourceTree = "<group>"; };
+		B9BC41FC134DAEB90085D597 /* Commander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commander.h; sourceTree = "<group>"; };
+		B9BC41FD134DAEB90085D597 /* Commander.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Commander.m; sourceTree = "<group>"; };
+		B9BC4207134DB1470085D597 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		B9BC4208134DB1470085D597 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,8 +164,9 @@
 		B998B8E6134C6768003C2C7B /* ZigPad */ = {
 			isa = PBXGroup;
 			children = (
+				B9BC41FB134DAE390085D597 /* Commander */,
 				B9BC41F4134DA4A90085D597 /* Synchronize */,
-				B9BC41C7134C8EB40085D597 /* coredata */,
+				B9BC41C7134C8EB40085D597 /* CoreData */,
 				B9BC41AF134C864A0085D597 /* Importer */,
 				B998B8EF134C6768003C2C7B /* ZigPadAppDelegate.h */,
 				B998B8F0134C6768003C2C7B /* ZigPadAppDelegate.m */,
@@ -224,7 +231,7 @@
 			name = Importer;
 			sourceTree = "<group>";
 		};
-		B9BC41C7134C8EB40085D597 /* coredata */ = {
+		B9BC41C7134C8EB40085D597 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */,
@@ -241,6 +248,7 @@
 				B9BC41DD134C91700085D597 /* Database.h */,
 				B9BC41DE134C91700085D597 /* Database.m */,
 			);
+			name = CoreData;
 			path = coredata;
 			sourceTree = "<group>";
 		};
@@ -262,6 +270,17 @@
 				B9BC41F6134DA5180085D597 /* Synchronizer.m */,
 			);
 			name = Synchronize;
+			sourceTree = "<group>";
+		};
+		B9BC41FB134DAE390085D597 /* Commander */ = {
+			isa = PBXGroup;
+			children = (
+				B9BC4207134DB1470085D597 /* AsyncUdpSocket.h */,
+				B9BC4208134DB1470085D597 /* AsyncUdpSocket.m */,
+				B9BC41FC134DAEB90085D597 /* Commander.h */,
+				B9BC41FD134DAEB90085D597 /* Commander.m */,
+			);
+			name = Commander;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +385,8 @@
 				B9BC41EA134CAD520085D597 /* ERD.xcdatamodeld in Sources */,
 				B9BC41F7134DA5180085D597 /* Synchronizer.m in Sources */,
 				B9BC41FA134DA7510085D597 /* TCPServer.m in Sources */,
+				B9BC41FE134DAEB90085D597 /* Commander.m in Sources */,
+				B9BC4209134DB1470085D597 /* AsyncUdpSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
