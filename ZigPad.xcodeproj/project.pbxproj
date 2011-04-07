@@ -152,12 +152,10 @@
 		B998B8E6134C6768003C2C7B /* ZigPad */ = {
 			isa = PBXGroup;
 			children = (
-				B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */,
 				B9BC41C7134C8EB40085D597 /* coredata */,
 				B9BC41AF134C864A0085D597 /* Importer */,
 				B998B8EF134C6768003C2C7B /* ZigPadAppDelegate.h */,
 				B998B8F0134C6768003C2C7B /* ZigPadAppDelegate.m */,
-				B998B8F5134C6768003C2C7B /* MainWindow.xib */,
 				B9BC41AA134C85F50085D597 /* UI */,
 				B998B8E7134C6768003C2C7B /* Supporting Files */,
 			);
@@ -199,6 +197,7 @@
 		B9BC41AA134C85F50085D597 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B998B8F5134C6768003C2C7B /* MainWindow.xib */,
 				B9BC41E6134CA8DB0085D597 /* MBProgressHUD */,
 				B998B8F8134C6768003C2C7B /* RootViewController.h */,
 				B998B8F9134C6768003C2C7B /* RootViewController.m */,
@@ -221,6 +220,7 @@
 		B9BC41C7134C8EB40085D597 /* coredata */ = {
 			isa = PBXGroup;
 			children = (
+				B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */,
 				B9BC41C8134C8EB40085D597 /* Action.h */,
 				B9BC41C9134C8EB40085D597 /* Action.m */,
 				B9BC41CA134C8EB40085D597 /* LocalPicture.h */,
@@ -547,7 +547,7 @@
 			children = (
 			);
 			name = ERD.xcdatamodeld;
-			path = ../ERD.xcdatamodeld;
+			path = ../../ERD.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
