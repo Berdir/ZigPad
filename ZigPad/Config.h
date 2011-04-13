@@ -23,6 +23,7 @@
 -(void)saveToDB;
 -(void)clearDB;
 -(void)printDB;
+-(void)rollback;
 
 @end
 

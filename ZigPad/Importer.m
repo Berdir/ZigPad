@@ -21,7 +21,7 @@
 
 
 Config* configTag; //HelperClass to put Child-Tag Attributes to CoreDBFramework
-bool importSuccess = false;
+bool importSuccess;
 
 
 
@@ -29,6 +29,8 @@ bool importSuccess = false;
 // Parameter examples: "http://foo.bar/any" or "localfile.txt"
 -(bool)parseXMLFile:(NSString*) url
 {
+    
+    importSuccess = false;
 
     NSLog(@"parser started");
 
@@ -59,14 +61,18 @@ bool importSuccess = false;
     [xmlParser setShouldResolveExternalEntities:YES];
     [xmlParser parse];
     
-    
-    [configTag saveToDB];
-    
-    [configTag printDB];
+    if (importSuccess) {
+        [configTag saveToDB];
+        
+        [configTag printDB];
+    }
+    else {
+        [configTag rollback];
+    }
     
     [configTag release];
     [xmlParser release];
-    NSLog(@"parsing finished with %@",((importSuccess)?@"success":@"failure"));
+    NSLog(@"parsing finished with %@",((importSuccess) ? @"success" : @"failure"));
     return importSuccess;
 }
 
@@ -85,11 +91,10 @@ bool importSuccess = false;
     }
     @catch (NSException *exception) {
         NSLog(@"XML-Format or Picture URL is Bullshit!");
+        NSLog(@"%@", exception);
         importSuccess = false;
         [parser abortParsing];
     }
-    
-    
 }
 
 @end

@@ -59,8 +59,15 @@ NSManagedObjectContext* context;
         data = [NSURLConnection sendSynchronousRequest:theRequest
                                            returningResponse:&response error:&error];
         if (([response statusCode]!=200)||([data length]==0) ) {
-            NSLog(@"Picture %@ not downloaded",url);
+            NSLog(@"Picture %@ not downloaded, status code %d, data length %d, error %@",url, [response statusCode], [data length], [error localizedDescription]);
+            for (id key in [response allHeaderFields]) {
+                NSLog(@"key: %@, value: %@", key, [[response allHeaderFields] objectForKey:key]);
+                
+            }
             return nil;
+        }
+        else {
+            NSLog(@"Picture %@ downloaded successful.", url);
         }
 
         
@@ -278,6 +285,10 @@ NSManagedObjectContext* context;
     [request release];
     
     
+}
+
+- (void)rollback {
+    [context rollback];
 }
 
 
