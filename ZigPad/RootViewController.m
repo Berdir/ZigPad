@@ -20,26 +20,19 @@
 
 @synthesize managedObjectContext=__managedObjectContext;
 
-
+Presentation *activePresentation = nil;
 
 - (IBAction) sequences:(id)sender
 {
     //dieser Codeanschnitt ist nur dummy und soll bald gelšscht werden
+    
+    if (!activePresentation) {
+        return;
+    }
 
     SequenceChoiceViewController* chooser = [[SequenceChoiceViewController alloc] initWithNibName:@"SequenceChoiceView" bundle:[NSBundle mainBundle]];
-        NSManagedObjectContext* context =  [[Database sharedInstance] managedObjectContext];
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Presentation" inManagedObjectContext:context];
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init] ;
-    [request setEntity:entityDescription];
-    
-    NSError* error = nil;
-    NSArray *result = [context executeFetchRequest:request error:&error];
-    
-    [chooser initWithPresentation:[result objectAtIndex:0]];
-    
-    
-    [request release];    
+
+    [chooser initWithPresentation: activePresentation]; 
     
 	[self.navigationController pushViewController:chooser animated:YES];
 	[chooser release]; 
@@ -130,11 +123,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-    Presentation *p = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSLog(@"Selected Presentation %@.", p.name);
+    activePresentation = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSLog(@"Selected Presentation %@.", activePresentation.name);
     Action *a;
     int i = 0;
-    while ((a = [p getNextAction])) {
+    while ((a = [activePresentation getNextAction])) {
         NSLog(@"%d. Action: %@.", ++i, a.name);
     }
     
