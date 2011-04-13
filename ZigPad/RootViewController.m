@@ -50,40 +50,33 @@ Presentation *activePresentation = nil;
     
     Synchronizer *s = [[Synchronizer alloc] init];
     [s lookForDevice];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (IBAction)update:(id)sender {
+    
+    // The hud will dispable all input on the view (use the higest view possible in the view hierarchy)
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	
+    // Add HUD to screen
+    [self.navigationController.view addSubview:HUD];
+	
+    // Regisete for HUD callbacks so we can remove it from the window at the right time
+    HUD.delegate = self;
+	
+    HUD.labelText = @"Updating";
+    //HUD.detailsLabelText = @"Downloading...";
+	
+    // Show the HUD while the provided method executes in a new thread
+    [HUD showWhileExecuting:@selector(runUpdate) onTarget:self withObject:nil animated:YES];
+}
 
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+//Called by HUD
+- (void) runUpdate {
+    Importer* parser = [[Importer alloc]init];
+    bool success = [parser parseXMLFile:@"http://z.worldempire.ch/1/zigpad/config.xml"];
+    [parser release];
+    parser = nil;
 }
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-*/
-
-/*
- // Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
- */
 
 
 #pragma mark -
@@ -92,7 +85,6 @@ Presentation *activePresentation = nil;
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
-    //return [[self.fetchedResultsController sections] count];
 }
 
 
@@ -139,56 +131,8 @@ Presentation *activePresentation = nil;
 	dvController = nil;*/
 }
 
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-	
-	[self tableView:tableView didSelectRowAtIndexPath:indexPath];
-}
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 #pragma mark -
 #pragma mark Table view delegate
-
-
 
 #pragma mark -
 #pragma mark Memory management
@@ -203,33 +147,6 @@ Presentation *activePresentation = nil;
 - (void)viewDidUnload {
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
-}
-
-
-- (IBAction)update:(id)sender {
-    
-    // The hud will dispable all input on the view (use the higest view possible in the view hierarchy)
-    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-	
-    // Add HUD to screen
-    [self.navigationController.view addSubview:HUD];
-	
-    // Regisete for HUD callbacks so we can remove it from the window at the right time
-    HUD.delegate = self;
-	
-    HUD.labelText = @"Updating";
-    //HUD.detailsLabelText = @"Downloading...";
-	
-    // Show the HUD while the provided method executes in a new thread
-    [HUD showWhileExecuting:@selector(runUpdate) onTarget:self withObject:nil animated:YES];
-}
-
-//Called by HUD
-- (void) runUpdate {
-    Importer* parser = [[Importer alloc]init];
-    bool success = [parser parseXMLFile:@"http://z.worldempire.ch/1/zigpad/config.xml"];
-    [parser release];
-    parser = nil;
 }
 
 
@@ -248,6 +165,7 @@ Presentation *activePresentation = nil;
     [super dealloc];
 }
 
+#pragma mark -
 #pragma mark - Fetched results controller
 - (NSFetchedResultsController*) fetchedResultsController {
     if (__fetchedResultsController != nil) {
