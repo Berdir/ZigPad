@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
 
+//temporär
+#import "SequenceChoiceViewController.h"
+
 
 @interface RootViewController : UITableViewController <MBProgressHUDDelegate, NSFetchedResultsControllerDelegate> {
     MBProgressHUD *HUD;
 }
 
 - (IBAction) update:(id) sender;
+- (IBAction) sequences:(id) sender; //Temporär
 
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;	
@@ -24,3 +28,6 @@
 - (void)runUpdate;
 
 @end
+
+
+

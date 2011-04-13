@@ -52,6 +52,12 @@
 		B9BEEADD134CC5C20085663E /* testpic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B9BEEADC134CC5C20085663E /* testpic.jpg */; };
 		B9BEEADF134CD7AA0085663E /* testpic2.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BEEADE134CD7AA0085663E /* testpic2.png */; };
 		B9BEEAE1134CD8CB0085663E /* testpic3.gif in Resources */ = {isa = PBXBuildFile; fileRef = B9BEEAE0134CD8CB0085663E /* testpic3.gif */; };
+		B9E2CBAF13548FA000F1E5FE /* FlowCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2CBAE13548FA000F1E5FE /* FlowCoverView.m */; };
+		B9E2CBB213548FA700F1E5FE /* DataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2CBB113548FA700F1E5FE /* DataCache.m */; };
+		B9E2CBB513548FBF00F1E5FE /* SequenceChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2CBB413548FBF00F1E5FE /* SequenceChoiceViewController.m */; };
+		B9E2CBB713548FEA00F1E5FE /* SequenceChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E2CBB613548FEA00F1E5FE /* SequenceChoiceView.xib */; };
+		B9E2CBC31354910000F1E5FE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E2CBC21354910000F1E5FE /* OpenGLES.framework */; };
+		B9E2CBC51354910B00F1E5FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E2CBC41354910B00F1E5FE /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +114,15 @@
 		B9BEEADC134CC5C20085663E /* testpic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testpic.jpg; sourceTree = "<group>"; };
 		B9BEEADE134CD7AA0085663E /* testpic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testpic2.png; sourceTree = "<group>"; };
 		B9BEEAE0134CD8CB0085663E /* testpic3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = testpic3.gif; sourceTree = "<group>"; };
+		B9E2CBAD13548FA000F1E5FE /* FlowCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowCoverView.h; sourceTree = "<group>"; };
+		B9E2CBAE13548FA000F1E5FE /* FlowCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowCoverView.m; sourceTree = "<group>"; };
+		B9E2CBB013548FA700F1E5FE /* DataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCache.h; sourceTree = "<group>"; };
+		B9E2CBB113548FA700F1E5FE /* DataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCache.m; sourceTree = "<group>"; };
+		B9E2CBB313548FBF00F1E5FE /* SequenceChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceChoiceViewController.h; sourceTree = "<group>"; };
+		B9E2CBB413548FBF00F1E5FE /* SequenceChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequenceChoiceViewController.m; sourceTree = "<group>"; };
+		B9E2CBB613548FEA00F1E5FE /* SequenceChoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SequenceChoiceView.xib; sourceTree = "<group>"; };
+		B9E2CBC21354910000F1E5FE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		B9E2CBC41354910B00F1E5FE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +130,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9E2CBC51354910B00F1E5FE /* QuartzCore.framework in Frameworks */,
+				B9E2CBC31354910000F1E5FE /* OpenGLES.framework in Frameworks */,
 				B998B8DF134C6768003C2C7B /* UIKit.framework in Frameworks */,
 				B998B8E1134C6768003C2C7B /* Foundation.framework in Frameworks */,
 				B998B8E3134C6768003C2C7B /* CoreGraphics.framework in Frameworks */,
@@ -159,6 +176,8 @@
 		B998B8DD134C6768003C2C7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B9E2CBC41354910B00F1E5FE /* QuartzCore.framework */,
+				B9E2CBC21354910000F1E5FE /* OpenGLES.framework */,
 				B998B924134C6853003C2C7B /* GHUnitIOS.framework */,
 				B9BEEAD9134CB5830085663E /* GHUnitIOS.framework */,
 				B998B8DE134C6768003C2C7B /* UIKit.framework */,
@@ -172,6 +191,7 @@
 		B998B8E6134C6768003C2C7B /* ZigPad */ = {
 			isa = PBXGroup;
 			children = (
+				B9E2CB921354844A00F1E5FE /* FlowCoverLibs */,
 				B9BC41FB134DAE390085D597 /* Commander */,
 				B9BC41F4134DA4A90085D597 /* Synchronize */,
 				B9BC41C7134C8EB40085D597 /* CoreData */,
@@ -222,11 +242,14 @@
 		B9BC41AA134C85F50085D597 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B9E2CBB313548FBF00F1E5FE /* SequenceChoiceViewController.h */,
+				B9E2CBB413548FBF00F1E5FE /* SequenceChoiceViewController.m */,
 				B998B8F5134C6768003C2C7B /* MainWindow.xib */,
 				B9BC41E6134CA8DB0085D597 /* MBProgressHUD */,
 				B998B8F8134C6768003C2C7B /* RootViewController.h */,
 				B998B8F9134C6768003C2C7B /* RootViewController.m */,
 				B998B8FB134C6768003C2C7B /* RootViewController.xib */,
+				B9E2CBB613548FEA00F1E5FE /* SequenceChoiceView.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -292,6 +315,17 @@
 				B9BC41FD134DAEB90085D597 /* Commander.m */,
 			);
 			name = Commander;
+			sourceTree = "<group>";
+		};
+		B9E2CB921354844A00F1E5FE /* FlowCoverLibs */ = {
+			isa = PBXGroup;
+			children = (
+				B9E2CBB013548FA700F1E5FE /* DataCache.h */,
+				B9E2CBB113548FA700F1E5FE /* DataCache.m */,
+				B9E2CBAD13548FA000F1E5FE /* FlowCoverView.h */,
+				B9E2CBAE13548FA000F1E5FE /* FlowCoverView.m */,
+			);
+			name = FlowCoverLibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +400,7 @@
 				B9BEEADD134CC5C20085663E /* testpic.jpg in Resources */,
 				B9BEEADF134CD7AA0085663E /* testpic2.png in Resources */,
 				B9BEEAE1134CD8CB0085663E /* testpic3.gif in Resources */,
+				B9E2CBB713548FEA00F1E5FE /* SequenceChoiceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +436,9 @@
 				B9BC41FA134DA7510085D597 /* TCPServer.m in Sources */,
 				B9BC41FE134DAEB90085D597 /* Commander.m in Sources */,
 				B9BC4209134DB1470085D597 /* AsyncUdpSocket.m in Sources */,
+				B9E2CBAF13548FA000F1E5FE /* FlowCoverView.m in Sources */,
+				B9E2CBB213548FA700F1E5FE /* DataCache.m in Sources */,
+				B9E2CBB513548FBF00F1E5FE /* SequenceChoiceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

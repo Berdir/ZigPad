@@ -21,6 +21,31 @@
 @synthesize managedObjectContext=__managedObjectContext;
 
 
+
+- (IBAction) sequences:(id)sender
+{
+    //dieser Codeanschnitt ist nur dummy und soll bald gelšscht werden
+
+    SequenceChoiceViewController* chooser = [[SequenceChoiceViewController alloc] initWithNibName:@"SequenceChoiceView" bundle:[NSBundle mainBundle]];
+        NSManagedObjectContext* context =  [[Database sharedInstance] managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Presentation" inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init] ;
+    [request setEntity:entityDescription];
+    
+    NSError* error = nil;
+    NSArray *result = [context executeFetchRequest:request error:&error];
+    
+    [chooser initWithPresentation:[result objectAtIndex:0]];
+    
+    
+    [request release];    
+    
+	[self.navigationController pushViewController:chooser animated:YES];
+	[chooser release]; 
+    //bis hier
+}
+
 #pragma mark -
 #pragma mark View lifecycle
 
@@ -187,7 +212,9 @@
     // For example: self.myOutlet = nil;
 }
 
+
 - (IBAction)update:(id)sender {
+    
     // The hud will dispable all input on the view (use the higest view possible in the view hierarchy)
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	
@@ -204,6 +231,7 @@
     [HUD showWhileExecuting:@selector(runUpdate) onTarget:self withObject:nil animated:YES];
 }
 
+//Called by HUD
 - (void) runUpdate {
     Importer* parser = [[Importer alloc]init];
     bool success = [parser parseXMLFile:@"http://z.worldempire.ch/1/zigpad/config.xml"];
