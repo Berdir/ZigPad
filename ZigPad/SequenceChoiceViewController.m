@@ -108,8 +108,9 @@ NSArray* sequenceImages;
 
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)image
 {
-    //TODO implementation
     [self.navigationController popViewControllerAnimated:true];
+    
+    //TODO implementation
 	NSLog(@"Selected Index %d",image);
 }
 

@@ -22,9 +22,10 @@
 
 Presentation *activePresentation = nil;
 
+//dieser Codeanschnitt ist nur dummy und soll bald gelšscht werden
 - (IBAction) sequences:(id)sender
 {
-    //dieser Codeanschnitt ist nur dummy und soll bald gelšscht werden
+    
     
     if (!activePresentation) {
         return;
@@ -36,8 +37,21 @@ Presentation *activePresentation = nil;
     
 	[self.navigationController pushViewController:chooser animated:YES];
 	[chooser release]; 
-    //bis hier
+
 }
+
+- (IBAction) favorites:(id)sender
+{
+    
+    FavoritesViewController* favorite = [[FavoritesViewController alloc] initWithNibName:@"FavoritesView" bundle:[NSBundle mainBundle]];
+    
+    
+	[self.navigationController pushViewController:favorite animated:YES];
+	[favorite release]; 
+
+  
+}
+//dummycode bis hier
 
 #pragma mark -
 #pragma mark View lifecycle

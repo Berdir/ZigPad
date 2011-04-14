@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B993FB7D1355E29D00A69334 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B993FB7B1355E29C00A69334 /* FavoritesViewController.m */; };
+		B993FB7E1355E29D00A69334 /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B993FB7C1355E29D00A69334 /* FavoritesView.xib */; };
 		B998B8DF134C6768003C2C7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8DE134C6768003C2C7B /* UIKit.framework */; };
 		B998B8E1134C6768003C2C7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8E0134C6768003C2C7B /* Foundation.framework */; };
 		B998B8E3134C6768003C2C7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8E2134C6768003C2C7B /* CoreGraphics.framework */; };
@@ -61,6 +63,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B993FB7A1355E29C00A69334 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		B993FB7B1355E29C00A69334 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		B993FB7C1355E29D00A69334 /* FavoritesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesView.xib; sourceTree = "<group>"; };
 		B998B8DA134C6768003C2C7B /* ZigPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZigPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B998B8DE134C6768003C2C7B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B998B8E0134C6768003C2C7B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -250,6 +255,9 @@
 				B998B8F9134C6768003C2C7B /* RootViewController.m */,
 				B998B8FB134C6768003C2C7B /* RootViewController.xib */,
 				B9E2CBB613548FEA00F1E5FE /* SequenceChoiceView.xib */,
+				B993FB7A1355E29C00A69334 /* FavoritesViewController.h */,
+				B993FB7B1355E29C00A69334 /* FavoritesViewController.m */,
+				B993FB7C1355E29D00A69334 /* FavoritesView.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -401,6 +409,7 @@
 				B9BEEADF134CD7AA0085663E /* testpic2.png in Resources */,
 				B9BEEAE1134CD8CB0085663E /* testpic3.gif in Resources */,
 				B9E2CBB713548FEA00F1E5FE /* SequenceChoiceView.xib in Resources */,
+				B993FB7E1355E29D00A69334 /* FavoritesView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +448,7 @@
 				B9E2CBAF13548FA000F1E5FE /* FlowCoverView.m in Sources */,
 				B9E2CBB213548FA700F1E5FE /* DataCache.m in Sources */,
 				B9E2CBB513548FBF00F1E5FE /* SequenceChoiceViewController.m in Sources */,
+				B993FB7D1355E29D00A69334 /* FavoritesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

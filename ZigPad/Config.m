@@ -127,6 +127,9 @@ NSManagedObjectContext* context;
     [managedObjectIDs setValue:[a objectID] forKey:keyCache];// dito
     
     a.name = [attrib objectForKey:@"name"];
+    a.type = [attrib objectForKey:@"type"];
+    
+    a.favorite = [NSNumber numberWithInt:[(NSString*)[attrib objectForKey:@"favorite"]intValue]];
     
 
 }
@@ -266,7 +269,7 @@ NSManagedObjectContext* context;
             NSLog(@"    Sequence %@ with icon of size %i and command %@ has:", s.name, [s.icon.picture length], s.command);
             for (Action* a in s.actions)
             {
-                NSLog(@"        Action %@ with:", a.name);
+                NSLog(@"        Action %@ Type: %@  Favorite= %i with:", a.name, a.type, [a.favorite intValue]);
                 for (Param* pa in a.params)
                 {
                     NSLog(@"           Param:");

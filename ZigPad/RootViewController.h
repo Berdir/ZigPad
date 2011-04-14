@@ -11,6 +11,7 @@
 
 //temporär
 #import "SequenceChoiceViewController.h"
+#import "FavoritesViewController.h"
 
 
 @interface RootViewController : UITableViewController <MBProgressHUDDelegate, NSFetchedResultsControllerDelegate> {
@@ -19,6 +20,7 @@
 
 - (IBAction) update:(id) sender;
 - (IBAction) sequences:(id) sender; //Temporär
+- (IBAction) favorites:(id) sender; //Temporär
 
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;	
