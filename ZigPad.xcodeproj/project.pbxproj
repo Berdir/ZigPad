@@ -60,8 +60,6 @@
 		B9E2CBB713548FEA00F1E5FE /* SequenceChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E2CBB613548FEA00F1E5FE /* SequenceChoiceView.xib */; };
 		B9E2CBC31354910000F1E5FE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E2CBC21354910000F1E5FE /* OpenGLES.framework */; };
 		B9E2CBC51354910B00F1E5FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E2CBC41354910B00F1E5FE /* QuartzCore.framework */; };
-		B9F03A161355BEA9008474A9 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F03A151355BEA9008474A9 /* 37x-Checkmark.png */; };
-		B9F03A181355C04E008474A9 /* Failure.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F03A171355C04E008474A9 /* Failure.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,8 +128,6 @@
 		B9E2CBB613548FEA00F1E5FE /* SequenceChoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SequenceChoiceView.xib; sourceTree = "<group>"; };
 		B9E2CBC21354910000F1E5FE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		B9E2CBC41354910B00F1E5FE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		B9F03A151355BEA9008474A9 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
-		B9F03A171355C04E008474A9 /* Failure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Failure.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				B998B8E6134C6768003C2C7B /* ZigPad */,
-				B9F03A111355BE39008474A9 /* Resources */,
 				B998B90C134C67B5003C2C7B /* Tests */,
 				B998B8DD134C6768003C2C7B /* Frameworks */,
 				B998B8DB134C6768003C2C7B /* Products */,
@@ -341,16 +336,6 @@
 			name = FlowCoverLibs;
 			sourceTree = "<group>";
 		};
-		B9F03A111355BE39008474A9 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				B9F03A171355C04E008474A9 /* Failure.png */,
-				B9F03A151355BEA9008474A9 /* 37x-Checkmark.png */,
-			);
-			name = Resources;
-			path = ZigPad;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -424,12 +409,7 @@
 				B9BEEADF134CD7AA0085663E /* testpic2.png in Resources */,
 				B9BEEAE1134CD8CB0085663E /* testpic3.gif in Resources */,
 				B9E2CBB713548FEA00F1E5FE /* SequenceChoiceView.xib in Resources */,
-<<<<<<< HEAD
 				B993FB7E1355E29D00A69334 /* FavoritesView.xib in Resources */,
-=======
-				B9F03A161355BEA9008474A9 /* 37x-Checkmark.png in Resources */,
-				B9F03A181355C04E008474A9 /* Failure.png in Resources */,
->>>>>>> c121b33f7c195f64f53f4b5127968d0433ba343a
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
