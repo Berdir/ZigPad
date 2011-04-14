@@ -90,6 +90,22 @@ Presentation *activePresentation = nil;
     bool success = [parser parseXMLFile:@"http://z.worldempire.ch/1/zigpad/config.xml"];
     [parser release];
     parser = nil;
+    
+    if (success) {
+        // The sample image is based on the work by www.pixelpressicons.com, http://creativecommons.org/licenses/by/2.5/ca/
+        // Make the customViews 37 by 37 pixels for best results (those are the bounds of the build-in progress indicators)
+        HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+        HUD.mode = MBProgressHUDModeCustomView;
+        HUD.labelText = @"Completed";
+    }
+    else {
+        // The sample image is based on the work by www.pixelpressicons.com, http://creativecommons.org/licenses/by/2.5/ca/
+        // Make the customViews 37 by 37 pixels for best results (those are the bounds of the build-in progress indicators)
+        HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Failure.png"]] autorelease];
+        HUD.mode = MBProgressHUDModeCustomView;
+        HUD.labelText = @"Failure";
+    }
+    sleep(1);
 }
 
 
@@ -125,6 +141,13 @@ Presentation *activePresentation = nil;
     Presentation *p = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = p.name;
     return cell;
+}
+
+
+// Override to allow orientations other than the default portrait orientation.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations.
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
