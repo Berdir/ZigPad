@@ -49,12 +49,27 @@ static Commander * _defaultCommander = nil;
 	return self;
 }
 
-- (void) send: (NSString*) message {
+- (void) sendString: (NSString*) message {
     NSData *data = [message dataUsingEncoding: NSASCIIStringEncoding];
     
     //@todo Configure
-    [udpSocket sendData:data toHost:@"127.0.0.12" port:1234 withTimeout:-1 tag:1];
+    [udpSocket sendData:data toHost:@"10.3.96.147" port:1234 withTimeout:-1 tag:1];
     [udpSocket receiveWithTimeout:10 tag:1];
+}
+-(void) sendAction:(Action *)msg
+{
+    for (Param* p in msg.params)
+    {
+        
+        if ([p.key isEqualToString:@"command"] ) 
+        {
+            [self sendString: p.value];
+            NSLog(@"Sending action command %@" ,p.value);
+            break;
+        }
+        
+    }
+    
 }
 
 - (BOOL)onUdpSocket:(AsyncUdpSocket *)sock didReceiveData:(NSData *)data withTag:(long)tag fromHost:(NSString *)host port:(UInt16)port {

@@ -2,7 +2,7 @@
 //  Favorites.m
 //  ZigPad
 //
-//  Created by MArkus Zimmermann 4/13/11.
+//  Created by Markus Zimmermann 4/13/11.
 //  Copyright 2011 ceesar. All rights reserved.
 //
 
@@ -65,12 +65,14 @@ NSArray* favorites; //favorite cache
  
     favorites = [[self getSortedAndFilteredFavoritesFromDB] retain];
     
-    int padding = 20; //buttonPadding
-    int numOfcols = 4;//num of buttons per row on UIview
+    int padding = 10; //buttonPadding
+    int numOfcols = 3;//num of buttons per row on UIview
     int numOfFavorites = [favorites count];
-    int buttonWith = 50;
-    int buttonHeight = 50;
-    int posX,posY = 0; 
+    int buttonWith = 80;
+    int buttonHeight = 80;
+    int labelWith = 80;
+    int labelHeight = 20;
+    int btnPosX,btnPosY,labPosX, labPosY = 0; 
     
     for (int i = 0; numOfcols*i < numOfFavorites ; i++) {
         for (int j = 0 ; j < numOfcols && i*numOfcols+j < numOfFavorites; j++) {
@@ -78,17 +80,30 @@ NSArray* favorites; //favorite cache
             int currentFavorite = i*numOfcols+j;
             Action* a = [favorites objectAtIndex:currentFavorite];
             
-            posX = (padding+buttonWith)*j+padding; //buttonPosition
-            posY = (padding+buttonHeight)*i+padding;
-                
+            btnPosX = (2*padding+buttonWith)*j+2*padding; //buttonPosition
+            btnPosY = (3*padding+buttonHeight+labelHeight)*i+2*padding;
+            
+            labPosX = (2*padding+buttonWith)*j+2*padding; //labelPosition
+            labPosY = (3*padding+buttonHeight+labelHeight)*i+3*padding+buttonHeight;
+            
+            //alloc buttons and labels
+
+            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(labPosX, labPosY, labelWith, labelHeight)];
+            label.adjustsFontSizeToFitWidth = true;
+            label.text = a.name;  //fill label with favorite name
+            
+            
             UIButton *btn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
-            btn.frame = CGRectMake(posX, posY, buttonWith, buttonHeight);
+            btn.frame = CGRectMake(btnPosX, btnPosY, buttonWith, buttonHeight);
             [[btn layer] setBorderWidth:1.0];
 
+            
             //fill Button with Text or LocalImage
+            //[btn setImage:[UIImage imageNamed:@"testpic2.png"]  forState:UIControlStateNormal];
             LocalPicture* image = [self findPictureInAction:a];            
             if (image !=nil)[btn setImage:[UIImage imageWithData:image.picture] forState:UIControlStateNormal];
-            else [btn setTitle:a.name forState:UIControlStateNormal];
+            else [btn setTitle:@"?" forState:UIControlStateNormal];
+
             
             //eventlistener
             [btn addTarget:self action:@selector(handleFavoriteAction:)forControlEvents:UIControlEventTouchUpInside];
@@ -97,7 +112,10 @@ NSArray* favorites; //favorite cache
             btn.tag = currentFavorite;
             
             [self.view addSubview:btn];
+            [self.view addSubview:label];
             [btn release];
+            [label release];
+            
 
             
         }
@@ -117,6 +135,7 @@ NSArray* favorites; //favorite cache
         
         //TODO aufruf nach commandmodul
         NSLog(@"klikk %@",a.name);
+        [[Commander defaultCommander]sendAction:a];
     }
    
 }
@@ -132,7 +151,7 @@ NSArray* favorites; //favorite cache
     [favorites release];
     [super dealloc];
 }
-
+//main entry to build the GUI
 - (void)viewDidLoad
 {
     [super viewDidLoad];
