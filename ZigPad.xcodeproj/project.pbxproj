@@ -25,6 +25,8 @@
 		B998B911134C67B5003C2C7B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B998B90F134C67B5003C2C7B /* InfoPlist.strings */; };
 		B998B928134C6930003C2C7B /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = B998B927134C6930003C2C7B /* GHUnitIOSTestMain.m */; };
 		B998B92B134C69AD003C2C7B /* ImporterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B998B92A134C69AD003C2C7B /* ImporterTest.m */; };
+		B9AF2B9F135DBFF8005944B7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */; };
+		B9AF2BA0135DBFF8005944B7 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */; };
 		B9BC41B2134C86B60085D597 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B1134C86B60085D597 /* Importer.m */; };
 		B9BC41B5134C86CC0085D597 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B4134C86CC0085D597 /* Config.m */; };
 		B9BC41B7134C8A230085D597 /* xml-example.xml in Resources */ = {isa = PBXBuildFile; fileRef = B9BC41B6134C8A230085D597 /* xml-example.xml */; };
@@ -90,6 +92,9 @@
 		B998B924134C6853003C2C7B /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../../Frameworks/gh-unit/Project-IPhone/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		B998B927134C6930003C2C7B /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitIOSTestMain.m; sourceTree = "<group>"; };
 		B998B92A134C69AD003C2C7B /* ImporterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImporterTest.m; sourceTree = "<group>"; };
+		B9AF2B9C135DBFF7005944B7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
 		B9BC41B0134C86B60085D597 /* Importer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Importer.h; sourceTree = "<group>"; };
 		B9BC41B1134C86B60085D597 /* Importer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Importer.m; sourceTree = "<group>"; };
 		B9BC41B3134C86CC0085D597 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
@@ -263,6 +268,9 @@
 				B993FB7A1355E29C00A69334 /* FavoritesViewController.h */,
 				B993FB7B1355E29C00A69334 /* FavoritesViewController.m */,
 				B993FB7C1355E29D00A69334 /* FavoritesView.xib */,
+				B9AF2B9C135DBFF7005944B7 /* SettingsViewController.h */,
+				B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */,
+				B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -427,6 +435,7 @@
 				B993FB7E1355E29D00A69334 /* FavoritesView.xib in Resources */,
 				B9F03A161355BEA9008474A9 /* 37x-Checkmark.png in Resources */,
 				B9F03A181355C04E008474A9 /* Failure.png in Resources */,
+				B9AF2BA0135DBFF8005944B7 /* SettingsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +475,7 @@
 				B9E2CBB213548FA700F1E5FE /* DataCache.m in Sources */,
 				B9E2CBB513548FBF00F1E5FE /* SequenceChoiceViewController.m in Sources */,
 				B993FB7D1355E29D00A69334 /* FavoritesViewController.m in Sources */,
+				B9AF2B9F135DBFF8005944B7 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

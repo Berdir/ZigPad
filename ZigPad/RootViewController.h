@@ -12,6 +12,7 @@
 //temporär
 #import "SequenceChoiceViewController.h"
 #import "FavoritesViewController.h"
+#import "SettingsViewController.h"
 
 
 @interface RootViewController : UITableViewController <MBProgressHUDDelegate, NSFetchedResultsControllerDelegate> {
@@ -19,6 +20,7 @@
 }
 
 - (IBAction) update:(id) sender;
+- (IBAction) popupSettingView:(id)sender;
 - (IBAction) sequences:(id) sender; //Temporär
 - (IBAction) favorites:(id) sender; //Temporär
 

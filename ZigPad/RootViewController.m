@@ -66,6 +66,15 @@ Presentation *activePresentation = nil;
     [s lookForDevice];
 }
 
+- (IBAction)popupSettingView:(id)sender
+{
+    SettingsViewController* settings = [[SettingsViewController alloc] initWithNibName:@"SettingsView" bundle:[NSBundle mainBundle]];
+    
+	[self.navigationController pushViewController:settings animated:YES];
+	[settings release]; 
+
+}
+
 - (IBAction)update:(id)sender {
     
     // The hud will dispable all input on the view (use the higest view possible in the view hierarchy)
@@ -83,6 +92,7 @@ Presentation *activePresentation = nil;
     // Show the HUD while the provided method executes in a new thread
     [HUD showWhileExecuting:@selector(runUpdate) onTarget:self withObject:nil animated:YES];
 }
+
 
 //Called by HUD
 - (void) runUpdate {

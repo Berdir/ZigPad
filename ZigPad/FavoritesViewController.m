@@ -133,8 +133,7 @@ NSArray* favorites; //favorite cache
         b = (UIButton*)sender;
         Action* a = [favorites objectAtIndex:b.tag];
         
-        //TODO aufruf nach commandmodul
-        NSLog(@"klikk %@",a.name);
+        //send to gira server
         [[Commander defaultCommander]sendAction:a];
     }
    
