@@ -14,6 +14,7 @@
 #import "Sequence.h"
 #import "Presentation.h"
 #import "Database.h"
+#import "ZigPadSettings.h"
 
 #import <CoreData/CoreData.h>
 
@@ -227,14 +228,12 @@ NSManagedObjectContext* context;
 
     NSString* type = [attrib objectForKey:@"type"];
     
-    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    ZigPadSettings *s = [ZigPadSettings sharedInstance];
     
-	if (standardUserDefaults) {
-		[standardUserDefaults setObject:attrib forKey:type];
-		[standardUserDefaults synchronize];
+	if (s) {
+		[s setIP:[attrib objectForKey:@"ip"] simulationMode:[type isEqualToString:@"simulator"]];
+        [s setPort:[[attrib objectForKey:@"port"] intValue] simulationMode:[type isEqualToString:@"simulator"]];
 	}
-
-    
 }
 
 -(void) saveToDB
