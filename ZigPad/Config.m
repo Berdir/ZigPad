@@ -14,6 +14,7 @@
 #import "Sequence.h"
 #import "Presentation.h"
 #import "Database.h"
+#import "ZigPadSettings.h"
 
 #import <CoreData/CoreData.h>
 
@@ -201,7 +202,7 @@ NSManagedObjectContext* context;
 
     Presentation*  s = [NSEntityDescription insertNewObjectForEntityForName:@"Presentation" inManagedObjectContext:context];  
     
-    keyCache = [attrib objectForKey:@"id"]; //this information will be used by next child tag-method
+    keyCache = [attrib objectForKey:@"id"]; //this informat	ion will be used by next child tag-method
     [managedObjectIDs setValue:[s objectID] forKey:keyCache];// dito
     
     s.name = [attrib objectForKey:@"name"];
@@ -227,14 +228,12 @@ NSManagedObjectContext* context;
 
     NSString* type = [attrib objectForKey:@"type"];
     
-    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    ZigPadSettings *s = [ZigPadSettings sharedInstance];
     
-	if (standardUserDefaults) {
-		[standardUserDefaults setObject:attrib forKey:type];
-		[standardUserDefaults synchronize];
+	if (s) {
+		[s setIP:[attrib objectForKey:@"ip"] simulationMode:[type isEqualToString:@"simulator"]];
+        [s setPort:[[attrib objectForKey:@"port"] intValue] simulationMode:[type isEqualToString:@"simulator"]];
 	}
-
-    
 }
 
 -(void) saveToDB

@@ -19,4 +19,6 @@
 @property (nonatomic, retain) NSSet* sequences;
 @property (nonatomic, retain) NSSet* params;
 
+- (void)addParamsObject:(NSManagedObject *)value;
+
 @end

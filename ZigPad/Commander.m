@@ -8,6 +8,7 @@
 
 #import "Commander.h"
 #import "AsyncUdpSocket.h"
+#import "ZigPadSettings.h"
 
 
 @implementation Commander
@@ -44,6 +45,11 @@ static Commander * _defaultCommander = nil;
 	if (self != nil) {
         udpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
         [udpSocket bindToPort:4321 error:nil];
+        
+        ZigPadSettings *s = [ZigPadSettings sharedInstance];
+        
+        NSLog(@"Connecting to Host %@, port %d", s.ip, s.port);
+        [udpSocket connectToHost:s.ip onPort:s.port error:nil];
 	}
     
 	return self;
@@ -52,8 +58,7 @@ static Commander * _defaultCommander = nil;
 - (void) sendString: (NSString*) message {
     NSData *data = [message dataUsingEncoding: NSASCIIStringEncoding];
     
-    //@todo Configure
-    [udpSocket sendData:data toHost:@"10.3.96.147" port:1234 withTimeout:-1 tag:1];
+    [udpSocket sendData:data withTimeout:-1 tag:1];
     [udpSocket receiveWithTimeout:10 tag:1];
 }
 -(void) sendAction:(Action *)msg
