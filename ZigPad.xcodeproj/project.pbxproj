@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B94666DD135DB03000EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
+		B94666E0135DB40700EDA740 /* SettingsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DF135DB40700EDA740 /* SettingsTest.m */; };
+		B94666E1135DB57B00EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
 		B993FB7D1355E29D00A69334 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B993FB7B1355E29C00A69334 /* FavoritesViewController.m */; };
 		B993FB7E1355E29D00A69334 /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B993FB7C1355E29D00A69334 /* FavoritesView.xib */; };
 		B998B8DF134C6768003C2C7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8DE134C6768003C2C7B /* UIKit.framework */; };
@@ -65,6 +68,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B94666DB135DB03000EDA740 /* ZigPadSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZigPadSettings.h; sourceTree = "<group>"; };
+		B94666DC135DB03000EDA740 /* ZigPadSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZigPadSettings.m; sourceTree = "<group>"; };
+		B94666DF135DB40700EDA740 /* SettingsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTest.m; sourceTree = "<group>"; };
 		B993FB7A1355E29C00A69334 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		B993FB7B1355E29C00A69334 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		B993FB7C1355E29D00A69334 /* FavoritesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesView.xib; sourceTree = "<group>"; };
@@ -163,6 +169,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B94666D9135DB00900EDA740 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B94666DB135DB03000EDA740 /* ZigPadSettings.h */,
+				B94666DC135DB03000EDA740 /* ZigPadSettings.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		B998B8CF134C6768003C2C7B = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +216,7 @@
 		B998B8E6134C6768003C2C7B /* ZigPad */ = {
 			isa = PBXGroup;
 			children = (
+				B94666D9135DB00900EDA740 /* Settings */,
 				B9E2CB921354844A00F1E5FE /* FlowCoverLibs */,
 				B9BC41FB134DAE390085D597 /* Commander */,
 				B9BC41F4134DA4A90085D597 /* Synchronize */,
@@ -235,6 +251,7 @@
 				B998B90D134C67B5003C2C7B /* Supporting Files */,
 				B998B927134C6930003C2C7B /* GHUnitIOSTestMain.m */,
 				B998B92A134C69AD003C2C7B /* ImporterTest.m */,
+				B94666DF135DB40700EDA740 /* SettingsTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -466,6 +483,7 @@
 				B9E2CBB213548FA700F1E5FE /* DataCache.m in Sources */,
 				B9E2CBB513548FBF00F1E5FE /* SequenceChoiceViewController.m in Sources */,
 				B993FB7D1355E29D00A69334 /* FavoritesViewController.m in Sources */,
+				B94666DD135DB03000EDA740 /* ZigPadSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +502,8 @@
 				B9BC41DB134C8EB40085D597 /* Sequence.m in Sources */,
 				B9BC41E0134C91700085D597 /* Database.m in Sources */,
 				B9BC41EB134CAD520085D597 /* ERD.xcdatamodeld in Sources */,
+				B94666E0135DB40700EDA740 /* SettingsTest.m in Sources */,
+				B94666E1135DB57B00EDA740 /* ZigPadSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -201,7 +201,7 @@ NSManagedObjectContext* context;
 
     Presentation*  s = [NSEntityDescription insertNewObjectForEntityForName:@"Presentation" inManagedObjectContext:context];  
     
-    keyCache = [attrib objectForKey:@"id"]; //this information will be used by next child tag-method
+    keyCache = [attrib objectForKey:@"id"]; //this informat	ion will be used by next child tag-method
     [managedObjectIDs setValue:[s objectID] forKey:keyCache];// dito
     
     s.name = [attrib objectForKey:@"name"];
