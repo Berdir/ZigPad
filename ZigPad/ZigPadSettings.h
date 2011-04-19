@@ -17,6 +17,7 @@
 +(ZigPadSettings*) sharedInstance;
 
 @property (readwrite,assign) BOOL simulationMode;
+@property (readwrite,assign) NSString *configuratorURL;
 
 @property (readonly,assign) NSString *ip;
 @property (readonly,assign) int port;

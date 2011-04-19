@@ -8,6 +8,7 @@
 
 #import "ZigPadSettings.h"
 #define SIMULATOR @"Simulator"
+#define CONFIGURATOR @"KonfiguratorURL"
 
 
 @implementation ZigPadSettings
@@ -55,6 +56,15 @@ static ZigPadSettings * _sharedInstance = nil;
 - (BOOL)simulationMode
 {	
     return [standardUserDefaults boolForKey:SIMULATOR];
+}
+
+-(void)setConfiguratorURL:(NSString *)configuratorURL
+{
+    [standardUserDefaults setObject:configuratorURL forKey:CONFIGURATOR];}
+
+- (NSString *) configuratorURL
+{	
+    return [standardUserDefaults stringForKey:CONFIGURATOR];
 }
 
 - (NSString *) modeKey: (BOOL) simulationMode {
