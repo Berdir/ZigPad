@@ -17,29 +17,39 @@
 @synthesize textfield = _textfield;
 
 
-//called when return Button on Keybord is pressed
+//called when return Button on Keybord is pressed (which event: see xib-file)
 -(IBAction)changeConfigHost:(id)sender
 {
     [_textfield resignFirstResponder]; //hide keyboard
     
-    NSLog(@"changed Host");
+    [ZigPadSettings sharedInstance].configuratorURL = _textfield.text;
 }
-
+//called if switch is switched
 -(IBAction)switchSimulationMode:(id)sender
 {
-    NSLog(@"changed Simulation");
+    [ZigPadSettings sharedInstance].simulationMode = _simSwitch.on;
+    
+    //set navigation bar to red if simulation is on (to warn user)
+    if (_simSwitch.on == YES) {
+        self.navigationController.navigationBar.tintColor = [UIColor redColor];
+    }
+    else {
+        self.navigationController.navigationBar.tintColor = [UIColor colorWithHue:0.6 saturation:0.33 brightness:0.69 alpha:0];
+        
+    }
+
 }
 
+//main entry
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib
+    _simSwitch.on = [ZigPadSettings sharedInstance].simulationMode;
+    _textfield.text = [ZigPadSettings sharedInstance].configuratorURL;
 }
 
--(IBAction)backToMain:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:true];
-}
+
 
 //generated Code.....
 

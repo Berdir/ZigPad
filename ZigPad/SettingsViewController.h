@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZigPadSettings.h"
 
 
 @interface SettingsViewController : UIViewController {
@@ -19,6 +20,5 @@
 
 -(IBAction)changeConfigHost:(id)sender;
 -(IBAction)switchSimulationMode:(id)sender;
--(IBAction)backToMain:(id)sender;
 
 @end
