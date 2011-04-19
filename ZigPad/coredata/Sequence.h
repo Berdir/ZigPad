@@ -20,4 +20,6 @@
 @property (nonatomic, retain) NSSet* actions;
 @property (nonatomic, retain) LocalPicture * icon;
 
+- (void)addActionsObject:(Action *)value;
+
 @end
