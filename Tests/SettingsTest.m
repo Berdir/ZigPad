@@ -26,6 +26,15 @@
     GHAssertFalse(s.simulationMode, @"SimulationMode is off");
 }
 
+- (void)testConfiguratorURL {
+    
+    ZigPadSettings *s = [ZigPadSettings sharedInstance];
+    
+    s.configuratorURL = @"http://example.org/config.xml";
+    
+    GHAssertEqualStrings(s.configuratorURL, @"http://example.org/config.xml", @"Got correct configurator URL.");
+}
+
 - (void)testIPPort {
     
     ZigPadSettings *s = [ZigPadSettings sharedInstance];
