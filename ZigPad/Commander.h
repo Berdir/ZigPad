@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "AsyncUdpSocket.h"
+#import "Action.h"
+#import "Param.h"
 
 
 
@@ -18,6 +20,8 @@
 
 +(Commander*) defaultCommander;
 
--(void) send: (NSString* )message;
+-(void) sendString: (NSString* )message;
+-(void) sendAction: (Action* )message;
+
 
 @end

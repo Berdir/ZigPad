@@ -13,6 +13,7 @@
 #import "Database.h"
 #import <CoreData/CoreData.h>
 #import "QuartzCore/QuartzCore.h"
+#import "Commander.h"
 
 
 @interface FavoritesViewController : UIViewController {
