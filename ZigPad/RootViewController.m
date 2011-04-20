@@ -62,6 +62,9 @@ Presentation *activePresentation = nil;
     
     self.managedObjectContext = [Database sharedInstance].managedObjectContext;
     
+    // Set navigation bar to corresponding color.
+    self.navigationController.navigationBar.tintColor = [ZigPadSettings sharedInstance].modeColor;
+    
     Synchronizer *s = [[Synchronizer alloc] init];
     [s lookForDevice];
 }

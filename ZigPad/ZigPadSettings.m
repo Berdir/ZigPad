@@ -98,5 +98,15 @@ static ZigPadSettings * _sharedInstance = nil;
     [standardUserDefaults setInteger:port forKey:key];
 }
 
+- (UIColor *) modeColor {
+    //set navigation bar to red if simulation is on (to warn user)
+    if (self.simulationMode) {
+        return [UIColor redColor];
+    }
+    else {
+        return [UIColor colorWithHue:0.6 saturation:0.33 brightness:0.69 alpha:0];
+    }
+}
+
 
 @end

@@ -7,8 +7,7 @@
 //
 
 #import "SettingsViewController.h"
-
-
+#import "Commander.h"
 
 @implementation SettingsViewController
 
@@ -29,15 +28,12 @@
 {
     [ZigPadSettings sharedInstance].simulationMode = _simSwitch.on;
     
-    //set navigation bar to red if simulation is on (to warn user)
-    if (_simSwitch.on == YES) {
-        self.navigationController.navigationBar.tintColor = [UIColor redColor];
-    }
-    else {
-        self.navigationController.navigationBar.tintColor = [UIColor colorWithHue:0.6 saturation:0.33 brightness:0.69 alpha:0];
-        
-    }
-
+    // Set navigation bar to corresponding color.
+    self.navigationController.navigationBar.tintColor = [ZigPadSettings sharedInstance].modeColor;
+    
+    // Close eventually existing Commander instance.
+    [Commander close];
+    
 }
 
 //main entry
