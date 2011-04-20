@@ -61,7 +61,7 @@ bool importSuccess;
     [xmlParser setShouldResolveExternalEntities:YES];
     [xmlParser parse];
     
-    if (importSuccess) {
+    if (importSuccess) {	
         [configTag saveToDB];
         
         [configTag printDB];

@@ -86,10 +86,14 @@ static ZigPadSettings * _sharedInstance = nil;
 -(void)setIP: (NSString *) ip simulationMode: (BOOL) simulationMode {
     NSString *key = [NSString stringWithFormat:@"%@ServerIp", [self modeKey: simulationMode]];
     
+    NSLog(@"Setting IP for %@ to %@ (%@)", [self modeKey: simulationMode], ip, key);
+    
     [standardUserDefaults setObject:ip forKey:key];
 }
 -(void)setPort: (int) port simulationMode: (BOOL) simulationMode {
     NSString *key = [NSString stringWithFormat:@"%@ServerPort", [self modeKey: simulationMode]];
+    
+    NSLog(@"Setting Port for %@ to %d (%@)", [self modeKey: simulationMode], port, key);
     
     [standardUserDefaults setInteger:port forKey:key];
 }

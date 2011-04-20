@@ -61,10 +61,10 @@ NSManagedObjectContext* context;
                                            returningResponse:&response error:&error];
         if (([response statusCode]!=200)||([data length]==0) ) {
             NSLog(@"Picture %@ not downloaded, status code %d, data length %d, error %@",url, [response statusCode], [data length], [error localizedDescription]);
-            for (id key in [response allHeaderFields]) {
+            /*for (id key in [response allHeaderFields]) {
                 NSLog(@"key: %@, value: %@", key, [[response allHeaderFields] objectForKey:key]);
                 
-            }
+            }*/
             return nil;
         }
         else {
