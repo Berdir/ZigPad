@@ -10,6 +10,7 @@
 		B94666DD135DB03000EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
 		B94666E0135DB40700EDA740 /* SettingsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DF135DB40700EDA740 /* SettingsTest.m */; };
 		B94666E1135DB57B00EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
+		B986A5FF135EC2DA00680172 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */; };
 		B993FB7D1355E29D00A69334 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B993FB7B1355E29C00A69334 /* FavoritesViewController.m */; };
 		B993FB7E1355E29D00A69334 /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B993FB7C1355E29D00A69334 /* FavoritesView.xib */; };
 		B998B8DF134C6768003C2C7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8DE134C6768003C2C7B /* UIKit.framework */; };
@@ -55,7 +56,6 @@
 		B9BC41FA134DA7510085D597 /* TCPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41F9134DA7510085D597 /* TCPServer.m */; };
 		B9BC41FE134DAEB90085D597 /* Commander.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41FD134DAEB90085D597 /* Commander.m */; };
 		B9BC4209134DB1470085D597 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC4208134DB1470085D597 /* AsyncUdpSocket.m */; };
-		B9BEEADA134CB5830085663E /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BEEAD9134CB5830085663E /* GHUnitIOS.framework */; };
 		B9BEEADD134CC5C20085663E /* testpic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B9BEEADC134CC5C20085663E /* testpic.jpg */; };
 		B9BEEADF134CD7AA0085663E /* testpic2.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BEEADE134CD7AA0085663E /* testpic2.png */; };
 		B9BEEAE1134CD8CB0085663E /* testpic3.gif in Resources */ = {isa = PBXBuildFile; fileRef = B9BEEAE0134CD8CB0085663E /* testpic3.gif */; };
@@ -73,6 +73,7 @@
 		B94666DB135DB03000EDA740 /* ZigPadSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZigPadSettings.h; sourceTree = "<group>"; };
 		B94666DC135DB03000EDA740 /* ZigPadSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZigPadSettings.m; sourceTree = "<group>"; };
 		B94666DF135DB40700EDA740 /* SettingsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTest.m; sourceTree = "<group>"; };
+		B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = Frameworks/GHUnitIOS.framework; sourceTree = "<group>"; };
 		B993FB7A1355E29C00A69334 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		B993FB7B1355E29C00A69334 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		B993FB7C1355E29D00A69334 /* FavoritesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesView.xib; sourceTree = "<group>"; };
@@ -95,7 +96,6 @@
 		B998B90E134C67B5003C2C7B /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		B998B910134C67B5003C2C7B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B998B912134C67B5003C2C7B /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		B998B924134C6853003C2C7B /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../../Frameworks/gh-unit/Project-IPhone/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		B998B927134C6930003C2C7B /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitIOSTestMain.m; sourceTree = "<group>"; };
 		B998B92A134C69AD003C2C7B /* ImporterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImporterTest.m; sourceTree = "<group>"; };
 		B9AF2B9C135DBFF7005944B7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -128,7 +128,6 @@
 		B9BC41FD134DAEB90085D597 /* Commander.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Commander.m; sourceTree = "<group>"; };
 		B9BC4207134DB1470085D597 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
 		B9BC4208134DB1470085D597 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
-		B9BEEAD9134CB5830085663E /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = /System/Library/Frameworks/GHUnitIOS.framework; sourceTree = "<absolute>"; };
 		B9BEEADC134CC5C20085663E /* testpic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testpic.jpg; sourceTree = "<group>"; };
 		B9BEEADE134CD7AA0085663E /* testpic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testpic2.png; sourceTree = "<group>"; };
 		B9BEEAE0134CD8CB0085663E /* testpic3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = testpic3.gif; sourceTree = "<group>"; };
@@ -163,11 +162,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9BEEADA134CB5830085663E /* GHUnitIOS.framework in Frameworks */,
 				B998B909134C67B5003C2C7B /* UIKit.framework in Frameworks */,
 				B998B90A134C67B5003C2C7B /* Foundation.framework in Frameworks */,
 				B998B90B134C67B5003C2C7B /* CoreGraphics.framework in Frameworks */,
 				B9BC41DC134C8F000085D597 /* CoreData.framework in Frameworks */,
+				B986A5FF135EC2DA00680172 /* GHUnitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,10 +205,9 @@
 		B998B8DD134C6768003C2C7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */,
 				B9E2CBC41354910B00F1E5FE /* QuartzCore.framework */,
 				B9E2CBC21354910000F1E5FE /* OpenGLES.framework */,
-				B998B924134C6853003C2C7B /* GHUnitIOS.framework */,
-				B9BEEAD9134CB5830085663E /* GHUnitIOS.framework */,
 				B998B8DE134C6768003C2C7B /* UIKit.framework */,
 				B998B8E0134C6768003C2C7B /* Foundation.framework */,
 				B998B8E2134C6768003C2C7B /* CoreGraphics.framework */,
@@ -624,6 +622,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Frameworks/gh-unit/Project-IPhone/build/Framework\"",
+					/System/Library/Frameworks,
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -646,6 +646,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Frameworks/gh-unit/Project-IPhone/build/Framework\"",
+					/System/Library/Frameworks,
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
