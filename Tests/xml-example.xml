@@ -1,16 +1,16 @@
 <config>
 	<actions>
 		<action id="1" name="A sample action" type="command" favorite="0">
-			<param key="localPicture" picture="testpic2.png"/>
+			<param key="picture" picture="testpic2.png"/>
 			<param key="command" value="OTHER_COMMAND"/>
 		</action>
 		<action id="4" name="Another action" type="command" favorite="1">
-			<param key="localPicture" picture="testpic.jpg"/>
+			<param key="picture" picture="testpic.jpg"/>
 			<param key="command" value="EXAMPLE_COMMAND"/>
 		</action>
 		<action id="5" name="An image action test" type="image" favorite="5">
 			<param key="url" value="http://www.die-seite.ch/movie.gif"/>
-			<param key="localPicture" picture="testpic3.gif"/>
+			<param key="picture" picture="testpic3.gif"/>
 		</action>
 	</actions>
 	<sequences>
