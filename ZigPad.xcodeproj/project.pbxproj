@@ -13,6 +13,7 @@
 		B986A5FF135EC2DA00680172 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */; };
 		B993FB7D1355E29D00A69334 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B993FB7B1355E29C00A69334 /* FavoritesViewController.m */; };
 		B993FB7E1355E29D00A69334 /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B993FB7C1355E29D00A69334 /* FavoritesView.xib */; };
+		B994BDCA135ECAEA0067529F /* GHUnitIOS.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */; };
 		B998B8DF134C6768003C2C7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8DE134C6768003C2C7B /* UIKit.framework */; };
 		B998B8E1134C6768003C2C7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8E0134C6768003C2C7B /* Foundation.framework */; };
 		B998B8E3134C6768003C2C7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8E2134C6768003C2C7B /* CoreGraphics.framework */; };
@@ -68,6 +69,20 @@
 		B9F03A161355BEA9008474A9 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F03A151355BEA9008474A9 /* 37x-Checkmark.png */; };
 		B9F03A181355C04E008474A9 /* Failure.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F03A171355C04E008474A9 /* Failure.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B994BDC9135ECAC80067529F /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B994BDCA135ECAEA0067529F /* GHUnitIOS.framework in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B94666DB135DB03000EDA740 /* ZigPadSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZigPadSettings.h; sourceTree = "<group>"; };
@@ -401,6 +416,7 @@
 				B998B903134C67B5003C2C7B /* Sources */,
 				B998B904134C67B5003C2C7B /* Frameworks */,
 				B998B905134C67B5003C2C7B /* Resources */,
+				B994BDC9135ECAC80067529F /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -631,7 +647,10 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CODE_SIGN_FLAGS = "";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -654,7 +673,10 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CODE_SIGN_FLAGS = "";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
