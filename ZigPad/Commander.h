@@ -19,6 +19,7 @@
 }
 
 +(Commander*) defaultCommander;
++(void) close;
 
 -(void) sendString: (NSString* )message;
 -(void) sendAction: (Action* )message;

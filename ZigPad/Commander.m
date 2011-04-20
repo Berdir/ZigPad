@@ -15,9 +15,6 @@
 
 static Commander * _defaultCommander = nil;
 
-NSString *currentIP;
-int currentPort;
-
 +(Commander*) defaultCommander {
     
     @synchronized([Commander class])
@@ -29,6 +26,11 @@ int currentPort;
 	}
     
 	return nil;
+}
+
++(void) close {
+    [_defaultCommander release];
+    _defaultCommander = nil;
 }
 
 +(id)alloc
@@ -50,12 +52,9 @@ int currentPort;
         [udpSocket bindToPort:4321 error:nil];
         
         ZigPadSettings *s = [ZigPadSettings sharedInstance];
-        
-        currentIP = s.ip;
-        currentPort = s.port;
 
         NSLog(@"Connecting to Host %@, port %d", s.ip, s.port);
-        [udpSocket connectToHost:currentIP onPort:currentPort error:nil];
+        [udpSocket connectToHost:s.ip onPort:s.port error:nil];
 	}
     
 	return self;
@@ -63,19 +62,6 @@ int currentPort;
 
 - (void) sendString: (NSString*) message {
     NSData *data = [message dataUsingEncoding: NSASCIIStringEncoding];
-    
-    ZigPadSettings *s = [ZigPadSettings sharedInstance];
-    if (![s.ip isEqualToString:currentIP] || s.port != currentPort) {
-        currentIP = s.ip;
-        currentPort = s.port;
-        
-        NSLog(@"Detected configuration change, re-connecting to Host %@, port %d", s.ip, s.port);
-        
-        udpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
-        [udpSocket bindToPort:4321 error:nil];
-        
-        [udpSocket connectToHost:currentIP onPort:currentPort error:nil];
-    }
     
     [udpSocket sendData:data withTimeout:-1 tag:1];
     [udpSocket receiveWithTimeout:10 tag:1];
@@ -101,6 +87,11 @@ int currentPort;
     NSLog(@"Got '%@' from %@:%i\n", response, host, port);
     
     return TRUE;
+}
+
+- (void) dealloc {
+    [udpSocket release];
+    [super dealloc];
 }
 
 @end
