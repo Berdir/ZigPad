@@ -64,7 +64,7 @@ static Commander * _defaultCommander = nil;
     NSData *data = [message dataUsingEncoding: NSASCIIStringEncoding];
     
     [udpSocket sendData:data withTimeout:-1 tag:1];
-    [udpSocket receiveWithTimeout:10 tag:1];
+    [udpSocket receiveWithTimeout:2 tag:1];
 }
 -(void) sendAction:(Action *)msg
 {
@@ -90,6 +90,7 @@ static Commander * _defaultCommander = nil;
 }
 
 - (void) dealloc {
+    [udpSocket close];
     [udpSocket release];
     [super dealloc];
 }
