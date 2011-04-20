@@ -14,9 +14,13 @@
 @dynamic comment;
 @dynamic sequences;
 
+@synthesize activeSequence;
+@synthesize activeAction;
+
 NSEnumerator *sequenceEnumerator = nil;
 NSEnumerator *actionEnumerator = nil;
 Sequence *activeSequence = nil;
+Action *activeAction = nil;
 
 
 - (void)addSequencesObject:(NSManagedObject *)value {    
@@ -52,34 +56,52 @@ Sequence *activeSequence = nil;
     // and get the first Sequence.
     if (sequenceEnumerator == nil) {
         sequenceEnumerator = [self.sequences objectEnumerator];
+        [sequenceEnumerator retain];
         activeSequence = [sequenceEnumerator nextObject];
     }
     
     // If the Action enumerator is nil, this is a new sequence.
     if (actionEnumerator == nil) {
         actionEnumerator = [activeSequence.actions objectEnumerator];
+        [actionEnumerator retain];
     }
     
     // Try to get next action. Repeat until either the next action object was found or no more
     // sequences exist.
     do {
-        Action *a = [actionEnumerator nextObject];
+        activeAction = [actionEnumerator nextObject];
     
-        if (a) {
-            return a;
+        if (activeAction) {
+            return activeAction;
         }
     
         // If there are no remaining actions in the active Sequence, switch sequence and try again.
         activeSequence = [sequenceEnumerator nextObject];
         if (!activeSequence) {
+            [sequenceEnumerator release];
             sequenceEnumerator = nil;
+            [actionEnumerator release];
             actionEnumerator = nil;
             return nil;
         }
+        [actionEnumerator release];
         actionEnumerator = [activeSequence.actions objectEnumerator];
+        [actionEnumerator retain];
+        
     } while (true);
 }
 
+- (void) dealloc {
+    if (sequenceEnumerator && [sequenceEnumerator retainCount]) {
+        [sequenceEnumerator release];
+        sequenceEnumerator = nil;
+    }
+    if (actionEnumerator && [actionEnumerator retainCount]) {
+        [actionEnumerator release];
+        actionEnumerator = nil;
+    }
+    [super dealloc];
+}
 
 
 @end

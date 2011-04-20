@@ -21,8 +21,6 @@
 
 - (IBAction) update:(id) sender;
 - (IBAction) popupSettingView:(id)sender;
-- (IBAction) sequences:(id) sender; //Temporär
-- (IBAction) favorites:(id) sender; //Temporär
 
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;	

@@ -14,6 +14,12 @@
 		B993FB7D1355E29D00A69334 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B993FB7B1355E29C00A69334 /* FavoritesViewController.m */; };
 		B993FB7E1355E29D00A69334 /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B993FB7C1355E29D00A69334 /* FavoritesView.xib */; };
 		B994BDCA135ECAEA0067529F /* GHUnitIOS.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */; };
+		B994BDCE135EDCDE0067529F /* CommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B994BDCC135EDCDE0067529F /* CommandViewController.m */; };
+		B994BDCF135EDCDE0067529F /* CommandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B994BDCD135EDCDE0067529F /* CommandView.xib */; };
+		B994BDD3135EDD3F0067529F /* 00_background_home_control_2.png in Resources */ = {isa = PBXBuildFile; fileRef = B994BDD0135EDD3F0067529F /* 00_background_home_control_2.png */; };
+		B994BDD7135EDD6D0067529F /* 00_icon_home_control.png in Resources */ = {isa = PBXBuildFile; fileRef = B994BDD6135EDD6D0067529F /* 00_icon_home_control.png */; };
+		B994BDD9135EDD950067529F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B994BDD8135EDD950067529F /* Default.png */; };
+		B994BDDB135EF9460067529F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B994BDDA135EF9460067529F /* AudioToolbox.framework */; };
 		B998B8DF134C6768003C2C7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8DE134C6768003C2C7B /* UIKit.framework */; };
 		B998B8E1134C6768003C2C7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8E0134C6768003C2C7B /* Foundation.framework */; };
 		B998B8E3134C6768003C2C7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8E2134C6768003C2C7B /* CoreGraphics.framework */; };
@@ -92,6 +98,13 @@
 		B993FB7A1355E29C00A69334 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		B993FB7B1355E29C00A69334 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		B993FB7C1355E29D00A69334 /* FavoritesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesView.xib; sourceTree = "<group>"; };
+		B994BDCB135EDCDE0067529F /* CommandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandViewController.h; sourceTree = "<group>"; };
+		B994BDCC135EDCDE0067529F /* CommandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandViewController.m; sourceTree = "<group>"; };
+		B994BDCD135EDCDE0067529F /* CommandView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommandView.xib; sourceTree = "<group>"; };
+		B994BDD0135EDD3F0067529F /* 00_background_home_control_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 00_background_home_control_2.png; sourceTree = "<group>"; };
+		B994BDD6135EDD6D0067529F /* 00_icon_home_control.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 00_icon_home_control.png; path = ../00_icon_home_control.png; sourceTree = "<group>"; };
+		B994BDD8135EDD950067529F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		B994BDDA135EF9460067529F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B998B8DA134C6768003C2C7B /* ZigPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZigPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B998B8DE134C6768003C2C7B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B998B8E0134C6768003C2C7B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -164,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B994BDDB135EF9460067529F /* AudioToolbox.framework in Frameworks */,
 				B9E2CBC51354910B00F1E5FE /* QuartzCore.framework in Frameworks */,
 				B9E2CBC31354910000F1E5FE /* OpenGLES.framework in Frameworks */,
 				B998B8DF134C6768003C2C7B /* UIKit.framework in Frameworks */,
@@ -220,6 +234,7 @@
 		B998B8DD134C6768003C2C7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B994BDDA135EF9460067529F /* AudioToolbox.framework */,
 				B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */,
 				B9E2CBC41354910B00F1E5FE /* QuartzCore.framework */,
 				B9E2CBC21354910000F1E5FE /* OpenGLES.framework */,
@@ -287,6 +302,9 @@
 		B9BC41AA134C85F50085D597 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B994BDCB135EDCDE0067529F /* CommandViewController.h */,
+				B994BDCC135EDCDE0067529F /* CommandViewController.m */,
+				B994BDCD135EDCDE0067529F /* CommandView.xib */,
 				B9E2CBB313548FBF00F1E5FE /* SequenceChoiceViewController.h */,
 				B9E2CBB413548FBF00F1E5FE /* SequenceChoiceViewController.m */,
 				B998B8F5134C6768003C2C7B /* MainWindow.xib */,
@@ -382,6 +400,9 @@
 		B9F03A111355BE39008474A9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B994BDD8135EDD950067529F /* Default.png */,
+				B994BDD6135EDD6D0067529F /* 00_icon_home_control.png */,
+				B994BDD0135EDD3F0067529F /* 00_background_home_control_2.png */,
 				B9F03A171355C04E008474A9 /* Failure.png */,
 				B9F03A151355BEA9008474A9 /* 37x-Checkmark.png */,
 			);
@@ -467,6 +488,10 @@
 				B9F03A161355BEA9008474A9 /* 37x-Checkmark.png in Resources */,
 				B9F03A181355C04E008474A9 /* Failure.png in Resources */,
 				B9AF2BA0135DBFF8005944B7 /* SettingsView.xib in Resources */,
+				B994BDCF135EDCDE0067529F /* CommandView.xib in Resources */,
+				B994BDD3135EDD3F0067529F /* 00_background_home_control_2.png in Resources */,
+				B994BDD7135EDD6D0067529F /* 00_icon_home_control.png in Resources */,
+				B994BDD9135EDD950067529F /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +533,7 @@
 				B993FB7D1355E29D00A69334 /* FavoritesViewController.m in Sources */,
 				B9AF2B9F135DBFF8005944B7 /* SettingsViewController.m in Sources */,
 				B94666DD135DB03000EDA740 /* ZigPadSettings.m in Sources */,
+				B994BDCE135EDCDE0067529F /* CommandViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

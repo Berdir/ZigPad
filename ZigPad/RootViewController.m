@@ -12,6 +12,7 @@
 #import "Presentation.h"
 #import "Database.h"
 #import "Synchronizer.h"
+#import "CommandViewController.h"
 
 
 @implementation RootViewController
@@ -21,37 +22,6 @@
 @synthesize managedObjectContext=__managedObjectContext;
 
 Presentation *activePresentation = nil;
-
-//dieser Codeanschnitt ist nur dummy und soll bald gelšscht werden
-- (IBAction) sequences:(id)sender
-{
-    
-    
-    if (!activePresentation) {
-        return;
-    }
-
-    SequenceChoiceViewController* chooser = [[SequenceChoiceViewController alloc] initWithNibName:@"SequenceChoiceView" bundle:[NSBundle mainBundle]];
-
-    [chooser initWithPresentation: activePresentation]; 
-    
-	[self.navigationController pushViewController:chooser animated:YES];
-	[chooser release]; 
-
-}
-
-- (IBAction) favorites:(id)sender
-{
-    
-    FavoritesViewController* favorite = [[FavoritesViewController alloc] initWithNibName:@"FavoritesView" bundle:[NSBundle mainBundle]];
-    
-    
-	[self.navigationController pushViewController:favorite animated:YES];
-	[favorite release]; 
-
-  
-}
-//dummycode bis hier
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -167,18 +137,14 @@ Presentation *activePresentation = nil;
 	
     activePresentation = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSLog(@"Selected Presentation %@.", activePresentation.name);
-    Action *a;
-    int i = 0;
-    while ((a = [activePresentation getNextAction])) {
-        NSLog(@"%d. Action: %@.", ++i, a.name);
-    }
+
+    CommandViewController *actionViewController = [[CommandViewController alloc] initWithNibName:@"CommandView" bundle:[NSBundle mainBundle]];
+    [activePresentation getNextAction];
+    actionViewController.presentation = activePresentation;
     
-	/*Detail *dvController = [[Detail alloc] initWithNibName:@"Detail" bundle:[NSBundle mainBundle]];
-	dvController.selectedPresentation = [NSString stringWithFormat:@"FÃ¼hrungsablauf %i", [indexPath row]];
-    dvController.step = 1;
-	[self.navigationController pushViewController:dvController animated:YES];
-	[dvController release];
-	dvController = nil;*/
+    [self.navigationController pushViewController:actionViewController animated:TRUE];
+    
+    [actionViewController release];
 }
 
 #pragma mark -
