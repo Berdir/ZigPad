@@ -150,6 +150,8 @@
     Action *a = [self.presentation getNextAction];
     // Finished.
     if (a == nil) {
+        self.navigationController.navigationBar.hidden = FALSE;
+        self.navigationController.toolbar.hidden = FALSE;
         [self.navigationController popViewControllerAnimated:YES];
     }
     
