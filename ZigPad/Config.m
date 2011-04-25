@@ -78,7 +78,6 @@ NSManagedObjectContext* context;
         NSBundle* bundle = [NSBundle mainBundle];
         NSString* rootdir = [bundle resourcePath];
         NSString* fileName = [NSString stringWithFormat:@"%@/%@",rootdir,url];
-        picURL = [NSURL fileURLWithPath:fileName];
         data = [[NSFileManager defaultManager] contentsAtPath:fileName];
         if ([data length]==0 ) {
             NSLog(@"Picture %@ not found",url);
@@ -143,7 +142,7 @@ NSManagedObjectContext* context;
     Param* p = [NSEntityDescription insertNewObjectForEntityForName:@"Param" inManagedObjectContext:context];    
     
     p.key = [attrib objectForKey:@"key"];
-    NSString* picture = [attrib objectForKey:@"picture"];
+    NSString* picture = [attrib objectForKey:@"picture"];//wenn es ein attribut mit namen picture gibt
     p.value = [attrib objectForKey:@"value"];
     
 
