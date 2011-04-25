@@ -1,22 +1,24 @@
 //
 //  Action.m
-//  ERD
+//  ZigPad
 //
-//  Created by ceesar on 22/03/11.
+//  Created by ceesar on 25/04/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "Action.h"
+#import "Sequence.h"
 
 
 @implementation Action
 @dynamic name;
 @dynamic type;
 @dynamic favorite;
+@dynamic refId;
 @dynamic sequences;
 @dynamic params;
 
-- (void)addSequencesObject:(NSManagedObject *)value {    
+- (void)addSequencesObject:(Sequence *)value {    
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"sequences" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"sequences"] addObject:value];
@@ -24,7 +26,7 @@
     [changedObjects release];
 }
 
-- (void)removeSequencesObject:(NSManagedObject *)value {
+- (void)removeSequencesObject:(Sequence *)value {
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"sequences" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"sequences"] removeObject:value];
@@ -45,7 +47,7 @@
 }
 
 
-- (void)addParamsObject:(NSManagedObject *)value {    
+- (void)addParamsObject:(Param *)value {    
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"params" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"params"] addObject:value];

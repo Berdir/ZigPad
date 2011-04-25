@@ -35,8 +35,8 @@ Presentation *activePresentation = nil;
     // Set navigation bar to corresponding color.
     self.navigationController.navigationBar.tintColor = [ZigPadSettings sharedInstance].modeColor;
     
-    Synchronizer *s = [[Synchronizer alloc] init];
-    [s lookForDevice];
+    sync = [[Synchronizer alloc] init];
+    [sync lookForDevice];
 }
 
 - (IBAction)popupSettingView:(id)sender
@@ -178,6 +178,7 @@ Presentation *activePresentation = nil;
 - (void)dealloc {
     [__fetchedResultsController release];
     [__managedObjectContext release];
+    [sync dealloc];
     [super dealloc];
 }
 

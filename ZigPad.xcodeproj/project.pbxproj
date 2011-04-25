@@ -36,6 +36,13 @@
 		B998B911134C67B5003C2C7B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B998B90F134C67B5003C2C7B /* InfoPlist.strings */; };
 		B998B928134C6930003C2C7B /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = B998B927134C6930003C2C7B /* GHUnitIOSTestMain.m */; };
 		B998B92B134C69AD003C2C7B /* ImporterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B998B92A134C69AD003C2C7B /* ImporterTest.m */; };
+		B9A2FC6C13656076009BA16A /* Presentations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FC6A13656076009BA16A /* Presentations.xcdatamodeld */; };
+		B9A2FC7B13656267009BA16A /* BWOrderedManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FC7913656267009BA16A /* BWOrderedManagedObject.m */; };
+		B9A2FC7F13656C58009BA16A /* Sequence.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FC7E13656C58009BA16A /* Sequence.m */; };
+		B9A2FC8213656C59009BA16A /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FC8113656C59009BA16A /* Action.m */; };
+		B9A2FC8513656C59009BA16A /* Presentation.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FC8413656C59009BA16A /* Presentation.m */; };
+		B9A2FC8813656C59009BA16A /* Param.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FC8713656C59009BA16A /* Param.m */; };
+		B9A2FC8B13656C59009BA16A /* LocalPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FC8A13656C59009BA16A /* LocalPicture.m */; };
 		B9AF2B9F135DBFF8005944B7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */; };
 		B9AF2BA0135DBFF8005944B7 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */; };
 		B9BC41B2134C86B60085D597 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B1134C86B60085D597 /* Importer.m */; };
@@ -43,22 +50,10 @@
 		B9BC41B7134C8A230085D597 /* xml-example.xml in Resources */ = {isa = PBXBuildFile; fileRef = B9BC41B6134C8A230085D597 /* xml-example.xml */; };
 		B9BC41C2134C8E400085D597 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B1134C86B60085D597 /* Importer.m */; };
 		B9BC41C3134C8E470085D597 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B4134C86CC0085D597 /* Config.m */; };
-		B9BC41D2134C8EB40085D597 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41C9134C8EB40085D597 /* Action.m */; };
-		B9BC41D3134C8EB40085D597 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41C9134C8EB40085D597 /* Action.m */; };
-		B9BC41D4134C8EB40085D597 /* LocalPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41CB134C8EB40085D597 /* LocalPicture.m */; };
-		B9BC41D5134C8EB40085D597 /* LocalPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41CB134C8EB40085D597 /* LocalPicture.m */; };
-		B9BC41D6134C8EB40085D597 /* Param.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41CD134C8EB40085D597 /* Param.m */; };
-		B9BC41D7134C8EB40085D597 /* Param.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41CD134C8EB40085D597 /* Param.m */; };
-		B9BC41D8134C8EB40085D597 /* Presentation.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41CF134C8EB40085D597 /* Presentation.m */; };
-		B9BC41D9134C8EB40085D597 /* Presentation.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41CF134C8EB40085D597 /* Presentation.m */; };
-		B9BC41DA134C8EB40085D597 /* Sequence.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41D1134C8EB40085D597 /* Sequence.m */; };
-		B9BC41DB134C8EB40085D597 /* Sequence.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41D1134C8EB40085D597 /* Sequence.m */; };
 		B9BC41DC134C8F000085D597 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B998B8E4134C6768003C2C7B /* CoreData.framework */; };
 		B9BC41DF134C91700085D597 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41DE134C91700085D597 /* Database.m */; };
 		B9BC41E0134C91700085D597 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41DE134C91700085D597 /* Database.m */; };
 		B9BC41E5134CA8D30085D597 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E4134CA8D30085D597 /* MBProgressHUD.m */; };
-		B9BC41EA134CAD520085D597 /* ERD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */; };
-		B9BC41EB134CAD520085D597 /* ERD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */; };
 		B9BC41F7134DA5180085D597 /* Synchronizer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41F6134DA5180085D597 /* Synchronizer.m */; };
 		B9BC41FA134DA7510085D597 /* TCPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41F9134DA7510085D597 /* TCPServer.m */; };
 		B9BC41FE134DAEB90085D597 /* Commander.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41FD134DAEB90085D597 /* Commander.m */; };
@@ -126,6 +121,19 @@
 		B998B912134C67B5003C2C7B /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		B998B927134C6930003C2C7B /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitIOSTestMain.m; sourceTree = "<group>"; };
 		B998B92A134C69AD003C2C7B /* ImporterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImporterTest.m; sourceTree = "<group>"; };
+		B9A2FC6B13656076009BA16A /* Presentations.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Presentations.xcdatamodel; sourceTree = "<group>"; };
+		B9A2FC7813656267009BA16A /* BWOrderedManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWOrderedManagedObject.h; sourceTree = "<group>"; };
+		B9A2FC7913656267009BA16A /* BWOrderedManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWOrderedManagedObject.m; sourceTree = "<group>"; };
+		B9A2FC7D13656C58009BA16A /* Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequence.h; sourceTree = "<group>"; };
+		B9A2FC7E13656C58009BA16A /* Sequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sequence.m; sourceTree = "<group>"; };
+		B9A2FC8013656C59009BA16A /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
+		B9A2FC8113656C59009BA16A /* Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
+		B9A2FC8313656C59009BA16A /* Presentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Presentation.h; sourceTree = "<group>"; };
+		B9A2FC8413656C59009BA16A /* Presentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Presentation.m; sourceTree = "<group>"; };
+		B9A2FC8613656C59009BA16A /* Param.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Param.h; sourceTree = "<group>"; };
+		B9A2FC8713656C59009BA16A /* Param.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Param.m; sourceTree = "<group>"; };
+		B9A2FC8913656C59009BA16A /* LocalPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPicture.h; sourceTree = "<group>"; };
+		B9A2FC8A13656C59009BA16A /* LocalPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPicture.m; sourceTree = "<group>"; };
 		B9AF2B9C135DBFF7005944B7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
@@ -134,16 +142,6 @@
 		B9BC41B3134C86CC0085D597 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		B9BC41B4134C86CC0085D597 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		B9BC41B6134C8A230085D597 /* xml-example.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "xml-example.xml"; sourceTree = "<group>"; };
-		B9BC41C8134C8EB40085D597 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
-		B9BC41C9134C8EB40085D597 /* Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
-		B9BC41CA134C8EB40085D597 /* LocalPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPicture.h; sourceTree = "<group>"; };
-		B9BC41CB134C8EB40085D597 /* LocalPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPicture.m; sourceTree = "<group>"; };
-		B9BC41CC134C8EB40085D597 /* Param.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Param.h; sourceTree = "<group>"; };
-		B9BC41CD134C8EB40085D597 /* Param.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Param.m; sourceTree = "<group>"; };
-		B9BC41CE134C8EB40085D597 /* Presentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Presentation.h; sourceTree = "<group>"; };
-		B9BC41CF134C8EB40085D597 /* Presentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Presentation.m; sourceTree = "<group>"; };
-		B9BC41D0134C8EB40085D597 /* Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequence.h; sourceTree = "<group>"; };
-		B9BC41D1134C8EB40085D597 /* Sequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sequence.m; sourceTree = "<group>"; };
 		B9BC41DD134C91700085D597 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		B9BC41DE134C91700085D597 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		B9BC41E3134CA8D30085D597 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
@@ -299,6 +297,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B9A2FC7C1365626C009BA16A /* BWOrdered */ = {
+			isa = PBXGroup;
+			children = (
+				B9A2FC7813656267009BA16A /* BWOrderedManagedObject.h */,
+				B9A2FC7913656267009BA16A /* BWOrderedManagedObject.m */,
+			);
+			name = BWOrdered;
+			sourceTree = "<group>";
+		};
 		B9BC41AA134C85F50085D597 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,19 +344,20 @@
 		B9BC41C7134C8EB40085D597 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */,
-				B9BC41C8134C8EB40085D597 /* Action.h */,
-				B9BC41C9134C8EB40085D597 /* Action.m */,
-				B9BC41CA134C8EB40085D597 /* LocalPicture.h */,
-				B9BC41CB134C8EB40085D597 /* LocalPicture.m */,
-				B9BC41CC134C8EB40085D597 /* Param.h */,
-				B9BC41CD134C8EB40085D597 /* Param.m */,
-				B9BC41CE134C8EB40085D597 /* Presentation.h */,
-				B9BC41CF134C8EB40085D597 /* Presentation.m */,
-				B9BC41D0134C8EB40085D597 /* Sequence.h */,
-				B9BC41D1134C8EB40085D597 /* Sequence.m */,
+				B9A2FC7C1365626C009BA16A /* BWOrdered */,
 				B9BC41DD134C91700085D597 /* Database.h */,
 				B9BC41DE134C91700085D597 /* Database.m */,
+				B9A2FC6A13656076009BA16A /* Presentations.xcdatamodeld */,
+				B9A2FC7D13656C58009BA16A /* Sequence.h */,
+				B9A2FC7E13656C58009BA16A /* Sequence.m */,
+				B9A2FC8013656C59009BA16A /* Action.h */,
+				B9A2FC8113656C59009BA16A /* Action.m */,
+				B9A2FC8313656C59009BA16A /* Presentation.h */,
+				B9A2FC8413656C59009BA16A /* Presentation.m */,
+				B9A2FC8613656C59009BA16A /* Param.h */,
+				B9A2FC8713656C59009BA16A /* Param.m */,
+				B9A2FC8913656C59009BA16A /* LocalPicture.h */,
+				B9A2FC8A13656C59009BA16A /* LocalPicture.m */,
 			);
 			name = CoreData;
 			path = coredata;
@@ -515,14 +523,8 @@
 				B998B8FA134C6768003C2C7B /* RootViewController.m in Sources */,
 				B9BC41B2134C86B60085D597 /* Importer.m in Sources */,
 				B9BC41B5134C86CC0085D597 /* Config.m in Sources */,
-				B9BC41D2134C8EB40085D597 /* Action.m in Sources */,
-				B9BC41D4134C8EB40085D597 /* LocalPicture.m in Sources */,
-				B9BC41D6134C8EB40085D597 /* Param.m in Sources */,
-				B9BC41D8134C8EB40085D597 /* Presentation.m in Sources */,
-				B9BC41DA134C8EB40085D597 /* Sequence.m in Sources */,
 				B9BC41DF134C91700085D597 /* Database.m in Sources */,
 				B9BC41E5134CA8D30085D597 /* MBProgressHUD.m in Sources */,
-				B9BC41EA134CAD520085D597 /* ERD.xcdatamodeld in Sources */,
 				B9BC41F7134DA5180085D597 /* Synchronizer.m in Sources */,
 				B9BC41FA134DA7510085D597 /* TCPServer.m in Sources */,
 				B9BC41FE134DAEB90085D597 /* Commander.m in Sources */,
@@ -534,6 +536,13 @@
 				B9AF2B9F135DBFF8005944B7 /* SettingsViewController.m in Sources */,
 				B94666DD135DB03000EDA740 /* ZigPadSettings.m in Sources */,
 				B994BDCE135EDCDE0067529F /* CommandViewController.m in Sources */,
+				B9A2FC6C13656076009BA16A /* Presentations.xcdatamodeld in Sources */,
+				B9A2FC7B13656267009BA16A /* BWOrderedManagedObject.m in Sources */,
+				B9A2FC7F13656C58009BA16A /* Sequence.m in Sources */,
+				B9A2FC8213656C59009BA16A /* Action.m in Sources */,
+				B9A2FC8513656C59009BA16A /* Presentation.m in Sources */,
+				B9A2FC8813656C59009BA16A /* Param.m in Sources */,
+				B9A2FC8B13656C59009BA16A /* LocalPicture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,13 +554,7 @@
 				B998B92B134C69AD003C2C7B /* ImporterTest.m in Sources */,
 				B9BC41C2134C8E400085D597 /* Importer.m in Sources */,
 				B9BC41C3134C8E470085D597 /* Config.m in Sources */,
-				B9BC41D3134C8EB40085D597 /* Action.m in Sources */,
-				B9BC41D5134C8EB40085D597 /* LocalPicture.m in Sources */,
-				B9BC41D7134C8EB40085D597 /* Param.m in Sources */,
-				B9BC41D9134C8EB40085D597 /* Presentation.m in Sources */,
-				B9BC41DB134C8EB40085D597 /* Sequence.m in Sources */,
 				B9BC41E0134C91700085D597 /* Database.m in Sources */,
-				B9BC41EB134CAD520085D597 /* ERD.xcdatamodeld in Sources */,
 				B94666E0135DB40700EDA740 /* SettingsTest.m in Sources */,
 				B94666E1135DB57B00EDA740 /* ZigPadSettings.m in Sources */,
 			);
@@ -742,12 +745,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B9BC41E9134CAD520085D597 /* ERD.xcdatamodeld */ = {
+		B9A2FC6A13656076009BA16A /* Presentations.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B9A2FC6B13656076009BA16A /* Presentations.xcdatamodel */,
 			);
-			name = ERD.xcdatamodeld;
-			path = ../../ERD.xcdatamodeld;
+			currentVersion = B9A2FC6B13656076009BA16A /* Presentations.xcdatamodel */;
+			path = Presentations.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

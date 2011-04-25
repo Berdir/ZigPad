@@ -39,7 +39,7 @@
 - (UIImage *) getCommandImage {
     for (Param* p in self.presentation.activeAction.params) {
         if ([p.key isEqualToString:@"picture"]) {
-            return [UIImage imageWithData:p.localImage.picture];
+            return [UIImage imageWithData:p.localPicture.picture];
         }
     }
     return nil;

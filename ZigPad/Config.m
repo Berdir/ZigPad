@@ -153,7 +153,7 @@ NSManagedObjectContext* context;
     if (picture !=nil) {
         
         LocalPicture*  lp = [self loadPicture:picture]; 
-        p.localImage = lp;
+        p.localPicture = lp;
         if (lp==nil) @throw([NSException exceptionWithName:@"PictureLoadingException" reason:@"could not load Picture" userInfo:nil]);
 
     }
@@ -274,7 +274,7 @@ NSManagedObjectContext* context;
                     NSLog(@"           Param:");
                     NSLog(@"               key = %@ ", pa.key);
                     NSLog(@"               value = %@ ", pa.value);
-                    NSLog(@"               Picture size = %i", [pa.localImage.picture length]);
+                    NSLog(@"               Picture size = %i", [pa.localPicture.picture length]);
                     
                 }
             }

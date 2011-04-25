@@ -1,23 +1,22 @@
 //
 //  Sequence.m
-//  ERD
+//  ZigPad
 //
-//  Created by ceesar on 23/03/11.
+//  Created by ceesar on 25/04/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "Sequence.h"
-#import "Action.h"
-#import "LocalPicture.h"
-#import "Presentation.h"
 
 
 @implementation Sequence
 @dynamic name;
 @dynamic command;
+@dynamic actionsOrdering;
+@dynamic refId;
 @dynamic presentations;
-@dynamic actions;
 @dynamic icon;
+@dynamic actions;
 
 - (void)addPresentationsObject:(Presentation *)value {    
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
@@ -56,7 +55,7 @@
     [changedObjects release];
 }
 
-- (void)removeActionsObject:(Action *)value {
+- (void)removeActionsObject:(NSManagedObject *)value {
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"actions" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"actions"] removeObject:value];
@@ -75,7 +74,6 @@
     [[self primitiveValueForKey:@"actions"] minusSet:value];
     [self didChangeValueForKey:@"actions" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
 }
-
 
 
 @end

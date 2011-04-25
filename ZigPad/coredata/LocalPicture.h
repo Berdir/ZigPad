@@ -1,8 +1,8 @@
 //
 //  LocalPicture.h
-//  ERD
+//  ZigPad
 //
-//  Created by ceesar on 23/03/11.
+//  Created by ceesar on 25/04/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -12,10 +12,10 @@
 @class Param, Sequence;
 
 @interface LocalPicture : NSManagedObject {
-@private
+
 }
 @property (nonatomic, retain) NSData * picture;
-@property (nonatomic, retain) Param * param;
 @property (nonatomic, retain) Sequence * sequence;
+@property (nonatomic, retain) Param * param;
 
 @end

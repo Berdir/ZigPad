@@ -1,8 +1,8 @@
 //
 //  LocalPicture.m
-//  ERD
+//  ZigPad
 //
-//  Created by ceesar on 23/03/11.
+//  Created by ceesar on 25/04/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 
 @implementation LocalPicture
 @dynamic picture;
-@dynamic param;
 @dynamic sequence;
+@dynamic param;
 
 
 

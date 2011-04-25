@@ -47,16 +47,15 @@ NSArray* favorites; //favorite cache
 //grab action Object for a Local Picture
 -(LocalPicture*)findPictureInAction:(Action*)anAction
 {
-    LocalPicture* image = nil;
     for (Param* p in anAction.params)
     {
-        if (p.localImage !=nil) 
+        if (p.localPicture !=nil) 
         {
-            image = p.localImage; break;
+            return p.localPicture;
         }
         
     }
-    return image;
+    return nil;
 }
 
 //Draws all Favorites to view

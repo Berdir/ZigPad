@@ -1,17 +1,20 @@
 //
 //  Presentation.m
-//  ERD
+//  ZigPad
 //
-//  Created by ceesar on 22/03/11.
+//  Created by ceesar on 25/04/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "Presentation.h"
 #import "Sequence.h"
 
+
 @implementation Presentation
 @dynamic name;
 @dynamic comment;
+@dynamic sequencesOrdering;
+@dynamic refId;
 @dynamic sequences;
 
 @synthesize activeSequence;
@@ -23,7 +26,7 @@ Sequence *activeSequence = nil;
 Action *activeAction = nil;
 
 
-- (void)addSequencesObject:(NSManagedObject *)value {    
+- (void)addSequencesObject:(Sequence *)value {    
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"sequences" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"sequences"] addObject:value];
@@ -31,7 +34,7 @@ Action *activeAction = nil;
     [changedObjects release];
 }
 
-- (void)removeSequencesObject:(NSManagedObject *)value {
+- (void)removeSequencesObject:(Sequence *)value {
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"sequences" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"sequences"] removeObject:value];
@@ -51,7 +54,7 @@ Action *activeAction = nil;
     [self didChangeValueForKey:@"sequences" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
 }
 
-- (Action*) getNextAction {
+-  (Action*) getNextAction {
     // If the Sequence Enumerater is nil, we're starting from the beginning,
     // and get the first Sequence.
     if (sequenceEnumerator == nil) {
@@ -65,7 +68,7 @@ Action *activeAction = nil;
         actionEnumerator = [activeSequence.actions objectEnumerator];
         [actionEnumerator retain];
     }
-    
+        
     // Try to get next action. Repeat until either the next action object was found or no more
     // sequences exist.
     do {
@@ -74,7 +77,7 @@ Action *activeAction = nil;
         if (activeAction) {
             return activeAction;
         }
-    
+
         // If there are no remaining actions in the active Sequence, switch sequence and try again.
         activeSequence = [sequenceEnumerator nextObject];
         if (!activeSequence) {
@@ -87,7 +90,7 @@ Action *activeAction = nil;
         [actionEnumerator release];
         actionEnumerator = [activeSequence.actions objectEnumerator];
         [actionEnumerator retain];
-        
+
     } while (true);
 }
 
@@ -102,6 +105,5 @@ Action *activeAction = nil;
     }
     [super dealloc];
 }
-
 
 @end

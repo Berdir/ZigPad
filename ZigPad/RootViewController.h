@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
+#import "Synchronizer.h"
 
 //temporär
 #import "SequenceChoiceViewController.h"
@@ -17,6 +18,8 @@
 
 @interface RootViewController : UITableViewController <MBProgressHUDDelegate, NSFetchedResultsControllerDelegate> {
     MBProgressHUD *HUD;
+    
+    @private Synchronizer *sync;
 }
 
 - (IBAction) update:(id) sender;
