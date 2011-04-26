@@ -4,11 +4,14 @@
 			<param key="picture" picture="testpic2.png"/>
 			<param key="command" value="OTHER_COMMAND"/>
 		</action>
+		<action id="3" name="Webcam" type="media" favorite="0">
+			<param key="url" value="http://www.stefanbion.de/cgi-bin/webcam_bsp_cac_cnt_mjp.pl?format=mjpeg"/>
+		</action>
 		<action id="4" name="Another action" type="command" favorite="1">
 			<param key="picture" picture="testpic.jpg"/>
 			<param key="command" value="EXAMPLE_COMMAND"/>
 		</action>
-		<action id="5" name="An image action test" type="image" favorite="5">
+		<action id="5" name="An image action test" type="picture" favorite="5">
 			<param key="url" value="http://www.die-seite.ch/movie.gif"/>
 			<param key="picture" picture="testpic3.gif"/>
 		</action>
@@ -16,11 +19,12 @@
 	<sequences>
 		<sequence id="2" name="A sample scene" icon="testpic2.png">
 			<actionRef ref="1"/>
+            <actionRef ref="3"/>
 			<actionRef ref="4"/>	
 		</sequence>
 	</sequences>
 	<presentations>
-		<presentation id="5" name="Example presentation" comment="Just a useless comment">
+		<presentation id="6" name="Example presentation" comment="Just a useless comment">
 			<sequenceRef ref="2"/>
 		</presentation>
 	</presentations>

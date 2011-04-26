@@ -13,6 +13,8 @@
 #import "Database.h"
 #import "Synchronizer.h"
 #import "CommandViewController.h"
+#import "WebCamViewController.h"
+#import "ZigPadSettings.h"
 
 
 @implementation RootViewController
@@ -41,10 +43,20 @@ Presentation *activePresentation = nil;
 
 - (IBAction)popupSettingView:(id)sender
 {
+    
     SettingsViewController* settings = [[SettingsViewController alloc] initWithNibName:@"SettingsView" bundle:[NSBundle mainBundle]];
     
 	[self.navigationController pushViewController:settings animated:YES];
-	[settings release]; 
+	[settings release];     
+    
+/*
+ //dummy test
+ 
+    WebCamViewController* browser = [[WebCamViewController alloc] initWithNibName:@"WebCamView" bundle:[NSBundle mainBundle]];
+
+	[self.navigationController pushViewController:browser animated:YES];
+	[browser release];
+  */  
 
 }
 
@@ -70,7 +82,9 @@ Presentation *activePresentation = nil;
 //Called by HUD
 - (void) runUpdate {
     Importer* parser = [[Importer alloc]init];
-    bool success = [parser parseXMLFile:@"http://z.worldempire.ch/1/zigpad/config.xml"];
+    //NSString * configURL = @"http://z.worldempire.ch/1/zigpad/config.xml";
+    NSString * configURL = [ZigPadSettings sharedInstance].configuratorURL;
+    bool success = [parser parseXMLFile:configURL ];
     [parser release];
     parser = nil;
     

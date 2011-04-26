@@ -60,6 +60,8 @@
 
 - (void)dealloc
 {
+    [_simSwitch release];
+    [_textfield release];
     [super dealloc];
 }
 
