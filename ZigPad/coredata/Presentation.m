@@ -63,8 +63,10 @@ Action *activeAction = nil;
     // and get the first sequence.
     if (!activeSequence) {
         sequencesIndex = 0;
-        activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:sequencesIndex++];
-        if (!activeSequence) {
+        if ([self countOfOrderedValueForKey:@"sequences"] > sequencesIndex) {
+            activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:sequencesIndex++];
+        }
+        else {
             return nil;
         }
     }
@@ -77,19 +79,21 @@ Action *activeAction = nil;
     // Try to get next action. Repeat until either the next action object was found or no more
     // sequences exist.
     do {
-        activeAction = (Action *) [activeSequence objectInOrderedValueForKey:@"actions" atIndex:actionsIndex++];
-    
-        if (activeAction) {
+        if ([activeSequence countOfOrderedValueForKey:@"actions"] > actionsIndex) {
+            activeAction = (Action *) [activeSequence objectInOrderedValueForKey:@"actions" atIndex:actionsIndex++];
             return activeAction;
         }
 
         // If there are no remaining actions in the active Sequence, switch sequence and try again.
-        activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:sequencesIndex++];
-        if (!activeSequence) {
+        if ([self countOfOrderedValueForKey:@"sequences"] > sequencesIndex) {
+            activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:sequencesIndex++];
+            actionsIndex = 0;
+        }
+        else {
+            activeSequence = nil;
+            activeAction = nil;
             return nil;
         }
-        actionsIndex = 0;
-
     } while (true);
 }
 
@@ -98,25 +102,28 @@ Action *activeAction = nil;
 }
 
 - (Action*) getPreviousAction {
-    while (sequencesIndex > 0) {
-        if (actionsIndex > 0) {
-            activeAction =  activeAction = (Action *) [activeSequence objectInOrderedValueForKey:@"actions" atIndex:--actionsIndex];
+    do {
+        if (actionsIndex > 1) {
+            activeAction =  activeAction = (Action *) [activeSequence objectInOrderedValueForKey:@"actions" atIndex:(--actionsIndex) - 1];
             return activeAction;
         }
-        else {
-            activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:--sequencesIndex];
-            actionsIndex = [activeSequence.actions count] - 1;
+        else if (sequencesIndex > 1) {
+            activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:(--sequencesIndex) - 1];
+            actionsIndex = [activeSequence.actions count];
         }
-    }
+        else {
+            return nil;
+        }
+    } while (true);
     return nil;  
 }
 
 - (Action*) jumpToSequence: (int) index {
     sequencesIndex = index;
-    activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:sequencesIndex];
+    activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:sequencesIndex++];
     
     actionsIndex = 0;
-    activeAction = (Action *) [activeSequence objectInOrderedValueForKey:@"actions" atIndex:actionsIndex];
+    activeAction = (Action *) [activeSequence objectInOrderedValueForKey:@"actions" atIndex:actionsIndex++];
     return activeAction;
 }
 
