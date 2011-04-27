@@ -16,30 +16,12 @@
 
 @implementation SequenceChoiceViewController
 
-
-NSArray* sequenceImages;
-
-
--(void)dealloc{
-    [sequenceImages release];
-    [super dealloc];
-}
+Presentation *presentation;
 
 //caches all Sequence UIImages from the current Presentation
 -(void) initWithPresentation:(Presentation*) p
 {
-    NSMutableArray* list = [[NSMutableArray alloc]init];
-    
-    for (Sequence* s in p.sequences) 
-    {
-        UIImage* image = [UIImage imageWithData:s.icon.picture];
-        [list addObject:image];
-    }
-    sequenceImages = [NSArray arrayWithArray:list];
-    [sequenceImages retain];
-    
-    [list release];
-    
+    presentation = p;
 }
 
 /*
@@ -97,21 +79,21 @@ NSArray* sequenceImages;
 
 - (int)flowCoverNumberImages:(FlowCoverView *)view
 {
-    return[sequenceImages count];
+    return[presentation.orderedSequences count];
 }
 
 - (UIImage *)flowCover:(FlowCoverView *)view cover:(int)image
 {
-    return [sequenceImages objectAtIndex:image];
-       
+    Sequence *s = (Sequence *) [presentation.orderedSequences objectAtIndex:image];
+    
+    return [UIImage imageWithData:s.icon.picture];       
 }
 
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)image
 {
-    [self.navigationController popViewControllerAnimated:true];
+    [presentation jumpToSequence: image];
     
-    //TODO implementation
-	NSLog(@"Selected Index %d",image);
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 

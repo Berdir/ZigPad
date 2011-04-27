@@ -29,5 +29,6 @@
 - (void)addSequencesObject:(Sequence *)value;
 - (Action*) getNextAction;
 - (Action*) getPreviousAction;
+- (Action*) jumpToSequence: (int) index;
 
 @end
