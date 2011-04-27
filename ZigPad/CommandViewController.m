@@ -43,10 +43,11 @@
 - (void)viewDidLoad {
     
      [super viewDidLoad];
-    [imageButton setImage:[self getCommandImage] forState:UIControlStateNormal];
+    [imageButton setImage:[self getCommandImage] forState:UControlStateNormal];
 
    
 }
+
 
 
 //called by button of commandview

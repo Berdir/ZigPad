@@ -218,9 +218,13 @@ NSManagedObjectContext* context;
  
     //get an Action from dbPool
     NSString* actionRef = [attrib objectForKey:@"ref"];
+    @try {
     Action* a = (Action*)[context objectWithID:[managedObjectIDs valueForKey:actionRef]];
-    
-    [s addActionsObject:a]; //calling of a generated code.. (fill the 1:n-collection)
+         [s addActionsObject:a]; //calling of a generated code.. (fill the 1:n-collection)
+    } @catch (NSException *exception) {
+        NSLog(@"Failed to add ActionRef (ref = %@, sequence = %@)", actionRef, keyCache);
+        [exception raise];
+    }
     
 }
 

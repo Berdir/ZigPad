@@ -8,6 +8,7 @@
 
 #import "ActionViewController.h"
 #import "CommandViewController.h"
+#import "WebcamViewController.h"
 
 
 @implementation ActionViewController
@@ -15,14 +16,29 @@
 @synthesize presentation;
 @synthesize isMaster;
 
-//returns a suitable controller plugin for that Action
+// Returns a suitable controller plugin for that Action.
 +(ActionViewController *) getViewControllerFromAction: (Action *) action 
 {
-    //TODO: Logik für das passende Plugin einbauen
-    ActionViewController* suitableController = [[CommandViewController alloc] 
-                                                initWithNibName:@"CommandView" 
+    
+    NSString *viewName = [NSString stringWithFormat:@"%@View", [action.type capitalizedString]];
+    NSString *controllerName = [NSString stringWithFormat:@"%@Controller", viewName];
+    
+    NSLog(@"Loading %@ with view '%@'", controllerName, viewName); 
+    
+    @try {
+        ActionViewController* suitableController = [[NSClassFromString(controllerName) alloc] 
+                                                initWithNibName:viewName 
                                                 bundle:[NSBundle mainBundle]];
-    return [suitableController autorelease]; //don't make Memory-Zombies
+        [viewName release];
+        [controllerName release];
+        return [suitableController autorelease]; //don't make Memory-Zombies
+    } @catch (NSException *exception) {
+        [viewName release];
+        [controllerName release];
+        NSLog(@"Failed to initalize ViewController: %@", exception);
+    }
+    return nil;
+    
 }
 
 //event is fired when button on any subclass of actionViewController is pressed

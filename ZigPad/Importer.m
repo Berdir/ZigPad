@@ -90,7 +90,7 @@ bool importSuccess;
         if ([elementName isEqualToString:@"server"]) { [configTag addServer:attributeDict];importSuccess=true;}
     }
     @catch (NSException *exception) {
-        NSLog(@"%@", exception);
+        NSLog(@"ERROR: %@", exception);
         importSuccess = false;
         [parser abortParsing];
     }

@@ -10,7 +10,7 @@
 #import "ActionViewController.h"
 
 
-@interface WebCamViewController : ActionViewController {
+@interface WebcamViewController : ActionViewController {
     
 }
 
