@@ -59,14 +59,14 @@ Action *activeAction = nil;
     // If the Sequence Enumerater is nil, we're starting from the beginning,
     // and get the first Sequence.
     if (sequenceEnumerator == nil) {
-        sequenceEnumerator = [self.sequences objectEnumerator];
+        sequenceEnumerator = [self.orderedSequences objectEnumerator];
         [sequenceEnumerator retain];
         activeSequence = [sequenceEnumerator nextObject];
     }
     
     // If the Action enumerator is nil, this is a new sequence.
     if (actionEnumerator == nil) {
-        actionEnumerator = [activeSequence.actions objectEnumerator];
+        actionEnumerator = [activeSequence.orderedActions objectEnumerator];
         [actionEnumerator retain];
     }
         
@@ -89,7 +89,7 @@ Action *activeAction = nil;
             return nil;
         }
         [actionEnumerator release];
-        actionEnumerator = [activeSequence.actions objectEnumerator];
+        actionEnumerator = [activeSequence.orderedActions objectEnumerator];
         [actionEnumerator retain];
 
     } while (true);
