@@ -7,7 +7,6 @@
 //
 
 #import "CommandViewController.h"
-#import <AudioToolbox/AudioServices.h>
 #import <QuartzCore/QuartzCore.h>
 #import "Param.h"
 #import "LocalPicture.h"
@@ -43,20 +42,19 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     
+     [super viewDidLoad];
     [imageButton setImage:[self getCommandImage] forState:UIControlStateNormal];
 
-    [super viewDidLoad];
+   
 }
 
 
-
+//called by button of commandview
 - (void)click: (id) sender {
-    self.isMaster = true;
     
     [[Commander defaultCommander] sendAction:self.presentation.activeAction];
-    [self next:false];
     
-    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); 
+    [super click:sender];
 }
 
 

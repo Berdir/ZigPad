@@ -12,7 +12,6 @@
 
 @interface CommandViewController : ActionViewController {
     
-    IBOutlet UIButton *imageButton;
 
 }
 

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioServices.h>
 #import "SequenceChoiceViewController.h"
 #import "FavoritesViewController.h"
 #import "Action.h"
@@ -15,8 +16,8 @@
 
 @interface ActionViewController : UIViewController {
     IBOutlet UILabel *label;
-	IBOutlet UIButton *button;
     IBOutlet UILabel *actionLabel;
+    IBOutlet UIButton *imageButton;
 	
     @private Presentation *presentation;
     

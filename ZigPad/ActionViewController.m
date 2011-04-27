@@ -25,6 +25,15 @@
     return [suitableController autorelease]; //don't make Memory-Zombies
 }
 
+//event is fired when button on any subclass of actionViewController is pressed
+//note: click is mostly called by overwritten method of subclass
+- (void)click: (id) sender {
+    self.isMaster = true;
+    [self next:false];
+    
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); 
+}
+
 //set Finger-Swipe Listener
 - (void) initSwipeRecognizer {
     UISwipeGestureRecognizer *recognicer;
@@ -60,6 +69,14 @@
     
     [self initSwipeRecognizer];
     [super viewDidLoad];
+}
+
+-(void) dealloc
+{
+    if (label !=nil && [label retainCount] > 0) [label release];
+	if (imageButton !=nil && [imageButton retainCount] > 0)[imageButton release];
+    if (actionLabel !=nil && [actionLabel retainCount] > 0)[actionLabel release];
+    if (presentation !=nil && [presentation retainCount] > 0)[presentation release];
 }
 
 //common implementation for each Action plugin from fired swipe event 
