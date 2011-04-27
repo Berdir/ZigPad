@@ -62,8 +62,8 @@
 		B9BEEADD134CC5C20085663E /* testpic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B9BEEADC134CC5C20085663E /* testpic.jpg */; };
 		B9BEEADF134CD7AA0085663E /* testpic2.png in Resources */ = {isa = PBXBuildFile; fileRef = B9BEEADE134CD7AA0085663E /* testpic2.png */; };
 		B9BEEAE1134CD8CB0085663E /* testpic3.gif in Resources */ = {isa = PBXBuildFile; fileRef = B9BEEAE0134CD8CB0085663E /* testpic3.gif */; };
-		B9CB107713671639005B85ED /* WebCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9CB107513671638005B85ED /* WebCamViewController.m */; };
-		B9CB107813671639005B85ED /* WebCamView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CB107613671638005B85ED /* WebCamView.xib */; };
+		B9DA4B811368749300EFD4B1 /* WebcamView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DA4B7E1368749300EFD4B1 /* WebcamView.xib */; };
+		B9DA4B821368749300EFD4B1 /* WebcamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DA4B801368749300EFD4B1 /* WebcamViewController.m */; };
 		B9E2CBAF13548FA000F1E5FE /* FlowCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2CBAE13548FA000F1E5FE /* FlowCoverView.m */; };
 		B9E2CBB213548FA700F1E5FE /* DataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2CBB113548FA700F1E5FE /* DataCache.m */; };
 		B9E2CBB513548FBF00F1E5FE /* SequenceChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E2CBB413548FBF00F1E5FE /* SequenceChoiceViewController.m */; };
@@ -162,9 +162,9 @@
 		B9BEEADC134CC5C20085663E /* testpic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testpic.jpg; sourceTree = "<group>"; };
 		B9BEEADE134CD7AA0085663E /* testpic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testpic2.png; sourceTree = "<group>"; };
 		B9BEEAE0134CD8CB0085663E /* testpic3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = testpic3.gif; sourceTree = "<group>"; };
-		B9CB107413671637005B85ED /* WebCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebCamViewController.h; sourceTree = "<group>"; };
-		B9CB107513671638005B85ED /* WebCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebCamViewController.m; sourceTree = "<group>"; };
-		B9CB107613671638005B85ED /* WebCamView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebCamView.xib; sourceTree = "<group>"; };
+		B9DA4B7E1368749300EFD4B1 /* WebcamView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebcamView.xib; sourceTree = "<group>"; };
+		B9DA4B7F1368749300EFD4B1 /* WebcamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamViewController.h; sourceTree = "<group>"; };
+		B9DA4B801368749300EFD4B1 /* WebcamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamViewController.m; sourceTree = "<group>"; };
 		B9E2CBAD13548FA000F1E5FE /* FlowCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowCoverView.h; sourceTree = "<group>"; };
 		B9E2CBAE13548FA000F1E5FE /* FlowCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowCoverView.m; sourceTree = "<group>"; };
 		B9E2CBB013548FA700F1E5FE /* DataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCache.h; sourceTree = "<group>"; };
@@ -317,11 +317,11 @@
 		B9BC41AA134C85F50085D597 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B9DA4B7E1368749300EFD4B1 /* WebcamView.xib */,
+				B9DA4B7F1368749300EFD4B1 /* WebcamViewController.h */,
+				B9DA4B801368749300EFD4B1 /* WebcamViewController.m */,
 				B98000381367FAD500A629D4 /* ActionViewController.h */,
 				B98000391367FAD500A629D4 /* ActionViewController.m */,
-				B9CB107413671637005B85ED /* WebCamViewController.h */,
-				B9CB107513671638005B85ED /* WebCamViewController.m */,
-				B9CB107613671638005B85ED /* WebCamView.xib */,
 				B994BDCB135EDCDE0067529F /* CommandViewController.h */,
 				B994BDCC135EDCDE0067529F /* CommandViewController.m */,
 				B994BDCD135EDCDE0067529F /* CommandView.xib */,
@@ -513,7 +513,7 @@
 				B994BDD3135EDD3F0067529F /* 00_background_home_control_2.png in Resources */,
 				B994BDD7135EDD6D0067529F /* 00_icon_home_control.png in Resources */,
 				B994BDD9135EDD950067529F /* Default.png in Resources */,
-				B9CB107813671639005B85ED /* WebCamView.xib in Resources */,
+				B9DA4B811368749300EFD4B1 /* WebcamView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,8 +557,8 @@
 				B9A2FC8513656C59009BA16A /* Presentation.m in Sources */,
 				B9A2FC8813656C59009BA16A /* Param.m in Sources */,
 				B9A2FC8B13656C59009BA16A /* LocalPicture.m in Sources */,
-				B9CB107713671639005B85ED /* WebCamViewController.m in Sources */,
 				B980003A1367FAD500A629D4 /* ActionViewController.m in Sources */,
+				B9DA4B821368749300EFD4B1 /* WebcamViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

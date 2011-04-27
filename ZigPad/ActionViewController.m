@@ -8,6 +8,7 @@
 
 #import "ActionViewController.h"
 #import "CommandViewController.h"
+#import "WebcamViewController.h"
 
 
 @implementation ActionViewController
@@ -24,13 +25,20 @@
     
     NSLog(@"Loading %@ with view '%@'", controllerName, viewName); 
     
-    ActionViewController* suitableController = [[NSClassFromString(controllerName) alloc] 
+    @try {
+        ActionViewController* suitableController = [[NSClassFromString(controllerName) alloc] 
                                                 initWithNibName:viewName 
                                                 bundle:[NSBundle mainBundle]];
+        [viewName release];
+        [controllerName release];
+        return [suitableController autorelease]; //don't make Memory-Zombies
+    } @catch (NSException *exception) {
+        [viewName release];
+        [controllerName release];
+        NSLog(@"Failed to initalize ViewController: %@", exception);
+    }
+    return nil;
     
-    [viewName release];
-    [controllerName release];
-    return [suitableController autorelease]; //don't make Memory-Zombies
 }
 
 //set Finger-Swipe Listener

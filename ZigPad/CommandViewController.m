@@ -49,17 +49,6 @@
 }
 
 
-
-- (void)click: (id) sender {
-    self.isMaster = true;
-    
-    [[Commander defaultCommander] sendAction:self.presentation.activeAction];
-    [self next:false];
-    
-    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); 
-}
-
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Overriden to allow any orientation.
     return YES;

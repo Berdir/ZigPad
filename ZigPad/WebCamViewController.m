@@ -6,11 +6,11 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "WebCamViewController.h"
+#import "WebcamViewController.h"
 #import "Database.h"
 
 
-@implementation WebCamViewController
+@implementation WebcamViewController
 
 @synthesize myWebView = _myWebView;
 
@@ -25,60 +25,15 @@
     return @"about:blank";
 }
 
-//TODO: bitte bald löschen
--(void) dummyInit
-{
-    self.navigationController.navigationBar.hidden = FALSE;
-    
-    // set active action from local xml
-
-    NSManagedObjectContext* context =  [[Database sharedInstance] managedObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init] ;
-    NSError* error = nil;
-  
-    NSEntityDescription *entityDescriptionPres = [NSEntityDescription entityForName:@"Presentation" inManagedObjectContext:context];
-    [request setEntity:entityDescriptionPres];    
-    NSArray *presentations = [context executeFetchRequest:request error:&error]; 
-    
-    Presentation* p = [presentations objectAtIndex:0];
-    
-    self.presentation = p;
-    
-    NSEntityDescription *entityDescriptionAct = [NSEntityDescription entityForName:@"Action" inManagedObjectContext:context];
-    [request setEntity:entityDescriptionAct];    
-    NSArray *actions = [context executeFetchRequest:request error:&error]; 
-    
-    for (Action* a in actions) {
-        if ([a.name isEqualToString:@"Webcam"])
-        {
-            self.presentation.activeAction = a;
-        }
-    }
-    
-    NSEntityDescription *entityDescriptionSeq = [NSEntityDescription entityForName:@"Sequence" inManagedObjectContext:context];
-    [request setEntity:entityDescriptionSeq];    
-    NSArray *sequences = [context executeFetchRequest:request error:&error]; 
-    
-    Sequence* s = [sequences objectAtIndex:0];
-    self.presentation.activeSequence = s;
-    
-
-    [request release];
-
-    
-}
 
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
 
     //NSString * urlAddress = @"http://www.stefanbion.de/cgi-bin/webcam_bsp_cac_cnt_mjp.pl?format=mjpeg";
     //NSString* urlAddress = @"http://user.enterpriselab.ch/~tazimmer/kungfupigeon5.mov";
-    
-    [self dummyInit];
     
     NSString* urlAddress = [self getURLfromParams];
     
@@ -92,6 +47,7 @@
     [self.myWebView loadRequest:requestObj];
 
     
+    [super viewDidLoad];    
     
 }
 
