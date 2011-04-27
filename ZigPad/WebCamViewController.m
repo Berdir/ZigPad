@@ -80,9 +80,6 @@
     
     [self dummyInit];
     
-    label.text = self.presentation.activeSequence.name;
-    actionLabel.text = self.presentation.activeAction.name;
-    
     NSString* urlAddress = [self getURLfromParams];
     
     //Create a URL object.

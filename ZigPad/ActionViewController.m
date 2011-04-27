@@ -51,6 +51,17 @@
     
 }
 
+- (void) viewDidLoad {
+    label.text = self.presentation.activeSequence.name;
+    actionLabel.text = self.presentation.activeAction.name;
+    
+    self.navigationController.toolbar.hidden = TRUE;
+    self.navigationController.navigationBar.hidden = TRUE;
+    
+    [self initSwipeRecognizer];
+    [super viewDidLoad];
+}
+
 //common implementation for each Action plugin from fired swipe event 
 - (void) handleSwipeFrom: (UISwipeGestureRecognizer *) recogniser {	
     switch (recogniser.direction) {

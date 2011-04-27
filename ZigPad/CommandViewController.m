@@ -44,14 +44,7 @@
 - (void)viewDidLoad {
     
     [imageButton setImage:[self getCommandImage] forState:UIControlStateNormal];
-	
-	label.text = self.presentation.activeSequence.name;
-    actionLabel.text = self.presentation.activeAction.name;
-    
-    self.navigationController.toolbar.hidden = TRUE;
-    self.navigationController.navigationBar.hidden = TRUE;
-    
-    [self initSwipeRecognizer];
+
     [super viewDidLoad];
 }
 

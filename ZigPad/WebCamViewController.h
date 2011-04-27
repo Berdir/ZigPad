@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CommandViewController.h"
+#import "ActionViewController.h"
 
 
-@interface WebCamViewController : CommandViewController {
+@interface WebCamViewController : ActionViewController {
     
 }
 
