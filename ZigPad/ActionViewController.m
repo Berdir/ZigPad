@@ -15,13 +15,21 @@
 @synthesize presentation;
 @synthesize isMaster;
 
-//returns a suitable controller plugin for that Action
+// Returns a suitable controller plugin for that Action.
 +(ActionViewController *) getViewControllerFromAction: (Action *) action 
 {
-    //TODO: Logik für das passende Plugin einbauen
-    ActionViewController* suitableController = [[CommandViewController alloc] 
-                                                initWithNibName:@"CommandView" 
+    
+    NSString *viewName = [NSString stringWithFormat:@"%@View", [action.type capitalizedString]];
+    NSString *controllerName = [NSString stringWithFormat:@"%@Controller", viewName];
+    
+    NSLog(@"Loading %@ with view '%@'", controllerName, viewName); 
+    
+    ActionViewController* suitableController = [[NSClassFromString(controllerName) alloc] 
+                                                initWithNibName:viewName 
                                                 bundle:[NSBundle mainBundle]];
+    
+    [viewName release];
+    [controllerName release];
     return [suitableController autorelease]; //don't make Memory-Zombies
 }
 
