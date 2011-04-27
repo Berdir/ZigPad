@@ -6,38 +6,17 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "Action.h"
-#import "Presentation.h"
+
+#import "ActionViewController.h"
 
 
-@interface CommandViewController : UIViewController {
-	IBOutlet UILabel *label;
-	IBOutlet UIButton *button;
-    IBOutlet UIButton *imageButton;
-    IBOutlet UILabel *actionLabel;
-	
-	@private Presentation *presentation;
-    @private Action *action;
+@interface CommandViewController : ActionViewController {
     
-    @private BOOL isMaster;
+    IBOutlet UIButton *imageButton;
+
 }
 
-@property (readwrite, assign) Presentation *presentation;
 
-@property (readwrite, assign) BOOL isMaster;
-
-+(CommandViewController *) getViewControllerFromAction: (Action *) action;
-
-- (void) next: (BOOL) animated;
-- (void) previous;
-
-- (IBAction) click: (id) sender;
-
-- (void) handleSwipeFrom: (UISwipeGestureRecognizer *) recogniser;
-
-- (void) registerNotificationCenter;
-- (void) unregisterNotificationCenter;
 
 
 

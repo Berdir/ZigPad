@@ -99,6 +99,11 @@ Action *activeAction = nil;
     return [self orderedValueForKey:@"sequences"];
 }
 
+- (Action*) getPreviousAction {
+    //TODO: nicht vorwärts sondern rückwärts
+    return [self getNextAction];
+}
+
 
 - (void) dealloc {
     if (sequenceEnumerator && [sequenceEnumerator retainCount]) {

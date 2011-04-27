@@ -11,18 +11,12 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Param.h"
 #import "LocalPicture.h"
-#import "SequenceChoiceViewController.h"
-#import "FavoritesViewController.h"
+
 #import "Commander.h"
 
 @implementation CommandViewController
 
-@synthesize presentation;
-@synthesize isMaster;
 
-+(CommandViewController *) getViewControllerFromAction: (Action *) action {
-    return [[CommandViewController alloc] initWithNibName:@"CommandView" bundle:[NSBundle mainBundle]];
-}
 
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 /*
@@ -45,30 +39,7 @@
     return nil;
 }
 
-- (void) initSwipeRecognizer {
-  UISwipeGestureRecognizer *recognicer;
-    
-    recognicer = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(handleSwipeFrom:)];
-    [recognicer setDirection:UISwipeGestureRecognizerDirectionRight];
-    [[self view] addGestureRecognizer:recognicer];
-    [recognicer release];
-    
-    recognicer = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(handleSwipeFrom:)];
-    [recognicer setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [[self view] addGestureRecognizer:recognicer];
-    [recognicer release];
-    
-    recognicer = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(handleSwipeFrom:)];
-    [recognicer setDirection:UISwipeGestureRecognizerDirectionUp];
-    [[self view] addGestureRecognizer:recognicer];
-    [recognicer release];
-    
-    recognicer = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(handleSwipeFrom:)];
-    [recognicer setDirection:UISwipeGestureRecognizerDirectionDown];
-    [[self view] addGestureRecognizer:recognicer];
-    [recognicer release];
 
-}
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     
@@ -84,37 +55,7 @@
     [super viewDidLoad];
 }
 
-- (void) handleSwipeFrom: (UISwipeGestureRecognizer *) recogniser {	
-    switch (recogniser.direction) {
-        case UISwipeGestureRecognizerDirectionDown:
-        {
-            SequenceChoiceViewController* chooser = [[SequenceChoiceViewController alloc] initWithNibName:@"SequenceChoiceView" bundle:[NSBundle mainBundle]];
-            
-            [chooser initWithPresentation: self.presentation]; 
-            
-            [self.navigationController pushViewController:chooser animated:YES];
-            [chooser release]; 
-            break;
-        }
-        case UISwipeGestureRecognizerDirectionUp:
-        {	
-            FavoritesViewController* favorite = [[FavoritesViewController alloc] initWithNibName:@"FavoritesView" bundle:[NSBundle mainBundle]];
 
-            [self.navigationController pushViewController:favorite animated:YES];
-            [favorite release]; 
-            break;   
-        }
-        case UISwipeGestureRecognizerDirectionRight:
-            [self previous];	
-            break;
-        case UISwipeGestureRecognizerDirectionLeft:
-            [self next:TRUE];
-            break;
-            
-        default:
-            break;
-    }
-}
 
 - (void)click: (id) sender {
     self.isMaster = true;
@@ -146,64 +87,9 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void) next:(BOOL) animated {
-    Action *a = [self.presentation getNextAction];
-    // Finished.
-    if (a == nil) {
-        self.navigationController.navigationBar.hidden = FALSE;
-        self.navigationController.toolbar.hidden = FALSE;
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-    
-    CommandViewController *nextPage = [CommandViewController getViewControllerFromAction:a];
-    
-    nextPage.presentation = self.presentation;
-    
-    // Save NavigationController locally, to still have access to it in the second step.
-    UINavigationController *navController = self.navigationController;
-    
-    // retain this viewcontroller, prevent dealloc.
-    [[self retain] autorelease];
-    
-    // Pop the current controller and replace with another.
-    [navController popViewControllerAnimated:NO];
-    [navController pushViewController:nextPage animated:animated];
-}
 
-- (void) previous {
-    // Init animation
-    
-    CommandViewController *nextPage = [CommandViewController getViewControllerFromAction:[self.presentation getNextAction]];
-    
-    // Finished.
-    if (nextPage == nil) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-    
-    // retain this viewcontroller, prevent dealloc.
-    [[self retain] autorelease];
-    
-    // Save NavigationController locally, to still have access to it in the second step.
-    UINavigationController *navController = self.navigationController;
-    
-	[UIView beginAnimations: @"moveField" context: nil];
-    	
-	[UIView setAnimationDelegate: self];
-    	
-	[UIView setAnimationDuration:	.5];
-    
-    // For left to right transition animation
-	//[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:navController.view	 cache:NO];	
-    
-    self.view.transform = CGAffineTransformMakeTranslation(320,0);
-    nextPage.view.transform = CGAffineTransformMakeTranslation(320,0);
-	
-    // Pop the current controller and replace with another.
-    [navController popViewControllerAnimated:NO];
-    [navController pushViewController:nextPage animated:NO];
-    
-    [UIView commitAnimations];
-}
+
+
 
 - (void) registerNotificationCenter {
     
