@@ -4,7 +4,7 @@
 			<param key="picture" picture="testpic2.png"/>
 			<param key="command" value="OTHER_COMMAND"/>
 		</action>
-		<action id="3" name="Webcam" type="media" favorite="0">
+		<action id="3" name="Webcam" type="Webcam" favorite="0">
 			<param key="url" value="http://www.stefanbion.de/cgi-bin/webcam_bsp_cac_cnt_mjp.pl?format=mjpeg"/>
 		</action>
 		<action id="4" name="Another action" type="command" favorite="1">

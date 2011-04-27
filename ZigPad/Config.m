@@ -124,7 +124,6 @@ NSManagedObjectContext* context;
     [tableList release];
 }
 
-
 - (void) obtainObjectId: (NSManagedObject **) object  {
     // Enforce a permament object id before this is added to the presentation object to work around
     // issues with multiple, incorrect permament object id's.
@@ -132,13 +131,14 @@ NSManagedObjectContext* context;
       NSArray *tempArray = [[NSArray alloc] initWithObjects:&(*object) count:1];
     NSError *error = nil;
     
-    if (![context obtainPermanentIDsForObjects:tempArray
-                                                             error:&error]) {
+    if (![context obtainPermanentIDsForObjects:tempArray error:&error]) 
+    {
         NSLog(@"error obtaining permanent ID for %@: %@", *object, error);
     }
     [tempArray release];
 
 }
+
 //analyzes action tag and put attributes into the core database
 -(void)addAction:(NSDictionary*) attrib
 {

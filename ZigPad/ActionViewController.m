@@ -24,19 +24,11 @@
     NSString *controllerName = [NSString stringWithFormat:@"%@Controller", viewName];
     
     NSLog(@"Loading %@ with view '%@'", controllerName, viewName); 
-    
-    @try {
-        ActionViewController* suitableController = [[NSClassFromString(controllerName) alloc] 
+
+    ActionViewController* suitableController = [[NSClassFromString(controllerName) alloc] 
                                                 initWithNibName:viewName 
                                                 bundle:[NSBundle mainBundle]];
-        [viewName release];
-        [controllerName release];
         return [suitableController autorelease]; //don't make Memory-Zombies
-    } @catch (NSException *exception) {
-        [viewName release];
-        [controllerName release];
-        NSLog(@"Failed to initalize ViewController: %@", exception);
-    }
     return nil;
     
 }

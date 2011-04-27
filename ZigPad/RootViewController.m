@@ -48,15 +48,6 @@ Presentation *activePresentation = nil;
     
 	[self.navigationController pushViewController:settings animated:YES];
 	[settings release];     
-    
-/*
- //dummy test
- 
-    WebCamViewController* browser = [[WebCamViewController alloc] initWithNibName:@"WebCamView" bundle:[NSBundle mainBundle]];
-
-	[self.navigationController pushViewController:browser animated:YES];
-	[browser release];
-  */  
 
 }
 
@@ -83,7 +74,7 @@ Presentation *activePresentation = nil;
 - (void) runUpdate {
     Importer* parser = [[Importer alloc]init];
     //NSString * configURL = @"http://z.worldempire.ch/1/zigpad/config.xml";
-    NSString * configURL = [ZigPadSettings sharedInstance].configuratorURL;
+    NSString * configURL = nil;//[ZigPadSettings sharedInstance].configuratorURL;
     bool success = [parser parseXMLFile:configURL ];
     [parser release];
     parser = nil;
