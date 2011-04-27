@@ -10,8 +10,9 @@
 #import <CoreData/CoreData.h>
 #import "Param.h"
 #import "Sequence.h"
+#import "BWOrderedManagedObject.h"
 
-@interface Action : NSManagedObject {
+@interface Action : BWOrderedManagedObject {
 @private
 }
 @property (nonatomic, retain) NSString * name;

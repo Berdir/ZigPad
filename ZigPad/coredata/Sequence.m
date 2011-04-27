@@ -75,5 +75,8 @@
     [self didChangeValueForKey:@"actions" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
 }
 
+- (NSArray *) orderedActions {
+    return [self orderedValueForKey:@"actions"];
+}
 
 @end

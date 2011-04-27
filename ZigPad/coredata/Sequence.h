@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSSet* presentations;
 @property (nonatomic, retain) LocalPicture * icon;
 @property (nonatomic, retain) NSSet* actions;
+@property (nonatomic, readonly) NSArray* orderedActions;
 
 - (void)addActionsObject:(Action *)value;
 

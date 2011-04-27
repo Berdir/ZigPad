@@ -27,6 +27,7 @@ Action *activeAction = nil;
 
 
 - (void)addSequencesObject:(Sequence *)value {    
+    
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"sequences" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"sequences"] addObject:value];
@@ -42,7 +43,7 @@ Action *activeAction = nil;
     [changedObjects release];
 }
 
-- (void)addSequences:(NSSet *)value {    
+- (void)addSequences:(NSSet *)value {
     [self willChangeValueForKey:@"sequences" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
     [[self primitiveValueForKey:@"sequences"] unionSet:value];
     [self didChangeValueForKey:@"sequences" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
@@ -93,6 +94,11 @@ Action *activeAction = nil;
 
     } while (true);
 }
+
+- (NSArray *) orderedSequences {
+    return [self orderedValueForKey:@"sequences"];
+}
+
 
 - (void) dealloc {
     if (sequenceEnumerator && [sequenceEnumerator retainCount]) {

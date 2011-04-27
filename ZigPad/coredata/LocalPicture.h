@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "BWOrderedManagedObject.h"
 
 @class Param, Sequence;
 
-@interface LocalPicture : NSManagedObject {
+@interface LocalPicture : BWOrderedManagedObject {
 
 }
 @property (nonatomic, retain) NSData * picture;

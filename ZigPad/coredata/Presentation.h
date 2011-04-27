@@ -21,12 +21,12 @@
 @property (nonatomic, retain) NSNumber * refId;
 
 @property (nonatomic, retain) NSSet* sequences;
+@property (nonatomic, readonly) NSArray* orderedSequences;
 
 @property (nonatomic, retain) Sequence *activeSequence;
 @property (nonatomic, retain) Action *activeAction;
 
 - (void)addSequencesObject:(Sequence *)value;
 - (Action*) getNextAction;
-
 
 @end
