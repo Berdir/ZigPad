@@ -84,47 +84,52 @@
     }
 }
 
--(void) foo
-{
-    // Save NavigationController locally, to still have access to it in the next two steps.
-    UINavigationController* navigationController = self.navigationController;
 
-    self.navigationController.view.transform = CGAffineTransformMakeTranslation(-100,0);
-    //[navigationController popViewControllerAnimated:NO];
-    
-    //[navigationController pushViewController:nextPage animated:NO];
-}
 
 //Slides next ActionView to Window. If nextpage is nil then it only close actual view 
 // XDirection: left = -1 or right = +1
 - (void) slideWithAnimation:(int) XDirection: (ActionViewController*) nextPage
 {
+    
+    // Save NavigationController locally, to still have access to it in the next two steps.
+    UINavigationController* navigationController = self.navigationController;
 
     
-    //shift view out of window
-    [UIView beginAnimations:nil context: nil];    
-	[UIView setAnimationDelegate: self];
-	[UIView setAnimationDuration:	1.0];
-    [UIView setAnimationDidStopSelector:@selector(foo)];
-    self.navigationController.view.transform = CGAffineTransformMakeTranslation(XDirection * 100,0);
-    
-    
-    [UIView commitAnimations];
-    
-    //close actual view
+    [UIView animateWithDuration:0.5
+                     animations:^{ 
 
-    
-    /*
-    
-    [UIView beginAnimations:nil context: nil];    
-	[UIView setAnimationDelegate: self];
-	[UIView setAnimationDuration:	1.0];
-    navigationController.view.transform = CGAffineTransformMakeTranslation(XDirection * 0,0);
-    [UIView commitAnimations];
-     */
+                         //shift old slide outside animated
+                         navigationController.view.transform = CGAffineTransformMakeTranslation(XDirection * 320,0);
+                     } 
+                     completion:^(BOOL finished){
+                         //remove old slide                         
+                         [navigationController popViewControllerAnimated:NO];
+                         
+                         if (nextPage != nil)
+                         {
+                         //add new slide if avaiable
+                         [navigationController pushViewController:nextPage animated:NO];                        
+                         //shift new slide to startposition outside window
+                         navigationController.view.transform = CGAffineTransformMakeTranslation(-XDirection * 320,0);
+                         
+                         [UIView animateWithDuration:0.5
+                                          animations:^{ 
+                                              
+                                              //shift new slide inside window animated
+                                              navigationController.view.transform = CGAffineTransformMakeTranslation(0,0);
+                                              
+                                          } 
+                                          completion:^(BOOL finished){
+                                              ;
+                                          }];
+                         }
+                         
+                     }];
+
     
 }
 
+//slides the next Action to GUI
 - (void) next:(BOOL) animated {
     Action *a = [self.presentation getNextAction];
     // Finished.
@@ -132,99 +137,43 @@
         self.navigationController.navigationBar.hidden = FALSE;
         self.navigationController.toolbar.hidden = FALSE;
         [self.navigationController popViewControllerAnimated:YES];
+        return;
     }
     
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
     nextPage.presentation = self.presentation;
 
 
-
-    [self slideWithAnimation:1 :nextPage];
-
-
-    //self.view.transform = CGAffineTransformMakeTranslation(100,0);
-    //nextPage.view.transform = CGAffineTransformMakeTranslation(-320,0);
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-    //[navigationController popViewControllerAnimated:NO];
-    
-    //[navigationController pushViewController:nextPage animated:NO];
-    
-
-    
-    
-    
+    if (animated) {[self slideWithAnimation:-1 :nextPage];}
+    else
+    {
+        UINavigationController* navController = self.navigationController;
+        [navController popViewControllerAnimated:NO];
+        [navController pushViewController:nextPage animated:YES];
+    }
 
 
 }
 
+//Slides the previous Action to GUI
 - (void) previous
 {
-    /*
     Action *a = [self.presentation getPreviousAction];
     // Finished.
     if (a == nil) {
         self.navigationController.navigationBar.hidden = FALSE;
         self.navigationController.toolbar.hidden = FALSE;
         [self.navigationController popViewControllerAnimated:YES];
+        return;
     }
     
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
     nextPage.presentation = self.presentation;
     
-    // Save NavigationController locally, to still have access to it in the next two steps.
-    UINavigationController* navigationController = self.navigationController;
     
-    [UIView beginAnimations:nil context: nil];
-    [navigationController popViewControllerAnimated:NO];
-    [navigationController pushViewController:nextPage animated:NO];
-     */
-    //[self _previous];
+    [self slideWithAnimation:1 :nextPage];
 }
 
-
-- (void) _previous {
-    // Init animation
-    
-    CommandViewController *nextPage = [CommandViewController getViewControllerFromAction:[self.presentation getNextAction]];
-    
-    // Finished.
-    if (nextPage == nil) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-    // retain this viewcontroller, prevent dealloc.
-    [[self retain] autorelease];
-    
-    // Save NavigationController locally, to still have access to it in the second step.
-    UINavigationController *navController = self.navigationController;
-    
-	[UIView beginAnimations:@"move" context: nil];
-    
-	[UIView setAnimationDelegate: self];
-    
-	[UIView setAnimationDuration:	.5];
-    
-    // For left to right transition animation
-	//[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:navController.view	 cache:NO];	
-    
-    self.view.transform = CGAffineTransformMakeTranslation(320,0);
-    nextPage.view.transform = CGAffineTransformMakeTranslation(320,0);
-	
-    // Pop the current controller and replace with another.
-    [navController popViewControllerAnimated:NO];
-    [navController pushViewController:nextPage animated:NO];
-    
-    [UIView commitAnimations];
-}
  
 
 @end
