@@ -93,6 +93,7 @@
 	if (imageButton !=nil && [imageButton retainCount] > 0)[imageButton release];
     if (actionLabel !=nil && [actionLabel retainCount] > 0)[actionLabel release];
     if (presentation !=nil && [presentation retainCount] > 0)[presentation release];
+    [super dealloc];
 }
 
 //common implementation for each Action plugin from fired swipe event 

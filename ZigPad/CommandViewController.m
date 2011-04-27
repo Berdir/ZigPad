@@ -42,8 +42,8 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     
-     [super viewDidLoad];
-    [imageButton setImage:[self getCommandImage] forState:UControlStateNormal];
+    [imageButton setImage:[self getCommandImage] forState:UIControlStateNormal];
+    [super viewDidLoad];
 
    
 }
