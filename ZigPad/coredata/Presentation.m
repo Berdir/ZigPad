@@ -20,6 +20,9 @@
 @synthesize activeSequence;
 @synthesize activeAction;
 
+int sequencesIndex = 0;
+int actionsIndex = 0;
+
 NSEnumerator *sequenceEnumerator = nil;
 NSEnumerator *actionEnumerator = nil;
 Sequence *activeSequence = nil;
@@ -56,41 +59,36 @@ Action *activeAction = nil;
 }
 
 -  (Action*) getNextAction {
-    // If the Sequence Enumerater is nil, we're starting from the beginning,
-    // and get the first Sequence.
-    if (sequenceEnumerator == nil) {
-        sequenceEnumerator = [self.orderedSequences objectEnumerator];
-        [sequenceEnumerator retain];
-        activeSequence = [sequenceEnumerator nextObject];
+    // If the active sequence is nil, we're starting from the beginning,
+    // and get the first sequence.
+    if (!activeSequence) {
+        sequencesIndex = 0;
+        activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:sequencesIndex++];
+        if (!activeSequence) {
+            return nil;
+        }
     }
     
-    // If the Action enumerator is nil, this is a new sequence.
-    if (actionEnumerator == nil) {
-        actionEnumerator = [activeSequence.orderedActions objectEnumerator];
-        [actionEnumerator retain];
+    // If the active action is nil, this is a new sequence.
+    if (!activeAction) {
+        actionsIndex = 0;
     }
         
     // Try to get next action. Repeat until either the next action object was found or no more
     // sequences exist.
     do {
-        activeAction = [actionEnumerator nextObject];
+        activeAction = (Action *) [activeSequence objectInOrderedValueForKey:@"actions" atIndex:actionsIndex++];
     
         if (activeAction) {
             return activeAction;
         }
 
         // If there are no remaining actions in the active Sequence, switch sequence and try again.
-        activeSequence = [sequenceEnumerator nextObject];
+        activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:sequencesIndex++];
         if (!activeSequence) {
-            [sequenceEnumerator release];
-            sequenceEnumerator = nil;
-            [actionEnumerator release];
-            actionEnumerator = nil;
             return nil;
         }
-        [actionEnumerator release];
-        actionEnumerator = [activeSequence.orderedActions objectEnumerator];
-        [actionEnumerator retain];
+        actionsIndex = 0;
 
     } while (true);
 }
@@ -100,8 +98,26 @@ Action *activeAction = nil;
 }
 
 - (Action*) getPreviousAction {
-    //TODO: nicht vorwŠrts sondern rŸckwŠrts
-    return [self getNextAction];
+    while (sequencesIndex > 0) {
+        if (actionsIndex > 0) {
+            activeAction =  activeAction = (Action *) [activeSequence objectInOrderedValueForKey:@"actions" atIndex:--actionsIndex];
+            return activeAction;
+        }
+        else {
+            activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:--sequencesIndex];
+            actionsIndex = [activeSequence.actions count] - 1;
+        }
+    }
+    return nil;  
+}
+
+- (Action*) jumpToSequence: (int) index {
+    sequencesIndex = index;
+    activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:sequencesIndex];
+    
+    actionsIndex = 0;
+    activeAction = (Action *) [activeSequence objectInOrderedValueForKey:@"actions" atIndex:actionsIndex];
+    return activeAction;
 }
 
 
