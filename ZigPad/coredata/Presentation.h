@@ -27,6 +27,7 @@
 
 - (void)addSequencesObject:(Sequence *)value;
 - (Action*) getNextAction;
+- (Action*) getPreviousAction;
 
 
 @end

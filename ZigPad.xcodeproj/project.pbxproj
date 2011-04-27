@@ -10,6 +10,7 @@
 		B94666DD135DB03000EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
 		B94666E0135DB40700EDA740 /* SettingsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DF135DB40700EDA740 /* SettingsTest.m */; };
 		B94666E1135DB57B00EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
+		B980003A1367FAD500A629D4 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98000391367FAD500A629D4 /* ActionViewController.m */; };
 		B986A5FF135EC2DA00680172 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */; };
 		B993FB7D1355E29D00A69334 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B993FB7B1355E29C00A69334 /* FavoritesViewController.m */; };
 		B993FB7E1355E29D00A69334 /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B993FB7C1355E29D00A69334 /* FavoritesView.xib */; };
@@ -91,6 +92,8 @@
 		B94666DB135DB03000EDA740 /* ZigPadSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZigPadSettings.h; sourceTree = "<group>"; };
 		B94666DC135DB03000EDA740 /* ZigPadSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZigPadSettings.m; sourceTree = "<group>"; };
 		B94666DF135DB40700EDA740 /* SettingsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTest.m; sourceTree = "<group>"; };
+		B98000381367FAD500A629D4 /* ActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
+		B98000391367FAD500A629D4 /* ActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
 		B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = Frameworks/GHUnitIOS.framework; sourceTree = "<group>"; };
 		B993FB7A1355E29C00A69334 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		B993FB7B1355E29C00A69334 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
@@ -314,6 +317,8 @@
 		B9BC41AA134C85F50085D597 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B98000381367FAD500A629D4 /* ActionViewController.h */,
+				B98000391367FAD500A629D4 /* ActionViewController.m */,
 				B9CB107413671637005B85ED /* WebCamViewController.h */,
 				B9CB107513671638005B85ED /* WebCamViewController.m */,
 				B9CB107613671638005B85ED /* WebCamView.xib */,
@@ -553,6 +558,7 @@
 				B9A2FC8813656C59009BA16A /* Param.m in Sources */,
 				B9A2FC8B13656C59009BA16A /* LocalPicture.m in Sources */,
 				B9CB107713671639005B85ED /* WebCamViewController.m in Sources */,
+				B980003A1367FAD500A629D4 /* ActionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

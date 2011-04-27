@@ -94,6 +94,13 @@ Action *activeAction = nil;
     } while (true);
 }
 
+- (Action*) getPreviousAction
+{
+    //TODO: nicht vorwärts sondern rückwärts
+    return [self getNextAction];
+}
+
+
 - (void) dealloc {
     if (sequenceEnumerator && [sequenceEnumerator retainCount]) {
         [sequenceEnumerator release];
