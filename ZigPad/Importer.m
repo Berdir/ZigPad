@@ -90,7 +90,6 @@ bool importSuccess;
         if ([elementName isEqualToString:@"server"]) { [configTag addServer:attributeDict];importSuccess=true;}
     }
     @catch (NSException *exception) {
-        NSLog(@"XML-Format or Picture URL is Bullshit!");
         NSLog(@"%@", exception);
         importSuccess = false;
         [parser abortParsing];

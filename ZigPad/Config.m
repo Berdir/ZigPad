@@ -40,6 +40,14 @@ NSManagedObjectContext* context;
     [super dealloc];
 }
 
+- (NSNumber *) getRefId: (NSDictionary *) attrib {
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber *refId = [f numberFromString:[attrib objectForKey:@"id"]];
+    [f release];
+    return refId;
+}
+
 
 //loads a picture from local or internet and put it into core database
 -(LocalPicture * )loadPicture:(NSString*)url
@@ -117,18 +125,35 @@ NSManagedObjectContext* context;
 }
 
 
+- (void) obtainObjectId: (NSManagedObject **) object  {
+    // Enforce a permament object id before this is added to the presentation object to work around
+    // issues with multiple, incorrect permament object id's.
+    // See http://stackoverflow.com/questions/4530437/permanent-nsmanagedobject-uri-from-temporary-uri
+      NSArray *tempArray = [[NSArray alloc] initWithObjects:&(*object) count:1];
+    NSError *error = nil;
+    
+    if (![context obtainPermanentIDsForObjects:tempArray
+                                                             error:&error]) {
+        NSLog(@"error obtaining permanent ID for %@: %@", *object, error);
+    }
+    [tempArray release];
+
+}
 //analyzes action tag and put attributes into the core database
 -(void)addAction:(NSDictionary*) attrib
 {
 
-    Action*  a = [NSEntityDescription insertNewObjectForEntityForName:@"Action" inManagedObjectContext:context];  
+    Action*  a = [NSEntityDescription insertNewObjectForEntityForName:@"Action" inManagedObjectContext:context]; 
     
+    [self obtainObjectId: &a];
+
     keyCache = [attrib objectForKey:@"id"]; //this information will be used by next child tag-method
     [managedObjectIDs setValue:[a objectID] forKey:keyCache];// dito
     
-    a.name = [attrib objectForKey:@"name"];
-    a.type = [attrib objectForKey:@"type"];
+    a.refId = [self getRefId:attrib];
     
+    a.name = [attrib objectForKey:@"name"];
+    a.type = [attrib objectForKey:@"type"];    
     a.favorite = [NSNumber numberWithInt:[(NSString*)[attrib objectForKey:@"favorite"]intValue]];
     
 
@@ -166,12 +191,16 @@ NSManagedObjectContext* context;
 
     Sequence*  s = [NSEntityDescription insertNewObjectForEntityForName:@"Sequence" inManagedObjectContext:context];  
     
+    [self obtainObjectId: &s];
+    
     keyCache = [attrib objectForKey:@"id"]; //this information will be used by next child tag-method
     [managedObjectIDs setValue:[s objectID] forKey:keyCache];// dito
     
     s.name = [attrib objectForKey:@"name"];
     s.command =[attrib objectForKey:@"command"];
     NSString* icon = [attrib objectForKey:@"icon"];
+    
+    s.refId = [self getRefId:attrib];
     
     //put a picture into db if needed
     if (icon !=nil)
@@ -206,6 +235,7 @@ NSManagedObjectContext* context;
     
     s.name = [attrib objectForKey:@"name"];
     s.comment =[attrib objectForKey:@"comment"];
+    s.refId = [self getRefId:attrib];
     
 }
 
@@ -257,17 +287,15 @@ NSManagedObjectContext* context;
     
     NSError* error = nil;
     NSArray *result = [context executeFetchRequest:request error:&error];
-    
-    
+
     for (Presentation *p in result) {
-        NSLog(@"Presentation %@ is a %@ :", p.name, p.comment);
-        
-        for (Sequence* s in p.sequences)
+        NSLog(@"Presentation %@ (id: %@) is a %@ :", p.name, p.refId, p.comment);
+        for (Sequence *s in p.orderedSequences)
         {
-            NSLog(@"    Sequence %@ with icon of size %i and command %@ has:", s.name, [s.icon.picture length], s.command);
-            for (Action* a in s.actions)
+            NSLog(@"    Sequence %@  (id: %@) with icon of size %i and command %@ has:", s.name, s.refId, [s.icon.picture length], s.command);
+            for (Action* a in s.orderedActions)
             {
-                NSLog(@"        Action %@ Type: %@  Favorite= %i with:", a.name, a.type, [a.favorite intValue]);
+                NSLog(@"        Action %@  (id: %@) with type: %@  Favorite=%i with:", a.name, a.refId, a.type, [a.favorite intValue]);
                 for (Param* pa in a.params)
                 {
                     NSLog(@"           Param:");
@@ -278,14 +306,8 @@ NSManagedObjectContext* context;
                 }
             }
         }
-        
     }
-    
-    
-    
     [request release];
-    
-    
 }
 
 - (void)rollback {
