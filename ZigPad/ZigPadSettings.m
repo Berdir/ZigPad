@@ -64,7 +64,11 @@ static ZigPadSettings * _sharedInstance = nil;
 
 - (NSString *) configuratorURL
 {	
-    return [standardUserDefaults stringForKey:CONFIGURATOR];
+    NSString *url = [standardUserDefaults stringForKey:CONFIGURATOR];
+    if (url == nil || [url isEqualToString:@""]) {
+        url = @"http://z.worldempire.ch/1/zigpad/config.xml";
+    }
+    return url;
 }
 
 - (NSString *) modeKey: (BOOL) simulationMode {
