@@ -74,7 +74,7 @@ Presentation *activePresentation = nil;
 - (void) runUpdate {
     Importer* parser = [[Importer alloc]init];
     //NSString * configURL = @"http://z.worldempire.ch/1/zigpad/config.xml";
-    NSString * configURL = nil;//[ZigPadSettings sharedInstance].configuratorURL;
+    NSString * configURL = [ZigPadSettings sharedInstance].configuratorURL;
     bool success = [parser parseXMLFile:configURL ];
     [parser release];
     parser = nil;
