@@ -13,8 +13,11 @@
 
 @implementation ActionViewController
 
-@synthesize presentation;
-@synthesize isMaster;
+@synthesize label = _label;
+@synthesize actionLabel = _actionLabel;
+@synthesize imageButton = _imageButton;
+@synthesize presentation = _presentation;
+@synthesize isMaster = _ismaster;
 
 // Returns a suitable controller plugin for that Action.
 +(ActionViewController *) getViewControllerFromAction: (Action *) action 
@@ -69,8 +72,8 @@
 }
 
 - (void) viewDidLoad {
-    label.text = self.presentation.activeSequence.name;
-    actionLabel.text = self.presentation.activeAction.name;
+    self.label.text = self.presentation.activeSequence.name;
+    self.actionLabel.text = self.presentation.activeAction.name;
     
     self.navigationController.toolbar.hidden = TRUE;
     self.navigationController.navigationBar.hidden = TRUE;
@@ -81,10 +84,10 @@
 
 -(void) dealloc
 {
-    if (label !=nil && [label retainCount] > 0) [label release];
-	if (imageButton !=nil && [imageButton retainCount] > 0)[imageButton release];
-    if (actionLabel !=nil && [actionLabel retainCount] > 0)[actionLabel release];
-    if (presentation !=nil && [presentation retainCount] > 0)[presentation release];
+    [_label release];
+    [_actionLabel release];
+    [_imageButton release];
+    [_presentation release];
     [super dealloc];
 }
 

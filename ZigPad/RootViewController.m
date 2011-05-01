@@ -23,7 +23,7 @@
 
 @synthesize managedObjectContext=__managedObjectContext;
 
-Presentation *activePresentation = nil;
+@synthesize activePresentation = _activePresentation;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -123,8 +123,7 @@ Presentation *activePresentation = nil;
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-    
+      
     // Configure the cell.
     Presentation *p = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = p.name;
@@ -140,16 +139,17 @@ Presentation *activePresentation = nil;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-    activePresentation = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSLog(@"Selected Presentation %@.", activePresentation.name);
+    self.activePresentation = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSLog(@"Selected Presentation %@.", self.activePresentation.name);
+  
+    Action *a = [self.activePresentation getNextAction];    
+    ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
+    nextPage.presentation = self.activePresentation;
+    
+    UINavigationController* navCtrl = self.navigationController;
+    
+    [navCtrl pushViewController:nextPage animated:TRUE];
 
-    CommandViewController *actionViewController = [[CommandViewController alloc] initWithNibName:@"CommandView" bundle:[NSBundle mainBundle]];
-    [activePresentation getNextAction];
-    actionViewController.presentation = activePresentation;
-    
-    [self.navigationController pushViewController:actionViewController animated:TRUE];
-    
-    [actionViewController release];
 }
 
 #pragma mark -
@@ -181,6 +181,7 @@ Presentation *activePresentation = nil;
 }
 
 - (void)dealloc {
+    [_activePresentation release];
     [__fetchedResultsController release];
     [__managedObjectContext release];
     [sync dealloc];

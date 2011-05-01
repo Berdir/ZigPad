@@ -124,28 +124,12 @@ NSManagedObjectContext* context;
     [tableList release];
 }
 
-- (void) obtainObjectId: (NSManagedObject **) object  {
-    // Enforce a permament object id before this is added to the presentation object to work around
-    // issues with multiple, incorrect permament object id's.
-    // See http://stackoverflow.com/questions/4530437/permanent-nsmanagedobject-uri-from-temporary-uri
-      NSArray *tempArray = [[NSArray alloc] initWithObjects:&(*object) count:1];
-    NSError *error = nil;
-    
-    if (![context obtainPermanentIDsForObjects:tempArray error:&error]) 
-    {
-        NSLog(@"error obtaining permanent ID for %@: %@", *object, error);
-    }
-    [tempArray release];
-
-}
 
 //analyzes action tag and put attributes into the core database
 -(void)addAction:(NSDictionary*) attrib
 {
 
     Action*  a = [NSEntityDescription insertNewObjectForEntityForName:@"Action" inManagedObjectContext:context]; 
-    
-    [self obtainObjectId: &a];
 
     keyCache = [attrib objectForKey:@"id"]; //this information will be used by next child tag-method
     [managedObjectIDs setValue:[a objectID] forKey:keyCache];// dito
@@ -184,14 +168,11 @@ NSManagedObjectContext* context;
     
 }
 
-
 //analyzes sequence tag and put attributes into the core database
 -(void) addSequence:(NSDictionary *)attrib
 {
 
-    Sequence*  s = [NSEntityDescription insertNewObjectForEntityForName:@"Sequence" inManagedObjectContext:context];  
-    
-    [self obtainObjectId: &s];
+    Sequence*  s = [NSEntityDescription insertNewObjectForEntityForName:@"Sequence" inManagedObjectContext:context]; 
     
     keyCache = [attrib objectForKey:@"id"]; //this information will be used by next child tag-method
     [managedObjectIDs setValue:[s objectID] forKey:keyCache];// dito
@@ -201,6 +182,9 @@ NSManagedObjectContext* context;
     NSString* icon = [attrib objectForKey:@"icon"];
     
     s.refId = [self getRefId:attrib];
+
+    s.orderingKey = [attrib objectForKey:@"id"]; //für die spätere Ordnung der Actions
+
     
     //put a picture into db if needed
     if (icon !=nil)
@@ -208,7 +192,8 @@ NSManagedObjectContext* context;
         LocalPicture*  lp  = [self loadPicture:icon];
         s.icon = lp;
         if (lp==nil) @throw([NSException exceptionWithName:@"PictureLoadingException" reason:@"could not load Picture" userInfo:nil]);
-    }    
+    } 
+    
 }
 
 //links an Action Reference (childtag) to the actual Sequence (parent tag)
@@ -219,8 +204,9 @@ NSManagedObjectContext* context;
     //get an Action from dbPool
     NSString* actionRef = [attrib objectForKey:@"ref"];
     @try {
-    Action* a = (Action*)[context objectWithID:[managedObjectIDs valueForKey:actionRef]];
-         [s addActionsObject:a]; //calling of a generated code.. (fill the 1:n-collection)
+        Action* a = (Action*)[context objectWithID:[managedObjectIDs valueForKey:actionRef]];
+        [s addActionsObject:a]; //calling of a generated code.. (fill the 1:n-collection)
+        [s registerObjectToOrder:s.orderingKey :a]; //feste Ordnung zuweisen
     } @catch (NSException *exception) {
         NSLog(@"Failed to add ActionRef (ref = %@, sequence = %@)", actionRef, keyCache);
         [exception raise];
@@ -232,14 +218,16 @@ NSManagedObjectContext* context;
 -(void) addPresentation:(NSDictionary *)attrib
 {
 
-    Presentation*  s = [NSEntityDescription insertNewObjectForEntityForName:@"Presentation" inManagedObjectContext:context];  
+    Presentation*  p = [NSEntityDescription insertNewObjectForEntityForName:@"Presentation" inManagedObjectContext:context];  
     
     keyCache = [attrib objectForKey:@"id"]; //this informat	ion will be used by next child tag-method
-    [managedObjectIDs setValue:[s objectID] forKey:keyCache];// dito
+    [managedObjectIDs setValue:[p objectID] forKey:keyCache];// dito
     
-    s.name = [attrib objectForKey:@"name"];
-    s.comment =[attrib objectForKey:@"comment"];
-    s.refId = [self getRefId:attrib];
+    p.orderingKey = [attrib objectForKey:@"id"]; //für die spätere Ordnung der Sequenzen
+    
+    p.name = [attrib objectForKey:@"name"];
+    p.comment =[attrib objectForKey:@"comment"];
+    p.refId = [self getRefId:attrib];
     
 }
 
@@ -253,6 +241,7 @@ NSManagedObjectContext* context;
     Sequence* s = (Sequence*)[context objectWithID:[managedObjectIDs valueForKey:sequenceRef]];
     
     [p addSequencesObject:s]; //calling of a generated code.. (fill the 1:n-collection)
+    [p registerObjectToOrder:p.orderingKey :s]; //feste Ordnung zuweisen
     
 }
 //puts NSUserdefaults from the xml
@@ -294,10 +283,10 @@ NSManagedObjectContext* context;
 
     for (Presentation *p in result) {
         NSLog(@"Presentation %@ (id: %@) is a %@ :", p.name, p.refId, p.comment);
-        for (Sequence *s in p.orderedSequences)
+        for (Sequence *s in [p getOrderdSet:p.sequences])
         {
             NSLog(@"    Sequence %@  (id: %@) with icon of size %i and command %@ has:", s.name, s.refId, [s.icon.picture length], s.command);
-            for (Action* a in s.orderedActions)
+            for (Action* a in [s getOrderdSet:s.actions])
             {
                 NSLog(@"        Action %@  (id: %@) with type: %@  Favorite=%i with:", a.name, a.refId, a.type, [a.favorite intValue]);
                 for (Param* pa in a.params)

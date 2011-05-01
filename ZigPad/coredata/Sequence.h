@@ -8,23 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "BWOrderedManagedObject.h"
 #import "LocalPicture.h"
+#import "OrderingPlugin.h"
 
 @class Action, Presentation;
 
-@interface Sequence : BWOrderedManagedObject {
+@interface Sequence : OrderingPlugin {
 @private
 }
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * command;
-@property (nonatomic, retain) id actionsOrdering;
 @property (nonatomic, retain) NSNumber * refId;
 
 @property (nonatomic, retain) NSSet* presentations;
 @property (nonatomic, retain) LocalPicture * icon;
 @property (nonatomic, retain) NSSet* actions;
-@property (nonatomic, readonly) NSArray* orderedActions;
+
 
 - (void)addActionsObject:(Action *)value;
 

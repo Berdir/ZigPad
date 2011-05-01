@@ -12,16 +12,17 @@
 #import "Presentation.h"
 #import "Sequence.h"
 #import "LocalPicture.h"
+#import "ActionViewController.h"
 
 
 @implementation SequenceChoiceViewController
 
-Presentation *presentation;
+@synthesize presentation = _presentation;
 
 //caches all Sequence UIImages from the current Presentation
 -(void) initWithPresentation:(Presentation*) p
 {
-    presentation = p;
+    self.presentation = p;
 }
 
 /*
@@ -65,7 +66,11 @@ Presentation *presentation;
 }
 
 
-
+-(void) dealloc
+{
+    [_presentation release];
+    [super dealloc];
+}
 
 
 
@@ -79,21 +84,32 @@ Presentation *presentation;
 
 - (int)flowCoverNumberImages:(FlowCoverView *)view
 {
-    return[presentation.orderedSequences count];
+    return[self.presentation.sequences count];
 }
 
 - (UIImage *)flowCover:(FlowCoverView *)view cover:(int)image
 {
-    Sequence *s = (Sequence *) [presentation.orderedSequences objectAtIndex:image];
+    Sequence *s = (Sequence *) [[self.presentation getOrderdSet:self.presentation.sequences] objectAtIndex:image];
     
     return [UIImage imageWithData:s.icon.picture];       
 }
 
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)image
 {
-    [presentation jumpToSequence: image];
+    [self.presentation jumpToSequence: image];
     
-    [self.navigationController popViewControllerAnimated:true];
+    ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:self.presentation.activeAction];
+    nextPage.presentation = self.presentation;
+    
+    UINavigationController* navCtrl = self.navigationController;
+    
+    navCtrl.navigationBar.hidden = FALSE;
+    
+    [navCtrl popViewControllerAnimated:FALSE];
+    
+    [navCtrl pushViewController:nextPage animated:FALSE];
+    
+    
 }
 
 

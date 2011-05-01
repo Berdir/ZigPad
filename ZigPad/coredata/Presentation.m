@@ -13,20 +13,19 @@
 @implementation Presentation
 @dynamic name;
 @dynamic comment;
-@dynamic sequencesOrdering;
 @dynamic refId;
 @dynamic sequences;
 
-@synthesize activeSequence;
-@synthesize activeAction;
+@synthesize activeSequence = _activeSeq;;
+@synthesize activeAction = _activeAct;
+@synthesize indexMapping = _indexMapping; //Mapps all indexes of Sequences and Actions to an Array
+                                          // to Format: Array Length = length of Sequence-Array
+                                          // and Array Contents = length of Action arrays
 
-int sequencesIndex = 0;
-int actionsIndex = 0;
+int activeSequencesIndex = 0;
+int activeActionsIndex = 0;
+bool isFirstCallOfGetNextMethod = true;
 
-NSEnumerator *sequenceEnumerator = nil;
-NSEnumerator *actionEnumerator = nil;
-Sequence *activeSequence = nil;
-Action *activeAction = nil;
 
 
 - (void)addSequencesObject:(Sequence *)value {    
@@ -58,85 +57,128 @@ Action *activeAction = nil;
     [self didChangeValueForKey:@"sequences" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
 }
 
--  (Action*) getNextAction {
-    // If the active sequence is nil, we're starting from the beginning,
-    // and get the first sequence.
-    if (!activeSequence) {
-        sequencesIndex = 0;
-        if ([self countOfOrderedValueForKey:@"sequences"] > sequencesIndex) {
-            activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:sequencesIndex++];
+
+- (void) doIndexMapping
+{
+    //if not already done..
+    if (self.indexMapping == nil || [self.indexMapping count] == 0) 
+    {
+        //see decription on the top of class
+        NSMutableArray* a = [[NSMutableArray alloc ]init];
+    
+        NSArray* _sequences = [self getOrderdSet:self.sequences];
+    
+        for (int i = 0; i<[_sequences count]; i++) {
+            Sequence* _seq = [_sequences objectAtIndex:i];
+            NSNumber* j = [NSNumber numberWithInt:[_seq.actions count]];
+            [a addObject:j];
         }
-        else {
-            return nil;
+
+        self.indexMapping = a;
+        [a release];
+    }
+}
+
+-(void) toggleIndexes:(int) i
+{
+        
+        //increment or decrement
+        int actionsCounts = [[self.indexMapping objectAtIndex:activeSequencesIndex]intValue];
+        activeActionsIndex += i;
+    
+        //if all actions done within active sequence go next/previous sequence
+        if (activeActionsIndex >= actionsCounts || activeActionsIndex <0) {
+            activeSequencesIndex +=i;
+            activeActionsIndex = 0;
         }
+    
+}
+
+-  (Action*) getNextAction
+{
+    
+    [self doIndexMapping];
+    
+    //increment action (the first time do nothing)
+    if (!isFirstCallOfGetNextMethod) [self toggleIndexes:+1];
+
+    
+    //if end reached 
+    if (activeSequencesIndex >= [self.indexMapping count])
+    {
+        activeActionsIndex = 0; 
+        activeSequencesIndex = 0;
+        isFirstCallOfGetNextMethod = true;
+        return nil;
     }
     
-    // If the active action is nil, this is a new sequence.
-    if (!activeAction) {
-        actionsIndex = 0;
+    NSArray* _sequences = [self getOrderdSet:self.sequences];
+    Sequence* _seq = [_sequences objectAtIndex:activeSequencesIndex];
+    NSArray* _actions = [_seq getOrderdSet:_seq.actions];
+    
+    self.activeSequence = _seq;
+    Action* _act = [_actions objectAtIndex:activeActionsIndex];
+    self.activeAction = _act;
+
+    //prepare for next methode call
+    if (isFirstCallOfGetNextMethod) isFirstCallOfGetNextMethod = false;
+
+
+    return self.activeAction;
+    
+}
+
+
+- (Action*) getPreviousAction
+{  
+    [self doIndexMapping];
+    [self toggleIndexes: -1];
+    
+    //if end reached 
+    if (activeSequencesIndex < 0)
+    {
+        activeActionsIndex = 0; 
+        activeSequencesIndex = 0;
+        isFirstCallOfGetNextMethod = true;
+        return nil;
     }
-        
-    // Try to get next action. Repeat until either the next action object was found or no more
-    // sequences exist.
-    do {
-        if ([activeSequence countOfOrderedValueForKey:@"actions"] > actionsIndex) {
-            activeAction = (Action *) [activeSequence objectInOrderedValueForKey:@"actions" atIndex:actionsIndex++];
-            return activeAction;
-        }
-
-        // If there are no remaining actions in the active Sequence, switch sequence and try again.
-        if ([self countOfOrderedValueForKey:@"sequences"] > sequencesIndex) {
-            activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:sequencesIndex++];
-            actionsIndex = 0;
-        }
-        else {
-            activeSequence = nil;
-            activeAction = nil;
-            return nil;
-        }
-    } while (true);
-}
-
-- (NSArray *) orderedSequences {
-    return [self orderedValueForKey:@"sequences"];
-}
-
-- (Action*) getPreviousAction {
-    do {
-        if (actionsIndex > 1) {
-            activeAction =  activeAction = (Action *) [activeSequence objectInOrderedValueForKey:@"actions" atIndex:(--actionsIndex) - 1];
-            return activeAction;
-        }
-        else if (sequencesIndex > 1) {
-            activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:(--sequencesIndex) - 1];
-            actionsIndex = [activeSequence.actions count];
-        }
-        else {
-            return nil;
-        }
-    } while (true);
-    return nil;  
+    
+    NSArray* _sequences = [self getOrderdSet:self.sequences];
+    Sequence* _seq = [_sequences objectAtIndex:activeSequencesIndex];
+    NSArray* _actions = [_seq getOrderdSet:_seq.actions];
+    
+    self.activeSequence = _seq;
+    Action* _act = [_actions objectAtIndex:activeActionsIndex];
+    self.activeAction = _act;
+    
+    
+    return self.activeAction;
+    
 }
 
 - (Action*) jumpToSequence: (int) index {
-    sequencesIndex = index;
-    activeSequence = (Sequence *) [self objectInOrderedValueForKey:@"sequences" atIndex:sequencesIndex++];
+
+    activeSequencesIndex = index;
     
-    actionsIndex = 0;
-    activeAction = (Action *) [activeSequence objectInOrderedValueForKey:@"actions" atIndex:actionsIndex++];
-    return activeAction;
+    NSArray* _sequences = [self getOrderdSet:self.sequences];
+    Sequence* _seq = [_sequences objectAtIndex:activeSequencesIndex];
+    NSArray* _actions = [_seq getOrderdSet:_seq.actions];
+    
+    activeActionsIndex = 0;
+    Action* _act = [_actions objectAtIndex:activeActionsIndex];
+    
+    self.activeAction = _act;
+    self.activeSequence = _seq;
+
+    return self.activeAction;
 }
 
 
 - (void) dealloc {
-    if (sequenceEnumerator && [sequenceEnumerator retainCount]) {
-        [sequenceEnumerator release];
-        sequenceEnumerator = nil;
-    }
-    if (actionEnumerator && [actionEnumerator retainCount]) {
-        [actionEnumerator release];
-        actionEnumerator = nil;
-    }
+
+    [_indexMapping release];
+    [_activeAct release];
+    [_activeSeq release];
     [super dealloc];
 }
 

@@ -15,19 +15,14 @@
 #import "Presentation.h"
 
 @interface ActionViewController : UIViewController {
-    IBOutlet UILabel *label;
-    IBOutlet UILabel *actionLabel;
-    IBOutlet UIButton *imageButton;
-	
-    @private Presentation *presentation;
-    
-    @private BOOL isMaster;
-    
+
 }
 
-@property (readwrite, assign) Presentation *presentation;
-
-@property (readwrite, assign) BOOL isMaster;
+@property (nonatomic, retain) IBOutlet UILabel *label;
+@property (nonatomic, retain) IBOutlet UILabel *actionLabel;
+@property (nonatomic, retain) IBOutlet UIButton *imageButton;
+@property (nonatomic, retain) Presentation *presentation;
+@property (nonatomic) BOOL isMaster;
 
 +(ActionViewController *) getViewControllerFromAction: (Action *) action;
 

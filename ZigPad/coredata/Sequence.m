@@ -12,7 +12,6 @@
 @implementation Sequence
 @dynamic name;
 @dynamic command;
-@dynamic actionsOrdering;
 @dynamic refId;
 @dynamic presentations;
 @dynamic icon;
@@ -75,8 +74,5 @@
     [self didChangeValueForKey:@"actions" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
 }
 
-- (NSArray *) orderedActions {
-    return [self orderedValueForKey:@"actions"];
-}
 
 @end

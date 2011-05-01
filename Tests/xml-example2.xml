@@ -1,0 +1,51 @@
+<config>
+    <actions>
+        <action id="1" name="A sample action" type="command" favorite="3">
+            <param key="picture" picture="http://z.worldempire.ch/sites/default/files/styles/command_image/public/desire.jpg"/>
+            <param key="command" value="OTHER_COMMAND"/>
+        </action>
+        <action id="4" name="Another action" type="command" favorite="1">
+            <param key="picture" picture="http://z.worldempire.ch/sites/default/files/styles/command_image/public/galaxys.jpg"/>
+            <param key="command" value="EXAMPLE_COMMAND"/>
+        </action>
+        <action id="7" name="Türe" type="command" favorite="1">
+            <param key="picture" picture="http://z.worldempire.ch/sites/default/files/styles/command_image/public/axit_0.jpg"/>
+            <param key="command" value="OPEN_DOOR"/>
+        </action>
+        <action id="13" name="Webcam example" type="webcam" favorite="0">
+            <param key="url" value="http://www.stefanbion.de/cgi-bin/webcam_bsp_cac_cnt_mjp.pl?format=mjpeg"/>
+        </action>
+    </actions>
+    <sequences>
+        <sequence id="2" name="A sample scene" icon="http://z.worldempire.ch/sites/default/files/styles/sequence/public/lounge.jpg">
+            <actionRef ref="1"/>
+            <actionRef ref="4"/>
+        </sequence>
+        <sequence id="6" name="New Sequence" icon="http://z.worldempire.ch/sites/default/files/styles/sequence/public/lounge_0.jpg">
+            <actionRef ref="4"/>
+        </sequence>
+        <sequence id="10" name="Sequenz1" icon="http://z.worldempire.ch/sites/default/files/styles/sequence/public/axit_2.jpg" command="http://z.worldempire.ch/INIT_SEQUENCE1">
+            <actionRef ref="7"/>
+            <actionRef ref="13"/>
+        </sequence>
+        <sequence id="11" name="Sequenz2" icon="http://z.worldempire.ch/sites/default/files/styles/sequence/public/lounge_1.jpg" command="http://z.worldempire.ch/INIT_SEQUENCE2">
+            <actionRef ref="7"/>
+            <actionRef ref="4"/>
+            <actionRef ref="1"/>
+        </sequence>
+    </sequences>
+    <presentations>
+        <presentation id="3" name="Example presentation" comment="Just a useless comment">
+            <sequenceRef ref="2"/>
+            <sequenceRef ref="6"/>
+        </presentation>
+        <presentation id="12" name="Testpräsentation" comment="erste Präsi">
+            <sequenceRef ref="10"/>
+            <sequenceRef ref="11"/>
+        </presentation>
+    </presentations>
+    <serverConfig>
+        <server type="real" ip="10.3.96.147" port="1234"/>
+        <server type="simulator" ip="10.10.10.1" port="1234"/>
+    </serverConfig>
+</config>

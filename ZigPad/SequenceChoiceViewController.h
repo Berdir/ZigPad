@@ -15,7 +15,10 @@
 
 }
 
+@property (nonatomic, retain) Presentation *presentation;
+
 -(void) initWithPresentation:(Presentation*) p;
+
 
 
 @end

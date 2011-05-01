@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B93A179913694E7C0058DC2D /* OrderingPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = B93A179813694E7C0058DC2D /* OrderingPlugin.m */; };
 		B94666DD135DB03000EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
 		B94666E0135DB40700EDA740 /* SettingsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DF135DB40700EDA740 /* SettingsTest.m */; };
 		B94666E1135DB57B00EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
 		B980003A1367FAD500A629D4 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98000391367FAD500A629D4 /* ActionViewController.m */; };
+		B981A69A136C434F00525E27 /* xml-example2.xml in Resources */ = {isa = PBXBuildFile; fileRef = B981A699136C434F00525E27 /* xml-example2.xml */; };
 		B986A5FF135EC2DA00680172 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */; };
 		B993FB7D1355E29D00A69334 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B993FB7B1355E29C00A69334 /* FavoritesViewController.m */; };
 		B993FB7E1355E29D00A69334 /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B993FB7C1355E29D00A69334 /* FavoritesView.xib */; };
@@ -89,11 +91,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B93A179713694E7C0058DC2D /* OrderingPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderingPlugin.h; sourceTree = "<group>"; };
+		B93A179813694E7C0058DC2D /* OrderingPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderingPlugin.m; sourceTree = "<group>"; };
 		B94666DB135DB03000EDA740 /* ZigPadSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZigPadSettings.h; sourceTree = "<group>"; };
 		B94666DC135DB03000EDA740 /* ZigPadSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZigPadSettings.m; sourceTree = "<group>"; };
 		B94666DF135DB40700EDA740 /* SettingsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTest.m; sourceTree = "<group>"; };
 		B98000381367FAD500A629D4 /* ActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
 		B98000391367FAD500A629D4 /* ActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		B981A699136C434F00525E27 /* xml-example2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "xml-example2.xml"; sourceTree = "<group>"; };
 		B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = Frameworks/GHUnitIOS.framework; sourceTree = "<group>"; };
 		B993FB7A1355E29C00A69334 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		B993FB7B1355E29C00A69334 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
@@ -287,6 +292,7 @@
 				B9BEEADE134CD7AA0085663E /* testpic2.png */,
 				B9BEEADC134CC5C20085663E /* testpic.jpg */,
 				B9BC41B6134C8A230085D597 /* xml-example.xml */,
+				B981A699136C434F00525E27 /* xml-example2.xml */,
 				B998B90D134C67B5003C2C7B /* Supporting Files */,
 				B998B927134C6930003C2C7B /* GHUnitIOSTestMain.m */,
 				B998B92A134C69AD003C2C7B /* ImporterTest.m */,
@@ -371,6 +377,8 @@
 				B9A2FC8713656C59009BA16A /* Param.m */,
 				B9A2FC8913656C59009BA16A /* LocalPicture.h */,
 				B9A2FC8A13656C59009BA16A /* LocalPicture.m */,
+				B93A179713694E7C0058DC2D /* OrderingPlugin.h */,
+				B93A179813694E7C0058DC2D /* OrderingPlugin.m */,
 			);
 			name = CoreData;
 			path = coredata;
@@ -514,6 +522,7 @@
 				B994BDD7135EDD6D0067529F /* 00_icon_home_control.png in Resources */,
 				B994BDD9135EDD950067529F /* Default.png in Resources */,
 				B9DA4B811368749300EFD4B1 /* WebcamView.xib in Resources */,
+				B981A69A136C434F00525E27 /* xml-example2.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +568,7 @@
 				B9A2FC8B13656C59009BA16A /* LocalPicture.m in Sources */,
 				B980003A1367FAD500A629D4 /* ActionViewController.m in Sources */,
 				B9DA4B821368749300EFD4B1 /* WebcamViewController.m in Sources */,
+				B93A179913694E7C0058DC2D /* OrderingPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
