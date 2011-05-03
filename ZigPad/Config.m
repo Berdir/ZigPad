@@ -95,7 +95,7 @@ NSManagedObjectContext* context;
     }
     
     //create a Coredata Object and fill with data
-    LocalPicture*  lp = [NSEntityDescription insertNewObjectForEntityForName:@"LocalPicture" inManagedObjectContext:context]; 
+    LocalPicture*  lp = [[Database sharedInstance] createEntity: @"LocalPicture"]; 
     lp.picture = data;
     
     return lp;
@@ -124,12 +124,12 @@ NSManagedObjectContext* context;
     [tableList release];
 }
 
-
 //analyzes action tag and put attributes into the core database
 -(void)addAction:(NSDictionary*) attrib
 {
-
-    Action*  a = [NSEntityDescription insertNewObjectForEntityForName:@"Action" inManagedObjectContext:context]; 
+    // Get an action entity with a permament object id which can be used for reference
+    // in BWOrderedObject.
+    Action*  a = [[Database sharedInstance] createEntity:@"Action"];
 
     keyCache = [attrib objectForKey:@"id"]; //this information will be used by next child tag-method
     [managedObjectIDs setValue:[a objectID] forKey:keyCache];// dito
@@ -148,7 +148,7 @@ NSManagedObjectContext* context;
 {
     Action* a = (Action*)[context objectWithID:[managedObjectIDs valueForKey:keyCache]];//get parent-tag
     
-    Param* p = [NSEntityDescription insertNewObjectForEntityForName:@"Param" inManagedObjectContext:context];    
+    Param* p = [[Database sharedInstance] createEntity:@"Param"];    
     
     p.key = [attrib objectForKey:@"key"];
     NSString* picture = [attrib objectForKey:@"picture"];//wenn es ein attribut mit namen picture gibt
@@ -168,11 +168,12 @@ NSManagedObjectContext* context;
     
 }
 
+
 //analyzes sequence tag and put attributes into the core database
 -(void) addSequence:(NSDictionary *)attrib
 {
 
-    Sequence*  s = [NSEntityDescription insertNewObjectForEntityForName:@"Sequence" inManagedObjectContext:context]; 
+    Sequence*  s = [[Database sharedInstance] createEntity:@"Sequence"];
     
     keyCache = [attrib objectForKey:@"id"]; //this information will be used by next child tag-method
     [managedObjectIDs setValue:[s objectID] forKey:keyCache];// dito
@@ -182,9 +183,6 @@ NSManagedObjectContext* context;
     NSString* icon = [attrib objectForKey:@"icon"];
     
     s.refId = [self getRefId:attrib];
-
-    s.orderingKey = [attrib objectForKey:@"id"]; //für die spätere Ordnung der Actions
-
     
     //put a picture into db if needed
     if (icon !=nil)
@@ -192,8 +190,7 @@ NSManagedObjectContext* context;
         LocalPicture*  lp  = [self loadPicture:icon];
         s.icon = lp;
         if (lp==nil) @throw([NSException exceptionWithName:@"PictureLoadingException" reason:@"could not load Picture" userInfo:nil]);
-    } 
-    
+    }    
 }
 
 //links an Action Reference (childtag) to the actual Sequence (parent tag)
@@ -206,7 +203,6 @@ NSManagedObjectContext* context;
     @try {
         Action* a = (Action*)[context objectWithID:[managedObjectIDs valueForKey:actionRef]];
         [s addActionsObject:a]; //calling of a generated code.. (fill the 1:n-collection)
-        [s registerObjectToOrder:s.orderingKey :a]; //feste Ordnung zuweisen
     } @catch (NSException *exception) {
         NSLog(@"Failed to add ActionRef (ref = %@, sequence = %@)", actionRef, keyCache);
         [exception raise];
@@ -218,16 +214,14 @@ NSManagedObjectContext* context;
 -(void) addPresentation:(NSDictionary *)attrib
 {
 
-    Presentation*  p = [NSEntityDescription insertNewObjectForEntityForName:@"Presentation" inManagedObjectContext:context];  
+    Presentation*  s = [[Database sharedInstance] createEntity: @"Presentation"];
     
     keyCache = [attrib objectForKey:@"id"]; //this informat	ion will be used by next child tag-method
-    [managedObjectIDs setValue:[p objectID] forKey:keyCache];// dito
+    [managedObjectIDs setValue:[s objectID] forKey:keyCache];// dito
     
-    p.orderingKey = [attrib objectForKey:@"id"]; //für die spätere Ordnung der Sequenzen
-    
-    p.name = [attrib objectForKey:@"name"];
-    p.comment =[attrib objectForKey:@"comment"];
-    p.refId = [self getRefId:attrib];
+    s.name = [attrib objectForKey:@"name"];
+    s.comment =[attrib objectForKey:@"comment"];
+    s.refId = [self getRefId:attrib];
     
 }
 
@@ -241,7 +235,6 @@ NSManagedObjectContext* context;
     Sequence* s = (Sequence*)[context objectWithID:[managedObjectIDs valueForKey:sequenceRef]];
     
     [p addSequencesObject:s]; //calling of a generated code.. (fill the 1:n-collection)
-    [p registerObjectToOrder:p.orderingKey :s]; //feste Ordnung zuweisen
     
 }
 //puts NSUserdefaults from the xml
@@ -283,10 +276,10 @@ NSManagedObjectContext* context;
 
     for (Presentation *p in result) {
         NSLog(@"Presentation %@ (id: %@) is a %@ :", p.name, p.refId, p.comment);
-        for (Sequence *s in [p getOrderdSet:p.sequences])
+        for (Sequence *s in p.orderedSequences)
         {
             NSLog(@"    Sequence %@  (id: %@) with icon of size %i and command %@ has:", s.name, s.refId, [s.icon.picture length], s.command);
-            for (Action* a in [s getOrderdSet:s.actions])
+            for (Action* a in s.orderedActions)
             {
                 NSLog(@"        Action %@  (id: %@) with type: %@  Favorite=%i with:", a.name, a.refId, a.type, [a.favorite intValue]);
                 for (Param* pa in a.params)

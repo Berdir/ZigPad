@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B93A179913694E7C0058DC2D /* OrderingPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = B93A179813694E7C0058DC2D /* OrderingPlugin.m */; };
 		B94666DD135DB03000EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
 		B94666E0135DB40700EDA740 /* SettingsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DF135DB40700EDA740 /* SettingsTest.m */; };
 		B94666E1135DB57B00EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
@@ -91,8 +90,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B93A179713694E7C0058DC2D /* OrderingPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderingPlugin.h; sourceTree = "<group>"; };
-		B93A179813694E7C0058DC2D /* OrderingPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderingPlugin.m; sourceTree = "<group>"; };
 		B94666DB135DB03000EDA740 /* ZigPadSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZigPadSettings.h; sourceTree = "<group>"; };
 		B94666DC135DB03000EDA740 /* ZigPadSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZigPadSettings.m; sourceTree = "<group>"; };
 		B94666DF135DB40700EDA740 /* SettingsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTest.m; sourceTree = "<group>"; };
@@ -377,8 +374,6 @@
 				B9A2FC8713656C59009BA16A /* Param.m */,
 				B9A2FC8913656C59009BA16A /* LocalPicture.h */,
 				B9A2FC8A13656C59009BA16A /* LocalPicture.m */,
-				B93A179713694E7C0058DC2D /* OrderingPlugin.h */,
-				B93A179813694E7C0058DC2D /* OrderingPlugin.m */,
 			);
 			name = CoreData;
 			path = coredata;
@@ -568,7 +563,6 @@
 				B9A2FC8B13656C59009BA16A /* LocalPicture.m in Sources */,
 				B980003A1367FAD500A629D4 /* ActionViewController.m in Sources */,
 				B9DA4B821368749300EFD4B1 /* WebcamViewController.m in Sources */,
-				B93A179913694E7C0058DC2D /* OrderingPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

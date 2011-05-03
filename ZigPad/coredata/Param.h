@@ -10,11 +10,11 @@
 #import <CoreData/CoreData.h>
 #import "Action.h"
 #import "LocalPicture.h"
-#import "OrderingPlugin.h"
+#import "BWOrderedManagedObject.h"
 
 @class Action;
 
-@interface Param : OrderingPlugin {
+@interface Param : BWOrderedManagedObject {
 @private
 }
 @property (nonatomic, retain) NSString * key;

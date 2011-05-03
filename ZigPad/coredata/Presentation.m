@@ -13,6 +13,7 @@
 @implementation Presentation
 @dynamic name;
 @dynamic comment;
+@dynamic sequencesOrdering;
 @dynamic refId;
 @dynamic sequences;
 
@@ -57,6 +58,10 @@ bool isFirstCallOfGetNextMethod = true;
     [self didChangeValueForKey:@"sequences" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
 }
 
+- (NSArray *) orderedSequences {	
+    return [self orderedValueForKey:@"sequences"];
+}
+
 
 - (void) doIndexMapping
 {
@@ -66,7 +71,7 @@ bool isFirstCallOfGetNextMethod = true;
         //see decription on the top of class
         NSMutableArray* a = [[NSMutableArray alloc ]init];
     
-        NSArray* _sequences = [self getOrderdSet:self.sequences];
+        NSArray* _sequences = self.orderedSequences;
     
         for (int i = 0; i<[_sequences count]; i++) {
             Sequence* _seq = [_sequences objectAtIndex:i];
@@ -117,9 +122,9 @@ bool isFirstCallOfGetNextMethod = true;
         return nil;
     }
     
-    NSArray* _sequences = [self getOrderdSet:self.sequences];
+    NSArray* _sequences = self.orderedSequences;
     Sequence* _seq = [_sequences objectAtIndex:activeSequencesIndex];
-    NSArray* _actions = [_seq getOrderdSet:_seq.actions];
+    NSArray* _actions = _seq.orderedActions;
     
     self.activeSequence = _seq;
     Action* _act = [_actions objectAtIndex:activeActionsIndex];
@@ -148,9 +153,9 @@ bool isFirstCallOfGetNextMethod = true;
         return nil;
     }
     
-    NSArray* _sequences = [self getOrderdSet:self.sequences];
+    NSArray* _sequences = self.orderedSequences;
     Sequence* _seq = [_sequences objectAtIndex:activeSequencesIndex];
-    NSArray* _actions = [_seq getOrderdSet:_seq.actions];
+    NSArray* _actions = _seq.orderedActions;
     
     self.activeSequence = _seq;
     Action* _act = [_actions objectAtIndex:activeActionsIndex];
@@ -165,9 +170,9 @@ bool isFirstCallOfGetNextMethod = true;
 
     activeSequencesIndex = index;
     
-    NSArray* _sequences = [self getOrderdSet:self.sequences];
+    NSArray* _sequences = self.orderedSequences;
     Sequence* _seq = [_sequences objectAtIndex:activeSequencesIndex];
-    NSArray* _actions = [_seq getOrderdSet:_seq.actions];
+    NSArray* _actions = _seq.orderedActions;
     
     activeActionsIndex = 0;
     Action* _act = [_actions objectAtIndex:activeActionsIndex];

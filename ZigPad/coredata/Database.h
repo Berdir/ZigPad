@@ -18,6 +18,7 @@
 
 
 - (NSURL *)applicationDocumentsDirectory;
+- (id) createEntity: (NSString *) name;
 
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

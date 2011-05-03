@@ -89,7 +89,7 @@
 
 - (UIImage *)flowCover:(FlowCoverView *)view cover:(int)image
 {
-    Sequence *s = (Sequence *) [[self.presentation getOrderdSet:self.presentation.sequences] objectAtIndex:image];
+    Sequence *s = (Sequence *) [self.presentation.orderedSequences objectAtIndex:image];
     
     return [UIImage imageWithData:s.icon.picture];       
 }

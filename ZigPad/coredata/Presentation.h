@@ -8,24 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "BWOrderedManagedObject.h"
 #import "Action.h"
 #import "Sequence.h"
-#import "OrderingPlugin.h"
 
-@interface Presentation : OrderingPlugin {
+@interface Presentation : BWOrderedManagedObject {
 @private
 }
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * comment;
+@property (nonatomic, retain) id sequencesOrdering;
 @property (nonatomic, retain) NSNumber * refId;
 
 @property (nonatomic, retain) NSSet* sequences;
-
-
+@property (nonatomic, readonly) NSArray* orderedSequences;
 
 @property (nonatomic, retain) Sequence *activeSequence;
 @property (nonatomic, retain) Action *activeAction;
+
 @property (nonatomic, retain) NSMutableArray* indexMapping;
+
 
 - (void)addSequencesObject:(Sequence *)value;
 - (Action*) getNextAction;

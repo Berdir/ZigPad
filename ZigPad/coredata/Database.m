@@ -149,6 +149,22 @@ static Database * _sharedInstance = nil;
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+- (id) createEntity: (NSString *) name {
+    NSManagedObject *entity = [NSEntityDescription insertNewObjectForEntityForName:name inManagedObjectContext: self.managedObjectContext];
+    
+    // Enforce a permament object id before this is added to the presentation object to work around
+    // issues with multiple, incorrect permament object id's.
+    // See http://stackoverflow.com/questions/4530437/permanent-nsmanagedobject-uri-from-temporary-uri
+    NSArray *tempArray = [[NSArray alloc] initWithObjects:&(entity) count:1];
+    NSError *error = nil;
+    
+    if (![self.managedObjectContext obtainPermanentIDsForObjects:tempArray error:&error]) 
+    {
+        NSLog(@"error obtaining permanent ID for %@: %@", entity, error);
+    }
+    [tempArray release];
+    return entity;
+}
 
 
 - (void)dealloc

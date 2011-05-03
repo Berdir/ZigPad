@@ -10,9 +10,9 @@
 #import <CoreData/CoreData.h>
 #import "Param.h"
 #import "Sequence.h"
-#import "OrderingPlugin.h"
+#import "BWOrderedManagedObject.h"
 
-@interface Action : OrderingPlugin {
+@interface Action : BWOrderedManagedObject {
 @private
 }
 @property (nonatomic, retain) NSString * name;
