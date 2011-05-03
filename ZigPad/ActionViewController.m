@@ -11,6 +11,7 @@
 #import "WebcamViewController.h"
 
 
+
 @implementation ActionViewController
 
 @synthesize label = _label;
@@ -142,6 +143,7 @@
     UINavigationController* navigationController = self.navigationController;
 
     
+    /* BITTE CODE LASSEN -> KNOWLEGEBASE
     [UIView animateWithDuration:0.5
                      animations:^{ 
 
@@ -172,6 +174,27 @@
                          }
                          
                      }];
+     
+    */
+    
+    
+    if ([navigationController.view.layer animationForKey:@"SwitchToView1"] == nil)
+    {
+        CATransition *animation = [CATransition animation];
+        [animation setDuration:1.0];
+        [animation setType:kCATransitionPush];
+        if (XDirection > 0)
+            [animation setSubtype:kCATransitionFromTop];
+        else
+            [animation setSubtype:kCATransitionFromRight];
+        [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+        //[[nextPage.view layer] addAnimation:animation forKey:@"SwitchToView1"];
+        [navigationController.view.layer addAnimation:animation forKey:@"SwitchToView1"];
+    }
+
+    
+    [navigationController popViewControllerAnimated:NO];
+    [navigationController pushViewController:nextPage animated:NO];
 
     
 }
@@ -190,14 +213,19 @@
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
     nextPage.presentation = self.presentation;
 
-
+    [self slideWithAnimation:-1 :nextPage];
+    
+    /*
+    //by swipe
     if (animated) {[self slideWithAnimation:-1 :nextPage];}
+    //by klick
     else
     {
         UINavigationController* navController = self.navigationController;
         [navController popViewControllerAnimated:NO];
         [navController pushViewController:nextPage animated:YES];
     }
+     */
 
 }
 
