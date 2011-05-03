@@ -101,6 +101,8 @@
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:self.presentation.activeAction];
     nextPage.presentation = self.presentation;
     
+    [[Commander defaultCommander] sendString:self.presentation.activeSequence.command];
+    
     UINavigationController* navCtrl = self.navigationController;
     
     navCtrl.navigationBar.hidden = TRUE;
