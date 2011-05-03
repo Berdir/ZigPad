@@ -105,6 +105,9 @@
     
     navCtrl.navigationBar.hidden = TRUE;
     
+    // Remove the current viewController and the currently active ActionViewController
+    // below it.
+    [navCtrl popViewControllerAnimated:TRUE];
     [navCtrl popViewControllerAnimated:TRUE];
     
     [navCtrl pushViewController:nextPage animated:TRUE];
