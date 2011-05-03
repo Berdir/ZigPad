@@ -103,12 +103,11 @@
     
     UINavigationController* navCtrl = self.navigationController;
     
-    navCtrl.navigationBar.hidden = FALSE;
+    navCtrl.navigationBar.hidden = TRUE;
     
-    [navCtrl popViewControllerAnimated:FALSE];
+    [navCtrl popViewControllerAnimated:TRUE];
     
-    [navCtrl pushViewController:nextPage animated:FALSE];
-    
+    [navCtrl pushViewController:nextPage animated:TRUE];
     
 }
 

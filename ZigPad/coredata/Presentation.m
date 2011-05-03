@@ -89,7 +89,12 @@ bool isFirstCallOfGetNextMethod = true;
         //if all actions done within active sequence go next/previous sequence
         if (activeActionsIndex >= actionsCounts || activeActionsIndex <0) {
             activeSequencesIndex +=i;
-            activeActionsIndex = 0;
+            if (i > 0 ) activeActionsIndex = 0; //if wanna go next
+            if (i < 0 ) // if wanna go previous
+            {
+                actionsCounts = [[self.indexMapping objectAtIndex:activeSequencesIndex]intValue];
+                activeActionsIndex = actionsCounts -1;
+            }
         }
     
 }

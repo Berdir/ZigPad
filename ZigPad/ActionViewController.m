@@ -74,7 +74,9 @@
 - (void) viewDidLoad {
     self.label.text = self.presentation.activeSequence.name;
     self.actionLabel.text = self.presentation.activeAction.name;
-    
+
+    NSLog(@"geladen: Sequenz %@ mit ID %@  Action %@ mit ID %@",self.presentation.activeSequence.name, self.presentation.activeSequence.refId, self.presentation.activeAction.name, self.presentation.activeAction.refId);
+
     self.navigationController.toolbar.hidden = TRUE;
     self.navigationController.navigationBar.hidden = TRUE;
     
@@ -99,9 +101,12 @@
             SequenceChoiceViewController* chooser = [[SequenceChoiceViewController alloc] initWithNibName:@"SequenceChoiceView" bundle:[NSBundle mainBundle]];
             
             [chooser initWithPresentation: self.presentation]; 
+      
+            UINavigationController* navCtrl = self.navigationController;
             
-            [self.navigationController pushViewController:chooser animated:YES];
+            [navCtrl pushViewController:chooser animated:YES];
             [chooser release]; 
+ 
             break;
         }
         case UISwipeGestureRecognizerDirectionUp:
@@ -191,7 +196,6 @@
         [navController popViewControllerAnimated:NO];
         [navController pushViewController:nextPage animated:YES];
     }
-
 
 }
 
