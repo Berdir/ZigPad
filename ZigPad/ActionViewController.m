@@ -103,7 +103,10 @@
       
             UINavigationController* navCtrl = self.navigationController;
             
+            [navCtrl popViewControllerAnimated:FALSE];
             [navCtrl pushViewController:chooser animated:YES];
+            navCtrl.navigationBar.hidden = FALSE;
+            
             [chooser release]; 
  
             break;
