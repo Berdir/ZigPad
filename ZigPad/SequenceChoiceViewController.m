@@ -109,8 +109,8 @@
     
     // Remove the current viewController and the currently active ActionViewController
     // below it.
-    [navCtrl popViewControllerAnimated:TRUE];
-    [navCtrl popViewControllerAnimated:TRUE];
+    [navCtrl popViewControllerAnimated:FALSE];
+    [navCtrl popViewControllerAnimated:FALSE];
     
     [navCtrl pushViewController:nextPage animated:TRUE];
     

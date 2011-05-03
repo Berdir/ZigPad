@@ -25,8 +25,6 @@
     
     NSString *viewName = [NSString stringWithFormat:@"%@View", [action.type capitalizedString]];
     NSString *controllerName = [NSString stringWithFormat:@"%@Controller", viewName];
-    
-    NSLog(@"Loading %@ with view '%@'", controllerName, viewName); 
 
     ActionViewController* suitableController = [[NSClassFromString(controllerName) alloc] 
                                                 initWithNibName:viewName 
