@@ -28,10 +28,13 @@
 
 @property (nonatomic, retain) NSMutableArray* indexMapping;
 
+@property (nonatomic, readonly) int currentSequenceIndex;
+@property (nonatomic, readonly) int currentActionIndex;
 
 - (void)addSequencesObject:(Sequence *)value;
 - (Action*) getNextAction;
 - (Action*) getPreviousAction;
 - (Action*) jumpToSequence: (int) index;
+- (Action*) jumpToAction: (int) actionIndex sequenceIndex: (int) sequenceIndex;
 
 @end

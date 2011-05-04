@@ -167,19 +167,23 @@ bool isFirstCallOfGetNextMethod = true;
 }
 
 - (Action*) jumpToSequence: (int) index {
+    return [self jumpToAction:0 sequenceIndex:index];
+}
 
-    activeSequencesIndex = index;
+- (Action*) jumpToAction: (int) actionIndex sequenceIndex: (int) sequenceIndex {
+    
+    activeSequencesIndex = sequenceIndex;
     
     NSArray* _sequences = self.orderedSequences;
     Sequence* _seq = [_sequences objectAtIndex:activeSequencesIndex];
     NSArray* _actions = _seq.orderedActions;
     
-    activeActionsIndex = 0;
+    activeActionsIndex = actionIndex;
     Action* _act = [_actions objectAtIndex:activeActionsIndex];
     
     self.activeAction = _act;
     self.activeSequence = _seq;
-
+    
     return self.activeAction;
 }
 
@@ -190,6 +194,14 @@ bool isFirstCallOfGetNextMethod = true;
     [_activeAct release];
     [_activeSeq release];
     [super dealloc];
+}
+
+- (int) currentActionIndex {
+    return activeActionsIndex;
+}
+
+- (int) currentSequenceIndex {
+    return activeSequencesIndex;
 }
 
 @end
