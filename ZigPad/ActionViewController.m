@@ -38,7 +38,15 @@
 //note: click is mostly called by overwritten method of subclass
 - (void)click: (id) sender {
     self.isMaster = true;
-    [self next:false];
+    
+    Param *p = [self.presentation.activeAction getParamForKey:@"stay"];
+    
+    NSLog(@"%@", p);
+    // Only continue to the next action if there is no stay param or the stay
+    // param is not 1.
+    if (!p || ![p.value isEqualToString:@"1"]) {    
+        [self next:false];
+    }
     
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); 
 }
