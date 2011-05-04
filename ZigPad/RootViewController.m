@@ -15,6 +15,7 @@
 #import "CommandViewController.h"
 #import "WebCamViewController.h"
 #import "ZigPadSettings.h"
+#import "AnimatorHelper.h"
 
 
 @implementation RootViewController
@@ -152,9 +153,9 @@
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
     nextPage.presentation = self.activePresentation;
     
-    UINavigationController* navCtrl = self.navigationController;
+    self.navigationController.navigationBar.hidden = TRUE;
     
-    [navCtrl pushViewController:nextPage animated:TRUE];
+    [AnimatorHelper slideWithAnimation:-1 :self :nextPage :false :true :false];
 
 }
 
