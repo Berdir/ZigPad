@@ -15,6 +15,7 @@
 #import "CommandViewController.h"
 #import "WebCamViewController.h"
 #import "ZigPadSettings.h"
+#import "SyncEvent.h"
 
 
 @implementation RootViewController
@@ -28,9 +29,62 @@
 #pragma mark -
 #pragma mark View lifecycle
 
+- (void) registerNotificationCenter {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveSyncEvent:) 
+                                                 name:@"ZigPadSyncReceive"
+                                               object:nil];
+}
+
+- (void) unregisterNotificationCenter {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) receiveSyncEvent: (NSNotification *) notification {
+    SyncEvent *event = [notification object];
+    
+    if (event.command == SELECT) {
+        
+        //get Presentation with selected refId from Database.
+        NSManagedObjectContext* context =  [[Database sharedInstance] managedObjectContext];
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Presentation" inManagedObjectContext:context];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init] ;
+        [request setEntity:entityDescription];
+        
+        // Add a corresponding filter.
+        NSPredicate *filter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"refId = %d", event.argument]];
+        [request setPredicate:filter];
+        
+        // Read db
+        NSError* error = nil;
+        NSArray *presentations = [context executeFetchRequest:request error:&error];
+        
+        if ([presentations count] == 0) {
+            NSLog(@"No presentation for the given refId (%d) found", event.argument);
+            return;
+        }
+        
+        self.activePresentation = [presentations objectAtIndex:0];
+        [request release];
+        
+        NSLog(@"Selected Presentation through sync event %@.", self.activePresentation.name);
+        
+        Action *a = [self.activePresentation getNextAction];    
+        ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
+        nextPage.presentation = self.activePresentation;
+        
+        UINavigationController* navCtrl = self.navigationController;
+        
+        [navCtrl pushViewController:nextPage animated:TRUE];
+    }
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self registerNotificationCenter];
     
     self.managedObjectContext = [Database sharedInstance].managedObjectContext;
     
@@ -149,6 +203,14 @@
     UINavigationController* navCtrl = self.navigationController;
     
     [navCtrl pushViewController:nextPage animated:TRUE];
+    
+    SyncEvent *syncEvent = [[SyncEvent alloc] init];
+    syncEvent.command = SELECT; 
+    syncEvent.argument = [self.activePresentation.refId unsignedIntValue];    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncFire" object:syncEvent];
+    
+    [syncEvent release];
 
 }
 
@@ -181,6 +243,7 @@
 }
 
 - (void)dealloc {
+    [self unregisterNotificationCenter];
     [_activePresentation release];
     [__fetchedResultsController release];
     [__managedObjectContext release];

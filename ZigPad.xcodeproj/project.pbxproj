@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B915F99213716BD70037F1E8 /* SyncEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B915F99113716BD60037F1E8 /* SyncEvent.m */; };
 		B94666DD135DB03000EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
 		B94666E0135DB40700EDA740 /* SettingsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DF135DB40700EDA740 /* SettingsTest.m */; };
 		B94666E1135DB57B00EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
@@ -91,6 +92,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B915F99013716BD60037F1E8 /* SyncEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncEvent.h; sourceTree = "<group>"; };
+		B915F99113716BD60037F1E8 /* SyncEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncEvent.m; sourceTree = "<group>"; };
 		B94666DB135DB03000EDA740 /* ZigPadSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZigPadSettings.h; sourceTree = "<group>"; };
 		B94666DC135DB03000EDA740 /* ZigPadSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZigPadSettings.m; sourceTree = "<group>"; };
 		B94666DF135DB40700EDA740 /* SettingsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTest.m; sourceTree = "<group>"; };
@@ -400,6 +403,8 @@
 				B9BC41F9134DA7510085D597 /* TCPServer.m */,
 				B9BC41F5134DA5180085D597 /* Synchronizer.h */,
 				B9BC41F6134DA5180085D597 /* Synchronizer.m */,
+				B915F99013716BD60037F1E8 /* SyncEvent.h */,
+				B915F99113716BD60037F1E8 /* SyncEvent.m */,
 			);
 			name = Synchronize;
 			sourceTree = "<group>";
@@ -569,6 +574,7 @@
 				B980003A1367FAD500A629D4 /* ActionViewController.m in Sources */,
 				B9DA4B821368749300EFD4B1 /* WebcamViewController.m in Sources */,
 				B982349D1371346A00132F9E /* AnimatorHelper.m in Sources */,
+				B915F99213716BD70037F1E8 /* SyncEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

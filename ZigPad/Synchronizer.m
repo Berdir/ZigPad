@@ -7,6 +7,7 @@
 //
 
 #import "Synchronizer.h"
+#import "SyncEvent.h"
 
 // The Bonjour application protocol, which must:
 // 1) be no longer than 14 characters
@@ -31,17 +32,28 @@
 @synthesize initialWaitOver = _initialWaitOver;
 @synthesize ownName = _ownName;
 
+- (void) registerNotificationCenter {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(fireSyncEvent:) 
+                                                 name:@"ZigPadSyncFire"
+                                               object:nil];
+}
 
-- (void)dealloc
-{
-    [_inStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-	[_inStream release];
-    
-	[_outStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-	[_outStream release];
-    
-	[_server release];
-    [super dealloc];
+- (void) unregisterNotificationCenter {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) fireSyncEvent: (NSNotification *) notification {
+    if (_outReady) {
+        
+        SyncEvent *event = (SyncEvent *) [notification object];
+        NSLog(@"Sending SyncEvent %i : %d", event.command, event.argument);
+
+        // Send three bytes, first the command, then the first byte of the argument
+        // finally then the second.
+        uint8_t data[3] = {event.command, event.argument >> 8, event.argument};
+        [_outStream write: (const uint8_t *) &data maxLength:3];
+    }
 }
 
 - (id)init {
@@ -81,6 +93,10 @@
 		return i;
 	}	
     NSLog(@"Finished setup");
+    
+    
+    [self registerNotificationCenter];
+    
     return i;
 }
 
@@ -233,21 +249,36 @@
 		case NSStreamEventHasBytesAvailable:
 		{
 			if (stream == _inStream) {
-				uint8_t b;
+				uint8_t b[3];
 				int len = 0;
-				len = [_inStream read:&b maxLength:sizeof(uint8_t)];
-				if(len <= 0) {
+				len = [_inStream read:b maxLength:3];
+				if(len < 3) {
 					if ([stream streamStatus] != NSStreamStatusAtEnd)
 						NSLog(@"Failed reading data from peer");
 				} else {
-					NSLog(@"Got data: %d", b);
+					NSLog(@"Got data: %d, %d, %d", b[0], b[1], b[2]);
+                    
+                    SyncEvent *event = [[SyncEvent alloc] init];
+                    
+                    event.command = b[0];
+                    event.argument = (b[1] << 8) + (b[2]);
+                    
+                    NSLog(@"Converted data to SyncEvent %d with argument %d", event.command, event.argument);
+                                        
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncReceive" object:event];
+                    
+                    [event release];
 				}
 			}
 			break;
 		}
 		case NSStreamEventErrorOccurred:
 		{
-			NSLog(@"Error encountered on stream!");			
+            NSError *theError = [stream streamError];
+            NSLog(@"Error %i: %@", [theError code], [theError localizedDescription]);
+            
+            [stream close];
+            [stream release];
 			break;
 		}
 			
@@ -281,6 +312,21 @@
     NSLog(@"Accepted connection from remote device");
 	
 	[self openStreams];
+}
+
+
+- (void)dealloc
+{
+    [self unregisterNotificationCenter];
+    
+    [_inStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+	[_inStream release];
+    
+	[_outStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+	[_outStream release];
+    
+	[_server release];
+    [super dealloc];
 }
 
 @end
