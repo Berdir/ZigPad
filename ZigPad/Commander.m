@@ -68,18 +68,11 @@ static Commander * _defaultCommander = nil;
 }
 -(void) sendAction:(Action *)msg
 {
-    for (Param* p in msg.params)
-    {
-        
-        if ([p.key isEqualToString:@"command"] ) 
-        {
-            [self sendString: p.value];
-            NSLog(@"Sending action command %@" ,p.value);
-            break;
-        }
-        
+    Param *p = [msg getParamForKey:@"command"];
+    if (p != nil) {
+       [self sendString: p.value];
+        NSLog(@"Sending action command %@" ,p.value);
     }
-    
 }
 
 - (BOOL)onUdpSocket:(AsyncUdpSocket *)sock didReceiveData:(NSData *)data withTag:(long)tag fromHost:(NSString *)host port:(UInt16)port {

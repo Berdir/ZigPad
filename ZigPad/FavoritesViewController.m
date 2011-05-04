@@ -47,21 +47,18 @@ NSArray* favorites; //favorite cache
 //grab action Object for a Local Picture
 -(LocalPicture*)findPictureInAction:(Action*)anAction
 {
-    LocalPicture *picture = nil;
-    // Loop over all params of the current action.
+    // First, look for a favorite icon, if found, returned.
+    Param *p = [anAction getParamForKey:@"favorite_icon"];
+    if (p != nil) {
+        return p.localPicture;
+    }
+    // If any param has an attached local Picture, return that.
     for (Param* p in anAction.params) {
-        // If there is a picture assigned, keep it.
         if (p.localPicture) {
-            picture = p.localPicture;
-            
-            // If this param is a favorite icon, directly return it.
-            if ([p.key isEqualToString:@"favorite_icon"]) {
-                return p.localPicture;
-            }
+            return p.localPicture;
         }
     }
-    // No favorite icon was found, but maybe another picture, return that.
-    return picture;
+    return nil;
 }
 
 //Draws all Favorites to view

@@ -30,10 +30,9 @@
 
 // Extract command image from action params.
 - (UIImage *) getCommandImage {
-    for (Param* p in self.presentation.activeAction.params) {
-        if ([p.key isEqualToString:@"picture"]) {
-            return [UIImage imageWithData:p.localPicture.picture];
-        }
+    Param *p = [self.presentation.activeAction getParamForKey:@"picture"];
+    if (p != nil) {
+        return [UIImage imageWithData:p.localPicture.picture];
     }
     return nil;
 }

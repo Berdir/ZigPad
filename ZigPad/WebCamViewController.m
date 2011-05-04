@@ -17,10 +17,9 @@
 
 // Extract url link from action params.
 - (NSString *) getURLfromParams {
-    for (Param* p in self.presentation.activeAction.params) {
-        if ([p.key isEqualToString:@"url"]) {
-            return p.value;
-        }
+    Param *p = [self.presentation.activeAction getParamForKey:@"url"];
+    if (p != nil) {
+        return p.value;
     }
     return @"about:blank";
 }
