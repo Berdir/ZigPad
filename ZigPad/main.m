@@ -3,7 +3,7 @@
 //  ZigPad
 //
 //  Created by ceesar on 06/04/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 CEESAR. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

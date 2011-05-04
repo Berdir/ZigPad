@@ -3,7 +3,7 @@
 //  SynchTest
 //
 //  Created by ceesar on 22/03/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 CEESAR. All rights reserved.
 //
 
 #import "TCPServer.h"
