@@ -12,6 +12,7 @@
 		B94666E1135DB57B00EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
 		B980003A1367FAD500A629D4 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98000391367FAD500A629D4 /* ActionViewController.m */; };
 		B981A69A136C434F00525E27 /* xml-example2.xml in Resources */ = {isa = PBXBuildFile; fileRef = B981A699136C434F00525E27 /* xml-example2.xml */; };
+		B982349D1371346A00132F9E /* AnimatorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B982349C1371346A00132F9E /* AnimatorHelper.m */; };
 		B986A5FF135EC2DA00680172 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */; };
 		B993FB7D1355E29D00A69334 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B993FB7B1355E29C00A69334 /* FavoritesViewController.m */; };
 		B993FB7E1355E29D00A69334 /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B993FB7C1355E29D00A69334 /* FavoritesView.xib */; };
@@ -96,6 +97,8 @@
 		B98000381367FAD500A629D4 /* ActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
 		B98000391367FAD500A629D4 /* ActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
 		B981A699136C434F00525E27 /* xml-example2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "xml-example2.xml"; sourceTree = "<group>"; };
+		B982349B1371346A00132F9E /* AnimatorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatorHelper.h; sourceTree = "<group>"; };
+		B982349C1371346A00132F9E /* AnimatorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatorHelper.m; sourceTree = "<group>"; };
 		B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = Frameworks/GHUnitIOS.framework; sourceTree = "<group>"; };
 		B993FB7A1355E29C00A69334 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		B993FB7B1355E29C00A69334 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
@@ -342,6 +345,8 @@
 				B9AF2B9C135DBFF7005944B7 /* SettingsViewController.h */,
 				B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */,
 				B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */,
+				B982349B1371346A00132F9E /* AnimatorHelper.h */,
+				B982349C1371346A00132F9E /* AnimatorHelper.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 				B9A2FC8B13656C59009BA16A /* LocalPicture.m in Sources */,
 				B980003A1367FAD500A629D4 /* ActionViewController.m in Sources */,
 				B9DA4B821368749300EFD4B1 /* WebcamViewController.m in Sources */,
+				B982349D1371346A00132F9E /* AnimatorHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "ActionViewController.h"
 #import "CommandViewController.h"
 #import "WebcamViewController.h"
+#import "AnimatorHelper.h"
 
 
 
@@ -136,7 +137,7 @@
 
 //Slides next ActionView to Window. If nextpage is nil then it only close actual view 
 // XDirection: left = -1 or right = +1
-- (void) slideWithAnimation:(int) XDirection: (ActionViewController*) nextPage
+- (void) slideWithAnimation:(int) XDirection: (ActionViewController*) nextPage: (bool) fullAnimated
 {
     
     // Save NavigationController locally, to still have access to it in the next two steps.
@@ -177,21 +178,28 @@
      
     */
     
+    CATransition *animation = [navigationController.view.layer animationForKey:@"SwitchToView1"];
     
-    if ([navigationController.view.layer animationForKey:@"SwitchToView1"] == nil)
+    if (animation == nil)
     {
-        CATransition *animation = [CATransition animation];
+        animation = [CATransition animation];
         [animation setDuration:1.0];
         [animation setType:kCATransitionPush];
-        if (XDirection > 0)
-            [animation setSubtype:kCATransitionFromTop];
-        else
-            [animation setSubtype:kCATransitionFromRight];
         [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
-        //[[nextPage.view layer] addAnimation:animation forKey:@"SwitchToView1"];
-        [navigationController.view.layer addAnimation:animation forKey:@"SwitchToView1"];
     }
+    
+    //define slide direction
+    if (XDirection > 0)
+        [animation setSubtype:kCATransitionFromLeft];
+    else
+        [animation setSubtype:kCATransitionFromRight];
 
+    //sliede both views
+    if (fullAnimated)
+        [navigationController.view.layer addAnimation:animation forKey:@"SwitchToView1"];
+    else
+        //or just newer view
+        [nextPage.view.layer addAnimation:animation forKey:@"SwitchToView1"];
     
     [navigationController popViewControllerAnimated:NO];
     [navigationController pushViewController:nextPage animated:NO];
@@ -206,26 +214,27 @@
     if (a == nil) {
         self.navigationController.navigationBar.hidden = FALSE;
         self.navigationController.toolbar.hidden = FALSE;
-        [self.navigationController popViewControllerAnimated:YES];
+        //[self.navigationController popViewControllerAnimated:YES];
+        [AnimatorHelper slideWithAnimation:-1 :self :nil :true];
         return;
     }
     
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
     nextPage.presentation = self.presentation;
-
-    [self slideWithAnimation:-1 :nextPage];
     
-    /*
     //by swipe
-    if (animated) {[self slideWithAnimation:-1 :nextPage];}
+    if (animated) {[AnimatorHelper slideWithAnimation:-1 :self :nextPage:true];}
     //by klick
     else
     {
+        [AnimatorHelper slideWithAnimation:-1 :self :nextPage:false];
+        /*
         UINavigationController* navController = self.navigationController;
         [navController popViewControllerAnimated:NO];
         [navController pushViewController:nextPage animated:YES];
+         */
     }
-     */
+
 
 }
 
@@ -237,7 +246,8 @@
     if (a == nil) {
         self.navigationController.navigationBar.hidden = FALSE;
         self.navigationController.toolbar.hidden = FALSE;
-        [self.navigationController popViewControllerAnimated:YES];
+        //[self.navigationController popViewControllerAnimated:YES];
+        [AnimatorHelper slideWithAnimation:1 :self :nil :true];
         return;
     }
     
@@ -245,7 +255,7 @@
     nextPage.presentation = self.presentation;
     
     
-    [self slideWithAnimation:1 :nextPage];
+    [AnimatorHelper slideWithAnimation:1 :self :nextPage:true];
 }
 
  
