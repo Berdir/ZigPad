@@ -54,18 +54,26 @@
     if (event.command == JUMP) {
         Action *a = [self.presentation jumpToAction:event.argument_lowerByte sequenceIndex:event.argument_upperByte];
         
+        // Finished.
+        if (a == nil) {
+            self.navigationController.navigationBar.hidden = FALSE;
+            self.navigationController.toolbar.hidden = FALSE;
+            [AnimatorHelper slideWithAnimation:-1 :self :nil :true:false:true];
+            return;
+        }
+        
         ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
         nextPage.presentation = self.presentation;
         
         switch (event.direction) {
             case LEFT:
-                [AnimatorHelper slideWithAnimation:-1 :self :nextPage :false :true :true];
+                [AnimatorHelper slideWithAnimation:1 :self :nextPage :false :true :true];
                 break;
             case LEFT_ANIMATED:
-                [AnimatorHelper slideWithAnimation:-1 :self :nextPage :true :true :true];
+                [AnimatorHelper slideWithAnimation:1 :self :nextPage :true :true :true];
                 break;
             case RIGHT:
-                [AnimatorHelper slideWithAnimation:1 :self :nextPage :false :true :true];
+                [AnimatorHelper slideWithAnimation:-1 :self :nextPage :false :true :true];
                 break;
             case RIGHT_ANIMATED:
                 [AnimatorHelper slideWithAnimation:-1 :self :nextPage :true :true :true];
@@ -74,7 +82,7 @@
     }
 }
 
-- fireSyncEvent: (SyncEventSwipeDirection) direction {
+- (void) fireSyncEvent: (SyncEventSwipeDirection) direction {
     if (self.isMaster) {
         SyncEvent *event = [[SyncEvent alloc] init];
         event.command = JUMP;
@@ -200,6 +208,10 @@
 //slides the next Action to GUI
 - (void) next:(BOOL) animated {
     Action *a = [self.presentation getNextAction];
+    
+    
+    [self fireSyncEvent:animated ? RIGHT_ANIMATED : RIGHT];
+    
     // Finished.
     if (a == nil) {
         self.navigationController.navigationBar.hidden = FALSE;
@@ -210,8 +222,6 @@
     
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
     nextPage.presentation = self.presentation;
-    
-    [self fireSyncEvent:animated ? RIGHT_ANIMATED : RIGHT];
     
     //by swipe
     if (animated) {[AnimatorHelper slideWithAnimation:-1 :self :nextPage:true:true:true];}
@@ -231,6 +241,9 @@
 - (void) previous
 {
     Action *a = [self.presentation getPreviousAction];
+    
+    [self fireSyncEvent: LEFT];
+    
     // Finished.
     if (a == nil) {
         self.navigationController.navigationBar.hidden = FALSE;
@@ -242,7 +255,6 @@
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
     nextPage.presentation = self.presentation;
     
-    [self fireSyncEvent: LEFT];
     
     [AnimatorHelper slideWithAnimation:1 :self :nextPage:true:true:true];
 }
