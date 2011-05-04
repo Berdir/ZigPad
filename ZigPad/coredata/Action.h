@@ -23,6 +23,7 @@
 @property (nonatomic, retain) NSSet* params;
 
 - (void)addParamsObject:(Param *)value;
+- (Param *) getParamForKey:(NSString *) key; 
 
 
 @end
