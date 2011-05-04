@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ActionViewController.h"
+#import "ImageDownloader.h"
 
 
 @interface ImageViewController : ActionViewController {
