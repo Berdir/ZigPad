@@ -78,17 +78,6 @@
     // e.g. self.myOutlet = nil;
 }
 
-
-
-
-
-- (void) registerNotificationCenter {
-    
-}
-- (void) unregisterNotificationCenter {
-    
-}
-
 - (void)dealloc {
     [super dealloc];
 }

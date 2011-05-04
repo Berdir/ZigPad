@@ -51,8 +51,7 @@
 
         // Send three bytes, first the command, then the first byte of the argument
         // finally then the second.
-        uint8_t data[3] = {event.command, event.argument >> 8, event.argument};
-        [_outStream write: (const uint8_t *) &data maxLength:3];
+        [_outStream write:[event bytes] maxLength:4];
     }
 }
 
@@ -251,19 +250,14 @@
 			if (stream == _inStream) {
 				uint8_t b[3];
 				int len = 0;
-				len = [_inStream read:b maxLength:3];
+				len = [_inStream read:b maxLength:4];
 				if(len < 3) {
 					if ([stream streamStatus] != NSStreamStatusAtEnd)
 						NSLog(@"Failed reading data from peer");
-				} else {
-					NSLog(@"Got data: %d, %d, %d", b[0], b[1], b[2]);
+				} else {                    
+                    SyncEvent *event = [[SyncEvent alloc] initWithBytes:b];
                     
-                    SyncEvent *event = [[SyncEvent alloc] init];
-                    
-                    event.command = b[0];
-                    event.argument = (b[1] << 8) + (b[2]);
-                    
-                    NSLog(@"Converted data to SyncEvent %d with argument %d", event.command, event.argument);
+                    NSLog(@"Got SyncEvent %d with argument %d", event.command, event.argument);
                                         
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncReceive" object:event];
                     

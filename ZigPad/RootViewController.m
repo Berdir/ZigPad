@@ -77,9 +77,7 @@
         
         [navCtrl pushViewController:nextPage animated:TRUE];
     }
-    
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];

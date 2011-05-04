@@ -10,8 +10,7 @@
 #import "CommandViewController.h"
 #import "WebcamViewController.h"
 #import "AnimatorHelper.h"
-
-
+#import "SyncEvent.h"
 
 @implementation ActionViewController
 
@@ -36,6 +35,58 @@
     
 }
 
+- (void) registerNotificationCenter {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveSyncEvent:) 
+                                                 name:@"ZigPadSyncReceive"
+                                               object:nil];
+}
+
+- (void) unregisterNotificationCenter {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) receiveSyncEvent: (NSNotification *) notification {
+    SyncEvent *event = [notification object];
+    
+    self.isMaster = false;
+    
+    if (event.command == JUMP) {
+        Action *a = [self.presentation jumpToAction:event.argument_lowerByte sequenceIndex:event.argument_upperByte];
+        
+        ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
+        nextPage.presentation = self.presentation;
+        
+        switch (event.direction) {
+            case LEFT:
+                [AnimatorHelper slideWithAnimation:-1 :self :nextPage :false :true :true];
+                break;
+            case LEFT_ANIMATED:
+                [AnimatorHelper slideWithAnimation:-1 :self :nextPage :true :true :true];
+                break;
+            case RIGHT:
+                [AnimatorHelper slideWithAnimation:1 :self :nextPage :false :true :true];
+                break;
+            case RIGHT_ANIMATED:
+                [AnimatorHelper slideWithAnimation:-1 :self :nextPage :true :true :true];
+                break;
+        }
+    }
+}
+
+- fireSyncEvent: (SyncEventSwipeDirection) direction {
+    if (self.isMaster) {
+        SyncEvent *event = [[SyncEvent alloc] init];
+        event.command = JUMP;
+        event.direction = direction;
+        event.argument_upperByte = self.presentation.currentSequenceIndex;
+        event.argument_lowerByte = self.presentation.currentActionIndex;
+    
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncFire" object:event];
+        [event release];
+    }
+}
+
 //event is fired when button on any subclass of actionViewController is pressed
 //note: click is mostly called by overwritten method of subclass
 - (void)click: (id) sender {
@@ -43,7 +94,6 @@
     
     Param *p = [self.presentation.activeAction getParamForKey:@"stay"];
     
-    NSLog(@"%@", p);
     // Only continue to the next action if there is no stay param or the stay
     // param is not 1.
     if (!p || ![p.value isEqualToString:@"1"]) {    
@@ -89,12 +139,15 @@
     self.navigationController.toolbar.hidden = TRUE;
     self.navigationController.navigationBar.hidden = TRUE;
     
+    [self registerNotificationCenter];
+    
     [self initSwipeRecognizer];
     
 }
 
 -(void) dealloc
 {
+    [self unregisterNotificationCenter];
     [_label release];
     [_actionLabel release];
     [_imageButton release];
@@ -104,12 +157,15 @@
 
 //common implementation for each Action plugin from fired swipe event 
 - (void) handleSwipeFrom: (UISwipeGestureRecognizer *) recogniser {	
+    
+    self.isMaster = true;
+    
     switch (recogniser.direction) {
         case UISwipeGestureRecognizerDirectionDown:
         {
             SequenceChoiceViewController* chooser = [[SequenceChoiceViewController alloc] initWithNibName:@"SequenceChoiceView" bundle:[NSBundle mainBundle]];
             
-            [chooser initWithPresentation: self.presentation]; 
+            chooser.presentation = self.presentation; 
             
             self.navigationController.navigationBar.hidden = FALSE;
             [AnimatorHelper slideWithAnimation:-2 :self :chooser :false:true:true];
@@ -155,6 +211,8 @@
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
     nextPage.presentation = self.presentation;
     
+    [self fireSyncEvent:animated ? RIGHT_ANIMATED : RIGHT];
+    
     //by swipe
     if (animated) {[AnimatorHelper slideWithAnimation:-1 :self :nextPage:true:true:true];}
     //by klick
@@ -163,6 +221,8 @@
         [AnimatorHelper slideWithAnimation:-1 :self :nextPage:false:true:true];
 
     }
+    
+    
 
 
 }
@@ -182,6 +242,7 @@
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
     nextPage.presentation = self.presentation;
     
+    [self fireSyncEvent: LEFT];
     
     [AnimatorHelper slideWithAnimation:1 :self :nextPage:true:true:true];
 }
