@@ -16,6 +16,6 @@
 //Slides next ActionView to Window. If nextpage is nil then it only close actual view 
 // if actualpage is nil it only add a new slide
 // XDirection: left = -1, right = +1, up = +2, down = -2
-+ (void) slideWithAnimation:(int) direction:(UIViewController*) actualPage: (UIViewController*) nextPage: (bool) fullAnimated;
++ (void) slideWithAnimation:(int) direction:(UIViewController*) actualPage: (UIViewController*) nextPage: (bool) fullAnimated: (bool)pushOnStack: (bool) popOnStack;
 
 @end

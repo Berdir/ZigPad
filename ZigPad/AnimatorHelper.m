@@ -12,17 +12,15 @@
 @implementation AnimatorHelper
 
 //Slides next ActionView to Window. If nextpage is nil then it only close actual view 
-// if actualpage is nil it only add a new slide
 // XDirection: left = -1, right = +1, up = +2, down = -2
-+ (void) slideWithAnimation:(int) direction:(UIViewController*) actualPage: (UIViewController*) nextPage: (bool) fullAnimated
++ (void) slideWithAnimation:(int) direction:(UIViewController*) actualPage: (UIViewController*) nextPage: (bool) fullAnimated: (bool)pushOnStack: (bool) popOnStack
 {
+    //prevent exceptions
+    if (actualPage == nil) return;
     
     // Save NavigationController locally, to still have access to it in the next push/pop steps.
-    UINavigationController* navigationController;
-    if (actualPage!=nil)
-        navigationController = actualPage.navigationController;
-    else
-        navigationController = actualPage.navigationController;
+    UINavigationController* navigationController = actualPage.navigationController;
+
     
     //create animation (must be new created every methode call)
     CATransition*  animation = [CATransition animation];
@@ -35,8 +33,8 @@
     switch (direction) {
         case 1: [animation setSubtype:kCATransitionFromLeft]; break;
         case -1:[animation setSubtype:kCATransitionFromRight]; break;
-        case 2:[animation setSubtype:kCATransitionFromBottom]; break;
-        case -2:[animation setSubtype:kCATransitionFromTop]; break;          
+        case 2:[animation setSubtype:kCATransitionFromTop]; break;
+        case -2:[animation setSubtype:kCATransitionFromBottom]; break;          
         default:[animation setSubtype:kCATransitionFromLeft]; break;
     }
     
@@ -57,13 +55,10 @@
             [actualPage.view.layer addAnimation:animation forKey:@"SwitchToView1"];
         }
     }
+    
+    if (fullAnimated && popOnStack) [navigationController popViewControllerAnimated:NO];
+    if (pushOnStack) [navigationController pushViewController:nextPage animated:NO];
 
-    
-    if (actualPage!=nil) [navigationController popViewControllerAnimated:NO];
-    if (nextPage!=nil) [navigationController pushViewController:nextPage animated:NO];
-    
-    
-    
     
     
     

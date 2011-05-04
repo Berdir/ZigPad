@@ -13,6 +13,7 @@
 #import "Sequence.h"
 #import "LocalPicture.h"
 #import "ActionViewController.h"
+#import "AnimatorHelper.h"
 
 
 @implementation SequenceChoiceViewController
@@ -102,14 +103,10 @@
     nextPage.presentation = self.presentation;
     
     [[Commander defaultCommander] sendString:self.presentation.activeSequence.command];
-    
-    UINavigationController* navCtrl = self.navigationController;
-    
-    navCtrl.navigationBar.hidden = TRUE;
-    
-    [navCtrl popViewControllerAnimated:FALSE];
-    
-    [navCtrl pushViewController:nextPage animated:TRUE];
+        
+    self.navigationController.navigationBar.hidden = TRUE;
+
+    [AnimatorHelper slideWithAnimation:2 :self :nextPage :false:true:true];
     
 }
 

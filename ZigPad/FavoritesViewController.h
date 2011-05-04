@@ -14,6 +14,7 @@
 #import <CoreData/CoreData.h>
 #import "QuartzCore/QuartzCore.h"
 #import "Commander.h"
+#import "AnimatorHelper.h"
 
 
 @interface FavoritesViewController : UIViewController {
