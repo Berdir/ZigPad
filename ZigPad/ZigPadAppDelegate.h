@@ -1,8 +1,6 @@
 //
 //  ZigPadAppDelegate.h
 //  ZigPad
-
-//  TEST
 //
 //  Created by ceesar on 06/04/11.
 //  Copyright 2011 CEESAR. All rights reserved.
