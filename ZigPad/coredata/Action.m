@@ -75,5 +75,14 @@
     [self didChangeValueForKey:@"params" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
 }
 
+- (Param *) getParamForKey:(NSString *) key {
+    for (Param *p in self.params) {
+        if ([p.key isEqualToString:key]) {
+            return p;
+        }
+    }
+    return nil;
+}
+
 
 @end
