@@ -16,6 +16,7 @@
 #import "WebCamViewController.h"
 #import "ZigPadSettings.h"
 #import "SyncEvent.h"
+#import "AnimatorHelper.h"
 
 
 @implementation RootViewController
@@ -204,10 +205,11 @@
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
     nextPage.presentation = self.activePresentation;
     
-    UINavigationController* navCtrl = self.navigationController;
+    self.navigationController.navigationBar.hidden = TRUE;
     
-    [navCtrl pushViewController:nextPage animated:TRUE];
     
+    [AnimatorHelper slideWithAnimation:-1 :self :nextPage :false :true :false];
+
     SyncEvent *syncEvent = [[SyncEvent alloc] init];
     syncEvent.command = SELECT; 
     syncEvent.argument = [self.activePresentation.refId unsignedIntValue];    

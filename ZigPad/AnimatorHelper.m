@@ -56,7 +56,7 @@
         }
     }
     
-    if (fullAnimated && popOnStack) [navigationController popViewControllerAnimated:NO];
+    if (popOnStack) [navigationController popViewControllerAnimated:NO];
     if (pushOnStack) [navigationController pushViewController:nextPage animated:NO];
 
     

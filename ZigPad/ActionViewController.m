@@ -204,7 +204,7 @@
     if (a == nil) {
         self.navigationController.navigationBar.hidden = FALSE;
         self.navigationController.toolbar.hidden = FALSE;
-        [AnimatorHelper slideWithAnimation:-1 :self :nil :false:false:true];
+        [AnimatorHelper slideWithAnimation:-1 :self :nil :true:false:true];
         return;
     }
     
@@ -235,7 +235,7 @@
     if (a == nil) {
         self.navigationController.navigationBar.hidden = FALSE;
         self.navigationController.toolbar.hidden = FALSE;
-        [AnimatorHelper slideWithAnimation:1 :self :nil :false:false:true];
+        [AnimatorHelper slideWithAnimation:1 :self :nil :true:false:true];
         return;
     }
     
