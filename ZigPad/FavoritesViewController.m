@@ -47,15 +47,21 @@ NSArray* favorites; //favorite cache
 //grab action Object for a Local Picture
 -(LocalPicture*)findPictureInAction:(Action*)anAction
 {
-    for (Param* p in anAction.params)
-    {
-        if (p.localPicture !=nil) 
-        {
-            return p.localPicture;
+    LocalPicture *picture = nil;
+    // Loop over all params of the current action.
+    for (Param* p in anAction.params) {
+        // If there is a picture assigned, keep it.
+        if (p.localPicture) {
+            picture = p.localPicture;
+            
+            // If this param is a favorite icon, directly return it.
+            if ([p.key isEqualToString:@"favorite_icon"]) {
+                return p.localPicture;
+            }
         }
-        
     }
-    return nil;
+    // No favorite icon was found, but maybe another picture, return that.
+    return picture;
 }
 
 //Draws all Favorites to view
@@ -94,7 +100,10 @@ NSArray* favorites; //favorite cache
             
             UIButton *btn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
             btn.frame = CGRectMake(btnPosX, btnPosY, buttonWith, buttonHeight);
-            [[btn layer] setBorderWidth:1.0];
+            // Make buttons rounded.
+            [btn.layer setBorderWidth:1.0];
+            [btn.layer setCornerRadius:7.0f];
+            [btn.layer setMasksToBounds:YES];
 
             
             //fill Button with Text or LocalImage
