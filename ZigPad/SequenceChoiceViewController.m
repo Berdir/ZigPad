@@ -20,12 +20,6 @@
 
 @synthesize presentation = _presentation;
 
-//caches all Sequence UIImages from the current Presentation
--(void) initWithPresentation:(Presentation*) p
-{
-    self.presentation = p;
-}
-
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
