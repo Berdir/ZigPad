@@ -1,6 +1,6 @@
     //
 //  Detail.m
-//  List
+//  ZigPad
 //
 //  Created by ceesar on 16/03/11.
 //  Copyright 2011 CEESAR. All rights reserved.
