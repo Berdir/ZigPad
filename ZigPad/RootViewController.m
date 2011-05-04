@@ -41,6 +41,12 @@
     [sync lookForDevice];
 }
 
+//do that if I slide from sequenceChoiceView to here
+- (void) viewWillAppear:(BOOL)animated
+{
+      self.navigationController.toolbar.hidden = false;
+}
+
 - (IBAction)popupSettingView:(id)sender
 {
     

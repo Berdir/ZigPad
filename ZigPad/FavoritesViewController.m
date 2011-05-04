@@ -140,7 +140,8 @@ NSArray* favorites; //favorite cache
 //swipe eventhandler
 -(void)handleSwipe:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:true];
+    [AnimatorHelper slideWithAnimation:-2 :self :nil :true:false:true];
+    //[self.navigationController popViewControllerAnimated:true];
 }
 
 
@@ -156,6 +157,7 @@ NSArray* favorites; //favorite cache
     
     [self initButtons];
     
+    NSLog(@"Favoriten geladen");
     UISwipeGestureRecognizer *recognicer;    
     recognicer = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(handleSwipe:)];
     [recognicer setDirection:UISwipeGestureRecognizerDirectionDown];

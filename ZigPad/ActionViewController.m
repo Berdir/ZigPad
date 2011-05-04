@@ -102,12 +102,10 @@
             SequenceChoiceViewController* chooser = [[SequenceChoiceViewController alloc] initWithNibName:@"SequenceChoiceView" bundle:[NSBundle mainBundle]];
             
             [chooser initWithPresentation: self.presentation]; 
-      
-            UINavigationController* navCtrl = self.navigationController;
             
-            [navCtrl popViewControllerAnimated:FALSE];
-            [navCtrl pushViewController:chooser animated:YES];
-            navCtrl.navigationBar.hidden = FALSE;
+            self.navigationController.navigationBar.hidden = FALSE;
+            [AnimatorHelper slideWithAnimation:-2 :self :chooser :false:true:true];
+            
             
             [chooser release]; 
  
@@ -117,7 +115,7 @@
         {	
             FavoritesViewController* favorite = [[FavoritesViewController alloc] initWithNibName:@"FavoritesView" bundle:[NSBundle mainBundle]];
             
-            [self.navigationController pushViewController:favorite animated:YES];
+            [AnimatorHelper slideWithAnimation:2 :self :favorite :false:true:false];
             [favorite release]; 
             break;   
         }
@@ -135,78 +133,6 @@
 
 
 
-//Slides next ActionView to Window. If nextpage is nil then it only close actual view 
-// XDirection: left = -1 or right = +1
-- (void) slideWithAnimation:(int) XDirection: (ActionViewController*) nextPage: (bool) fullAnimated
-{
-    
-    // Save NavigationController locally, to still have access to it in the next two steps.
-    UINavigationController* navigationController = self.navigationController;
-
-    
-    /* BITTE CODE LASSEN -> KNOWLEGEBASE
-    [UIView animateWithDuration:0.5
-                     animations:^{ 
-
-                         //shift old slide outside animated
-                         navigationController.view.transform = CGAffineTransformMakeTranslation(XDirection * 320,0);
-                     } 
-                     completion:^(BOOL finished){
-                         //remove old slide                         
-                         [navigationController popViewControllerAnimated:NO];
-                         
-                         if (nextPage != nil)
-                         {
-                         //add new slide if avaiable
-                         [navigationController pushViewController:nextPage animated:NO];                        
-                         //shift new slide to startposition outside window
-                         navigationController.view.transform = CGAffineTransformMakeTranslation(-XDirection * 320,0);
-                         
-                         [UIView animateWithDuration:0.5
-                                          animations:^{ 
-                                              
-                                              //shift new slide inside window animated
-                                              navigationController.view.transform = CGAffineTransformMakeTranslation(0,0);
-                                              
-                                          } 
-                                          completion:^(BOOL finished){
-                                              ;
-                                          }];
-                         }
-                         
-                     }];
-     
-    */
-    
-    CATransition *animation = [navigationController.view.layer animationForKey:@"SwitchToView1"];
-    
-    if (animation == nil)
-    {
-        animation = [CATransition animation];
-        [animation setDuration:1.0];
-        [animation setType:kCATransitionPush];
-        [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
-    }
-    
-    //define slide direction
-    if (XDirection > 0)
-        [animation setSubtype:kCATransitionFromLeft];
-    else
-        [animation setSubtype:kCATransitionFromRight];
-
-    //sliede both views
-    if (fullAnimated)
-        [navigationController.view.layer addAnimation:animation forKey:@"SwitchToView1"];
-    else
-        //or just newer view
-        [nextPage.view.layer addAnimation:animation forKey:@"SwitchToView1"];
-    
-    [navigationController popViewControllerAnimated:NO];
-    [navigationController pushViewController:nextPage animated:NO];
-
-    
-}
-
 //slides the next Action to GUI
 - (void) next:(BOOL) animated {
     Action *a = [self.presentation getNextAction];
@@ -214,8 +140,7 @@
     if (a == nil) {
         self.navigationController.navigationBar.hidden = FALSE;
         self.navigationController.toolbar.hidden = FALSE;
-        //[self.navigationController popViewControllerAnimated:YES];
-        [AnimatorHelper slideWithAnimation:-1 :self :nil :true];
+        [AnimatorHelper slideWithAnimation:-1 :self :nil :false:false:true];
         return;
     }
     
@@ -223,16 +148,12 @@
     nextPage.presentation = self.presentation;
     
     //by swipe
-    if (animated) {[AnimatorHelper slideWithAnimation:-1 :self :nextPage:true];}
+    if (animated) {[AnimatorHelper slideWithAnimation:-1 :self :nextPage:true:true:true];}
     //by klick
     else
     {
-        [AnimatorHelper slideWithAnimation:-1 :self :nextPage:false];
-        /*
-        UINavigationController* navController = self.navigationController;
-        [navController popViewControllerAnimated:NO];
-        [navController pushViewController:nextPage animated:YES];
-         */
+        [AnimatorHelper slideWithAnimation:-1 :self :nextPage:false:true:true];
+
     }
 
 
@@ -246,8 +167,7 @@
     if (a == nil) {
         self.navigationController.navigationBar.hidden = FALSE;
         self.navigationController.toolbar.hidden = FALSE;
-        //[self.navigationController popViewControllerAnimated:YES];
-        [AnimatorHelper slideWithAnimation:1 :self :nil :true];
+        [AnimatorHelper slideWithAnimation:1 :self :nil :false:false:true];
         return;
     }
     
@@ -255,7 +175,7 @@
     nextPage.presentation = self.presentation;
     
     
-    [AnimatorHelper slideWithAnimation:1 :self :nextPage:true];
+    [AnimatorHelper slideWithAnimation:1 :self :nextPage:true:true:true];
 }
 
  
