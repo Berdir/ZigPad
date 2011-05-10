@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AsyncUdpSocket.h"
+//#import "AsyncUdpSocket.h"
+#import "AsyncTCPSocket.h"
 #import "Action.h"
 #import "Param.h"
 
 
-
-@interface Commander : NSObject <AsyncUdpSocketDelegate> {
+@interface Commander : NSObject{
+//@interface Commander : NSObject <AsyncUdpSocketDelegate> {
    @private
-     AsyncUdpSocket *udpSocket;
+     //AsyncUdpSocket *udpSocket;
+    AsyncTCPSocket *tcpSocket;
 }
 
 +(Commander*) defaultCommander;
