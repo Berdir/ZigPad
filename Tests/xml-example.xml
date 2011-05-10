@@ -30,6 +30,6 @@
 	</presentations>
 	<serverConfig>
 		<server type="real" ip="192.168.4.99" port="8005"/>
-		<server type="simulator" ip="10.10.10.1" port="1234"/>
+		<server type="simulator" ip="10.3.115.179" port="1234"/>
 	</serverConfig>
 </config>
