@@ -77,6 +77,8 @@
 		B9E2CBB713548FEA00F1E5FE /* SequenceChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E2CBB613548FEA00F1E5FE /* SequenceChoiceView.xib */; };
 		B9E2CBC31354910000F1E5FE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E2CBC21354910000F1E5FE /* OpenGLES.framework */; };
 		B9E2CBC51354910B00F1E5FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E2CBC41354910B00F1E5FE /* QuartzCore.framework */; };
+		B9EB40CE13797446007127B6 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EB40CC13797446007127B6 /* VideoViewController.m */; };
+		B9EB40CF13797446007127B6 /* VideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9EB40CD13797446007127B6 /* VideoView.xib */; };
 		B9F03A161355BEA9008474A9 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F03A151355BEA9008474A9 /* 37x-Checkmark.png */; };
 		B9F03A181355C04E008474A9 /* Failure.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F03A171355C04E008474A9 /* Failure.png */; };
 /* End PBXBuildFile section */
@@ -192,6 +194,9 @@
 		B9E2CBB613548FEA00F1E5FE /* SequenceChoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SequenceChoiceView.xib; sourceTree = "<group>"; };
 		B9E2CBC21354910000F1E5FE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		B9E2CBC41354910B00F1E5FE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B9EB40CB13797446007127B6 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		B9EB40CC13797446007127B6 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		B9EB40CD13797446007127B6 /* VideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoView.xib; sourceTree = "<group>"; };
 		B9F03A151355BEA9008474A9 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
 		B9F03A171355C04E008474A9 /* Failure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Failure.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -367,6 +372,9 @@
 				B982349F1371974B00132F9E /* ImageViewController.h */,
 				B98234A01371974D00132F9E /* ImageViewController.m */,
 				B98234A11371974F00132F9E /* ImageView.xib */,
+				B9EB40CB13797446007127B6 /* VideoViewController.h */,
+				B9EB40CC13797446007127B6 /* VideoViewController.m */,
+				B9EB40CD13797446007127B6 /* VideoView.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -546,6 +554,7 @@
 				B9DA4B811368749300EFD4B1 /* WebcamView.xib in Resources */,
 				B981A69A136C434F00525E27 /* xml-example2.xml in Resources */,
 				B98234A31371975100132F9E /* ImageView.xib in Resources */,
+				B9EB40CF13797446007127B6 /* VideoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +604,7 @@
 				B98234A21371975100132F9E /* ImageViewController.m in Sources */,
 				B98234A61371A7F500132F9E /* ImageDownloader.m in Sources */,
 				B98A06E51379250900B30B16 /* AsyncTCPSocket.m in Sources */,
+				B9EB40CE13797446007127B6 /* VideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
