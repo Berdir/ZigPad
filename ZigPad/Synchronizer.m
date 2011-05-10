@@ -194,8 +194,8 @@
 
 - (void)didAcceptConnectionForServer:(TCPServer *)server inputStream:(NSInputStream *)istr outputStream:(NSOutputStream *)ostr
 {
-	[_server release];
-	_server = nil;
+	//[_server release];
+	//_server = nil;
     
     SynchronizerConnection *conn = [[SynchronizerConnection alloc] initWithStreams: istr: ostr];
     [connections addObject:conn];
@@ -215,8 +215,8 @@
 {
     [self unregisterNotificationCenter];
 
-    [connections dealloc];
-    [_currentResolve dealloc];
+    [connections release];
+    [_currentResolve release];
     
 	[_server release];
     [super dealloc];
