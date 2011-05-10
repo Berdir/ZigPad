@@ -49,21 +49,15 @@
 - (void) receiveSyncEvent: (NSNotification *) notification {
     SyncEvent *event = [notification object];
     
-    self.isMaster = false;
-    
     if (event.command == JUMP) {
-        Action *a = [self.presentation jumpToAction:event.argument_lowerByte sequenceIndex:event.argument_upperByte];
         
-        // Finished.
-        if (a == nil) {
-            self.navigationController.navigationBar.hidden = FALSE;
-            self.navigationController.toolbar.hidden = FALSE;
-            [AnimatorHelper slideWithAnimation:-1 :self :nil :true:false:true];
-            return;
-        }
+        self.isMaster = false;
+        
+        Action *a = [self.presentation jumpToAction:event.argument_lowerByte sequenceIndex:event.argument_upperByte];
         
         ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
         nextPage.presentation = self.presentation;
+        nextPage.isMaster = self.isMaster;
         
         switch (event.direction) {
             case LEFT:
@@ -79,6 +73,23 @@
                 [AnimatorHelper slideWithAnimation:-1 :self :nextPage :true :true :true];
                 break;
         }
+    }
+    else if (event.command == REQUEST) {
+        if (self.isMaster) {
+            SyncEvent *syncEvent = [[SyncEvent alloc] init];
+            syncEvent.command = ANSWER; 
+            syncEvent.argument = [self.presentation.refId unsignedIntValue];
+        
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncFire" object:syncEvent];
+        
+            [syncEvent release];
+            
+            [self fireSyncEvent:RIGHT];
+        }
+    }
+    else if (event.command == EXIT) {
+        [AnimatorHelper slideWithAnimation:(event.direction == RIGHT ? -1 : 1) :self :nil :true:false:true];
+        return;
     }
 }
 
@@ -153,6 +164,13 @@
     
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self.navigationController setToolbarHidden:YES animated:animated];
+    self.navigationController.navigationBar.topItem.title = self.presentation.activeAction.name;
+    [super viewWillAppear:animated];
+}
+
 -(void) dealloc
 {
     [self unregisterNotificationCenter];
@@ -175,7 +193,6 @@
             
             chooser.presentation = self.presentation; 
             
-            self.navigationController.navigationBar.hidden = FALSE;
             [AnimatorHelper slideWithAnimation:-2 :self :chooser :false:true:true];
             
             
@@ -209,32 +226,36 @@
 - (void) next:(BOOL) animated {
     Action *a = [self.presentation getNextAction];
     
-    
-    [self fireSyncEvent:animated ? RIGHT_ANIMATED : RIGHT];
-    
     // Finished.
     if (a == nil) {
-        self.navigationController.navigationBar.hidden = FALSE;
-        self.navigationController.toolbar.hidden = FALSE;
         [AnimatorHelper slideWithAnimation:-1 :self :nil :true:false:true];
+        
+        SyncEvent *syncEvent = [[SyncEvent alloc] init];
+        syncEvent.command = EXIT; 
+        syncEvent.direction = RIGHT;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncFire" object:syncEvent];
+        
+        [syncEvent release];
+        
         return;
     }
     
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
     nextPage.presentation = self.presentation;
+    nextPage.isMaster = self.isMaster;
     
     //by swipe
-    if (animated) {[AnimatorHelper slideWithAnimation:-1 :self :nextPage:true:true:true];}
+    if (animated) {
+        [AnimatorHelper slideWithAnimation:-1 :self :nextPage:true:true:true];
+    }
     //by klick
     else
     {
         [AnimatorHelper slideWithAnimation:-1 :self :nextPage:false:true:true];
-
     }
     
-    
-
-
+    [self fireSyncEvent:animated ? RIGHT_ANIMATED : RIGHT];
 }
 
 //Slides the previous Action to GUI
@@ -242,21 +263,26 @@
 {
     Action *a = [self.presentation getPreviousAction];
     
-    [self fireSyncEvent: LEFT];
-    
     // Finished.
     if (a == nil) {
-        self.navigationController.navigationBar.hidden = FALSE;
-        self.navigationController.toolbar.hidden = FALSE;
         [AnimatorHelper slideWithAnimation:1 :self :nil :true:false:true];
+        SyncEvent *syncEvent = [[SyncEvent alloc] init];
+        syncEvent.command = EXIT; 
+        syncEvent.direction = LEFT;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncFire" object:syncEvent];
+        
+        [syncEvent release];
         return;
     }
     
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
     nextPage.presentation = self.presentation;
-    
+    nextPage.isMaster = self.isMaster;
     
     [AnimatorHelper slideWithAnimation:1 :self :nextPage:true:true:true];
+    
+    [self fireSyncEvent: LEFT_ANIMATED];
 }
 
  

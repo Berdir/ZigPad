@@ -171,6 +171,15 @@ NSArray* favorites; //favorite cache
     [recognicer release];
 }
 
+// Show navigation bar when the view appeared.
+- (void) viewDidAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self.navigationController setToolbarHidden:YES animated:animated];
+    self.navigationController.navigationBar.topItem.title = @"Favorites";
+    [super viewWillAppear:animated];
+}
+
 
 //generated code..
 

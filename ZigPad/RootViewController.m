@@ -44,39 +44,74 @@
 - (void) receiveSyncEvent: (NSNotification *) notification {
     SyncEvent *event = [notification object];
     
-    if (event.command == SELECT) {
-        
-        //get Presentation with selected refId from Database.
-        NSManagedObjectContext* context =  [[Database sharedInstance] managedObjectContext];
-        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Presentation" inManagedObjectContext:context];
-        NSFetchRequest *request = [[NSFetchRequest alloc] init] ;
-        [request setEntity:entityDescription];
-        
-        // Add a corresponding filter.
-        NSPredicate *filter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"refId = %d", event.argument]];
-        [request setPredicate:filter];
-        
-        // Read db
-        NSError* error = nil;
-        NSArray *presentations = [context executeFetchRequest:request error:&error];
-        
-        if ([presentations count] == 0) {
-            NSLog(@"No presentation for the given refId (%d) found", event.argument);
-            return;
+    switch (event.command) {
+        case ANSWER:
+        case SELECT:
+        {
+            //get Presentation with selected refId from Database.
+            NSManagedObjectContext* context =  [[Database sharedInstance] managedObjectContext];
+            NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Presentation" inManagedObjectContext:context];
+            NSFetchRequest *request = [[NSFetchRequest alloc] init] ;
+            [request setEntity:entityDescription];
+            
+            // Add a corresponding filter.
+            NSPredicate *filter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"refId = %d", event.argument]];
+            [request setPredicate:filter];
+            
+            // Read db
+            NSError* error = nil;
+            NSArray *presentations = [context executeFetchRequest:request error:&error];
+            
+            if ([presentations count] == 0) {
+                NSLog(@"No presentation for the given refId (%d) found", event.argument);
+                return;
+            }
+            
+            self.activePresentation = [presentations objectAtIndex:0];
+            [request release];
+            
+            NSLog(@"Selected Presentation through sync event %@.", self.activePresentation.name);
+            
+            // Only jump to the first action of this presentation if this is a SELECT
+            // command.
+            if (event.command == SELECT) { 
+                Action *a = [self.activePresentation getNextAction];    
+                ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
+                nextPage.presentation = self.activePresentation;
+                
+                [AnimatorHelper slideWithAnimation:-1 :self :nextPage :false :true :true];
+            }
+            break;
         }
-        
-        self.activePresentation = [presentations objectAtIndex:0];
-        [request release];
-        
-        NSLog(@"Selected Presentation through sync event %@.", self.activePresentation.name);
-        
-        Action *a = [self.activePresentation getNextAction];    
-        ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
-        nextPage.presentation = self.activePresentation;
-        
-        UINavigationController* navCtrl = self.navigationController;
-        
-        [navCtrl pushViewController:nextPage animated:TRUE];
+        case JUMP:
+            // Only act on jump commands if no presentation is active and a presentation was
+            // already selected with the ANSWER command.
+            if ([self.navigationController.viewControllers count] == 1 && self.activePresentation) {
+                Action *a = [self.activePresentation jumpToAction:event.argument_lowerByte sequenceIndex:event.argument_upperByte];
+            
+                if (a) {
+                    ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
+                    nextPage.presentation = self.activePresentation;
+                    [AnimatorHelper slideWithAnimation:-1 :self :nextPage :false :true :true];
+                }
+            }
+            break;
+        case CONNECTED:
+            self.navigationController.navigationBar.topItem.title = @"ZigPad (Synced)";
+            
+            // Send a REQUEST if no presentation is running.
+            if ([self.navigationController.viewControllers count] == 1) {
+                SyncEvent *event = [[SyncEvent alloc] init];
+                event.command = REQUEST;
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncFire" object:event];
+                
+                [event release];
+            }
+            break;
+        case LOST_CONNECTION:
+            self.navigationController.navigationBar.topItem.title = @"ZigPad";
+            break;
     }
 }
 
@@ -94,10 +129,12 @@
     [sync lookForDevice];
 }
 
-//do that if I slide from sequenceChoiceView to here
+// Show navigation and toolbar when the view appears.
 - (void) viewWillAppear:(BOOL)animated
 {
-      self.navigationController.toolbar.hidden = false;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController setToolbarHidden:NO animated:YES];
+    [super viewWillAppear:animated];
 }
 
 - (IBAction)popupSettingView:(id)sender
@@ -204,6 +241,7 @@
     Action *a = [self.activePresentation getNextAction];    
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
     nextPage.presentation = self.activePresentation;
+    nextPage.isMaster = TRUE;
     
     self.navigationController.navigationBar.hidden = TRUE;
     

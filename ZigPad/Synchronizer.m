@@ -43,6 +43,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+
+- (void) fireSyncEventTimed: (NSTimer*) theTimer {
+    [self fireSyncEvent: [theTimer userInfo]];
+}
+
 - (void) fireSyncEvent: (NSNotification *) notification {
     if (_outReady) {
         
@@ -52,6 +57,11 @@
         // Send three bytes, first the command, then the first byte of the argument
         // finally then the second.
         [_outStream write:[event bytes] maxLength:4];
+    }
+    else if (_outStream) {
+        // Outstream is not yet ready but we have an outstream, wait a second and try again.
+        NSLog(@"Trying to send sync event but stream is not yet ready, wait 1s before retrying");
+        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(fireSyncEventTimed:) userInfo:notification repeats:NO];
     }
 }
 
@@ -132,8 +142,6 @@
 	// If a service went away, stop resolving it if it's currently being resolved,
 	// remove it from the list and update the table view if no more events are queued.
     
-    NSLog(@"Removing service...");
-    
 	if (self.currentResolve && [service isEqual:self.currentResolve]) {
 		[self stopCurrentResolve];
 	}
@@ -195,6 +203,14 @@
     NSLog(@"Connected with %@!", service.name);
     
 	[self openStreams];
+    
+    SyncEvent *event = [[SyncEvent alloc] init];
+    event.command = CONNECTED;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncReceive" object:event];
+    
+    [event release];
+    
 	
 	[service release];
 }
@@ -278,6 +294,13 @@
 			
 		case NSStreamEventEndEncountered:
 		{
+            SyncEvent *event = [[SyncEvent alloc] init];
+            event.command = LOST_CONNECTION;
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncReceive" object:event];
+            
+            [event release];
+            
 			NSLog(@"Device Disconnected!");
 			break;
 		}
@@ -302,6 +325,14 @@
 	[_inStream retain];
 	_outStream = ostr;
 	[_outStream retain];
+    
+    SyncEvent *event = [[SyncEvent alloc] init];
+    event.command = CONNECTED;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncReceive" object:event];
+    
+    [event release];
+    
     
     NSLog(@"Accepted connection from remote device");
 	

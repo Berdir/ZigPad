@@ -44,4 +44,7 @@
 - (void) stopCurrentResolve;
 - (void) openStreams;	
 
+- (void) fireSyncEvent: (NSNotification*) notification;
+- (void) fireSyncEventTimed: (NSTimer*) theTimer;
+
 @end

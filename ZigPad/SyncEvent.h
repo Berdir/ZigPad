@@ -11,6 +11,12 @@
 typedef enum {
     SELECT = 83,
     JUMP = 74,
+    CONNECTED = 67,
+    LOST_CONNECTION = 76,
+    REQUEST = 82,
+    ANSWER = 65,
+    EXIT = 69,
+    
 } SyncEventCommand;
 
 typedef enum {

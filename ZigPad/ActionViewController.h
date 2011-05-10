@@ -14,6 +14,7 @@
 #import "Action.h"
 #import "Presentation.h"
 #import "Param.h"
+#import "SyncEvent.h"
 
 @interface ActionViewController : UIViewController {
 
@@ -36,5 +37,7 @@
 
 - (void) registerNotificationCenter;
 - (void) unregisterNotificationCenter;
+
+- (void) fireSyncEvent: (SyncEventSwipeDirection) direction;
 
 @end

@@ -47,6 +47,15 @@
 }
 */
 
+// Show navigation and toolbar when the view appears.
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController setToolbarHidden:YES animated:YES];
+    self.navigationController.navigationBar.topItem.title = @"Sequences";
+    [super viewWillAppear:animated];
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
 {
@@ -97,8 +106,6 @@
     nextPage.presentation = self.presentation;
     
     [[Commander defaultCommander] sendString:self.presentation.activeSequence.command];
-        
-    self.navigationController.navigationBar.hidden = TRUE;
 
     [AnimatorHelper slideWithAnimation:2 :self :nextPage :false:true:true];
     
