@@ -7,7 +7,8 @@
 //
 
 #import "Commander.h"
-#import "AsyncUdpSocket.h"
+//#import "AsyncUdpSocket.h"
+#import "AsyncTCPSocket.h"
 #import "ZigPadSettings.h"
 
 
@@ -48,14 +49,21 @@ static Commander * _defaultCommander = nil;
 -(id)init {
 	self = [super init];
 	if (self != nil) {
+        
+        /*
+         //variante udp       
+        ZigPadSettings *s = [ZigPadSettings sharedInstance];
+        NSLog(@"Connecting to Host %@, port %d", s.ip, s.port);
         udpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
         [udpSocket bindToPort:4321 error:nil];
-        
-        ZigPadSettings *s = [ZigPadSettings sharedInstance];
-
-        NSLog(@"Connecting to Host %@, port %d", s.ip, s.port);
         [udpSocket connectToHost:s.ip onPort:s.port error:nil];
-	}
+         */
+        
+        //variante tcp
+        tcpSocket = [[AsyncTCPSocket alloc] initWithDelegate:self];
+        
+        
+        }
     
 	return self;
 }
@@ -63,8 +71,26 @@ static Commander * _defaultCommander = nil;
 - (void) sendString: (NSString*) message {
     NSData *data = [message dataUsingEncoding: NSASCIIStringEncoding];
     
+    /*
+     //variante udp
     [udpSocket sendData:data withTimeout:-1 tag:1];
     [udpSocket receiveWithTimeout:2 tag:1];
+     */
+    
+    //variante tcp
+    ZigPadSettings *s = [ZigPadSettings sharedInstance];
+    NSLog(@"Connecting to Host %@, port %d", s.ip, s.port);
+    [tcpSocket disconnect];
+    bool success = [tcpSocket connectToHost:s.ip onPort:s.port error:nil];
+    if (success) 
+        NSLog(@"gira connected");
+    
+    [tcpSocket writeData:data withTimeout:2000 tag:1];
+    [tcpSocket readDataWithTimeout:2000 tag:1];
+    
+    [tcpSocket disconnectAfterReadingAndWriting];
+    
+    
 }
 -(void) sendAction:(Action *)msg
 {
@@ -82,16 +108,33 @@ static Commander * _defaultCommander = nil;
     
 }
 
+/*
+ //if we want udp
 - (BOOL)onUdpSocket:(AsyncUdpSocket *)sock didReceiveData:(NSData *)data withTag:(long)tag fromHost:(NSString *)host port:(UInt16)port {
     NSString *response = [NSString stringWithCString:[data bytes] encoding:NSASCIIStringEncoding];
     NSLog(@"Got '%@' from %@:%i\n", response, host, port);
     
     return TRUE;
 }
+ */
+// if we want TCP
+- (void)onSocket:(AsyncTCPSocket *)sock didReadData:(NSData *)data withTag:(long)tag
+{
+    
+    NSString *response = [NSString stringWithCString:[data bytes] encoding:NSASCIIStringEncoding];
+    NSLog(@"Got '%@' from Simulator\n", response);
+
+}
+
 
 - (void) dealloc {
+    /*
     [udpSocket close];
     [udpSocket release];
+     */
+    [tcpSocket disconnect];
+    [tcpSocket release];
+    
     [super dealloc];
 }
 
