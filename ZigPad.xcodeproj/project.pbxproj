@@ -245,7 +245,6 @@
 		B998B8CF134C6768003C2C7B = {
 			isa = PBXGroup;
 			children = (
-				B98A071D13795CBA00B30B16 /* CFNetwork.framework */,
 				B998B8E6134C6768003C2C7B /* ZigPad */,
 				B9F03A111355BE39008474A9 /* Resources */,
 				B998B90C134C67B5003C2C7B /* Tests */,
@@ -266,6 +265,7 @@
 		B998B8DD134C6768003C2C7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B98A071D13795CBA00B30B16 /* CFNetwork.framework */,
 				B994BDDA135EF9460067529F /* AudioToolbox.framework */,
 				B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */,
 				B9E2CBC41354910B00F1E5FE /* QuartzCore.framework */,
