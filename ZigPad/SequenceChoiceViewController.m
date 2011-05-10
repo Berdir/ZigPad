@@ -14,6 +14,7 @@
 #import "LocalPicture.h"
 #import "ActionViewController.h"
 #import "AnimatorHelper.h"
+#import "SyncEvent.h"
 
 
 @implementation SequenceChoiceViewController
@@ -109,6 +110,15 @@
 
     [AnimatorHelper slideWithAnimation:2 :self :nextPage :false:true:true];
     
+    
+    SyncEvent *event = [[SyncEvent alloc] init];
+    event.command = JUMP;
+    event.direction = UP;
+    event.argument_upperByte = self.presentation.currentSequenceIndex;
+    event.argument_lowerByte = self.presentation.currentActionIndex;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncFire" object:event];
+    [event release];
 }
 
 

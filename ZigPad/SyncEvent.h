@@ -20,7 +20,7 @@ typedef enum {
 } SyncEventCommand;
 
 typedef enum {
-    RIGHT, LEFT, RIGHT_ANIMATED, LEFT_ANIMATED,
+    RIGHT, LEFT, RIGHT_ANIMATED, LEFT_ANIMATED, UP
 } SyncEventSwipeDirection;
 
 

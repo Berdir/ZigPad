@@ -72,6 +72,9 @@
             case RIGHT_ANIMATED:
                 [AnimatorHelper slideWithAnimation:-1 :self :nextPage :true :true :true];
                 break;
+            case UP:
+                [AnimatorHelper slideWithAnimation:2 :self :nextPage :false:true:true];
+                break;
         }
     }
     else if (event.command == REQUEST) {
