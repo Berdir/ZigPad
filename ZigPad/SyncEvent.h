@@ -36,6 +36,8 @@ typedef enum {
 
 @property (readwrite) SyncEventSwipeDirection direction;
 
+@property (readonly) int bytesLength;
+
 - (id) initWithBytes: ( const uint8_t *) bytes;
 - (const uint8_t *) bytes;
 

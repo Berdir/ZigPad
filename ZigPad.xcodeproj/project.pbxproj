@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B915F99213716BD70037F1E8 /* SyncEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B915F99113716BD60037F1E8 /* SyncEvent.m */; };
+		B921B59F1379553B00A9EB7A /* SynchronizerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B921B59E1379553B00A9EB7A /* SynchronizerConnection.m */; };
 		B94666DD135DB03000EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
 		B94666E0135DB40700EDA740 /* SettingsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DF135DB40700EDA740 /* SettingsTest.m */; };
 		B94666E1135DB57B00EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
@@ -97,6 +98,8 @@
 /* Begin PBXFileReference section */
 		B915F99013716BD60037F1E8 /* SyncEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncEvent.h; sourceTree = "<group>"; };
 		B915F99113716BD60037F1E8 /* SyncEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncEvent.m; sourceTree = "<group>"; };
+		B921B59D1379553B00A9EB7A /* SynchronizerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizerConnection.h; sourceTree = "<group>"; };
+		B921B59E1379553B00A9EB7A /* SynchronizerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronizerConnection.m; sourceTree = "<group>"; };
 		B94666DB135DB03000EDA740 /* ZigPadSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZigPadSettings.h; sourceTree = "<group>"; };
 		B94666DC135DB03000EDA740 /* ZigPadSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZigPadSettings.m; sourceTree = "<group>"; };
 		B94666DF135DB40700EDA740 /* SettingsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTest.m; sourceTree = "<group>"; };
@@ -418,6 +421,8 @@
 				B9BC41F6134DA5180085D597 /* Synchronizer.m */,
 				B915F99013716BD60037F1E8 /* SyncEvent.h */,
 				B915F99113716BD60037F1E8 /* SyncEvent.m */,
+				B921B59D1379553B00A9EB7A /* SynchronizerConnection.h */,
+				B921B59E1379553B00A9EB7A /* SynchronizerConnection.m */,
 			);
 			name = Synchronize;
 			sourceTree = "<group>";
@@ -591,6 +596,7 @@
 				B915F99213716BD70037F1E8 /* SyncEvent.m in Sources */,
 				B98234A21371975100132F9E /* ImageViewController.m in Sources */,
 				B98234A61371A7F500132F9E /* ImageDownloader.m in Sources */,
+				B921B59F1379553B00A9EB7A /* SynchronizerConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

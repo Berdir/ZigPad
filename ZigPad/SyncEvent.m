@@ -47,4 +47,8 @@
     return [data bytes];
 }
 
+- (int) bytesLength {
+    return 4;
+}
+
 @end

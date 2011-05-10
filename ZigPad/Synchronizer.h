@@ -8,13 +8,11 @@
 
 #import "TCPServer.h"
 
-@interface Synchronizer : NSObject <TCPServerDelegate, NSStreamDelegate,  NSNetServiceDelegate, NSNetServiceBrowserDelegate> {
+@interface Synchronizer : NSObject <TCPServerDelegate,  NSNetServiceDelegate, NSNetServiceBrowserDelegate> {
 
 	TCPServer			*_server;
-	NSInputStream		*_inStream;
-	NSOutputStream		*_outStream;
-	BOOL				_inReady;
-	BOOL				_outReady;
+    
+    NSMutableArray * connections;
     
 	NSNetService *_ownEntry;
 	BOOL _showDisclosureIndicators;
@@ -42,9 +40,7 @@
 
 - (void) lookForDevice;
 - (void) stopCurrentResolve;
-- (void) openStreams;	
 
 - (void) fireSyncEvent: (NSNotification*) notification;
-- (void) fireSyncEventTimed: (NSTimer*) theTimer;
 
 @end

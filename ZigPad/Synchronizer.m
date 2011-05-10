@@ -8,6 +8,7 @@
 
 #import "Synchronizer.h"
 #import "SyncEvent.h"
+#import "SynchronizerConnection.h"
 
 // The Bonjour application protocol, which must:
 // 1) be no longer than 14 characters
@@ -44,24 +45,9 @@
 }
 
 
-- (void) fireSyncEventTimed: (NSTimer*) theTimer {
-    [self fireSyncEvent: [theTimer userInfo]];
-}
-
 - (void) fireSyncEvent: (NSNotification *) notification {
-    if (_outReady) {
-        
-        SyncEvent *event = (SyncEvent *) [notification object];
-        NSLog(@"Sending SyncEvent %i : %d", event.command, event.argument);
-
-        // Send three bytes, first the command, then the first byte of the argument
-        // finally then the second.
-        [_outStream write:[event bytes] maxLength:4];
-    }
-    else if (_outStream) {
-        // Outstream is not yet ready but we have an outstream, wait a second and try again.
-        NSLog(@"Trying to send sync event but stream is not yet ready, wait 1s before retrying");
-        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(fireSyncEventTimed:) userInfo:notification repeats:NO];
+    for (SynchronizerConnection *connection in connections) {
+        [connection send:notification.object];
     }
 }
 
@@ -71,16 +57,6 @@
     NSLog(@"Setup...");
     [_server release];
 	_server = nil;
-	
-	[_inStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-	[_inStream release];
-	_inStream = nil;
-	_inReady = NO;
-    
-	[_outStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-	[_outStream release];
-	_outStream = nil;
-	_outReady = NO;
 	
 	_server = [TCPServer new];
 	[_server setDelegate:self];
@@ -94,6 +70,8 @@
 		//[self _showAlert:@"Failed creating server"];
 		return i;
 	}
+    
+    connections = [[NSMutableArray alloc] initWithCapacity:10];
 	
 	//Start advertising to clients, passing nil for the name to tell Bonjour to pick use default name
 	if(![_server enableBonjourWithDomain:@"local" applicationProtocol:[TCPServer bonjourTypeFromIdentifier:kGameIdentifier] name:nil]) {
@@ -148,12 +126,6 @@
 	[self.services removeObject:service];
 	if (self.ownEntry == service)
 		self.ownEntry = nil;
-	
-	// If moreComing is NO, it means that there are no more messages in the queue from the Bonjour daemon, so we should update the UI.
-	// When moreComing is set, we don't update the UI so that it doesn't 'flash'.
-	if (!moreComing) {
-		//[self sortAndUpdateUI];
-	}
 }	
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)netServiceBrowser didFindService:(NSNetService *)service moreComing:(BOOL)moreComing {
@@ -192,17 +164,9 @@
 	[service retain];
 	[self stopCurrentResolve];
     
-    
-	// note the following method returns _inStream and _outStream with a retain count that the caller must eventually release
-	if (![service getInputStream:&_inStream outputStream:&_outStream]) {
-        NSLog(@"Failed to connect to server.");
-		return;
-	}
-    
-    
+    SynchronizerConnection *conn = [[SynchronizerConnection alloc] initWithService:service];
+    [connections addObject:conn];
     NSLog(@"Connected with %@!", service.name);
-    
-	[self openStreams];
     
     SyncEvent *event = [[SyncEvent alloc] init];
     event.command = CONNECTED;
@@ -215,98 +179,6 @@
 	[service release];
 }
 
-- (void) send:(const uint8_t)message
-{
-	if (_outStream && [_outStream hasSpaceAvailable]) {
-		if([_outStream write:(const uint8_t *)&message maxLength:sizeof(const uint8_t)] == -1) {
-			NSLog(@"Failed sending data %d to peer", message);
-        }
-    }
-}
-
-- (void) openStreams
-{
-	_inStream.delegate = self;
-	[_inStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-	[_inStream open];
-	_outStream.delegate = self;
-	[_outStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-	[_outStream open];
-    
-    if (_outStream) {
-        NSLog(@"Outstream is open.");
-    }
-    
-    if (_inStream) {
-        NSLog(@"Instream is open.");
-    }
-}
-
-- (void) stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode
-{
-	switch(eventCode) {
-		case NSStreamEventOpenCompleted:
-		{
-			
-			[_server release];
-			_server = nil;
-            
-			if (stream == _inStream)
-				_inReady = YES;
-			else
-				_outReady = YES;
-			
-			if (_inReady && _outReady) {
-                NSLog(@"Connected");
-			}
-			break;
-		}
-		case NSStreamEventHasBytesAvailable:
-		{
-			if (stream == _inStream) {
-				uint8_t b[3];
-				int len = 0;
-				len = [_inStream read:b maxLength:4];
-				if(len < 3) {
-					if ([stream streamStatus] != NSStreamStatusAtEnd)
-						NSLog(@"Failed reading data from peer");
-				} else {                    
-                    SyncEvent *event = [[SyncEvent alloc] initWithBytes:b];
-                    
-                    NSLog(@"Got SyncEvent %d with argument %d", event.command, event.argument);
-                                        
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncReceive" object:event];
-                    
-                    [event release];
-				}
-			}
-			break;
-		}
-		case NSStreamEventErrorOccurred:
-		{
-            NSError *theError = [stream streamError];
-            NSLog(@"Error %i: %@", [theError code], [theError localizedDescription]);
-            
-            [stream close];
-            [stream release];
-			break;
-		}
-			
-		case NSStreamEventEndEncountered:
-		{
-            SyncEvent *event = [[SyncEvent alloc] init];
-            event.command = LOST_CONNECTION;
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncReceive" object:event];
-            
-            [event release];
-            
-			NSLog(@"Device Disconnected!");
-			break;
-		}
-	}
-}
-
 - (void) serverDidEnableBonjour:(TCPServer *)server withName:(NSString *)string
 {
 	NSLog(@"Enabled (%@)", string);
@@ -315,16 +187,11 @@
 
 - (void)didAcceptConnectionForServer:(TCPServer *)server inputStream:(NSInputStream *)istr outputStream:(NSOutputStream *)ostr
 {
-	if (_inStream || _outStream || server != _server)
-		return;
-	
 	[_server release];
 	_server = nil;
-	
-	_inStream = istr;
-	[_inStream retain];
-	_outStream = ostr;
-	[_outStream retain];
+    
+    SynchronizerConnection *conn = [[SynchronizerConnection alloc] initWithStreams: istr: ostr];
+    [connections addObject:conn];
     
     SyncEvent *event = [[SyncEvent alloc] init];
     event.command = CONNECTED;
@@ -333,22 +200,15 @@
     
     [event release];
     
-    
     NSLog(@"Accepted connection from remote device");
-	
-	[self openStreams];
-}
 
+}
 
 - (void)dealloc
 {
     [self unregisterNotificationCenter];
-    
-    [_inStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-	[_inStream release];
-    
-	[_outStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-	[_outStream release];
+
+    [connections dealloc];
     
 	[_server release];
     [super dealloc];
