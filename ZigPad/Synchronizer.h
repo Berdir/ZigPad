@@ -18,7 +18,7 @@
 	BOOL _showDisclosureIndicators;
 	NSMutableArray *_services;
 	NSNetServiceBrowser *_netServiceBrowser;
-	NSNetService *_currentResolve;
+	NSMutableArray *_currentResolve;
 	NSTimer *_timer;
 	BOOL _needsActivityIndicator;
 	BOOL _initialWaitOver;
@@ -32,7 +32,7 @@
 @property (nonatomic, assign, readwrite) BOOL showDisclosureIndicators;
 @property (nonatomic, retain, readwrite) NSMutableArray *services;
 @property (nonatomic, retain, readwrite) NSNetServiceBrowser *netServiceBrowser;
-@property (nonatomic, retain, readwrite) NSNetService *currentResolve;
+@property (nonatomic, retain, readwrite) NSMutableArray *currentResolve;
 @property (nonatomic, retain, readwrite) NSTimer *timer;
 @property (nonatomic, assign, readwrite) BOOL needsActivityIndicator;
 @property (nonatomic, assign, readwrite) BOOL initialWaitOver;

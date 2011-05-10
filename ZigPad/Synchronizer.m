@@ -72,6 +72,7 @@
 	}
     
     connections = [[NSMutableArray alloc] initWithCapacity:10];
+    self.currentResolve = [[NSMutableArray alloc] initWithCapacity:10];
 	
 	//Start advertising to clients, passing nil for the name to tell Bonjour to pick use default name
 	if(![_server enableBonjourWithDomain:@"local" applicationProtocol:[TCPServer bonjourTypeFromIdentifier:kGameIdentifier] name:nil]) {
@@ -112,8 +113,12 @@
 
 - (void)stopCurrentResolve {
     
-	[self.currentResolve stop];
-	self.currentResolve = nil;
+    for (NSNetService *service in _currentResolve) {
+        [service stop];
+    }
+    [self.currentResolve release];
+    self.currentResolve = [[NSMutableArray alloc] initWithCapacity:10];
+
 }
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)netServiceBrowser didRemoveService:(NSNetService *)service moreComing:(BOOL)moreComing {
@@ -142,12 +147,13 @@
         }
         
         // Then set the current resolve to the service corresponding to the tapped cell
-        self.currentResolve = service;
-        [self.currentResolve setDelegate:self];
+        [service setDelegate:self];
         
         // Attempt to resolve the service. A value of 0.0 sets an unlimited time to resolve it. The user can
         // choose to cancel the resolve by selecting another service in the table view.
-        [self.currentResolve resolveWithTimeout:0.0];
+        [service resolveWithTimeout:0.0];
+        
+        [self.currentResolve addObject:service];
         
         NSLog(@"Connecting to %@", service.name);
     }
@@ -159,10 +165,11 @@
 }
 
 - (void)netServiceDidResolveAddress:(NSNetService *)service {
-	assert(service == self.currentResolve);
+	assert([_currentResolve containsObject:service]);
 	
 	[service retain];
-	[self stopCurrentResolve];
+    [service stop];
+    [_currentResolve removeObject:service];
     
     SynchronizerConnection *conn = [[SynchronizerConnection alloc] initWithService:service];
     [connections addObject:conn];
@@ -209,6 +216,7 @@
     [self unregisterNotificationCenter];
 
     [connections dealloc];
+    [_currentResolve dealloc];
     
 	[_server release];
     [super dealloc];
