@@ -55,7 +55,7 @@ NSManagedObjectContext* context;
 {
     //NSString* url = @"http://www.die-seite.ch/movie.gif";
     //NSString* url = @"testpic.jpg";
-    NSURL* picURL;
+    //NSURL* picURL;
     NSData *data; //the picture binariers
     
     if ([url hasPrefix:@"http"]) //load from I-Net

@@ -166,7 +166,7 @@
 		B9BC41B1134C86B60085D597 /* Importer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Importer.m; sourceTree = "<group>"; };
 		B9BC41B3134C86CC0085D597 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		B9BC41B4134C86CC0085D597 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
-		B9BC41B6134C8A230085D597 /* xml-example.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "xml-example.xml"; sourceTree = "<group>"; };
+		B9BC41B6134C8A230085D597 /* xml-example.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "xml-example.xml"; path = "../Tests/xml-example.xml"; sourceTree = "<group>"; };
 		B9BC41DD134C91700085D597 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		B9BC41DE134C91700085D597 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		B9BC41E3134CA8D30085D597 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
@@ -282,16 +282,18 @@
 			children = (
 				B9BC41FB134DAE390085D597 /* Commander */,
 				B94666D9135DB00900EDA740 /* Settings */,
-				B9E2CB921354844A00F1E5FE /* FlowCoverLibs */,
 				B9BC41F4134DA4A90085D597 /* Synchronize */,
 				B9BC41C7134C8EB40085D597 /* CoreData */,
 				B9BC41AF134C864A0085D597 /* Importer */,
 				B998B8EF134C6768003C2C7B /* ZigPadAppDelegate.h */,
 				B998B8F0134C6768003C2C7B /* ZigPadAppDelegate.m */,
+				B998B8F5134C6768003C2C7B /* MainWindow.xib */,
+				B998B8F8134C6768003C2C7B /* RootViewController.h */,
+				B998B8F9134C6768003C2C7B /* RootViewController.m */,
+				B998B8FB134C6768003C2C7B /* RootViewController.xib */,
 				B9BC41AA134C85F50085D597 /* UI */,
+				B9E00CE5137A8682002A1340 /* helperClassesAllLayers */,
 				B998B8E7134C6768003C2C7B /* Supporting Files */,
-				B98234A41371A7EA00132F9E /* ImageDownloader.h */,
-				B98234A51371A7F000132F9E /* ImageDownloader.m */,
 			);
 			path = ZigPad;
 			sourceTree = "<group>";
@@ -313,7 +315,6 @@
 				B9BEEAE0134CD8CB0085663E /* testpic3.gif */,
 				B9BEEADE134CD7AA0085663E /* testpic2.png */,
 				B9BEEADC134CC5C20085663E /* testpic.jpg */,
-				B9BC41B6134C8A230085D597 /* xml-example.xml */,
 				B981A699136C434F00525E27 /* xml-example2.xml */,
 				B998B90D134C67B5003C2C7B /* Supporting Files */,
 				B998B927134C6930003C2C7B /* GHUnitIOSTestMain.m */,
@@ -333,33 +334,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B9A2FC7C1365626C009BA16A /* BWOrdered */ = {
+		B9A2FC7C1365626C009BA16A /* openLibs */ = {
 			isa = PBXGroup;
 			children = (
 				B9A2FC7813656267009BA16A /* BWOrderedManagedObject.h */,
 				B9A2FC7913656267009BA16A /* BWOrderedManagedObject.m */,
 			);
-			name = BWOrdered;
+			name = openLibs;
 			sourceTree = "<group>";
 		};
 		B9BC41AA134C85F50085D597 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				B9DA4B7E1368749300EFD4B1 /* WebcamView.xib */,
-				B9DA4B7F1368749300EFD4B1 /* WebcamViewController.h */,
-				B9DA4B801368749300EFD4B1 /* WebcamViewController.m */,
+				B9E00CE4137A8564002A1340 /* ActionViewPlugins */,
+				B9E00CE2137A84A6002A1340 /* openLibs */,
 				B98000381367FAD500A629D4 /* ActionViewController.h */,
 				B98000391367FAD500A629D4 /* ActionViewController.m */,
-				B994BDCB135EDCDE0067529F /* CommandViewController.h */,
-				B994BDCC135EDCDE0067529F /* CommandViewController.m */,
-				B994BDCD135EDCDE0067529F /* CommandView.xib */,
 				B9E2CBB313548FBF00F1E5FE /* SequenceChoiceViewController.h */,
 				B9E2CBB413548FBF00F1E5FE /* SequenceChoiceViewController.m */,
-				B998B8F5134C6768003C2C7B /* MainWindow.xib */,
-				B9BC41E6134CA8DB0085D597 /* MBProgressHUD */,
-				B998B8F8134C6768003C2C7B /* RootViewController.h */,
-				B998B8F9134C6768003C2C7B /* RootViewController.m */,
-				B998B8FB134C6768003C2C7B /* RootViewController.xib */,
 				B9E2CBB613548FEA00F1E5FE /* SequenceChoiceView.xib */,
 				B993FB7A1355E29C00A69334 /* FavoritesViewController.h */,
 				B993FB7B1355E29C00A69334 /* FavoritesViewController.m */,
@@ -367,14 +359,6 @@
 				B9AF2B9C135DBFF7005944B7 /* SettingsViewController.h */,
 				B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */,
 				B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */,
-				B982349B1371346A00132F9E /* AnimatorHelper.h */,
-				B982349C1371346A00132F9E /* AnimatorHelper.m */,
-				B982349F1371974B00132F9E /* ImageViewController.h */,
-				B98234A01371974D00132F9E /* ImageViewController.m */,
-				B98234A11371974F00132F9E /* ImageView.xib */,
-				B9EB40CB13797446007127B6 /* VideoViewController.h */,
-				B9EB40CC13797446007127B6 /* VideoViewController.m */,
-				B9EB40CD13797446007127B6 /* VideoView.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -393,20 +377,10 @@
 		B9BC41C7134C8EB40085D597 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				B9A2FC7C1365626C009BA16A /* BWOrdered */,
+				B9E00CE6137A87D2002A1340 /* entities */,
 				B9BC41DD134C91700085D597 /* Database.h */,
 				B9BC41DE134C91700085D597 /* Database.m */,
 				B9A2FC6A13656076009BA16A /* Presentations.xcdatamodeld */,
-				B9A2FC7D13656C58009BA16A /* Sequence.h */,
-				B9A2FC7E13656C58009BA16A /* Sequence.m */,
-				B9A2FC8013656C59009BA16A /* Action.h */,
-				B9A2FC8113656C59009BA16A /* Action.m */,
-				B9A2FC8313656C59009BA16A /* Presentation.h */,
-				B9A2FC8413656C59009BA16A /* Presentation.m */,
-				B9A2FC8613656C59009BA16A /* Param.h */,
-				B9A2FC8713656C59009BA16A /* Param.m */,
-				B9A2FC8913656C59009BA16A /* LocalPicture.h */,
-				B9A2FC8A13656C59009BA16A /* LocalPicture.m */,
 			);
 			name = CoreData;
 			path = coredata;
@@ -424,8 +398,7 @@
 		B9BC41F4134DA4A90085D597 /* Synchronize */ = {
 			isa = PBXGroup;
 			children = (
-				B9BC41F8134DA7510085D597 /* TCPServer.h */,
-				B9BC41F9134DA7510085D597 /* TCPServer.m */,
+				B9E00CE3137A84F8002A1340 /* openLibs */,
 				B9BC41F5134DA5180085D597 /* Synchronizer.h */,
 				B9BC41F6134DA5180085D597 /* Synchronizer.m */,
 			);
@@ -435,17 +408,91 @@
 		B9BC41FB134DAE390085D597 /* Commander */ = {
 			isa = PBXGroup;
 			children = (
-				B98A06E31379250900B30B16 /* AsyncTCPSocket.h */,
-				B98A06E41379250900B30B16 /* AsyncTCPSocket.m */,
-				B9BC4207134DB1470085D597 /* AsyncUdpSocket.h */,
-				B9BC4208134DB1470085D597 /* AsyncUdpSocket.m */,
+				B9E00CE0137A8407002A1340 /* openLibs */,
 				B9BC41FC134DAEB90085D597 /* Commander.h */,
 				B9BC41FD134DAEB90085D597 /* Commander.m */,
 			);
 			name = Commander;
 			sourceTree = "<group>";
 		};
-		B9E2CB921354844A00F1E5FE /* FlowCoverLibs */ = {
+		B9E00CE0137A8407002A1340 /* openLibs */ = {
+			isa = PBXGroup;
+			children = (
+				B98A06E31379250900B30B16 /* AsyncTCPSocket.h */,
+				B98A06E41379250900B30B16 /* AsyncTCPSocket.m */,
+				B9BC4207134DB1470085D597 /* AsyncUdpSocket.h */,
+				B9BC4208134DB1470085D597 /* AsyncUdpSocket.m */,
+			);
+			name = openLibs;
+			sourceTree = "<group>";
+		};
+		B9E00CE2137A84A6002A1340 /* openLibs */ = {
+			isa = PBXGroup;
+			children = (
+				B9BC41E6134CA8DB0085D597 /* MBProgressHUD */,
+				B9E2CB921354844A00F1E5FE /* FlowCover */,
+			);
+			name = openLibs;
+			sourceTree = "<group>";
+		};
+		B9E00CE3137A84F8002A1340 /* openLibs */ = {
+			isa = PBXGroup;
+			children = (
+				B9BC41F8134DA7510085D597 /* TCPServer.h */,
+				B9BC41F9134DA7510085D597 /* TCPServer.m */,
+			);
+			name = openLibs;
+			sourceTree = "<group>";
+		};
+		B9E00CE4137A8564002A1340 /* ActionViewPlugins */ = {
+			isa = PBXGroup;
+			children = (
+				B982349F1371974B00132F9E /* ImageViewController.h */,
+				B98234A01371974D00132F9E /* ImageViewController.m */,
+				B98234A11371974F00132F9E /* ImageView.xib */,
+				B9EB40CB13797446007127B6 /* VideoViewController.h */,
+				B9EB40CC13797446007127B6 /* VideoViewController.m */,
+				B9EB40CD13797446007127B6 /* VideoView.xib */,
+				B994BDCB135EDCDE0067529F /* CommandViewController.h */,
+				B994BDCC135EDCDE0067529F /* CommandViewController.m */,
+				B994BDCD135EDCDE0067529F /* CommandView.xib */,
+				B9DA4B7E1368749300EFD4B1 /* WebcamView.xib */,
+				B9DA4B7F1368749300EFD4B1 /* WebcamViewController.h */,
+				B9DA4B801368749300EFD4B1 /* WebcamViewController.m */,
+			);
+			name = ActionViewPlugins;
+			sourceTree = "<group>";
+		};
+		B9E00CE5137A8682002A1340 /* helperClassesAllLayers */ = {
+			isa = PBXGroup;
+			children = (
+				B98234A41371A7EA00132F9E /* ImageDownloader.h */,
+				B98234A51371A7F000132F9E /* ImageDownloader.m */,
+				B982349B1371346A00132F9E /* AnimatorHelper.h */,
+				B982349C1371346A00132F9E /* AnimatorHelper.m */,
+			);
+			name = helperClassesAllLayers;
+			sourceTree = "<group>";
+		};
+		B9E00CE6137A87D2002A1340 /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				B9A2FC7C1365626C009BA16A /* openLibs */,
+				B9A2FC7D13656C58009BA16A /* Sequence.h */,
+				B9A2FC7E13656C58009BA16A /* Sequence.m */,
+				B9A2FC8013656C59009BA16A /* Action.h */,
+				B9A2FC8113656C59009BA16A /* Action.m */,
+				B9A2FC8313656C59009BA16A /* Presentation.h */,
+				B9A2FC8413656C59009BA16A /* Presentation.m */,
+				B9A2FC8613656C59009BA16A /* Param.h */,
+				B9A2FC8713656C59009BA16A /* Param.m */,
+				B9A2FC8913656C59009BA16A /* LocalPicture.h */,
+				B9A2FC8A13656C59009BA16A /* LocalPicture.m */,
+			);
+			name = entities;
+			sourceTree = "<group>";
+		};
+		B9E2CB921354844A00F1E5FE /* FlowCover */ = {
 			isa = PBXGroup;
 			children = (
 				B9E2CBB013548FA700F1E5FE /* DataCache.h */,
@@ -453,13 +500,14 @@
 				B9E2CBAD13548FA000F1E5FE /* FlowCoverView.h */,
 				B9E2CBAE13548FA000F1E5FE /* FlowCoverView.m */,
 			);
-			name = FlowCoverLibs;
+			name = FlowCover;
 			sourceTree = "<group>";
 		};
 		B9F03A111355BE39008474A9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				B994BDD8135EDD950067529F /* Default.png */,
+				B9BC41B6134C8A230085D597 /* xml-example.xml */,
 				B994BDD6135EDD6D0067529F /* 00_icon_home_control.png */,
 				B994BDD0135EDD3F0067529F /* 00_background_home_control_2.png */,
 				B9F03A171355C04E008474A9 /* Failure.png */,
