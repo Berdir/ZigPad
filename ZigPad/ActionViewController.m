@@ -78,10 +78,6 @@
 
     NSLog(@"geladen: Sequenz %@ mit ID %@  Action %@ mit ID %@",self.presentation.activeSequence.name, self.presentation.activeSequence.refId, self.presentation.activeAction.name, self.presentation.activeAction.refId);
     
-    //check if we have to send init sequence command to gira server
-    if (self.presentation.actionIsFirstInSequence)
-        [[Commander defaultCommander] sendString: self.presentation.activeSequence.command];
-
     self.navigationController.toolbar.hidden = TRUE;
     self.navigationController.navigationBar.hidden = TRUE;
     

@@ -104,12 +104,6 @@ bool isFirstCallOfGetNextMethod = true;
     
 }
 
-//called by ActionViewController to determine if a sequence initial Command must be sent
-- (bool) actionIsFirstInSequence
-{
-    return (activeActionsIndex == 0)?true:false;
-}
-
 -  (Action*) getNextAction
 {
     
