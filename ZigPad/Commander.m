@@ -80,13 +80,14 @@ static Commander * _defaultCommander = nil;
     //variante tcp
     ZigPadSettings *s = [ZigPadSettings sharedInstance];
     NSLog(@"Connecting to Host %@, port %d", s.ip, s.port);
-    [tcpSocket disconnect];
+    [tcpSocket disconnect]; //do it, if not already done
+    
     bool success = [tcpSocket connectToHost:s.ip onPort:s.port error:nil];
     if (success) 
         NSLog(@"gira connected");
     
-    [tcpSocket writeData:data withTimeout:2000 tag:1];
-    [tcpSocket readDataWithTimeout:2000 tag:1];
+    [tcpSocket writeData:data withTimeout:500 tag:1];
+    [tcpSocket readDataWithTimeout:500 tag:1];
     
     [tcpSocket disconnectAfterReadingAndWriting];
     

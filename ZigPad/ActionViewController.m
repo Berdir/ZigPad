@@ -73,6 +73,7 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    
     self.label.text = self.presentation.activeSequence.name;
     self.actionLabel.text = self.presentation.activeAction.name;
 
