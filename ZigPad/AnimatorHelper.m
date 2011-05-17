@@ -59,9 +59,7 @@
     if (popOnStack) [navigationController popViewControllerAnimated:NO];
     if (pushOnStack) [navigationController pushViewController:nextPage animated:NO];
 
-    
-    
-    
+
     
     /* BITTE CODE LASSEN -> KNOWLEGEBASE
      [UIView animateWithDuration:0.5

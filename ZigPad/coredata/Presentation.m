@@ -104,6 +104,12 @@ bool isFirstCallOfGetNextMethod = true;
     
 }
 
+//called by ActionViewController to determine if a sequence initial Command must be sent
+- (bool) actionIsFirstInSequence
+{
+    return (activeActionsIndex == 0)?true:false;
+}
+
 -  (Action*) getNextAction
 {
     
@@ -185,6 +191,9 @@ bool isFirstCallOfGetNextMethod = true;
 
 
 - (void) dealloc {
+    activeSequencesIndex = 0; //because Memorymanager makes recycling of deallocated objects
+    activeActionsIndex = 0;
+    isFirstCallOfGetNextMethod = true;
 
     [_indexMapping release];
     [_activeAct release];

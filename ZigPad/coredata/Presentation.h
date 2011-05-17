@@ -33,5 +33,6 @@
 - (Action*) getNextAction;
 - (Action*) getPreviousAction;
 - (Action*) jumpToSequence: (int) index;
+- (bool) actionIsFirstInSequence;
 
 @end

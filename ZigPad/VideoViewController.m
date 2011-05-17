@@ -20,6 +20,7 @@ bool clickWasFirstTime = false;
 - (void)dealloc
 {
     [_myWebView release];
+    clickWasFirstTime = false; //because Memorymanager makes recycling of deallocated objects
     [super dealloc];
 }
 
