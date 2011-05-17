@@ -189,6 +189,9 @@ bool isFirstCallOfGetNextMethod = true;
 
 
 - (void) dealloc {
+    activeSequencesIndex = 0; //because Memorymanager makes recycling of deallocated objects
+    activeActionsIndex = 0;
+    isFirstCallOfGetNextMethod = true;
 
     [_indexMapping release];
     [_activeAct release];

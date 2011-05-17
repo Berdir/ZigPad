@@ -92,6 +92,7 @@ NSArray* favorites; //favorite cache
 
             UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(labPosX, labPosY, labelWith, labelHeight)];
             label.adjustsFontSizeToFitWidth = true;
+            label.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
             label.text = a.name;  //fill label with favorite name
             
             
