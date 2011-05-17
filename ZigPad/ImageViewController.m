@@ -41,32 +41,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
     Action* a = self.presentation.activeAction;
     Param* p = nil;
+    NSData* data = nil;
     
-    //try to load online picture
+    //load online picture
     p = [a getParamForKey:@"url"];
     if (p != nil) {
         NSString* urlAddress = p.value;
-        
-        NSData* data = [ImageDownloader downloadImage:urlAddress];
+        data = [ImageDownloader downloadImage:urlAddress];
+    }
+    
+    //if no online pic configured then load from local db
+    else
+    {
+        p = [a getParamForKey:@"picture"];
+        if (p != nil)
+            data = p.localPicture.picture;
+    }
+    
+    //if image successfully loaded
+    if ([data length] > 0)
+    {
         //put data into UIImage
         UIImage* image =  [UIImage imageWithData:data];
         [self.myImageView setImage:image];
         
-        //everything is ok now finish
-        return;
+        //hide Labels because not used this case
+        self.label.hidden = true;
+        self.actionLabel.hidden = true;
     }
     
-    //if nothing found try to load a pic from local db
-    p = [a getParamForKey:@"picture"];
-    if (p != nil) {
-        
-        UIImage* image =  [UIImage imageWithData:p.localPicture.picture];
-        [self.myImageView setImage:image];
-    } 
-    //if still nothing then shit happens..
+    //otherwise: shit happens..
     
     
 }

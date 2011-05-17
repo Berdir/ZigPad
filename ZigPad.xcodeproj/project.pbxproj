@@ -17,10 +17,11 @@
 		B982349D1371346A00132F9E /* AnimatorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B982349C1371346A00132F9E /* AnimatorHelper.m */; };
 		B98234A21371975100132F9E /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98234A01371974D00132F9E /* ImageViewController.m */; };
 		B98234A31371975100132F9E /* ImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B98234A11371974F00132F9E /* ImageView.xib */; };
-		B98234A61371A7F500132F9E /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B98234A51371A7F000132F9E /* ImageDownloader.m */; };
 		B986A5FF135EC2DA00680172 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */; };
 		B98A06E51379250900B30B16 /* AsyncTCPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B98A06E41379250900B30B16 /* AsyncTCPSocket.m */; };
 		B98A071E13795CBA00B30B16 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B98A071D13795CBA00B30B16 /* CFNetwork.framework */; };
+		B98F868C1382B3DD00DEE87A /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B98234A51371A7F000132F9E /* ImageDownloader.m */; };
+		B98F868D1382B3DF00DEE87A /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B98234A51371A7F000132F9E /* ImageDownloader.m */; };
 		B993FB7D1355E29D00A69334 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B993FB7B1355E29C00A69334 /* FavoritesViewController.m */; };
 		B993FB7E1355E29D00A69334 /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B993FB7C1355E29D00A69334 /* FavoritesView.xib */; };
 		B994BDCA135ECAEA0067529F /* GHUnitIOS.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */; };
@@ -661,10 +662,10 @@
 				B982349D1371346A00132F9E /* AnimatorHelper.m in Sources */,
 				B915F99213716BD70037F1E8 /* SyncEvent.m in Sources */,
 				B98234A21371975100132F9E /* ImageViewController.m in Sources */,
-				B98234A61371A7F500132F9E /* ImageDownloader.m in Sources */,
 				B921B59F1379553B00A9EB7A /* SynchronizerConnection.m in Sources */,
 				B98A06E51379250900B30B16 /* AsyncTCPSocket.m in Sources */,
 				B9EB40CE13797446007127B6 /* VideoViewController.m in Sources */,
+				B98F868C1382B3DD00DEE87A /* ImageDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +680,7 @@
 				B9BC41E0134C91700085D597 /* Database.m in Sources */,
 				B94666E0135DB40700EDA740 /* SettingsTest.m in Sources */,
 				B94666E1135DB57B00EDA740 /* ZigPadSettings.m in Sources */,
+				B98F868D1382B3DF00DEE87A /* ImageDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
