@@ -21,5 +21,7 @@
     
 }
 
+@property (nonatomic, retain) IBOutlet UIView *mySubview;
+
 
 @end

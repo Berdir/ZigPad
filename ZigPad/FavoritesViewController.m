@@ -11,6 +11,7 @@
 
 
 @implementation FavoritesViewController
+@synthesize mySubview = _mySubview;
 
 NSArray* favorites; //favorite cache
 
@@ -117,8 +118,8 @@ NSArray* favorites; //favorite cache
             //mark the button
             btn.tag = currentFavorite;
             
-            [self.view addSubview:btn];
-            [self.view addSubview:label];
+            [self.mySubview addSubview:btn];
+            [self.mySubview addSubview:label];
             [btn release];
             [label release];
             
@@ -154,6 +155,7 @@ NSArray* favorites; //favorite cache
 
 - (void)dealloc
 {
+    [_mySubview release];
     [favorites release];
     [super dealloc];
 }
@@ -173,9 +175,9 @@ NSArray* favorites; //favorite cache
 }
 
 // Show navigation bar when the view appeared.
-- (void) viewDidAppear:(BOOL)animated
+- (void) viewWillAppear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
     [self.navigationController setToolbarHidden:YES animated:animated];
     self.navigationController.navigationBar.topItem.title = @"Favorites";
     [super viewWillAppear:animated];

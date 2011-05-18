@@ -17,7 +17,6 @@
 		B982349D1371346A00132F9E /* AnimatorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B982349C1371346A00132F9E /* AnimatorHelper.m */; };
 		B98234A21371975100132F9E /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98234A01371974D00132F9E /* ImageViewController.m */; };
 		B98234A31371975100132F9E /* ImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B98234A11371974F00132F9E /* ImageView.xib */; };
-		B986A5FF135EC2DA00680172 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B986A5FE135EC2DA00680172 /* GHUnitIOS.framework */; };
 		B98A06E51379250900B30B16 /* AsyncTCPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B98A06E41379250900B30B16 /* AsyncTCPSocket.m */; };
 		B98A071E13795CBA00B30B16 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B98A071D13795CBA00B30B16 /* CFNetwork.framework */; };
 		B98F868C1382B3DD00DEE87A /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B98234A51371A7F000132F9E /* ImageDownloader.m */; };
@@ -54,6 +53,7 @@
 		B9A2FC8513656C59009BA16A /* Presentation.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FC8413656C59009BA16A /* Presentation.m */; };
 		B9A2FC8813656C59009BA16A /* Param.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FC8713656C59009BA16A /* Param.m */; };
 		B9A2FC8B13656C59009BA16A /* LocalPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FC8A13656C59009BA16A /* LocalPicture.m */; };
+		B9A75F301383A48200215845 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A75F2F1383A48100215845 /* GHUnitIOS.framework */; };
 		B9AF2B9F135DBFF8005944B7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */; };
 		B9AF2BA0135DBFF8005944B7 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */; };
 		B9BC41B2134C86B60085D597 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B1134C86B60085D597 /* Importer.m */; };
@@ -166,6 +166,7 @@
 		B9A2FC8713656C59009BA16A /* Param.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Param.m; sourceTree = "<group>"; };
 		B9A2FC8913656C59009BA16A /* LocalPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPicture.h; sourceTree = "<group>"; };
 		B9A2FC8A13656C59009BA16A /* LocalPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPicture.m; sourceTree = "<group>"; };
+		B9A75F2F1383A48100215845 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = Frameworks/GHUnitIOS.framework; sourceTree = "<group>"; };
 		B9AF2B9C135DBFF7005944B7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
@@ -228,11 +229,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9A75F301383A48200215845 /* GHUnitIOS.framework in Frameworks */,
 				B998B909134C67B5003C2C7B /* UIKit.framework in Frameworks */,
 				B998B90A134C67B5003C2C7B /* Foundation.framework in Frameworks */,
 				B998B90B134C67B5003C2C7B /* CoreGraphics.framework in Frameworks */,
 				B9BC41DC134C8F000085D597 /* CoreData.framework in Frameworks */,
-				B986A5FF135EC2DA00680172 /* GHUnitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +252,7 @@
 		B998B8CF134C6768003C2C7B = {
 			isa = PBXGroup;
 			children = (
+				B9A75F2F1383A48100215845 /* GHUnitIOS.framework */,
 				B998B8E6134C6768003C2C7B /* ZigPad */,
 				B9F03A111355BE39008474A9 /* Resources */,
 				B998B90C134C67B5003C2C7B /* Tests */,
@@ -763,6 +765,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZigPad/ZigPad-Prefix.pch";
 				INFOPLIST_FILE = "ZigPad/ZigPad-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -776,6 +779,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZigPad/ZigPad-Prefix.pch";
 				INFOPLIST_FILE = "ZigPad/ZigPad-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
