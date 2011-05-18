@@ -64,6 +64,7 @@
             
             if ([presentations count] == 0) {
                 NSLog(@"No presentation for the given refId (%d) found", event.argument);
+                [request release];
                 return;
             }
             
@@ -320,6 +321,8 @@
     self.fetchedResultsController = aFetchedResultsController;
     
     [aFetchedResultsController release];
+    [sortDescriptor release];
+    [sortDescriptors release];
     [fetchRequest release];
     
     NSError *error = nil;

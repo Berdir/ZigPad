@@ -173,6 +173,7 @@
     
     SynchronizerConnection *conn = [[SynchronizerConnection alloc] initWithService:service];
     [connections addObject:conn];
+    [conn release];
     NSLog(@"Connected with %@!", service.name);
     
     SyncEvent *event = [[SyncEvent alloc] init];
@@ -199,6 +200,7 @@
     
     SynchronizerConnection *conn = [[SynchronizerConnection alloc] initWithStreams: istr: ostr];
     [connections addObject:conn];
+    [conn release];
     
     SyncEvent *event = [[SyncEvent alloc] init];
     event.command = CONNECTED;
