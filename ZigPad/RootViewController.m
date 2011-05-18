@@ -293,7 +293,7 @@
     [_activePresentation release];
     [__fetchedResultsController release];
     [__managedObjectContext release];
-    [sync dealloc];
+    [sync release];
     [super dealloc];
 }
 

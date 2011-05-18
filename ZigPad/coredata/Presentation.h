@@ -36,5 +36,6 @@
 - (Action*) getPreviousAction;
 - (Action*) jumpToSequence: (int) index;
 - (Action*) jumpToAction: (int) actionIndex sequenceIndex: (int) sequenceIndex;
+- (void) resetPresentation;
 
 @end
