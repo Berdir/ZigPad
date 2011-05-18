@@ -118,6 +118,7 @@ const GLshort GTextures[] = {
 @implementation FlowCoverView
 
 @synthesize delegate;
+@synthesize offset = offset;
 
 /************************************************************************/
 /*																		*/
@@ -513,12 +514,13 @@ static void *GData = NULL;
 
 - (void)driveAnimation
 {
-	double elapsed = CACurrentMediaTime() - startTime;
-	if (elapsed >= runDelta) {
-		[self endAnimation];
-	} else {
-		[self updateAnimationAtTime:elapsed];
-	}
+    double elapsed = CACurrentMediaTime() - startTime;
+    if (elapsed >= runDelta) {
+        [self endAnimation];
+    } else {
+        [self updateAnimationAtTime:elapsed];
+    }
+
 }
 
 - (void)startAnimation:(double)speed
@@ -631,6 +633,13 @@ static void *GData = NULL;
 		startTime = time;
 		lastPos = pos;
 	}
+    
+    /*
+     * Change by Sascha Grossenbacher, execute highlighted delegate method
+     * to inform about current position, which can be used to display a label.
+     */
+    
+    if (delegate) [delegate flowCover:self highlighted:(int)floor(offset + 0.01)];  // make sure .99 is 1		
 }
 
 @end
