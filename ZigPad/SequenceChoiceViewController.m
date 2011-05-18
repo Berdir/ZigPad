@@ -101,12 +101,26 @@
 
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)image
 {
+    //Send an exit command to uninitialize current sequence
+    if (self.presentation.activeSequence.command !=nil)
+    {
+        NSString* exitCommand = [NSString stringWithFormat:@"%@_EXIT",self.presentation.activeSequence.command];
+        [[Commander defaultCommander] sendString:exitCommand];
+    }
+    
+    //goto chosen sequence and first action of it
     [self.presentation jumpToSequence: image];
     
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:self.presentation.activeAction];
     nextPage.presentation = self.presentation;
     
-    [[Commander defaultCommander] sendString:self.presentation.activeSequence.command];
+    //Send an init command to initialize next sequence
+    if (self.presentation.activeSequence.command !=nil)
+    {
+
+        NSString* initCommand = [NSString stringWithFormat:@"%@_INIT",self.presentation.activeSequence.command];
+        [[Commander defaultCommander] sendString:initCommand];
+    }
 
     [AnimatorHelper slideWithAnimation:2 :self :nextPage :false:true:true];
     

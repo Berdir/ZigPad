@@ -14,10 +14,13 @@
 
 @implementation Commander
 
+
 static Commander * _defaultCommander = nil;
+
 
 +(Commander*) defaultCommander {
     
+    //Singelton implementation
     @synchronized([Commander class])
 	{
 		if (!_defaultCommander)
@@ -36,6 +39,7 @@ static Commander * _defaultCommander = nil;
 
 +(id)alloc
 {
+    //Singelton implementation
 	@synchronized([Commander class])
 	{
 		NSAssert(_defaultCommander == nil, @"Attempted to allocate a second instance of a singleton.");
@@ -59,9 +63,6 @@ static Commander * _defaultCommander = nil;
         [udpSocket connectToHost:s.ip onPort:s.port error:nil];
          */
         
-        //variante tcp
-        tcpSocket = [[AsyncTCPSocket alloc] initWithDelegate:self];
-        
         
         }
     
@@ -79,20 +80,24 @@ static Commander * _defaultCommander = nil;
     
     //variante tcp
     ZigPadSettings *s = [ZigPadSettings sharedInstance];
-    NSLog(@"Connecting to Host %@, port %d", s.ip, s.port);
-    [tcpSocket disconnect]; //do it, if not already done
     
-    bool success = [tcpSocket connectToHost:s.ip onPort:s.port error:nil];
-    if (success) 
-        NSLog(@"gira connected");
+    NSLog(@"Sending command '%@'", message);
     
+    //initialize new every times of this method call
+    AsyncTCPSocket *tcpSocket = [[AsyncTCPSocket alloc] initWithDelegate:self];
+    
+    [tcpSocket connectToHost:s.ip onPort:s.port error:nil];
+    NSLog(@"Connected to Host %@, port %d", s.ip, s.port);
+
     [tcpSocket writeData:data withTimeout:500 tag:1];
     [tcpSocket readDataWithTimeout:500 tag:1];
     
     [tcpSocket disconnectAfterReadingAndWriting];
     
+    [tcpSocket release];
     
 }
+
 -(void) sendAction:(Action *)msg
 {
     Param *p = [msg getParamForKey:@"command"];
@@ -114,7 +119,6 @@ static Commander * _defaultCommander = nil;
 // if we want TCP
 - (void)onSocket:(AsyncTCPSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-    
     NSString *response = [NSString stringWithCString:[data bytes] encoding:NSASCIIStringEncoding];
     NSLog(@"Got '%@' from Simulator\n", response);
 
@@ -126,8 +130,6 @@ static Commander * _defaultCommander = nil;
     [udpSocket close];
     [udpSocket release];
      */
-    [tcpSocket disconnect];
-    [tcpSocket release];
     
     [super dealloc];
 }

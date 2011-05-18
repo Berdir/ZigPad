@@ -79,6 +79,7 @@ NSManagedObjectContext* context;
          */
         
         data = [ImageDownloader downloadImage:url];
+        if (data == nil) return nil;
 
         
         

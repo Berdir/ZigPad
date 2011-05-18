@@ -17,7 +17,6 @@
 //@interface Commander : NSObject <AsyncUdpSocketDelegate> {
    @private
      //AsyncUdpSocket *udpSocket;
-    AsyncTCPSocket *tcpSocket;
 }
 
 +(Commander*) defaultCommander;
