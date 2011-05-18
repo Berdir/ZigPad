@@ -76,6 +76,7 @@
             // Only jump to the first action of this presentation if this is a SELECT
             // command.
             if (event.command == SELECT) { 
+                [self.activePresentation resetPresentation];
                 Action *a = [self.activePresentation getNextAction];    
                 ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
                 nextPage.presentation = self.activePresentation;
@@ -238,6 +239,7 @@
 	
     self.activePresentation = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSLog(@"Selected Presentation %@.", self.activePresentation.name);
+    [self.activePresentation resetPresentation];
   
     Action *a = [self.activePresentation getNextAction];    
     ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:a];
