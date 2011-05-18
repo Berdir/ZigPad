@@ -20,6 +20,7 @@
 @implementation SequenceChoiceViewController
 
 @synthesize presentation = _presentation;
+@synthesize label = _label;
 
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -54,7 +55,13 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController setToolbarHidden:YES animated:YES];
     self.navigationController.navigationBar.topItem.title = @"Sequences";
+    
+    ((FlowCoverView*) self.view).offset = self.presentation.currentSequenceIndex;
+    self.label.text = self.presentation.activeSequence.name;
+    
     [super viewWillAppear:animated];
+    
+    
 }
 
 
@@ -74,6 +81,7 @@
 -(void) dealloc
 {
     [_presentation release];
+    [_label release];
     [super dealloc];
 }
 
@@ -97,6 +105,10 @@
     Sequence *s = (Sequence *) [self.presentation.orderedSequences objectAtIndex:image];
     
     return [UIImage imageWithData:s.icon.picture];       
+}
+
+- (void)flowCover:(FlowCoverView *)view highlighted:(int)cover {
+    self.label.text = ((Sequence *)[self.presentation.orderedSequences objectAtIndex:cover]).name;
 }
 
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)image
@@ -136,4 +148,7 @@
 }
 
 
+- (void)viewDidUnload {
+    [super viewDidUnload];
+}
 @end

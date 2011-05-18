@@ -82,6 +82,7 @@ woody@chaosinmotion.com. Chaos In Motion is at http://www.chaosinmotion.com
 }
 
 @property (assign) id<FlowCoverViewDelegate> delegate;
+@property (readwrite) double offset;
 
 - (void)draw;					// Draw the FlowCover view with current state
 
@@ -98,4 +99,5 @@ woody@chaosinmotion.com. Chaos In Motion is at http://www.chaosinmotion.com
 - (int)flowCoverNumberImages:(FlowCoverView *)view;
 - (UIImage *)flowCover:(FlowCoverView *)view cover:(int)cover;
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)cover;
+- (void)flowCover:(FlowCoverView *)view highlighted:(int)cover;
 @end

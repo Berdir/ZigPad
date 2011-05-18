@@ -12,9 +12,10 @@
 
 @interface SequenceChoiceViewController : UIViewController <FlowCoverViewDelegate>
 {
-
+  
 }
 
+@property (nonatomic, retain) IBOutlet UILabel *label;
 @property (nonatomic, retain) Presentation *presentation;
 
 @end
