@@ -72,7 +72,10 @@ bool clickWasFirstTime = false;
         [self.imageButton setImage:img forState:UIControlStateNormal];
     else
         //or just a Letter
-        [self.imageButton setTitle:@"for Video Stream: \n click me!" forState:UIControlStateNormal];
+        //[self.imageButton setTitle:@"for Video Stream: \n click me!" forState:UIControlStateNormal];
+        //or just a play Button
+        img = [UIImage imageNamed:@"play.jpg"];
+        [self.imageButton setImage:img forState:UIControlStateNormal];
  
 }
 
