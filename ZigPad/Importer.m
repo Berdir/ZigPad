@@ -64,7 +64,7 @@ bool importSuccess;
     if (importSuccess) {	
         [configTag saveToDB];
         
-        [configTag printDB];
+        //[configTag printDB]; uncomment to debug
     }
     else {
         [configTag rollback];
