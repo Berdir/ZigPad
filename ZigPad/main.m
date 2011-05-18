@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     //flush all singeltons
     [[Commander defaultCommander] release];
     [[Database sharedInstance]release];
+    [[ZigPadSettings sharedInstance]release];
     
     [pool release];
     return retVal;
