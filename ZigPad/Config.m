@@ -106,7 +106,7 @@ NSManagedObjectContext* context;
 //flush all entities from coredata framework
 -(void)clearDB
 {
-    NSArray* tableList =[[NSArray alloc]initWithObjects:@"Action",@"LocalPicture",@"Param",@"Presentation",@"Sequence", nil];
+    NSArray* tableList =[[NSArray alloc]initWithObjects:@"Presentation",@"Sequence",@"Action",@"Param",@"LocalPicture", nil];
     
     for (NSString* table in tableList) {
         NSFetchRequest * fetch;
