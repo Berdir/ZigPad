@@ -187,12 +187,19 @@ bool isFirstCallOfGetNextMethod = true;
     return self.activeAction;
 }
 
+//also called by rootViewController
+- (void) resetPresentation
+{
+    activeSequencesIndex = 0; 
+    activeActionsIndex = 0;
+    isFirstCallOfGetNextMethod = true;    
+}
+
 
 - (void) dealloc {
-    activeSequencesIndex = 0; //because Memorymanager makes recycling of deallocated objects
-    activeActionsIndex = 0;
-    isFirstCallOfGetNextMethod = true;
 
+
+    [self resetPresentation];//because Memorymanager makes recycling of deallocated objects
     [_indexMapping release];
     [_activeAct release];
     [_activeSeq release];
