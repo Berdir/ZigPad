@@ -54,6 +54,8 @@
 		B9A2FC8813656C59009BA16A /* Param.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FC8713656C59009BA16A /* Param.m */; };
 		B9A2FC8B13656C59009BA16A /* LocalPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FC8A13656C59009BA16A /* LocalPicture.m */; };
 		B9A75F301383A48200215845 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A75F2F1383A48100215845 /* GHUnitIOS.framework */; };
+		B9ABC413138A5541002AB405 /* UDPCommander.m in Sources */ = {isa = PBXBuildFile; fileRef = B9ABC412138A5541002AB405 /* UDPCommander.m */; };
+		B9ABC417138A59AC002AB405 /* TCPCommander.m in Sources */ = {isa = PBXBuildFile; fileRef = B9ABC416138A59AC002AB405 /* TCPCommander.m */; };
 		B9AF2B9F135DBFF8005944B7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */; };
 		B9AF2BA0135DBFF8005944B7 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */; };
 		B9BC41B2134C86B60085D597 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B1134C86B60085D597 /* Importer.m */; };
@@ -167,6 +169,10 @@
 		B9A2FC8913656C59009BA16A /* LocalPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPicture.h; sourceTree = "<group>"; };
 		B9A2FC8A13656C59009BA16A /* LocalPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPicture.m; sourceTree = "<group>"; };
 		B9A75F2F1383A48100215845 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = Frameworks/GHUnitIOS.framework; sourceTree = "<group>"; };
+		B9ABC411138A5541002AB405 /* UDPCommander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPCommander.h; sourceTree = "<group>"; };
+		B9ABC412138A5541002AB405 /* UDPCommander.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPCommander.m; sourceTree = "<group>"; };
+		B9ABC415138A59AC002AB405 /* TCPCommander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPCommander.h; sourceTree = "<group>"; };
+		B9ABC416138A59AC002AB405 /* TCPCommander.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPCommander.m; sourceTree = "<group>"; };
 		B9AF2B9C135DBFF7005944B7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
@@ -424,6 +430,10 @@
 				B9E00CE0137A8407002A1340 /* openLibs */,
 				B9BC41FC134DAEB90085D597 /* Commander.h */,
 				B9BC41FD134DAEB90085D597 /* Commander.m */,
+				B9ABC411138A5541002AB405 /* UDPCommander.h */,
+				B9ABC412138A5541002AB405 /* UDPCommander.m */,
+				B9ABC415138A59AC002AB405 /* TCPCommander.h */,
+				B9ABC416138A59AC002AB405 /* TCPCommander.m */,
 			);
 			name = Commander;
 			sourceTree = "<group>";
@@ -668,6 +678,8 @@
 				B98A06E51379250900B30B16 /* AsyncTCPSocket.m in Sources */,
 				B9EB40CE13797446007127B6 /* VideoViewController.m in Sources */,
 				B98F868C1382B3DD00DEE87A /* ImageDownloader.m in Sources */,
+				B9ABC413138A5541002AB405 /* UDPCommander.m in Sources */,
+				B9ABC417138A59AC002AB405 /* TCPCommander.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

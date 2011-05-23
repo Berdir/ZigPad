@@ -7,24 +7,34 @@
 //
 
 #import "Commander.h"
-//#import "AsyncUdpSocket.h"
 #import "AsyncTCPSocket.h"
 #import "ZigPadSettings.h"
 
+/**
+ * Indicate which class should be used as the actual implementation.
+ *
+ * When changing this, remember to also update the @class statement below.
+ */
+NSString * const COMMANDER_IMPL = @"TCPCommander";
+
+/**
+ * Make sure that class is loaded.
+ */
+@class TCPCommander;
 
 @implementation Commander
 
-
+// Stores the singleton instance of the defaultCommander.
 static Commander * _defaultCommander = nil;
-
 
 +(Commander*) defaultCommander {
     
-    //Singelton implementation
+    // Synchronized to make sure that only a single instance is created.
     @synchronized([Commander class])
 	{
+        // Check if a default commander exists, if not, create one.
 		if (!_defaultCommander)
-			[[self alloc] init];
+			_defaultCommander = [[NSClassFromString(COMMANDER_IMPL) alloc] init];
         
 		return _defaultCommander;
 	}
@@ -39,9 +49,9 @@ static Commander * _defaultCommander = nil;
 
 +(id)alloc
 {
-    //Singelton implementation
 	@synchronized([Commander class])
 	{
+        // Another check to make sure that only a single instance is created.
 		NSAssert(_defaultCommander == nil, @"Attempted to allocate a second instance of a singleton.");
 		_defaultCommander = [super alloc];
 		return _defaultCommander;
@@ -50,52 +60,9 @@ static Commander * _defaultCommander = nil;
 	return nil;
 }
 
--(id)init {
-	self = [super init];
-	if (self != nil) {
-        
-        /*
-         //variante udp       
-        ZigPadSettings *s = [ZigPadSettings sharedInstance];
-        NSLog(@"Connecting to Host %@, port %d", s.ip, s.port);
-        udpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
-        [udpSocket bindToPort:4321 error:nil];
-        [udpSocket connectToHost:s.ip onPort:s.port error:nil];
-         */
-        
-        
-        }
-    
-	return self;
-}
-
-- (void) sendString: (NSString*) message {
-    NSData *data = [message dataUsingEncoding: NSASCIIStringEncoding];
-    
-    /*
-     //variante udp
-    [udpSocket sendData:data withTimeout:-1 tag:1];
-    [udpSocket receiveWithTimeout:2 tag:1];
-     */
-    
-    //variante tcp
-    ZigPadSettings *s = [ZigPadSettings sharedInstance];
-    
-    NSLog(@"Sending command '%@'", message);
-    
-    //initialize new every times of this method call
-    AsyncTCPSocket *tcpSocket = [[AsyncTCPSocket alloc] initWithDelegate:self];
-    
-    [tcpSocket connectToHost:s.ip onPort:s.port error:nil];
-    NSLog(@"Connected to Host %@, port %d", s.ip, s.port);
-
-    [tcpSocket writeData:data withTimeout:500 tag:1];
-    [tcpSocket readDataWithTimeout:500 tag:1];
-    
-    [tcpSocket disconnectAfterReadingAndWriting];
-    
-    [tcpSocket release];
-    
+-(void) sendString: (NSString*) message {
+    // This is an abstract method, throw an exception if called directly.
+    [NSException raise:NSInternalInconsistencyException format:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)];    
 }
 
 -(void) sendAction:(Action *)msg
@@ -105,33 +72,6 @@ static Commander * _defaultCommander = nil;
        [self sendString: p.value];
         NSLog(@"Sending action command %@" ,p.value);
     }
-}
-
-/*
- //if we want udp
-- (BOOL)onUdpSocket:(AsyncUdpSocket *)sock didReceiveData:(NSData *)data withTag:(long)tag fromHost:(NSString *)host port:(UInt16)port {
-    NSString *response = [NSString stringWithCString:[data bytes] encoding:NSASCIIStringEncoding];
-    NSLog(@"Got '%@' from %@:%i\n", response, host, port);
-    
-    return TRUE;
-}
- */
-// if we want TCP
-- (void)onSocket:(AsyncTCPSocket *)sock didReadData:(NSData *)data withTag:(long)tag
-{
-    NSString *response = [NSString stringWithCString:[data bytes] encoding:NSASCIIStringEncoding];
-    NSLog(@"Got '%@' from Simulator\n", response);
-
-}
-
-
-- (void) dealloc {
-    /*
-    [udpSocket close];
-    [udpSocket release];
-     */
-    
-    [super dealloc];
 }
 
 @end
