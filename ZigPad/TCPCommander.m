@@ -13,11 +13,14 @@
 
 - (void) sendString:(NSString *)message
 {
+    
     NSData *data = [message dataUsingEncoding: NSASCIIStringEncoding];
     
     ZigPadSettings *s = [ZigPadSettings sharedInstance];
     
     NSLog(@"Sending command '%@'", message);
+    
+    NSDate * start = [NSDate date];
     
     // Initialize new every times of this method call because it otherwise
     // only sends a single time for every connection.
@@ -32,6 +35,8 @@
     [tcpSocket disconnectAfterReadingAndWriting];
     
     [tcpSocket release];
+    
+    NSLog(@"Done sending, took %f milliseconds", fabs([start timeIntervalSinceNow] * 1000));
 }
 
 #pragma mark AsyncTCP Socket delegates
