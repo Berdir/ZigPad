@@ -146,7 +146,6 @@
 							<int key="NSfFlags">16</int>
 						</object>
 						<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
-						<string key="IBUINormalTitle">Bla</string>
 						<reference key="IBUIHighlightedTitleColor" ref="178109851"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -161,7 +160,6 @@
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -398,7 +396,7 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">VideoViewController</string>
-					<string key="superclassName">UIViewController</string>
+					<string key="superclassName">ActionViewController</string>
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">myWebView</string>
 						<string key="NS.object.0">UIWebView</string>

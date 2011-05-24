@@ -15,6 +15,8 @@
 
 @implementation CommandViewController
 
+@synthesize repeatToggle = _repeatToggle;
+
 
 
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -42,6 +44,15 @@
 - (void)viewDidLoad {
     
     [self.imageButton setImage:[self getCommandImage] forState:UIControlStateNormal];
+    
+    Param *p = [self.presentation.activeAction getParamForKey:@"stay"];
+    // Show repeat icon if we can't press imagebutton to go next action
+    // = if there's no stay param or the stay param is not 1.
+    if (!p || ![p.value isEqualToString:@"1"]) {    
+        self.repeatToggle.hidden = true;
+    } else
+        self.repeatToggle.hidden = false;
+    
     [super viewDidLoad];
 
    
@@ -74,6 +85,7 @@
 }
 
 - (void)dealloc {
+    [_repeatToggle release];
     [super dealloc];
 }
 

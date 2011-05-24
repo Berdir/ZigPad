@@ -12,6 +12,8 @@
 		B94666DD135DB03000EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
 		B94666E0135DB40700EDA740 /* SettingsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DF135DB40700EDA740 /* SettingsTest.m */; };
 		B94666E1135DB57B00EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
+		B97D3BC213842C2A00653009 /* play.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B97D3BC113842C2A00653009 /* play.jpg */; };
+		B97D3BC513842CD100653009 /* repeat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B97D3BC413842CD100653009 /* repeat.jpg */; };
 		B980003A1367FAD500A629D4 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98000391367FAD500A629D4 /* ActionViewController.m */; };
 		B981A69A136C434F00525E27 /* xml-example2.xml in Resources */ = {isa = PBXBuildFile; fileRef = B981A699136C434F00525E27 /* xml-example2.xml */; };
 		B982349D1371346A00132F9E /* AnimatorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B982349C1371346A00132F9E /* AnimatorHelper.m */; };
@@ -110,6 +112,8 @@
 		B94666DB135DB03000EDA740 /* ZigPadSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZigPadSettings.h; sourceTree = "<group>"; };
 		B94666DC135DB03000EDA740 /* ZigPadSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZigPadSettings.m; sourceTree = "<group>"; };
 		B94666DF135DB40700EDA740 /* SettingsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTest.m; sourceTree = "<group>"; };
+		B97D3BC113842C2A00653009 /* play.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = play.jpg; sourceTree = "<group>"; };
+		B97D3BC413842CD100653009 /* repeat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = repeat.jpg; sourceTree = "<group>"; };
 		B98000381367FAD500A629D4 /* ActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
 		B98000391367FAD500A629D4 /* ActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
 		B981A699136C434F00525E27 /* xml-example2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "xml-example2.xml"; sourceTree = "<group>"; };
@@ -529,6 +533,8 @@
 		B9F03A111355BE39008474A9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B97D3BC413842CD100653009 /* repeat.jpg */,
+				B97D3BC113842C2A00653009 /* play.jpg */,
 				B994BDD8135EDD950067529F /* Default.png */,
 				B9BC41B6134C8A230085D597 /* xml-example.xml */,
 				B994BDD6135EDD6D0067529F /* 00_icon_home_control.png */,
@@ -626,6 +632,8 @@
 				B981A69A136C434F00525E27 /* xml-example2.xml in Resources */,
 				B98234A31371975100132F9E /* ImageView.xib in Resources */,
 				B9EB40CF13797446007127B6 /* VideoView.xib in Resources */,
+				B97D3BC213842C2A00653009 /* play.jpg in Resources */,
+				B97D3BC513842CD100653009 /* repeat.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
