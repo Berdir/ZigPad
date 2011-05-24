@@ -2,9 +2,6 @@
 //  XMLParser.m
 //
 //  Created by Markus Zimmermann 3/28/11. 
-// This Class is used to handle events called from Importer Class. The methods decides how to persist
-// contents (Attributes) from the actual XML Tag into coreFramework. The order of calling the methods
-// is VERY VERY VERY important for correct xml-parsing
 //
 
 #import "Config.h"
@@ -22,15 +19,26 @@
 
 @implementation Config
 
-NSString* keyCache = @"000"; //the xml-ID of the actual parent-Tag at runtime when parser iterates top-down the xml-file. 
-NSMutableDictionary* managedObjectIDs; //maps all xml-ID's to ID's of Coredata-Entities
+/**
+ * The xml id of the actual parent-Tag at runtime when parser iterates top-down
+ * through the xml file.
+ */
+NSString* keyCache = @"000";
 
+/**
+ * Maps all xml-ID's to ID's of Coredata-Entities.
+ */
+NSMutableDictionary* managedObjectIDs;
+
+/**
+ * Reference to the persistence context for CoreData.
+ */
 NSManagedObjectContext* context;
-
 
 -(id)init
 {
     id i = [super init];
+    // Initalize the necessary helper variables.
     managedObjectIDs = [[NSMutableDictionary alloc]init]; 
     context =  [[Database sharedInstance] managedObjectContext];
     return i;
@@ -41,24 +49,47 @@ NSManagedObjectContext* context;
     [super dealloc];
 }
 
-- (NSNumber *) getRefId: (NSDictionary *) attrib {
+/**
+ * Returns the xml id of a given attribute.
+ *
+ * @param attrib Dictionary with an id key.
+ *
+ * @return The id, converted to a NSNumber.
+ */
+- (NSNumber *) getAsNumber: (NSString *) string {
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
-    NSNumber *refId = [f numberFromString:[attrib objectForKey:@"id"]];
+    // Get the attribute nd convert it to a number.
+    NSNumber *refId = [f numberFromString:string];
     [f release];
     return refId;
 }
 
+- (NSNumber *) getRefId: (NSDictionary *) attrib {
+    return [self getAsNumber:[attrib objectForKey:@"id"]];
+}
 
-//loads a picture from local or internet and put it into core database
+
+/**
+ * Loads a picture from local or internet and persist it.
+ *
+ * @param url Usually the URL to a remote image that is then downloaded, but
+ *            a local path is also supported.
+ *
+ * @return A LocalPicture object. Nil if the remote image could not be loaded.
+ */
 -(LocalPicture * )loadPicture:(NSString*)url
 {
     //NSString* url = @"http://www.die-seite.ch/movie.gif";
     //NSString* url = @"testpic.jpg";
     //NSURL* picURL;
-    NSData *data; //the picture binariers
+
+    // The picture binary data.
+    NSData *data;
     
-    if ([url hasPrefix:@"http"]) //load from I-Net
+    // If the url is prefixed with http, assume that it is a remote picture and
+    // download it.
+    if ([url hasPrefix:@"http"])
     {
         /* bitte drin lassen
         picURL = [NSURL URLWithString:url]; 
@@ -79,12 +110,12 @@ NSManagedObjectContext* context;
          */
         
         data = [ImageDownloader downloadImage:url];
+        // If data is nil, the download failed.
         if (data == nil) return nil;
 
-        
-        
-    } else  //then load from local file
+    } else  
     {
+        // Otherwise, load it as a local file.
         NSBundle* bundle = [NSBundle mainBundle];
         NSString* rootdir = [bundle resourcePath];
         NSString* fileName = [NSString stringWithFormat:@"%@/%@",rootdir,url];
@@ -96,19 +127,19 @@ NSManagedObjectContext* context;
         
     }
     
-    //create a Coredata Object and fill with data
+    // Create a Coredata Object and fill with data.
     LocalPicture*  lp = [[Database sharedInstance] createEntity: @"LocalPicture"]; 
     lp.picture = data;
     
     return lp;
-
 }
 
-//flush all entities from coredata framework
 -(void)clearDB
 {
+    // Make sure that the tables are cleared in the correct order.
     NSArray* tableList =[[NSArray alloc]initWithObjects:@"Presentation",@"Sequence",@"Action",@"Param",@"LocalPicture", nil];
     
+    // Loop over all tables, fetch all entities and delete them.
     for (NSString* table in tableList) {
         NSFetchRequest * fetch;
         @try {
@@ -117,7 +148,10 @@ NSManagedObjectContext* context;
             NSArray * result = [context executeFetchRequest:fetch error:nil];
             for (id basket in result)
                 [context deleteObject:basket];
-        } @catch (NSException* ex){NSLog(@"Tabelle %@ nicht vorhanden",table);}
+        } @catch (NSException* ex)
+        {
+            NSLog(@"Tabelle %@ nicht vorhanden", table);
+        }
         @finally {
             [fetch release];
         }
@@ -126,11 +160,10 @@ NSManagedObjectContext* context;
     [tableList release];
 }
 
-//analyzes action tag and put attributes into the core database
 -(void)addAction:(NSDictionary*) attrib
 {
-    // Get an action entity with a permament object id which can be used for reference
-    // in BWOrderedObject.
+    // Get an action entity with a permament object id which can be used for 
+    // reference in BWOrderedObject.
     Action*  a = [[Database sharedInstance] createEntity:@"Action"];
 
     keyCache = [attrib objectForKey:@"id"]; //this information will be used by next child tag-method
@@ -140,45 +173,43 @@ NSManagedObjectContext* context;
     
     a.name = [attrib objectForKey:@"name"];
     a.type = [attrib objectForKey:@"type"];    
-    a.favorite = [NSNumber numberWithInt:[(NSString*)[attrib objectForKey:@"favorite"]intValue]];
-    
-
+    a.favorite = [self getAsNumber:[attrib objectForKey:@"favorite"]];
 }
 
-//analyzes param tag and put attributes into the core database
 -(void)addParam:(NSDictionary*)attrib
 {
-    Action* a = (Action*)[context objectWithID:[managedObjectIDs valueForKey:keyCache]];//get parent-tag
+    // Get parent action.
+    Action* a = (Action*)[context objectWithID:[managedObjectIDs valueForKey:keyCache]];
     
     Param* p = [[Database sharedInstance] createEntity:@"Param"];    
     
     p.key = [attrib objectForKey:@"key"];
-    NSString* picture = [attrib objectForKey:@"picture"];//wenn es ein attribut mit namen picture gibt
+    NSString* picture = [attrib objectForKey:@"picture"];
     p.value = [attrib objectForKey:@"value"];
     
-
-    [a addParamsObject:p]; //calling of a generated code.. (fill the 1:n-collection)
+    // Calling of a generated code.. (fill the 1:n-collection).
+    [a addParamsObject:p];
     
-    //Put a pic into db if needed
-    if (picture !=nil) {
-        
-        LocalPicture*  lp = [self loadPicture:picture]; 
-        p.localPicture = lp;
-        if (lp==nil) @throw([NSException exceptionWithName:@"PictureLoadingException" reason:@"could not load Picture" userInfo:nil]);
+    // If there is a picture url, load it.
+    if (picture != nil)
+    {
+        p.localPicture = [self loadPicture:picture];
+        if (p.localPicture == nil)
+        {
+            @throw([NSException exceptionWithName:@"PictureLoadingException" reason:@"could not load Picture" userInfo:nil]);
+        }
 
     }
     
 }
 
-
-//analyzes sequence tag and put attributes into the core database
 -(void) addSequence:(NSDictionary *)attrib
 {
-
     Sequence*  s = [[Database sharedInstance] createEntity:@"Sequence"];
     
-    keyCache = [attrib objectForKey:@"id"]; //this information will be used by next child tag-method
-    [managedObjectIDs setValue:[s objectID] forKey:keyCache];// dito
+    // This information will be used by next child tag-method.
+    keyCache = [attrib objectForKey:@"id"]; 
+    [managedObjectIDs setValue:[s objectID] forKey:keyCache];
     
     s.name = [attrib objectForKey:@"name"];
     s.command =[attrib objectForKey:@"command"];
@@ -186,25 +217,27 @@ NSManagedObjectContext* context;
     
     s.refId = [self getRefId:attrib];
     
-    //put a picture into db if needed
-    if (icon !=nil)
+    // If there is an icon url, load and save it.
+    if (icon != nil)
     {
-        LocalPicture*  lp  = [self loadPicture:icon];
-        s.icon = lp;
-        if (lp==nil) @throw([NSException exceptionWithName:@"PictureLoadingException" reason:@"could not load Picture" userInfo:nil]);
+        s.icon = [self loadPicture:icon];
+        if (s.icon == nil) { 
+            @throw([NSException exceptionWithName:@"PictureLoadingException" reason:@"could not load Picture" userInfo:nil]);
+        }
     }    
 }
 
-//links an Action Reference (childtag) to the actual Sequence (parent tag)
 - (void)addActionRef:(NSDictionary *)attrib
 {
-    Sequence* s = (Sequence*)[context objectWithID:[managedObjectIDs valueForKey:keyCache]];//get parent-tag
+    // Get parent sequence.
+    Sequence* s = (Sequence*)[context objectWithID:[managedObjectIDs valueForKey:keyCache]];
  
-    //get an Action from dbPool
+    // Get the Action.
     NSString* actionRef = [attrib objectForKey:@"ref"];
     @try {
         Action* a = (Action*)[context objectWithID:[managedObjectIDs valueForKey:actionRef]];
-        [s addActionsObject:a]; //calling of a generated code.. (fill the 1:n-collection)
+        // Calling of a generated code.. (fill the 1:n-collection).
+        [s addActionsObject:a];
     } @catch (NSException *exception) {
         NSLog(@"Failed to add ActionRef (ref = %@, sequence = %@)", actionRef, keyCache);
         [exception raise];
@@ -212,58 +245,55 @@ NSManagedObjectContext* context;
     
 }
 
-//analyzes presentation tag and put attributes into the core database
 -(void) addPresentation:(NSDictionary *)attrib
 {
-
     Presentation*  s = [[Database sharedInstance] createEntity: @"Presentation"];
     
-    keyCache = [attrib objectForKey:@"id"]; //this informat	ion will be used by next child tag-method
-    [managedObjectIDs setValue:[s objectID] forKey:keyCache];// dito
+    // This information will be used by next child tag-method.
+    keyCache = [attrib objectForKey:@"id"];
+    [managedObjectIDs setValue:[s objectID] forKey:keyCache];
     
     s.name = [attrib objectForKey:@"name"];
     s.comment =[attrib objectForKey:@"comment"];
     s.refId = [self getRefId:attrib];
-    
 }
 
-//links an Sequence Reference (childtag) to the actual Presentation (parent tag)
 -(void) addSequenceRef:(NSDictionary *)attrib
 {
-    Presentation* p = (Presentation*)[context objectWithID:[managedObjectIDs valueForKey:keyCache]];//get parent-tag
+    // Get the parent presentation.
+    Presentation* p = (Presentation*)[context objectWithID:[managedObjectIDs valueForKey:keyCache]];
     
-    //get an Action from dbPool
+    // Get the referenced sequence.
     NSString* sequenceRef = [attrib objectForKey:@"ref"];
     Sequence* s = (Sequence*)[context objectWithID:[managedObjectIDs valueForKey:sequenceRef]];
     
-    [p addSequencesObject:s]; //calling of a generated code.. (fill the 1:n-collection)
+    // Add sequence to presentation.
+    [p addSequencesObject:s];
     
 }
-//puts NSUserdefaults from the xml
+
+
 -(void) addServer:(NSDictionary *)attrib
 {
-
     NSString* type = [attrib objectForKey:@"type"];
     
     ZigPadSettings *s = [ZigPadSettings sharedInstance];
     
-	if (s) {
-		[s setIP:[attrib objectForKey:@"ip"] simulationMode:[type isEqualToString:@"simulator"]];
-        [s setPort:[[attrib objectForKey:@"port"] intValue] simulationMode:[type isEqualToString:@"simulator"]];
-	}
+    BOOL simulationMode = [type isEqualToString:@"simulator"];
+    [s setIP:[attrib objectForKey:@"ip"] simulationMode: simulationMode];
+    [s setPort:[[attrib objectForKey:@"port"] intValue] simulationMode: simulationMode];
 }
 
 -(void) saveToDB
 {
     NSError* err = nil;
     [context save:&err];
-    if (err!=nil) {
-        NSLog(@"DB-Save Error %@",[err localizedDescription]);
+    if (err != nil) {
+        NSLog(@"DB-Save Error %@", [err localizedDescription]);
     }
     
 }
 
-//for debugging purposes
 -(void)printDB
 {
     
@@ -301,9 +331,6 @@ NSManagedObjectContext* context;
 - (void)rollback {
     [context rollback];
 }
-
-
-
 
 @end
 
