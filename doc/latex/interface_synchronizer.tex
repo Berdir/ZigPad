@@ -1,0 +1,310 @@
+\hypertarget{interface_synchronizer}{
+\section{Synchronizer Class Reference}
+\label{interface_synchronizer}\index{Synchronizer@{Synchronizer}}
+}
+
+
+{\ttfamily \#import $<$Synchronizer.h$>$}
+
+Inheritance diagram for Synchronizer:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_synchronizer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(void) -\/ \hyperlink{interface_synchronizer_a98e362afffd0b73137550ab1186ba7af}{lookForDevice}
+\item 
+(void) -\/ \hyperlink{interface_synchronizer_a1ae590a78324a54f1a281aba5e47ede9}{stopCurrentResolve}
+\item 
+(void) -\/ \hyperlink{interface_synchronizer_aedd53710a9acd0572fecfc839215a661}{fireSyncEvent:}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{interface_t_c_p_server}{TCPServer} $\ast$ \hyperlink{interface_synchronizer_aacb0d561b81284ff5f32bb7f504d844c}{\_\-server}
+\item 
+NSMutableArray $\ast$ \hyperlink{interface_synchronizer_ab614350bf23f5280a2b4bb8df11e893b}{connections}
+\item 
+NSNetService $\ast$ \hyperlink{interface_synchronizer_acf8e0a71e3a15b64d141cf0387f6a560}{\_\-ownEntry}
+\item 
+BOOL \hyperlink{interface_synchronizer_a2336bd720576551dba8f8d780a7a2532}{\_\-showDisclosureIndicators}
+\item 
+NSMutableArray $\ast$ \hyperlink{interface_synchronizer_a2a30fdc9d63f496a755a2c70917319e6}{\_\-services}
+\item 
+NSNetServiceBrowser $\ast$ \hyperlink{interface_synchronizer_ac311277b3e40c4b5f5027c113b7766e2}{\_\-netServiceBrowser}
+\item 
+NSMutableArray $\ast$ \hyperlink{interface_synchronizer_a2f2ea2a6ef20f7f7280c1b9bda08469c}{\_\-currentResolve}
+\item 
+NSTimer $\ast$ \hyperlink{interface_synchronizer_a7c4b3e8add18b09f83d6a5432c7eb9ad}{\_\-timer}
+\item 
+BOOL \hyperlink{interface_synchronizer_a7580f99fb2c5b18079cb7d0f13b53c37}{\_\-needsActivityIndicator}
+\item 
+BOOL \hyperlink{interface_synchronizer_a576e79a0c313848fb85b32bb52a05cc2}{\_\-initialWaitOver}
+\item 
+NSString $\ast$ \hyperlink{interface_synchronizer_ad9ec4e9aff66fd4f5d0ce3236d85f0e3}{\_\-ownName}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+NSNetService $\ast$ \hyperlink{interface_synchronizer_a0b9cb55a24dc46c7d94cd0ca205aedae}{ownEntry}
+\item 
+BOOL \hyperlink{interface_synchronizer_a203153a42b054a34a39087fee7eeab93}{showDisclosureIndicators}
+\item 
+NSMutableArray $\ast$ \hyperlink{interface_synchronizer_a7f90b977eaa3f12507bc0a97480c4e78}{services}
+\item 
+NSNetServiceBrowser $\ast$ \hyperlink{interface_synchronizer_abf4b3c3bd472b664be35d3bfc58136cf}{netServiceBrowser}
+\item 
+NSMutableArray $\ast$ \hyperlink{interface_synchronizer_a14d57daa103c8eb50b3ad4c7da798ae4}{currentResolve}
+\item 
+NSTimer $\ast$ \hyperlink{interface_synchronizer_a49efd1a3e05e38497c176a4e11fdbaab}{timer}
+\item 
+BOOL \hyperlink{interface_synchronizer_ae196d598b6ad72fb9ddb5d46ed2cc9f5}{needsActivityIndicator}
+\item 
+BOOL \hyperlink{interface_synchronizer_a3c2dbcfb2f110502370a12870883471f}{initialWaitOver}
+\item 
+NSString $\ast$ \hyperlink{interface_synchronizer_a309302494c6ea19d6c181d53684f9207}{ownName}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 11 of file Synchronizer.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_synchronizer_aedd53710a9acd0572fecfc839215a661}{
+\index{Synchronizer@{Synchronizer}!fireSyncEvent:@{fireSyncEvent:}}
+\index{fireSyncEvent:@{fireSyncEvent:}!Synchronizer@{Synchronizer}}
+\subsubsection[{fireSyncEvent:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) fireSyncEvent: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSNotification$\ast$)}]{notification}
+\end{DoxyParamCaption}
+}}
+\label{interface_synchronizer_aedd53710a9acd0572fecfc839215a661}
+
+
+Definition at line 48 of file Synchronizer.m.
+
+\hypertarget{interface_synchronizer_a98e362afffd0b73137550ab1186ba7af}{
+\index{Synchronizer@{Synchronizer}!lookForDevice@{lookForDevice}}
+\index{lookForDevice@{lookForDevice}!Synchronizer@{Synchronizer}}
+\subsubsection[{lookForDevice}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) lookForDevice 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_synchronizer_a98e362afffd0b73137550ab1186ba7af}
+
+
+Definition at line 94 of file Synchronizer.m.
+
+\hypertarget{interface_synchronizer_a1ae590a78324a54f1a281aba5e47ede9}{
+\index{Synchronizer@{Synchronizer}!stopCurrentResolve@{stopCurrentResolve}}
+\index{stopCurrentResolve@{stopCurrentResolve}!Synchronizer@{Synchronizer}}
+\subsubsection[{stopCurrentResolve}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) stopCurrentResolve 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_synchronizer_a1ae590a78324a54f1a281aba5e47ede9}
+
+
+Definition at line 114 of file Synchronizer.m.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{interface_synchronizer_a2f2ea2a6ef20f7f7280c1b9bda08469c}{
+\index{Synchronizer@{Synchronizer}!\_\-currentResolve@{\_\-currentResolve}}
+\index{\_\-currentResolve@{\_\-currentResolve}!Synchronizer@{Synchronizer}}
+\subsubsection[{\_\-currentResolve}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSMutableArray$\ast$) {\bf \_\-currentResolve}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_synchronizer_a2f2ea2a6ef20f7f7280c1b9bda08469c}
+
+
+Definition at line 21 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_a576e79a0c313848fb85b32bb52a05cc2}{
+\index{Synchronizer@{Synchronizer}!\_\-initialWaitOver@{\_\-initialWaitOver}}
+\index{\_\-initialWaitOver@{\_\-initialWaitOver}!Synchronizer@{Synchronizer}}
+\subsubsection[{\_\-initialWaitOver}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) {\bf \_\-initialWaitOver}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_synchronizer_a576e79a0c313848fb85b32bb52a05cc2}
+
+
+Definition at line 24 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_a7580f99fb2c5b18079cb7d0f13b53c37}{
+\index{Synchronizer@{Synchronizer}!\_\-needsActivityIndicator@{\_\-needsActivityIndicator}}
+\index{\_\-needsActivityIndicator@{\_\-needsActivityIndicator}!Synchronizer@{Synchronizer}}
+\subsubsection[{\_\-needsActivityIndicator}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) {\bf \_\-needsActivityIndicator}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_synchronizer_a7580f99fb2c5b18079cb7d0f13b53c37}
+
+
+Definition at line 23 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_ac311277b3e40c4b5f5027c113b7766e2}{
+\index{Synchronizer@{Synchronizer}!\_\-netServiceBrowser@{\_\-netServiceBrowser}}
+\index{\_\-netServiceBrowser@{\_\-netServiceBrowser}!Synchronizer@{Synchronizer}}
+\subsubsection[{\_\-netServiceBrowser}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSNetServiceBrowser$\ast$) {\bf \_\-netServiceBrowser}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_synchronizer_ac311277b3e40c4b5f5027c113b7766e2}
+
+
+Definition at line 20 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_acf8e0a71e3a15b64d141cf0387f6a560}{
+\index{Synchronizer@{Synchronizer}!\_\-ownEntry@{\_\-ownEntry}}
+\index{\_\-ownEntry@{\_\-ownEntry}!Synchronizer@{Synchronizer}}
+\subsubsection[{\_\-ownEntry}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSNetService$\ast$) {\bf \_\-ownEntry}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_synchronizer_acf8e0a71e3a15b64d141cf0387f6a560}
+
+
+Definition at line 17 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_ad9ec4e9aff66fd4f5d0ce3236d85f0e3}{
+\index{Synchronizer@{Synchronizer}!\_\-ownName@{\_\-ownName}}
+\index{\_\-ownName@{\_\-ownName}!Synchronizer@{Synchronizer}}
+\subsubsection[{\_\-ownName}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString$\ast$) {\bf \_\-ownName}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_synchronizer_ad9ec4e9aff66fd4f5d0ce3236d85f0e3}
+
+
+Definition at line 26 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_aacb0d561b81284ff5f32bb7f504d844c}{
+\index{Synchronizer@{Synchronizer}!\_\-server@{\_\-server}}
+\index{\_\-server@{\_\-server}!Synchronizer@{Synchronizer}}
+\subsubsection[{\_\-server}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf TCPServer}$\ast$) {\bf \_\-server}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_synchronizer_aacb0d561b81284ff5f32bb7f504d844c}
+
+
+Definition at line 13 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_a2a30fdc9d63f496a755a2c70917319e6}{
+\index{Synchronizer@{Synchronizer}!\_\-services@{\_\-services}}
+\index{\_\-services@{\_\-services}!Synchronizer@{Synchronizer}}
+\subsubsection[{\_\-services}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSMutableArray$\ast$) {\bf \_\-services}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_synchronizer_a2a30fdc9d63f496a755a2c70917319e6}
+
+
+Definition at line 19 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_a2336bd720576551dba8f8d780a7a2532}{
+\index{Synchronizer@{Synchronizer}!\_\-showDisclosureIndicators@{\_\-showDisclosureIndicators}}
+\index{\_\-showDisclosureIndicators@{\_\-showDisclosureIndicators}!Synchronizer@{Synchronizer}}
+\subsubsection[{\_\-showDisclosureIndicators}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) {\bf \_\-showDisclosureIndicators}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_synchronizer_a2336bd720576551dba8f8d780a7a2532}
+
+
+Definition at line 18 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_a7c4b3e8add18b09f83d6a5432c7eb9ad}{
+\index{Synchronizer@{Synchronizer}!\_\-timer@{\_\-timer}}
+\index{\_\-timer@{\_\-timer}!Synchronizer@{Synchronizer}}
+\subsubsection[{\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSTimer$\ast$) {\bf \_\-timer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_synchronizer_a7c4b3e8add18b09f83d6a5432c7eb9ad}
+
+
+Definition at line 22 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_ab614350bf23f5280a2b4bb8df11e893b}{
+\index{Synchronizer@{Synchronizer}!connections@{connections}}
+\index{connections@{connections}!Synchronizer@{Synchronizer}}
+\subsubsection[{connections}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSMutableArray$\ast$) {\bf connections}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_synchronizer_ab614350bf23f5280a2b4bb8df11e893b}
+
+
+Definition at line 15 of file Synchronizer.h.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{interface_synchronizer_a14d57daa103c8eb50b3ad4c7da798ae4}{
+\index{Synchronizer@{Synchronizer}!currentResolve@{currentResolve}}
+\index{currentResolve@{currentResolve}!Synchronizer@{Synchronizer}}
+\subsubsection[{currentResolve}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSMutableArray$\ast$) currentResolve\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_synchronizer_a14d57daa103c8eb50b3ad4c7da798ae4}
+
+
+Definition at line 35 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_a3c2dbcfb2f110502370a12870883471f}{
+\index{Synchronizer@{Synchronizer}!initialWaitOver@{initialWaitOver}}
+\index{initialWaitOver@{initialWaitOver}!Synchronizer@{Synchronizer}}
+\subsubsection[{initialWaitOver}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) initialWaitOver\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_synchronizer_a3c2dbcfb2f110502370a12870883471f}
+
+
+Definition at line 38 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_ae196d598b6ad72fb9ddb5d46ed2cc9f5}{
+\index{Synchronizer@{Synchronizer}!needsActivityIndicator@{needsActivityIndicator}}
+\index{needsActivityIndicator@{needsActivityIndicator}!Synchronizer@{Synchronizer}}
+\subsubsection[{needsActivityIndicator}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) needsActivityIndicator\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_synchronizer_ae196d598b6ad72fb9ddb5d46ed2cc9f5}
+
+
+Definition at line 37 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_abf4b3c3bd472b664be35d3bfc58136cf}{
+\index{Synchronizer@{Synchronizer}!netServiceBrowser@{netServiceBrowser}}
+\index{netServiceBrowser@{netServiceBrowser}!Synchronizer@{Synchronizer}}
+\subsubsection[{netServiceBrowser}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSNetServiceBrowser$\ast$) netServiceBrowser\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_synchronizer_abf4b3c3bd472b664be35d3bfc58136cf}
+
+
+Definition at line 34 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_a0b9cb55a24dc46c7d94cd0ca205aedae}{
+\index{Synchronizer@{Synchronizer}!ownEntry@{ownEntry}}
+\index{ownEntry@{ownEntry}!Synchronizer@{Synchronizer}}
+\subsubsection[{ownEntry}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSNetService$\ast$) ownEntry\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_synchronizer_a0b9cb55a24dc46c7d94cd0ca205aedae}
+
+
+Definition at line 31 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_a309302494c6ea19d6c181d53684f9207}{
+\index{Synchronizer@{Synchronizer}!ownName@{ownName}}
+\index{ownName@{ownName}!Synchronizer@{Synchronizer}}
+\subsubsection[{ownName}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString$\ast$) ownName\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_synchronizer_a309302494c6ea19d6c181d53684f9207}
+
+
+Definition at line 39 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_a7f90b977eaa3f12507bc0a97480c4e78}{
+\index{Synchronizer@{Synchronizer}!services@{services}}
+\index{services@{services}!Synchronizer@{Synchronizer}}
+\subsubsection[{services}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSMutableArray$\ast$) services\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_synchronizer_a7f90b977eaa3f12507bc0a97480c4e78}
+
+
+Definition at line 33 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_a203153a42b054a34a39087fee7eeab93}{
+\index{Synchronizer@{Synchronizer}!showDisclosureIndicators@{showDisclosureIndicators}}
+\index{showDisclosureIndicators@{showDisclosureIndicators}!Synchronizer@{Synchronizer}}
+\subsubsection[{showDisclosureIndicators}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) showDisclosureIndicators\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_synchronizer_a203153a42b054a34a39087fee7eeab93}
+
+
+Definition at line 32 of file Synchronizer.h.
+
+\hypertarget{interface_synchronizer_a49efd1a3e05e38497c176a4e11fdbaab}{
+\index{Synchronizer@{Synchronizer}!timer@{timer}}
+\index{timer@{timer}!Synchronizer@{Synchronizer}}
+\subsubsection[{timer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSTimer$\ast$) timer\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_synchronizer_a49efd1a3e05e38497c176a4e11fdbaab}
+
+
+Definition at line 36 of file Synchronizer.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_synchronizer_8h}{Synchronizer.h}\item 
+\hyperlink{_synchronizer_8m}{Synchronizer.m}\end{DoxyCompactItemize}

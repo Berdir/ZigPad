@@ -1,0 +1,251 @@
+\hypertarget{interface_presentation}{
+\section{Presentation Class Reference}
+\label{interface_presentation}\index{Presentation@{Presentation}}
+}
+
+
+{\ttfamily \#import $<$Presentation.h$>$}
+
+Inheritance diagram for Presentation:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_presentation}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(void) -\/ \hyperlink{interface_presentation_abe0d577eacc5979af6c36f33152bdba1}{addSequencesObject:}
+\item 
+(\hyperlink{interface_action}{Action} $\ast$) -\/ \hyperlink{interface_presentation_a7610e6190c74d1989b6b31e2c8732f5b}{getNextAction}
+\item 
+(\hyperlink{interface_action}{Action} $\ast$) -\/ \hyperlink{interface_presentation_a77fde04c365dc21f44f3819468a9d1b0}{getPreviousAction}
+\item 
+(\hyperlink{interface_action}{Action} $\ast$) -\/ \hyperlink{interface_presentation_a3f79911f677aeaf74121bcb97ce8b6a7}{jumpToSequence:}
+\item 
+(\hyperlink{interface_action}{Action} $\ast$) -\/ \hyperlink{interface_presentation_a11255d1277217b93316b1c3593ce41c2}{jumpToAction:sequenceIndex:}
+\item 
+(void) -\/ \hyperlink{interface_presentation_adac763e2e7db30db1d4e20a27f09a999}{resetPresentation}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+NSString $\ast$ \hyperlink{interface_presentation_a4b93d352d2fca75b34e1b5a50e03f587}{name}
+\item 
+NSString $\ast$ \hyperlink{interface_presentation_a962c78efb82559b96783952a501e2975}{comment}
+\item 
+id \hyperlink{interface_presentation_a818c2c185bddd9433ff9ea8fcdd218a0}{sequencesOrdering}
+\item 
+NSNumber $\ast$ \hyperlink{interface_presentation_ae24e2568d0d3a40bebefe304cb92656c}{refId}
+\item 
+NSSet $\ast$ \hyperlink{interface_presentation_a4cb3c561b838983ae43c00bf45aa2059}{sequences}
+\item 
+NSArray $\ast$ \hyperlink{interface_presentation_ae43a6a9c4f99b7da4aa3dec09eef7566}{orderedSequences}
+\item 
+\hyperlink{interface_sequence}{Sequence} $\ast$ \hyperlink{interface_presentation_aace53a1186a42b71abf1bf44c991b8ed}{activeSequence}
+\item 
+\hyperlink{interface_action}{Action} $\ast$ \hyperlink{interface_presentation_a59915a9cf9bfc07d58b28830b4c12b61}{activeAction}
+\item 
+NSMutableArray $\ast$ \hyperlink{interface_presentation_a495c856cb3552e081cab733749b15daa}{indexMapping}
+\item 
+int \hyperlink{interface_presentation_a233ee23f2e44543557f21524d6bbe3d0}{currentSequenceIndex}
+\item 
+int \hyperlink{interface_presentation_a7a2aae1312fc647bdfa18374b54186b9}{currentActionIndex}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 15 of file Presentation.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_presentation_abe0d577eacc5979af6c36f33152bdba1}{
+\index{Presentation@{Presentation}!addSequencesObject:@{addSequencesObject:}}
+\index{addSequencesObject:@{addSequencesObject:}!Presentation@{Presentation}}
+\subsubsection[{addSequencesObject:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) addSequencesObject: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf Sequence} $\ast$)}]{value}
+\end{DoxyParamCaption}
+}}
+\label{interface_presentation_abe0d577eacc5979af6c36f33152bdba1}
+
+
+Definition at line 32 of file Presentation.m.
+
+\hypertarget{interface_presentation_a7610e6190c74d1989b6b31e2c8732f5b}{
+\index{Presentation@{Presentation}!getNextAction@{getNextAction}}
+\index{getNextAction@{getNextAction}!Presentation@{Presentation}}
+\subsubsection[{getNextAction}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf Action} $\ast$) getNextAction 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_presentation_a7610e6190c74d1989b6b31e2c8732f5b}
+
+
+Definition at line 107 of file Presentation.m.
+
+\hypertarget{interface_presentation_a77fde04c365dc21f44f3819468a9d1b0}{
+\index{Presentation@{Presentation}!getPreviousAction@{getPreviousAction}}
+\index{getPreviousAction@{getPreviousAction}!Presentation@{Presentation}}
+\subsubsection[{getPreviousAction}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf Action} $\ast$) getPreviousAction 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_presentation_a77fde04c365dc21f44f3819468a9d1b0}
+
+
+Definition at line 142 of file Presentation.m.
+
+\hypertarget{interface_presentation_a11255d1277217b93316b1c3593ce41c2}{
+\index{Presentation@{Presentation}!jumpToAction:sequenceIndex:@{jumpToAction:sequenceIndex:}}
+\index{jumpToAction:sequenceIndex:@{jumpToAction:sequenceIndex:}!Presentation@{Presentation}}
+\subsubsection[{jumpToAction:sequenceIndex:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf Action} $\ast$) jumpToAction: 
+\begin{DoxyParamCaption}
+\item[{dummy(int)}]{actionIndex}
+\item[{sequenceIndex:(int)}]{sequenceIndex}
+\end{DoxyParamCaption}
+}}
+\label{interface_presentation_a11255d1277217b93316b1c3593ce41c2}
+
+
+Definition at line 173 of file Presentation.m.
+
+\hypertarget{interface_presentation_a3f79911f677aeaf74121bcb97ce8b6a7}{
+\index{Presentation@{Presentation}!jumpToSequence:@{jumpToSequence:}}
+\index{jumpToSequence:@{jumpToSequence:}!Presentation@{Presentation}}
+\subsubsection[{jumpToSequence:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf Action} $\ast$) jumpToSequence: 
+\begin{DoxyParamCaption}
+\item[{dummy(int)}]{index}
+\end{DoxyParamCaption}
+}}
+\label{interface_presentation_a3f79911f677aeaf74121bcb97ce8b6a7}
+
+
+Definition at line 169 of file Presentation.m.
+
+\hypertarget{interface_presentation_adac763e2e7db30db1d4e20a27f09a999}{
+\index{Presentation@{Presentation}!resetPresentation@{resetPresentation}}
+\index{resetPresentation@{resetPresentation}!Presentation@{Presentation}}
+\subsubsection[{resetPresentation}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) resetPresentation 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_presentation_adac763e2e7db30db1d4e20a27f09a999}
+
+
+Definition at line 191 of file Presentation.m.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{interface_presentation_a59915a9cf9bfc07d58b28830b4c12b61}{
+\index{Presentation@{Presentation}!activeAction@{activeAction}}
+\index{activeAction@{activeAction}!Presentation@{Presentation}}
+\subsubsection[{activeAction}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf Action}$\ast$) activeAction\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_presentation_a59915a9cf9bfc07d58b28830b4c12b61}
+
+
+Definition at line 27 of file Presentation.h.
+
+\hypertarget{interface_presentation_aace53a1186a42b71abf1bf44c991b8ed}{
+\index{Presentation@{Presentation}!activeSequence@{activeSequence}}
+\index{activeSequence@{activeSequence}!Presentation@{Presentation}}
+\subsubsection[{activeSequence}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf Sequence}$\ast$) activeSequence\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_presentation_aace53a1186a42b71abf1bf44c991b8ed}
+
+
+Definition at line 26 of file Presentation.h.
+
+\hypertarget{interface_presentation_a962c78efb82559b96783952a501e2975}{
+\index{Presentation@{Presentation}!comment@{comment}}
+\index{comment@{comment}!Presentation@{Presentation}}
+\subsubsection[{comment}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString$\ast$) comment\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_presentation_a962c78efb82559b96783952a501e2975}
+
+
+Definition at line 19 of file Presentation.h.
+
+\hypertarget{interface_presentation_a7a2aae1312fc647bdfa18374b54186b9}{
+\index{Presentation@{Presentation}!currentActionIndex@{currentActionIndex}}
+\index{currentActionIndex@{currentActionIndex}!Presentation@{Presentation}}
+\subsubsection[{currentActionIndex}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (int) currentActionIndex\hspace{0.3cm}{\ttfamily  \mbox{[}read, assign\mbox{]}}}}
+\label{interface_presentation_a7a2aae1312fc647bdfa18374b54186b9}
+
+
+Definition at line 32 of file Presentation.h.
+
+\hypertarget{interface_presentation_a233ee23f2e44543557f21524d6bbe3d0}{
+\index{Presentation@{Presentation}!currentSequenceIndex@{currentSequenceIndex}}
+\index{currentSequenceIndex@{currentSequenceIndex}!Presentation@{Presentation}}
+\subsubsection[{currentSequenceIndex}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (int) currentSequenceIndex\hspace{0.3cm}{\ttfamily  \mbox{[}read, assign\mbox{]}}}}
+\label{interface_presentation_a233ee23f2e44543557f21524d6bbe3d0}
+
+
+Definition at line 31 of file Presentation.h.
+
+\hypertarget{interface_presentation_a495c856cb3552e081cab733749b15daa}{
+\index{Presentation@{Presentation}!indexMapping@{indexMapping}}
+\index{indexMapping@{indexMapping}!Presentation@{Presentation}}
+\subsubsection[{indexMapping}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSMutableArray$\ast$) indexMapping\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_presentation_a495c856cb3552e081cab733749b15daa}
+
+
+Definition at line 29 of file Presentation.h.
+
+\hypertarget{interface_presentation_a4b93d352d2fca75b34e1b5a50e03f587}{
+\index{Presentation@{Presentation}!name@{name}}
+\index{name@{name}!Presentation@{Presentation}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString$\ast$) name\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_presentation_a4b93d352d2fca75b34e1b5a50e03f587}
+
+
+Definition at line 18 of file Presentation.h.
+
+\hypertarget{interface_presentation_ae43a6a9c4f99b7da4aa3dec09eef7566}{
+\index{Presentation@{Presentation}!orderedSequences@{orderedSequences}}
+\index{orderedSequences@{orderedSequences}!Presentation@{Presentation}}
+\subsubsection[{orderedSequences}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSArray $\ast$) orderedSequences\hspace{0.3cm}{\ttfamily  \mbox{[}read, assign\mbox{]}}}}
+\label{interface_presentation_ae43a6a9c4f99b7da4aa3dec09eef7566}
+
+
+Definition at line 24 of file Presentation.h.
+
+\hypertarget{interface_presentation_ae24e2568d0d3a40bebefe304cb92656c}{
+\index{Presentation@{Presentation}!refId@{refId}}
+\index{refId@{refId}!Presentation@{Presentation}}
+\subsubsection[{refId}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSNumber$\ast$) refId\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_presentation_ae24e2568d0d3a40bebefe304cb92656c}
+
+
+Definition at line 21 of file Presentation.h.
+
+\hypertarget{interface_presentation_a4cb3c561b838983ae43c00bf45aa2059}{
+\index{Presentation@{Presentation}!sequences@{sequences}}
+\index{sequences@{sequences}!Presentation@{Presentation}}
+\subsubsection[{sequences}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSSet$\ast$) sequences\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_presentation_a4cb3c561b838983ae43c00bf45aa2059}
+
+
+Definition at line 23 of file Presentation.h.
+
+\hypertarget{interface_presentation_a818c2c185bddd9433ff9ea8fcdd218a0}{
+\index{Presentation@{Presentation}!sequencesOrdering@{sequencesOrdering}}
+\index{sequencesOrdering@{sequencesOrdering}!Presentation@{Presentation}}
+\subsubsection[{sequencesOrdering}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) sequencesOrdering\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_presentation_a818c2c185bddd9433ff9ea8fcdd218a0}
+
+
+Definition at line 20 of file Presentation.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+coredata/\hyperlink{_presentation_8h}{Presentation.h}\item 
+coredata/\hyperlink{_presentation_8m}{Presentation.m}\end{DoxyCompactItemize}

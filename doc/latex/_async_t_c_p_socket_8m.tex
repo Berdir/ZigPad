@@ -1,0 +1,180 @@
+\hypertarget{_async_t_c_p_socket_8m}{
+\section{AsyncTCPSocket.m File Reference}
+\label{_async_t_c_p_socket_8m}\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}}
+}
+{\ttfamily \#import \char`\"{}AsyncTCPSocket.h\char`\"{}}\par
+{\ttfamily \#import $<$sys/socket.h$>$}\par
+{\ttfamily \#import $<$netinet/in.h$>$}\par
+{\ttfamily \#import $<$arpa/inet.h$>$}\par
+{\ttfamily \#import $<$netdb.h$>$}\par
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries AsyncTCPSocket(Private)}
+\item 
+class \hyperlink{interface_async_read_packet}{AsyncReadPacket}
+\item 
+class \hyperlink{interface_async_write_packet}{AsyncWritePacket}
+\item 
+class \hyperlink{interface_async_special_packet}{AsyncSpecialPacket}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_async_t_c_p_socket_8m_af81590f9c67c83be8b7d9692f2caf50a}{DEFAULT\_\-PREBUFFERING}~YES
+\item 
+\#define \hyperlink{_async_t_c_p_socket_8m_a4c8be77e8648856fec043c09545f38aa}{READQUEUE\_\-CAPACITY}~5
+\item 
+\#define \hyperlink{_async_t_c_p_socket_8m_acd78fe6d88fd31654b00e4d47c4ce185}{WRITEQUEUE\_\-CAPACITY}~5
+\item 
+\#define \hyperlink{_async_t_c_p_socket_8m_a042ad7f9255f45d24e67ef6a50743b8d}{READALL\_\-CHUNKSIZE}~256
+\item 
+\#define \hyperlink{_async_t_c_p_socket_8m_aa1e7ffbe4cfad7ee4aacf3d9bd42c76d}{WRITE\_\-CHUNKSIZE}~(1024 $\ast$ 4)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20}{AsyncSocketFlags} \{ \par
+\hyperlink{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a790ed5c91e47d2b6c27e29880e385ecb}{kEnablePreBuffering} =  1 $<$$<$ 0, 
+\hyperlink{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a4a0abee82100826de19d9eb792e3a191}{kDidPassConnectMethod} =  1 $<$$<$ 1, 
+\hyperlink{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a5090996b33446579d00ab51a212c84e1}{kDidCompleteOpenForRead} =  1 $<$$<$ 2, 
+\hyperlink{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a16587ce447d2a0627ff78c539c4fe9f5}{kDidCompleteOpenForWrite} =  1 $<$$<$ 3, 
+\par
+\hyperlink{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20adf37fc3f3e4568dd38e50f4e982febc1}{kStartingTLS} =  1 $<$$<$ 4, 
+\hyperlink{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a0878850673a95a92db29d02dcc49107d}{kForbidReadsWrites} =  1 $<$$<$ 5, 
+\hyperlink{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a3309bf9276907491357a23046f5ff965}{kDisconnectAfterReads} =  1 $<$$<$ 6, 
+\hyperlink{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a3a0caa99ad6c4e3adbce3fc6d5b594a9}{kDisconnectAfterWrites} =  1 $<$$<$ 7, 
+\par
+\hyperlink{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20ab1774d559b2b118a0a00581818dfa80f}{kClosingWithError} =  1 $<$$<$ 8
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+NSString $\ast$const \hyperlink{_async_t_c_p_socket_8m_a668defc0cf40f33eae5ca84d1517ce5f}{AsyncSocketException} = @\char`\"{}AsyncSocketException\char`\"{}
+\item 
+NSString $\ast$const \hyperlink{_async_t_c_p_socket_8m_a94f35571d7a3100001d0e6512d65ac06}{AsyncSocketErrorDomain} = @\char`\"{}AsyncSocketErrorDomain\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{_async_t_c_p_socket_8m_af81590f9c67c83be8b7d9692f2caf50a}{
+\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!DEFAULT\_\-PREBUFFERING@{DEFAULT\_\-PREBUFFERING}}
+\index{DEFAULT\_\-PREBUFFERING@{DEFAULT\_\-PREBUFFERING}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}
+\subsubsection[{DEFAULT\_\-PREBUFFERING}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-PREBUFFERING~YES}}
+\label{_async_t_c_p_socket_8m_af81590f9c67c83be8b7d9692f2caf50a}
+
+
+Definition at line 24 of file AsyncTCPSocket.m.
+
+\hypertarget{_async_t_c_p_socket_8m_a042ad7f9255f45d24e67ef6a50743b8d}{
+\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!READALL\_\-CHUNKSIZE@{READALL\_\-CHUNKSIZE}}
+\index{READALL\_\-CHUNKSIZE@{READALL\_\-CHUNKSIZE}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}
+\subsubsection[{READALL\_\-CHUNKSIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define READALL\_\-CHUNKSIZE~256}}
+\label{_async_t_c_p_socket_8m_a042ad7f9255f45d24e67ef6a50743b8d}
+
+
+Definition at line 28 of file AsyncTCPSocket.m.
+
+\hypertarget{_async_t_c_p_socket_8m_a4c8be77e8648856fec043c09545f38aa}{
+\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!READQUEUE\_\-CAPACITY@{READQUEUE\_\-CAPACITY}}
+\index{READQUEUE\_\-CAPACITY@{READQUEUE\_\-CAPACITY}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}
+\subsubsection[{READQUEUE\_\-CAPACITY}]{\setlength{\rightskip}{0pt plus 5cm}\#define READQUEUE\_\-CAPACITY~5}}
+\label{_async_t_c_p_socket_8m_a4c8be77e8648856fec043c09545f38aa}
+
+
+Definition at line 26 of file AsyncTCPSocket.m.
+
+\hypertarget{_async_t_c_p_socket_8m_aa1e7ffbe4cfad7ee4aacf3d9bd42c76d}{
+\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!WRITE\_\-CHUNKSIZE@{WRITE\_\-CHUNKSIZE}}
+\index{WRITE\_\-CHUNKSIZE@{WRITE\_\-CHUNKSIZE}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}
+\subsubsection[{WRITE\_\-CHUNKSIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define WRITE\_\-CHUNKSIZE~(1024 $\ast$ 4)}}
+\label{_async_t_c_p_socket_8m_aa1e7ffbe4cfad7ee4aacf3d9bd42c76d}
+
+
+Definition at line 29 of file AsyncTCPSocket.m.
+
+\hypertarget{_async_t_c_p_socket_8m_acd78fe6d88fd31654b00e4d47c4ce185}{
+\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!WRITEQUEUE\_\-CAPACITY@{WRITEQUEUE\_\-CAPACITY}}
+\index{WRITEQUEUE\_\-CAPACITY@{WRITEQUEUE\_\-CAPACITY}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}
+\subsubsection[{WRITEQUEUE\_\-CAPACITY}]{\setlength{\rightskip}{0pt plus 5cm}\#define WRITEQUEUE\_\-CAPACITY~5}}
+\label{_async_t_c_p_socket_8m_acd78fe6d88fd31654b00e4d47c4ce185}
+
+
+Definition at line 27 of file AsyncTCPSocket.m.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20}{
+\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!AsyncSocketFlags@{AsyncSocketFlags}}
+\index{AsyncSocketFlags@{AsyncSocketFlags}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}
+\subsubsection[{AsyncSocketFlags}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf AsyncSocketFlags}}}
+\label{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{kEnablePreBuffering@{kEnablePreBuffering}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!kEnablePreBuffering@{kEnablePreBuffering}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a790ed5c91e47d2b6c27e29880e385ecb}{
+kEnablePreBuffering}
+\label{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a790ed5c91e47d2b6c27e29880e385ecb}
+}]\index{kDidPassConnectMethod@{kDidPassConnectMethod}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!kDidPassConnectMethod@{kDidPassConnectMethod}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a4a0abee82100826de19d9eb792e3a191}{
+kDidPassConnectMethod}
+\label{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a4a0abee82100826de19d9eb792e3a191}
+}]\index{kDidCompleteOpenForRead@{kDidCompleteOpenForRead}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!kDidCompleteOpenForRead@{kDidCompleteOpenForRead}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a5090996b33446579d00ab51a212c84e1}{
+kDidCompleteOpenForRead}
+\label{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a5090996b33446579d00ab51a212c84e1}
+}]\index{kDidCompleteOpenForWrite@{kDidCompleteOpenForWrite}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!kDidCompleteOpenForWrite@{kDidCompleteOpenForWrite}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a16587ce447d2a0627ff78c539c4fe9f5}{
+kDidCompleteOpenForWrite}
+\label{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a16587ce447d2a0627ff78c539c4fe9f5}
+}]\index{kStartingTLS@{kStartingTLS}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!kStartingTLS@{kStartingTLS}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20adf37fc3f3e4568dd38e50f4e982febc1}{
+kStartingTLS}
+\label{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20adf37fc3f3e4568dd38e50f4e982febc1}
+}]\index{kForbidReadsWrites@{kForbidReadsWrites}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!kForbidReadsWrites@{kForbidReadsWrites}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a0878850673a95a92db29d02dcc49107d}{
+kForbidReadsWrites}
+\label{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a0878850673a95a92db29d02dcc49107d}
+}]\index{kDisconnectAfterReads@{kDisconnectAfterReads}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!kDisconnectAfterReads@{kDisconnectAfterReads}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a3309bf9276907491357a23046f5ff965}{
+kDisconnectAfterReads}
+\label{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a3309bf9276907491357a23046f5ff965}
+}]\index{kDisconnectAfterWrites@{kDisconnectAfterWrites}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!kDisconnectAfterWrites@{kDisconnectAfterWrites}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a3a0caa99ad6c4e3adbce3fc6d5b594a9}{
+kDisconnectAfterWrites}
+\label{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20a3a0caa99ad6c4e3adbce3fc6d5b594a9}
+}]\index{kClosingWithError@{kClosingWithError}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!kClosingWithError@{kClosingWithError}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20ab1774d559b2b118a0a00581818dfa80f}{
+kClosingWithError}
+\label{_async_t_c_p_socket_8m_a63548354da864a1cdd7b3f1ff5a59b20ab1774d559b2b118a0a00581818dfa80f}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 38 of file AsyncTCPSocket.m.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{_async_t_c_p_socket_8m_a94f35571d7a3100001d0e6512d65ac06}{
+\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!AsyncSocketErrorDomain@{AsyncSocketErrorDomain}}
+\index{AsyncSocketErrorDomain@{AsyncSocketErrorDomain}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}
+\subsubsection[{AsyncSocketErrorDomain}]{\setlength{\rightskip}{0pt plus 5cm}NSString$\ast$ const {\bf AsyncSocketErrorDomain} = @\char`\"{}AsyncSocketErrorDomain\char`\"{}}}
+\label{_async_t_c_p_socket_8m_a94f35571d7a3100001d0e6512d65ac06}
+
+
+Definition at line 32 of file AsyncTCPSocket.m.
+
+\hypertarget{_async_t_c_p_socket_8m_a668defc0cf40f33eae5ca84d1517ce5f}{
+\index{AsyncTCPSocket.m@{AsyncTCPSocket.m}!AsyncSocketException@{AsyncSocketException}}
+\index{AsyncSocketException@{AsyncSocketException}!AsyncTCPSocket.m@{AsyncTCPSocket.m}}
+\subsubsection[{AsyncSocketException}]{\setlength{\rightskip}{0pt plus 5cm}NSString$\ast$ const {\bf AsyncSocketException} = @\char`\"{}AsyncSocketException\char`\"{}}}
+\label{_async_t_c_p_socket_8m_a668defc0cf40f33eae5ca84d1517ce5f}
+
+
+Definition at line 31 of file AsyncTCPSocket.m.
+

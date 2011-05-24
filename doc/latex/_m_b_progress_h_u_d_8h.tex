@@ -1,0 +1,79 @@
+\hypertarget{_m_b_progress_h_u_d_8h}{
+\section{MBProgressHUD/MBProgressHUD.h File Reference}
+\label{_m_b_progress_h_u_d_8h}\index{MBProgressHUD/MBProgressHUD.h@{MBProgressHUD/MBProgressHUD.h}}
+}
+{\ttfamily \#import $<$UIKit/UIKit.h$>$}\par
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+protocol \hyperlink{protocol_m_b_progress_h_u_d_delegate-p}{$<$MBProgressHUDDelegate$>$}
+\item 
+class \hyperlink{interface_m_b_round_progress_view}{MBRoundProgressView}
+\item 
+class \hyperlink{interface_m_b_progress_h_u_d}{MBProgressHUD}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621}{MBProgressHUDMode} \{ \hyperlink{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621a7d546c063ab8c0a2a5b590f8c2ca9ae1}{MBProgressHUDModeIndeterminate}, 
+\hyperlink{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621a87273ab59b043c87bdbf23eb7c6c0a29}{MBProgressHUDModeDeterminate}, 
+\hyperlink{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621a1068fa433ab70ff3bfdc9b24063943d8}{MBProgressHUDModeCustomView}
+ \}
+\item 
+enum \hyperlink{_m_b_progress_h_u_d_8h_a892ebf586d23b21a74bc54138ca25990}{MBProgressHUDAnimation} \{ \hyperlink{_m_b_progress_h_u_d_8h_a892ebf586d23b21a74bc54138ca25990aabab0a23495b4a58b97dd9a29ce533d5}{MBProgressHUDAnimationFade}, 
+\hyperlink{_m_b_progress_h_u_d_8h_a892ebf586d23b21a74bc54138ca25990a57845b41854be930ae8213265dddb00f}{MBProgressHUDAnimationZoom}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{_m_b_progress_h_u_d_8h_a892ebf586d23b21a74bc54138ca25990}{
+\index{MBProgressHUD.h@{MBProgressHUD.h}!MBProgressHUDAnimation@{MBProgressHUDAnimation}}
+\index{MBProgressHUDAnimation@{MBProgressHUDAnimation}!MBProgressHUD.h@{MBProgressHUD.h}}
+\subsubsection[{MBProgressHUDAnimation}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf MBProgressHUDAnimation}}}
+\label{_m_b_progress_h_u_d_8h_a892ebf586d23b21a74bc54138ca25990}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{MBProgressHUDAnimationFade@{MBProgressHUDAnimationFade}!MBProgressHUD.h@{MBProgressHUD.h}}\index{MBProgressHUD.h@{MBProgressHUD.h}!MBProgressHUDAnimationFade@{MBProgressHUDAnimationFade}}\item[{\em 
+\hypertarget{_m_b_progress_h_u_d_8h_a892ebf586d23b21a74bc54138ca25990aabab0a23495b4a58b97dd9a29ce533d5}{
+MBProgressHUDAnimationFade}
+\label{_m_b_progress_h_u_d_8h_a892ebf586d23b21a74bc54138ca25990aabab0a23495b4a58b97dd9a29ce533d5}
+}]Opacity animation \index{MBProgressHUDAnimationZoom@{MBProgressHUDAnimationZoom}!MBProgressHUD.h@{MBProgressHUD.h}}\index{MBProgressHUD.h@{MBProgressHUD.h}!MBProgressHUDAnimationZoom@{MBProgressHUDAnimationZoom}}\item[{\em 
+\hypertarget{_m_b_progress_h_u_d_8h_a892ebf586d23b21a74bc54138ca25990a57845b41854be930ae8213265dddb00f}{
+MBProgressHUDAnimationZoom}
+\label{_m_b_progress_h_u_d_8h_a892ebf586d23b21a74bc54138ca25990a57845b41854be930ae8213265dddb00f}
+}]Opacity + scale animation \end{description}
+\end{Desc}
+
+
+
+Definition at line 42 of file MBProgressHUD.h.
+
+\hypertarget{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621}{
+\index{MBProgressHUD.h@{MBProgressHUD.h}!MBProgressHUDMode@{MBProgressHUDMode}}
+\index{MBProgressHUDMode@{MBProgressHUDMode}!MBProgressHUD.h@{MBProgressHUD.h}}
+\subsubsection[{MBProgressHUDMode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf MBProgressHUDMode}}}
+\label{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{MBProgressHUDModeIndeterminate@{MBProgressHUDModeIndeterminate}!MBProgressHUD.h@{MBProgressHUD.h}}\index{MBProgressHUD.h@{MBProgressHUD.h}!MBProgressHUDModeIndeterminate@{MBProgressHUDModeIndeterminate}}\item[{\em 
+\hypertarget{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621a7d546c063ab8c0a2a5b590f8c2ca9ae1}{
+MBProgressHUDModeIndeterminate}
+\label{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621a7d546c063ab8c0a2a5b590f8c2ca9ae1}
+}]Progress is shown using an UIActivityIndicatorView. This is the default. \index{MBProgressHUDModeDeterminate@{MBProgressHUDModeDeterminate}!MBProgressHUD.h@{MBProgressHUD.h}}\index{MBProgressHUD.h@{MBProgressHUD.h}!MBProgressHUDModeDeterminate@{MBProgressHUDModeDeterminate}}\item[{\em 
+\hypertarget{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621a87273ab59b043c87bdbf23eb7c6c0a29}{
+MBProgressHUDModeDeterminate}
+\label{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621a87273ab59b043c87bdbf23eb7c6c0a29}
+}]Progress is shown using a \hyperlink{interface_m_b_round_progress_view}{MBRoundProgressView}. \index{MBProgressHUDModeCustomView@{MBProgressHUDModeCustomView}!MBProgressHUD.h@{MBProgressHUD.h}}\index{MBProgressHUD.h@{MBProgressHUD.h}!MBProgressHUDModeCustomView@{MBProgressHUDModeCustomView}}\item[{\em 
+\hypertarget{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621a1068fa433ab70ff3bfdc9b24063943d8}{
+MBProgressHUDModeCustomView}
+\label{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621a1068fa433ab70ff3bfdc9b24063943d8}
+}]Shows a custom view \end{description}
+\end{Desc}
+
+
+
+Definition at line 33 of file MBProgressHUD.h.
+

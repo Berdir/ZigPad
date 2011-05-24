@@ -1,0 +1,114 @@
+\hypertarget{interface_commander}{
+\section{Commander Class Reference}
+\label{interface_commander}\index{Commander@{Commander}}
+}
+
+
+{\ttfamily \#import $<$Commander.h$>$}
+
+Inheritance diagram for Commander:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_commander}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(void) -\/ \hyperlink{interface_commander_ad6aef6df3f59e357743fac86199523d3}{sendString:}
+\item 
+(void) -\/ \hyperlink{interface_commander_ab8504cc4f3451713d86464e09bf5062c}{sendAction:}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(\hyperlink{interface_commander}{Commander} $\ast$) + \hyperlink{interface_commander_a972c4371ba47e2604a0521f91e099ecf}{defaultCommander}
+\item 
+(void) + \hyperlink{interface_commander_a5ae591df94fc66ccb85cbb6565368bca}{close}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Allows to send strings over TCP or UDP. 
+
+Definition at line 22 of file Commander.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_commander_a5ae591df94fc66ccb85cbb6565368bca}{
+\index{Commander@{Commander}!close@{close}}
+\index{close@{close}!Commander@{Commander}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}+ (void) close 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_commander_a5ae591df94fc66ccb85cbb6565368bca}
+Close the default commander, e.g. if settings have changed. 
+
+Definition at line 45 of file Commander.m.
+
+\hypertarget{interface_commander_a972c4371ba47e2604a0521f91e099ecf}{
+\index{Commander@{Commander}!defaultCommander@{defaultCommander}}
+\index{defaultCommander@{defaultCommander}!Commander@{Commander}}
+\subsubsection[{defaultCommander}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf Commander} $\ast$) defaultCommander 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_commander_a972c4371ba47e2604a0521f91e099ecf}
+Get the default commander instance. 
+
+Definition at line 30 of file Commander.m.
+
+\hypertarget{interface_commander_ab8504cc4f3451713d86464e09bf5062c}{
+\index{Commander@{Commander}!sendAction:@{sendAction:}}
+\index{sendAction:@{sendAction:}!Commander@{Commander}}
+\subsubsection[{sendAction:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) sendAction: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf Action}$\ast$)}]{action}
+\end{DoxyParamCaption}
+}}
+\label{interface_commander_ab8504cc4f3451713d86464e09bf5062c}
+Send a command parameter of an action.
+
+This is a helper method, which will look for an \hyperlink{interface_param}{Param} with key \char`\"{}command\char`\"{} and send that as a string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em action} & The action object of which the command \hyperlink{interface_param}{Param} should be sent. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 68 of file Commander.m.
+
+\hypertarget{interface_commander_ad6aef6df3f59e357743fac86199523d3}{
+\index{Commander@{Commander}!sendString:@{sendString:}}
+\index{sendString:@{sendString:}!Commander@{Commander}}
+\subsubsection[{sendString:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) sendString: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString$\ast$)}]{message}
+\end{DoxyParamCaption}
+}}
+\label{interface_commander_ad6aef6df3f59e357743fac86199523d3}
+Send a string.
+
+This is an abstract method and must be overriden by the actual implementation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The string that should be sent. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 63 of file Commander.m.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_commander_8h}{Commander.h}\item 
+\hyperlink{_commander_8m}{Commander.m}\end{DoxyCompactItemize}

@@ -1,0 +1,1363 @@
+\hypertarget{interface_async_udp_socket}{
+\section{AsyncUdpSocket Class Reference}
+\label{interface_async_udp_socket}\index{AsyncUdpSocket@{AsyncUdpSocket}}
+}
+
+
+{\ttfamily \#import $<$AsyncUdpSocket.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(id) -\/ \hyperlink{interface_async_udp_socket_a4213bb26f5207ee3f402fe463badc691}{init}
+\item 
+(id) -\/ \hyperlink{interface_async_udp_socket_a918ea9d2f36714a76a7f19a5213a0473}{initWithDelegate:}
+\item 
+(id) -\/ \hyperlink{interface_async_udp_socket_a65ebd73324c0920a291449a38e2ff3ff}{initWithDelegate:userData:}
+\item 
+(id) -\/ \hyperlink{interface_async_udp_socket_af151778aad87c68e8270e38f02fa7b40}{initIPv4}
+\item 
+(id) -\/ \hyperlink{interface_async_udp_socket_a5c9685a737ef357f854710a55647be7f}{initIPv6}
+\item 
+(id) -\/ \hyperlink{interface_async_udp_socket_a6c98e239b6ba279cfc95c64db9de555c}{delegate}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a5147f10c2f5e0df2682c4ce073138ac8}{setDelegate:}
+\item 
+(long) -\/ \hyperlink{interface_async_udp_socket_ad5ec7ee01c3a572cf338782460044b21}{userData}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a3e2af6a69a1c75cb9b228c871ade8419}{setUserData:}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_async_udp_socket_a544fa124053aea063a8be148cf24d491}{localHost}
+\item 
+(UInt16) -\/ \hyperlink{interface_async_udp_socket_a1b6cdcf368d68e9ffb28e359e5c23ce8}{localPort}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_async_udp_socket_a918b8d6a97c1f0a2cd938cc61d3ff353}{connectedHost}
+\item 
+(UInt16) -\/ \hyperlink{interface_async_udp_socket_a2337a76e32d4e2836888e58723977b7e}{connectedPort}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_ad3515f7fe2b8ed2b9e14233cf7ede0bc}{isConnected}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_a96bdc12808ebe75b38f64381cedbf9df}{isClosed}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_a7f1734034c9aa5b62cfeb69f203729e3}{isIPv4}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_aa009ac699bce64f1d087a0eafeb2a371}{isIPv6}
+\item 
+(unsigned int) -\/ \hyperlink{interface_async_udp_socket_ab7dadd88df12ecfbd833b9db58c1b0a9}{maximumTransmissionUnit}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_aecbce637b4fb5f214a710119d9d6a67b}{bindToPort:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_a706809e7b861e3f728970f0f4fc4a87d}{bindToAddress:port:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_a3d9205d70242e9e2547148c6b05b397e}{connectToHost:onPort:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_a2e1af5ef7a3e1ee37613dddb7c0e0617}{connectToAddress:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_a017c4048c57b08c914eb286545de5fbd}{joinMulticastGroup:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_ae08a6f71ba60a287697eac897b85949a}{joinMulticastGroup:withAddress:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_a447b30538bbdd3b3f7be8babeefde3fa}{enableBroadcast:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_aa4ea3b5358c65d92e0f6256f52a81954}{sendData:withTimeout:tag:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_a00f3a40612b9438d2020816c117752d7}{sendData:toHost:port:withTimeout:tag:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_a9c4be72c8ddb202c4cbf6f68bd53fd75}{sendData:toAddress:withTimeout:tag:}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_aa69663e07c9b05ec717a89760abab0cd}{receiveWithTimeout:tag:}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a5ae591df94fc66ccb85cbb6565368bca}{close}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_ab99e57c9ab479162ccf963516f78021b}{closeAfterSending}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a510acfabeae204cbfbc32259f9c97817}{closeAfterReceiving}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a50d02ef0641be6d2faafa6a9fa6305b0}{closeAfterSendingAndReceiving}
+\item 
+(UInt32) -\/ \hyperlink{interface_async_udp_socket_af434a0a1668265bfe0921a9d2b51a43e}{maxReceiveBufferSize}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a1c08e2a89015e7f3a2f5d3737494a036}{setMaxReceiveBufferSize:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_a111317eafc9694b30edb4c36f513aa07}{moveToRunLoop:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_aa6f2d16021ad8de163e5299f8497384e}{setRunLoopModes:}
+\item 
+(NSArray $\ast$) -\/ \hyperlink{interface_async_udp_socket_a9f8974eb549e1b8c750a613369188245}{runLoopModes}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a75ababb9f489e363e2f2a0400a258508}{runLoopAddSource:}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a690225f977216c6c6fc151bb4ef43e36}{runLoopRemoveSource:}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_acb0aace1fe5ef1c0452cad615451acfd}{runLoopAddTimer:}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a15eb41629b49b8efdd181cbe9fa11137}{runLoopRemoveTimer:}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_async_udp_socket_a6ab003d04b2ea43ba7e4c773f8f00cb5}{addressHost4:}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_async_udp_socket_aad3a045784ab0597ca274bedd8796385}{addressHost6:}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_async_udp_socket_abb33bbbb4fa671a0f763d4d9f62645e1}{addressHost:}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a380f6dc6ed4dfc3a60b33d7ed6e65c73}{emptyQueues}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a0df11605b11617b70eda19583a8bbf29}{closeSocket4}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_af7dc2926f72fefd01ea33f134adb5fbc}{closeSocket6}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a7aa6a27140fde291dfdbc7c384029a8d}{maybeScheduleClose}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_udp_socket_a804640cdef7c41b9d00db44feb235149}{getErrnoError}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_udp_socket_a9b0a42080e950dde8de512e46e067443}{getSocketError}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_udp_socket_a400285c677c62b8a3f30b1185c282514}{getIPv4UnavailableError}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_udp_socket_aef7f9ecd9ed1b24c11ec14022d5bf6d6}{getIPv6UnavailableError}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_udp_socket_aaef4f2fe9971a5f6a3c4114ada0ca1dd}{getSendTimeoutError}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_udp_socket_acb99a994a572be47e40859d6910baee7}{getReceiveTimeoutError}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_async_udp_socket_a7a10cb2cb03eb0e06aea6bcb16f84a8b}{connectedHost:}
+\item 
+(UInt16) -\/ \hyperlink{interface_async_udp_socket_a5910314780c573d73d483b466020a1ed}{connectedPort:}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_async_udp_socket_a59fe5c5c33e9e7dfa11ffc2bc4e18c38}{localHost:}
+\item 
+(UInt16) -\/ \hyperlink{interface_async_udp_socket_a384db6eb52b78874c030bcd063046e76}{localPort:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_a7bd266b270810085c2cd79205b699fd1}{canAcceptBytes:}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_ad81347d85c536bf72d1c45110e1a631a}{scheduleDequeueSend}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_aeaab83c6ba2dac648fc1019ba31f04c3}{maybeDequeueSend}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_ad6bb348a1a776f1cd547f88f34d1aee8}{doSend:}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a7d8663a1ab6fc1f31d2d334d4a114ae6}{completeCurrentSend}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a8da059627d826ea2bf527096304ebb97}{failCurrentSend:}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_af644a19a3ada970e76ebb2451a2bc00d}{endCurrentSend}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_ad2a089e3c6f01cfea86dfa3fbd39f27f}{doSendTimeout:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_a027d263e67689afdefcfdce2846b3091}{hasBytesAvailable:}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a676257c22febef76652df19b220cdb6f}{scheduleDequeueReceive}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a05eb56d20476ea9a21d8e51970c60613}{maybeDequeueReceive}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_afde86a47a47167400719467c9ca7ccc5}{doReceive4}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a81a86905a9adf8afc7cf903023f9d117}{doReceive6}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_aeb6350818913b8c48bcc338f0ed0b364}{doReceive:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_udp_socket_ac261fa9d220841c06d37b19473d5fb35}{maybeCompleteCurrentReceive}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a65f514527cc0537db7cdd21be43a9036}{failCurrentReceive:}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a386cd56f00840515fd305c23c8b00df2}{endCurrentReceive}
+\item 
+(void) -\/ \hyperlink{interface_async_udp_socket_a7426165a4995daf979894211876b3e3f}{doReceiveTimeout:}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+CFSocketRef \hyperlink{interface_async_udp_socket_a20f3d1f4bf10b95ab5e0c5b3265c5bee}{theSocket4}
+\item 
+CFSocketRef \hyperlink{interface_async_udp_socket_a94c7d0086b3d4a9495e0ef87bca42a22}{theSocket6}
+\item 
+CFRunLoopSourceRef \hyperlink{interface_async_udp_socket_a11ed80b25840f9c2e1fb11fb81516e9f}{theSource4}
+\item 
+CFRunLoopSourceRef \hyperlink{interface_async_udp_socket_afa4beb0b77a9fc1de8e37e665ef8ab99}{theSource6}
+\item 
+CFRunLoopRef \hyperlink{interface_async_udp_socket_a0df4eb574cfbcba161dc7589f8e9913e}{theRunLoop}
+\item 
+CFSocketContext \hyperlink{interface_async_udp_socket_a87c18d99a5efbb5389832677241c01e9}{theContext}
+\item 
+NSArray $\ast$ \hyperlink{interface_async_udp_socket_a12b4b7a67bd7a3c4a03a95117020aee4}{theRunLoopModes}
+\item 
+NSMutableArray $\ast$ \hyperlink{interface_async_udp_socket_a53f90f3fa05fcc0775b3b941799c0d63}{theSendQueue}
+\item 
+\hyperlink{interface_async_send_packet}{AsyncSendPacket} $\ast$ \hyperlink{interface_async_udp_socket_a670636f2bac217e87ef9840ce30eb5c1}{theCurrentSend}
+\item 
+NSTimer $\ast$ \hyperlink{interface_async_udp_socket_a250938cf3ea1f75b3677393e6cb464dc}{theSendTimer}
+\item 
+NSMutableArray $\ast$ \hyperlink{interface_async_udp_socket_a8461a181df1fb64915f467c9c0bc2798}{theReceiveQueue}
+\item 
+\hyperlink{interface_async_receive_packet}{AsyncReceivePacket} $\ast$ \hyperlink{interface_async_udp_socket_a97626f811e3aebe59e2c035cb07fb28b}{theCurrentReceive}
+\item 
+NSTimer $\ast$ \hyperlink{interface_async_udp_socket_abada5c7e39302439191504e9dac55532}{theReceiveTimer}
+\item 
+id \hyperlink{interface_async_udp_socket_a7e18c4829e83d7de259fa4c4cd78925b}{theDelegate}
+\item 
+UInt16 \hyperlink{interface_async_udp_socket_a0870b15c6ba4a8fbd05122ef3994c40e}{theFlags}
+\item 
+long \hyperlink{interface_async_udp_socket_af6dc350be3ed36a9ea2bd10580c263d2}{theUserData}
+\item 
+NSString $\ast$ \hyperlink{interface_async_udp_socket_a70121d5428f91a258f4daf681ee9de1c}{cachedLocalHost}
+\item 
+UInt16 \hyperlink{interface_async_udp_socket_af32f75b7bb7fa8921e37120cc76696da}{cachedLocalPort}
+\item 
+NSString $\ast$ \hyperlink{interface_async_udp_socket_a19b1f11e0f8df8553b680877639f7cd7}{cachedConnectedHost}
+\item 
+UInt16 \hyperlink{interface_async_udp_socket_ac6c5eb2925f6c9df21a9a29c0fe2b691}{cachedConnectedPort}
+\item 
+UInt32 \hyperlink{interface_async_udp_socket_ace077d3152576d63382d195442476f61}{maxReceiveBufferSize}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 31 of file AsyncUdpSocket.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_async_udp_socket_a6ab003d04b2ea43ba7e4c773f8f00cb5}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!addressHost4:@{addressHost4:}}
+\index{addressHost4:@{addressHost4:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{addressHost4:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) addressHost4: 
+\begin{DoxyParamCaption}
+\item[{dummy(struct sockaddr\_\-in $\ast$)}]{pSockaddr4}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a6ab003d04b2ea43ba7e4c773f8f00cb5}
+\hypertarget{interface_async_udp_socket_aad3a045784ab0597ca274bedd8796385}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!addressHost6:@{addressHost6:}}
+\index{addressHost6:@{addressHost6:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{addressHost6:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) addressHost6: 
+\begin{DoxyParamCaption}
+\item[{dummy(struct sockaddr\_\-in6 $\ast$)}]{pSockaddr6}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_aad3a045784ab0597ca274bedd8796385}
+\hypertarget{interface_async_udp_socket_abb33bbbb4fa671a0f763d4d9f62645e1}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!addressHost:@{addressHost:}}
+\index{addressHost:@{addressHost:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{addressHost:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) addressHost: 
+\begin{DoxyParamCaption}
+\item[{dummy(struct sockaddr $\ast$)}]{pSockaddr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_abb33bbbb4fa671a0f763d4d9f62645e1}
+\hypertarget{interface_async_udp_socket_a706809e7b861e3f728970f0f4fc4a87d}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!bindToAddress:port:error:@{bindToAddress:port:error:}}
+\index{bindToAddress:port:error:@{bindToAddress:port:error:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{bindToAddress:port:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) bindToAddress: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString $\ast$)}]{host}
+\item[{port:(UInt16)}]{port}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a706809e7b861e3f728970f0f4fc4a87d}
+Binds the underlying socket(s) to the given address and port. The sockets(s) will be able to receive data only on the given interface.
+
+To receive data on any interface, pass nil or \char`\"{}\char`\"{}. To receive data only on the loopback interface, pass \char`\"{}localhost\char`\"{} or \char`\"{}loopback\char`\"{}.
+
+On success, returns YES. Otherwise returns NO, and sets errPtr. If you don't care about the error, you can pass nil for errPtr. 
+
+Definition at line 774 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_aecbce637b4fb5f214a710119d9d6a67b}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!bindToPort:error:@{bindToPort:error:}}
+\index{bindToPort:error:@{bindToPort:error:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{bindToPort:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) bindToPort: 
+\begin{DoxyParamCaption}
+\item[{dummy(UInt16)}]{port}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_aecbce637b4fb5f214a710119d9d6a67b}
+Binds the UDP socket to the given port and optional address. Binding should be done for server sockets that receive data prior to sending it. Client sockets can skip binding, as the OS will automatically assign the socket an available port when it starts sending data.
+
+You cannot bind a socket after its been connected. You can only bind a socket once. You can still connect a socket (if desired) after binding.
+
+On success, returns YES. Otherwise returns NO, and sets errPtr. If you don't care about the error, you can pass nil for errPtr.
+
+Binds the underlying socket(s) to the given port. The socket(s) will be able to receive data on any interface.
+
+On success, returns YES. Otherwise returns NO, and sets errPtr. If you don't care about the error, you can pass nil for errPtr. 
+
+Definition at line 759 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a7bd266b270810085c2cd79205b699fd1}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!canAcceptBytes:@{canAcceptBytes:}}
+\index{canAcceptBytes:@{canAcceptBytes:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{canAcceptBytes:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) canAcceptBytes: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketRef)}]{sockRef}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a7bd266b270810085c2cd79205b699fd1}
+\hypertarget{interface_async_udp_socket_a5ae591df94fc66ccb85cbb6565368bca}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!close@{close}}
+\index{close@{close}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) close 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a5ae591df94fc66ccb85cbb6565368bca}
+Closes the socket immediately. Any pending send or receive operations are dropped. 
+
+Definition at line 1283 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a510acfabeae204cbfbc32259f9c97817}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!closeAfterReceiving@{closeAfterReceiving}}
+\index{closeAfterReceiving@{closeAfterReceiving}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{closeAfterReceiving}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) closeAfterReceiving 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a510acfabeae204cbfbc32259f9c97817}
+Closes after all pending receive operations have completed. After calling this, the sendData: and receive: methods will do nothing. In other words, you won't be able to add any more send or receive operations to the queue. The socket will close even if there are still pending send operations. 
+
+Definition at line 1311 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_ab99e57c9ab479162ccf963516f78021b}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!closeAfterSending@{closeAfterSending}}
+\index{closeAfterSending@{closeAfterSending}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{closeAfterSending}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) closeAfterSending 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_ab99e57c9ab479162ccf963516f78021b}
+Closes after all pending send operations have completed. After calling this, the sendData: and receive: methods will do nothing. In other words, you won't be able to add any more send or receive operations to the queue. The socket will close even if there are still pending receive operations. 
+
+Definition at line 1303 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a50d02ef0641be6d2faafa6a9fa6305b0}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!closeAfterSendingAndReceiving@{closeAfterSendingAndReceiving}}
+\index{closeAfterSendingAndReceiving@{closeAfterSendingAndReceiving}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{closeAfterSendingAndReceiving}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) closeAfterSendingAndReceiving 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a50d02ef0641be6d2faafa6a9fa6305b0}
+Closes after all pending send and receive operations have completed. After calling this, the sendData: and receive: methods will do nothing. In other words, you won't be able to add any more send or receive operations to the queue. 
+
+Definition at line 1319 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a0df11605b11617b70eda19583a8bbf29}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!closeSocket4@{closeSocket4}}
+\index{closeSocket4@{closeSocket4}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{closeSocket4}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) closeSocket4 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a0df11605b11617b70eda19583a8bbf29}
+\hypertarget{interface_async_udp_socket_af7dc2926f72fefd01ea33f134adb5fbc}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!closeSocket6@{closeSocket6}}
+\index{closeSocket6@{closeSocket6}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{closeSocket6}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) closeSocket6 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_af7dc2926f72fefd01ea33f134adb5fbc}
+\hypertarget{interface_async_udp_socket_a7d8663a1ab6fc1f31d2d334d4a114ae6}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!completeCurrentSend@{completeCurrentSend}}
+\index{completeCurrentSend@{completeCurrentSend}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{completeCurrentSend}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) completeCurrentSend 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a7d8663a1ab6fc1f31d2d334d4a114ae6}
+\hypertarget{interface_async_udp_socket_a918b8d6a97c1f0a2cd938cc61d3ff353}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!connectedHost@{connectedHost}}
+\index{connectedHost@{connectedHost}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{connectedHost}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) connectedHost 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a918b8d6a97c1f0a2cd938cc61d3ff353}
+Returns the remote address info for the socket.
+
+Note: Since UDP is connectionless by design, connected address info will not be available unless the socket is explicitly connected to a remote host/port 
+
+Definition at line 1445 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a7a10cb2cb03eb0e06aea6bcb16f84a8b}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!connectedHost:@{connectedHost:}}
+\index{connectedHost:@{connectedHost:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{connectedHost:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) connectedHost: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketRef)}]{socket}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a7a10cb2cb03eb0e06aea6bcb16f84a8b}
+\hypertarget{interface_async_udp_socket_a2337a76e32d4e2836888e58723977b7e}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!connectedPort@{connectedPort}}
+\index{connectedPort@{connectedPort}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{connectedPort}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt16) connectedPort 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a2337a76e32d4e2836888e58723977b7e}
+
+
+Definition at line 1455 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a5910314780c573d73d483b466020a1ed}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!connectedPort:@{connectedPort:}}
+\index{connectedPort:@{connectedPort:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{connectedPort:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt16) connectedPort: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketRef)}]{socket}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a5910314780c573d73d483b466020a1ed}
+\hypertarget{interface_async_udp_socket_a2e1af5ef7a3e1ee37613dddb7c0e0617}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!connectToAddress:error:@{connectToAddress:error:}}
+\index{connectToAddress:error:@{connectToAddress:error:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{connectToAddress:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) connectToAddress: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSData $\ast$)}]{remoteAddr}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a2e1af5ef7a3e1ee37613dddb7c0e0617}
+Connects the underlying UDP socket to the remote address. If the address is an IPv4 address, the IPv4 socket is connected, and the IPv6 socket is invalidated and released. If the address is an IPv6 address, the IPv6 socket is connected, and the IPv4 socket is invalidated and released.
+
+The address is a native address structure, as may be returned from API's such as Bonjour. An address may be created manually by simply wrapping a sockaddr\_\-in or sockaddr\_\-in6 in an NSData object.
+
+On success, returns YES. Otherwise returns NO, and sets errPtr. If you don't care about the error, you can pass nil for errPtr. 
+
+Definition at line 980 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a3d9205d70242e9e2547148c6b05b397e}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!connectToHost:onPort:error:@{connectToHost:onPort:error:}}
+\index{connectToHost:onPort:error:@{connectToHost:onPort:error:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{connectToHost:onPort:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) connectToHost: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString $\ast$)}]{host}
+\item[{onPort:(UInt16)}]{port}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a3d9205d70242e9e2547148c6b05b397e}
+Connects the UDP socket to the given host and port. By design, UDP is a connectionless protocol, and connecting is not needed.
+
+Choosing to connect to a specific host/port has the following effect:
+\begin{DoxyItemize}
+\item You will only be able to send data to the connected host/port.
+\item You will only be able to receive data from the connected host/port.
+\item You will receive ICMP messages that come from the connected host/port, such as \char`\"{}connection refused\char`\"{}.
+\end{DoxyItemize}
+
+Connecting a UDP socket does not result in any communication on the socket. It simply changes the internal state of the socket.
+
+You cannot bind a socket after its been connected. You can only connect a socket once.
+
+On success, returns YES. Otherwise returns NO, and sets errPtr. If you don't care about the error, you can pass nil for errPtr.
+
+Connects the underlying UDP socket to the given host and port. If an IPv4 address is resolved, the IPv4 socket is connected, and the IPv6 socket is invalidated and released. If an IPv6 address is resolved, the IPv6 socket is connected, and the IPv4 socket is invalidated and released.
+
+On success, returns YES. Otherwise returns NO, and sets errPtr. If you don't care about the error, you can pass nil for errPtr. 
+
+Definition at line 880 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a6c98e239b6ba279cfc95c64db9de555c}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!delegate@{delegate}}
+\index{delegate@{delegate}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{delegate}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) delegate 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a6c98e239b6ba279cfc95c64db9de555c}
+
+
+Definition at line 335 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_afde86a47a47167400719467c9ca7ccc5}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!doReceive4@{doReceive4}}
+\index{doReceive4@{doReceive4}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{doReceive4}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doReceive4 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_afde86a47a47167400719467c9ca7ccc5}
+\hypertarget{interface_async_udp_socket_a81a86905a9adf8afc7cf903023f9d117}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!doReceive6@{doReceive6}}
+\index{doReceive6@{doReceive6}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{doReceive6}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doReceive6 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a81a86905a9adf8afc7cf903023f9d117}
+\hypertarget{interface_async_udp_socket_aeb6350818913b8c48bcc338f0ed0b364}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!doReceive:@{doReceive:}}
+\index{doReceive:@{doReceive:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{doReceive:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doReceive: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketRef)}]{sockRef}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_aeb6350818913b8c48bcc338f0ed0b364}
+\hypertarget{interface_async_udp_socket_a7426165a4995daf979894211876b3e3f}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!doReceiveTimeout:@{doReceiveTimeout:}}
+\index{doReceiveTimeout:@{doReceiveTimeout:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{doReceiveTimeout:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doReceiveTimeout: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSTimer $\ast$)}]{timer}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a7426165a4995daf979894211876b3e3f}
+\hypertarget{interface_async_udp_socket_ad6bb348a1a776f1cd547f88f34d1aee8}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!doSend:@{doSend:}}
+\index{doSend:@{doSend:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{doSend:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doSend: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketRef)}]{sockRef}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_ad6bb348a1a776f1cd547f88f34d1aee8}
+\hypertarget{interface_async_udp_socket_ad2a089e3c6f01cfea86dfa3fbd39f27f}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!doSendTimeout:@{doSendTimeout:}}
+\index{doSendTimeout:@{doSendTimeout:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{doSendTimeout:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doSendTimeout: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSTimer $\ast$)}]{timer}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_ad2a089e3c6f01cfea86dfa3fbd39f27f}
+\hypertarget{interface_async_udp_socket_a380f6dc6ed4dfc3a60b33d7ed6e65c73}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!emptyQueues@{emptyQueues}}
+\index{emptyQueues@{emptyQueues}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{emptyQueues}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) emptyQueues 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a380f6dc6ed4dfc3a60b33d7ed6e65c73}
+\hypertarget{interface_async_udp_socket_a447b30538bbdd3b3f7be8babeefde3fa}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!enableBroadcast:error:@{enableBroadcast:error:}}
+\index{enableBroadcast:error:@{enableBroadcast:error:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{enableBroadcast:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) enableBroadcast: 
+\begin{DoxyParamCaption}
+\item[{dummy(BOOL)}]{flag}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a447b30538bbdd3b3f7be8babeefde3fa}
+By default, the underlying socket in the OS will not allow you to send broadcast messages. In order to send broadcast messages, you need to enable this functionality in the socket.
+
+A broadcast is a UDP message to addresses like \char`\"{}192.168.255.255\char`\"{} or \char`\"{}255.255.255.255\char`\"{} that is delivered to every host on the network. The reason this is generally disabled by default is to prevent accidental broadcast messages from flooding the network. 
+
+Definition at line 1206 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a386cd56f00840515fd305c23c8b00df2}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!endCurrentReceive@{endCurrentReceive}}
+\index{endCurrentReceive@{endCurrentReceive}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{endCurrentReceive}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) endCurrentReceive 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a386cd56f00840515fd305c23c8b00df2}
+\hypertarget{interface_async_udp_socket_af644a19a3ada970e76ebb2451a2bc00d}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!endCurrentSend@{endCurrentSend}}
+\index{endCurrentSend@{endCurrentSend}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{endCurrentSend}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) endCurrentSend 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_af644a19a3ada970e76ebb2451a2bc00d}
+\hypertarget{interface_async_udp_socket_a65f514527cc0537db7cdd21be43a9036}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!failCurrentReceive:@{failCurrentReceive:}}
+\index{failCurrentReceive:@{failCurrentReceive:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{failCurrentReceive:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) failCurrentReceive: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSError $\ast$)}]{error}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a65f514527cc0537db7cdd21be43a9036}
+\hypertarget{interface_async_udp_socket_a8da059627d826ea2bf527096304ebb97}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!failCurrentSend:@{failCurrentSend:}}
+\index{failCurrentSend:@{failCurrentSend:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{failCurrentSend:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) failCurrentSend: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSError $\ast$)}]{error}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a8da059627d826ea2bf527096304ebb97}
+\hypertarget{interface_async_udp_socket_a804640cdef7c41b9d00db44feb235149}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!getErrnoError@{getErrnoError}}
+\index{getErrnoError@{getErrnoError}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{getErrnoError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getErrnoError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a804640cdef7c41b9d00db44feb235149}
+\hypertarget{interface_async_udp_socket_a400285c677c62b8a3f30b1185c282514}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!getIPv4UnavailableError@{getIPv4UnavailableError}}
+\index{getIPv4UnavailableError@{getIPv4UnavailableError}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{getIPv4UnavailableError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getIPv4UnavailableError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a400285c677c62b8a3f30b1185c282514}
+\hypertarget{interface_async_udp_socket_aef7f9ecd9ed1b24c11ec14022d5bf6d6}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!getIPv6UnavailableError@{getIPv6UnavailableError}}
+\index{getIPv6UnavailableError@{getIPv6UnavailableError}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{getIPv6UnavailableError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getIPv6UnavailableError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_aef7f9ecd9ed1b24c11ec14022d5bf6d6}
+\hypertarget{interface_async_udp_socket_acb99a994a572be47e40859d6910baee7}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!getReceiveTimeoutError@{getReceiveTimeoutError}}
+\index{getReceiveTimeoutError@{getReceiveTimeoutError}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{getReceiveTimeoutError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getReceiveTimeoutError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_acb99a994a572be47e40859d6910baee7}
+\hypertarget{interface_async_udp_socket_aaef4f2fe9971a5f6a3c4114ada0ca1dd}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!getSendTimeoutError@{getSendTimeoutError}}
+\index{getSendTimeoutError@{getSendTimeoutError}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{getSendTimeoutError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getSendTimeoutError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_aaef4f2fe9971a5f6a3c4114ada0ca1dd}
+\hypertarget{interface_async_udp_socket_a9b0a42080e950dde8de512e46e067443}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!getSocketError@{getSocketError}}
+\index{getSocketError@{getSocketError}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{getSocketError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getSocketError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a9b0a42080e950dde8de512e46e067443}
+\hypertarget{interface_async_udp_socket_a027d263e67689afdefcfdce2846b3091}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!hasBytesAvailable:@{hasBytesAvailable:}}
+\index{hasBytesAvailable:@{hasBytesAvailable:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{hasBytesAvailable:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) hasBytesAvailable: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketRef)}]{sockRef}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a027d263e67689afdefcfdce2846b3091}
+\hypertarget{interface_async_udp_socket_a4213bb26f5207ee3f402fe463badc691}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!init@{init}}
+\index{init@{init}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) init 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a4213bb26f5207ee3f402fe463badc691}
+Creates new instances of \hyperlink{interface_async_udp_socket}{AsyncUdpSocket}. 
+
+Definition at line 293 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_af151778aad87c68e8270e38f02fa7b40}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!initIPv4@{initIPv4}}
+\index{initIPv4@{initIPv4}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{initIPv4}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) initIPv4 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_af151778aad87c68e8270e38f02fa7b40}
+Creates new instances of \hyperlink{interface_async_udp_socket}{AsyncUdpSocket} that support only IPv4 or IPv6. The other init methods will support both, unless specifically binded or connected to one protocol. If you know you'll only be using one protocol, these init methods may be a bit more efficient. 
+
+Definition at line 308 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a5c9685a737ef357f854710a55647be7f}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!initIPv6@{initIPv6}}
+\index{initIPv6@{initIPv6}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{initIPv6}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) initIPv6 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a5c9685a737ef357f854710a55647be7f}
+
+
+Definition at line 313 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a918ea9d2f36714a76a7f19a5213a0473}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!initWithDelegate:@{initWithDelegate:}}
+\index{initWithDelegate:@{initWithDelegate:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{initWithDelegate:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) initWithDelegate: 
+\begin{DoxyParamCaption}
+\item[{dummy(id)}]{delegate}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a918ea9d2f36714a76a7f19a5213a0473}
+
+
+Definition at line 298 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a65ebd73324c0920a291449a38e2ff3ff}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!initWithDelegate:userData:@{initWithDelegate:userData:}}
+\index{initWithDelegate:userData:@{initWithDelegate:userData:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{initWithDelegate:userData:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) initWithDelegate: 
+\begin{DoxyParamCaption}
+\item[{dummy(id)}]{delegate}
+\item[{userData:(long)}]{userData}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a65ebd73324c0920a291449a38e2ff3ff}
+
+
+Definition at line 303 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a96bdc12808ebe75b38f64381cedbf9df}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!isClosed@{isClosed}}
+\index{isClosed@{isClosed}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{isClosed}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) isClosed 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a96bdc12808ebe75b38f64381cedbf9df}
+Returns whether or not this socket has been closed. The only way a socket can be closed is if you explicitly call one of the close methods. 
+
+Definition at line 1645 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_ad3515f7fe2b8ed2b9e14233cf7ede0bc}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{isConnected}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) isConnected 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_ad3515f7fe2b8ed2b9e14233cf7ede0bc}
+Returns whether or not this socket has been connected to a single host. By design, UDP is a connectionless protocol, and connecting is not needed. If connected, the socket will only be able to send/receive data to/from the connected host. 
+
+Definition at line 1635 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a7f1734034c9aa5b62cfeb69f203729e3}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!isIPv4@{isIPv4}}
+\index{isIPv4@{isIPv4}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{isIPv4}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) isIPv4 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a7f1734034c9aa5b62cfeb69f203729e3}
+Returns whether or not this socket supports IPv4. By default this will be true, unless the socket is specifically initialized as IPv6 only, or is binded or connected to an IPv6 address. 
+
+Definition at line 1650 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_aa009ac699bce64f1d087a0eafeb2a371}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!isIPv6@{isIPv6}}
+\index{isIPv6@{isIPv6}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{isIPv6}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) isIPv6 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_aa009ac699bce64f1d087a0eafeb2a371}
+Returns whether or not this socket supports IPv6. By default this will be true, unless the socket is specifically initialized as IPv4 only, or is binded or connected to an IPv4 address.
+
+This method will also return false on platforms that do not support IPv6. Note: The iPhone does not currently support IPv6. 
+
+Definition at line 1655 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a017c4048c57b08c914eb286545de5fbd}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!joinMulticastGroup:error:@{joinMulticastGroup:error:}}
+\index{joinMulticastGroup:error:@{joinMulticastGroup:error:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{joinMulticastGroup:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) joinMulticastGroup: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString $\ast$)}]{group}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a017c4048c57b08c914eb286545de5fbd}
+Join multicast group
+
+Group should be an IP address (eg "225.228.0.1")
+
+Join multicast group
+
+Group should be a multicast IP address (eg. "239.255.250.250" for IPv4). Address is local interface for IPv4, but currently defaults under IPv6. 
+
+Definition at line 1062 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_ae08a6f71ba60a287697eac897b85949a}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!joinMulticastGroup:withAddress:error:@{joinMulticastGroup:withAddress:error:}}
+\index{joinMulticastGroup:withAddress:error:@{joinMulticastGroup:withAddress:error:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{joinMulticastGroup:withAddress:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) joinMulticastGroup: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString $\ast$)}]{group}
+\item[{withAddress:(NSString $\ast$)}]{interface}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_ae08a6f71ba60a287697eac897b85949a}
+
+
+Definition at line 1067 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a544fa124053aea063a8be148cf24d491}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!localHost@{localHost}}
+\index{localHost@{localHost}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{localHost}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) localHost 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a544fa124053aea063a8be148cf24d491}
+Returns the local address info for the socket.
+
+Note: Address info may not be available until after the socket has been bind'ed, or until after data has been sent. 
+
+Definition at line 1425 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a59fe5c5c33e9e7dfa11ffc2bc4e18c38}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!localHost:@{localHost:}}
+\index{localHost:@{localHost:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{localHost:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) localHost: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketRef)}]{socket}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a59fe5c5c33e9e7dfa11ffc2bc4e18c38}
+\hypertarget{interface_async_udp_socket_a1b6cdcf368d68e9ffb28e359e5c23ce8}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!localPort@{localPort}}
+\index{localPort@{localPort}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{localPort}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt16) localPort 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a1b6cdcf368d68e9ffb28e359e5c23ce8}
+
+
+Definition at line 1435 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a384db6eb52b78874c030bcd063046e76}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!localPort:@{localPort:}}
+\index{localPort:@{localPort:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{localPort:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt16) localPort: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketRef)}]{socket}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a384db6eb52b78874c030bcd063046e76}
+\hypertarget{interface_async_udp_socket_ab7dadd88df12ecfbd833b9db58c1b0a9}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!maximumTransmissionUnit@{maximumTransmissionUnit}}
+\index{maximumTransmissionUnit@{maximumTransmissionUnit}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{maximumTransmissionUnit}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (unsigned int) maximumTransmissionUnit 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_ab7dadd88df12ecfbd833b9db58c1b0a9}
+Returns the mtu of the socket. If unknown, returns zero.
+
+Sending data larger than this may result in an error. This is an advanced topic, and one should understand the wide range of mtu's on networks and the internet. Therefore this method is only for reference and may be of little use in many situations. 
+
+Definition at line 1660 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_af434a0a1668265bfe0921a9d2b51a43e}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!maxReceiveBufferSize@{maxReceiveBufferSize}}
+\index{maxReceiveBufferSize@{maxReceiveBufferSize}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{maxReceiveBufferSize}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt32) {\bf maxReceiveBufferSize} 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_af434a0a1668265bfe0921a9d2b51a43e}
+Gets/Sets the maximum size of the buffer that will be allocated for receive operations. The default size is 9216 bytes.
+
+The theoretical maximum size of any IPv4 UDP packet is UINT16\_\-MAX = 65535. The theoretical maximum size of any IPv6 UDP packet is UINT32\_\-MAX = 4294967295.
+
+In practice, however, the size of UDP packets will be much smaller. Indeed most protocols will send and receive packets of only a few bytes, or will set a limit on the size of packets to prevent fragmentation in the IP layer.
+
+If you set the buffer size too small, the sockets API in the OS will silently discard any extra data, and you will not be notified of the error. \hypertarget{interface_async_udp_socket_ac261fa9d220841c06d37b19473d5fb35}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!maybeCompleteCurrentReceive@{maybeCompleteCurrentReceive}}
+\index{maybeCompleteCurrentReceive@{maybeCompleteCurrentReceive}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{maybeCompleteCurrentReceive}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) maybeCompleteCurrentReceive 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_ac261fa9d220841c06d37b19473d5fb35}
+\hypertarget{interface_async_udp_socket_a05eb56d20476ea9a21d8e51970c60613}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!maybeDequeueReceive@{maybeDequeueReceive}}
+\index{maybeDequeueReceive@{maybeDequeueReceive}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{maybeDequeueReceive}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) maybeDequeueReceive 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a05eb56d20476ea9a21d8e51970c60613}
+\hypertarget{interface_async_udp_socket_aeaab83c6ba2dac648fc1019ba31f04c3}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!maybeDequeueSend@{maybeDequeueSend}}
+\index{maybeDequeueSend@{maybeDequeueSend}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{maybeDequeueSend}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) maybeDequeueSend 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_aeaab83c6ba2dac648fc1019ba31f04c3}
+\hypertarget{interface_async_udp_socket_a7aa6a27140fde291dfdbc7c384029a8d}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!maybeScheduleClose@{maybeScheduleClose}}
+\index{maybeScheduleClose@{maybeScheduleClose}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{maybeScheduleClose}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) maybeScheduleClose 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a7aa6a27140fde291dfdbc7c384029a8d}
+\hypertarget{interface_async_udp_socket_a111317eafc9694b30edb4c36f513aa07}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!moveToRunLoop:@{moveToRunLoop:}}
+\index{moveToRunLoop:@{moveToRunLoop:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{moveToRunLoop:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) moveToRunLoop: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSRunLoop $\ast$)}]{runLoop}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a111317eafc9694b30edb4c36f513aa07}
+When you create an \hyperlink{interface_async_udp_socket}{AsyncUdpSocket}, it is added to the runloop of the current thread. So it is easiest to simply create the socket on the thread you intend to use it.
+
+If, however, you need to move the socket to a separate thread at a later time, this method may be used to accomplish the task.
+
+This method must be called from the thread/runloop the socket is currently running on.
+
+Note: After calling this method, all further method calls to this object should be done from the given runloop. Also, all delegate calls will be sent on the given runloop.
+
+See the header file for a full explanation of this method. 
+
+Definition at line 416 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_aa69663e07c9b05ec717a89760abab0cd}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!receiveWithTimeout:tag:@{receiveWithTimeout:tag:}}
+\index{receiveWithTimeout:tag:@{receiveWithTimeout:tag:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{receiveWithTimeout:tag:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) receiveWithTimeout: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSTimeInterval)}]{timeout}
+\item[{tag:(long)}]{tag}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_aa69663e07c9b05ec717a89760abab0cd}
+Asynchronously receives a single datagram packet.
+
+If the receive succeeds, the onUdpSocket:didReceiveData:fromHost:port:tag delegate method will be called. Otherwise, a timeout will occur, and the onUdpSocket:didNotReceiveDataWithTag: delegate method will be called. 
+
+Definition at line 1978 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a75ababb9f489e363e2f2a0400a258508}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!runLoopAddSource:@{runLoopAddSource:}}
+\index{runLoopAddSource:@{runLoopAddSource:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{runLoopAddSource:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) runLoopAddSource: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFRunLoopSourceRef)}]{source}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a75ababb9f489e363e2f2a0400a258508}
+\hypertarget{interface_async_udp_socket_acb0aace1fe5ef1c0452cad615451acfd}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!runLoopAddTimer:@{runLoopAddTimer:}}
+\index{runLoopAddTimer:@{runLoopAddTimer:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{runLoopAddTimer:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) runLoopAddTimer: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSTimer $\ast$)}]{timer}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_acb0aace1fe5ef1c0452cad615451acfd}
+\hypertarget{interface_async_udp_socket_a9f8974eb549e1b8c750a613369188245}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!runLoopModes@{runLoopModes}}
+\index{runLoopModes@{runLoopModes}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{runLoopModes}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSArray $\ast$) runLoopModes 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a9f8974eb549e1b8c750a613369188245}
+Returns the current run loop modes the AsyncSocket instance is operating in. The default set of run loop modes is NSDefaultRunLoopMode. 
+
+Definition at line 516 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a690225f977216c6c6fc151bb4ef43e36}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!runLoopRemoveSource:@{runLoopRemoveSource:}}
+\index{runLoopRemoveSource:@{runLoopRemoveSource:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{runLoopRemoveSource:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) runLoopRemoveSource: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFRunLoopSourceRef)}]{source}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a690225f977216c6c6fc151bb4ef43e36}
+\hypertarget{interface_async_udp_socket_a15eb41629b49b8efdd181cbe9fa11137}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!runLoopRemoveTimer:@{runLoopRemoveTimer:}}
+\index{runLoopRemoveTimer:@{runLoopRemoveTimer:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{runLoopRemoveTimer:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) runLoopRemoveTimer: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSTimer $\ast$)}]{timer}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a15eb41629b49b8efdd181cbe9fa11137}
+\hypertarget{interface_async_udp_socket_a676257c22febef76652df19b220cdb6f}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!scheduleDequeueReceive@{scheduleDequeueReceive}}
+\index{scheduleDequeueReceive@{scheduleDequeueReceive}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{scheduleDequeueReceive}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) scheduleDequeueReceive 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a676257c22febef76652df19b220cdb6f}
+\hypertarget{interface_async_udp_socket_ad81347d85c536bf72d1c45110e1a631a}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!scheduleDequeueSend@{scheduleDequeueSend}}
+\index{scheduleDequeueSend@{scheduleDequeueSend}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{scheduleDequeueSend}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) scheduleDequeueSend 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_ad81347d85c536bf72d1c45110e1a631a}
+\hypertarget{interface_async_udp_socket_a9c4be72c8ddb202c4cbf6f68bd53fd75}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!sendData:toAddress:withTimeout:tag:@{sendData:toAddress:withTimeout:tag:}}
+\index{sendData:toAddress:withTimeout:tag:@{sendData:toAddress:withTimeout:tag:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{sendData:toAddress:withTimeout:tag:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) sendData: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSData $\ast$)}]{data}
+\item[{toAddress:(NSData $\ast$)}]{remoteAddr}
+\item[{withTimeout:(NSTimeInterval)}]{timeout}
+\item[{tag:(long)}]{tag}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a9c4be72c8ddb202c4cbf6f68bd53fd75}
+Asynchronously sends the given data, with the given timeout and tag, to the given address.
+
+This method cannot be used with a connected socket.
+
+If data is nil or zero-\/length, this method does nothing and immediately returns NO. If the socket is connected, this method does nothing and immediately returns NO. 
+
+Definition at line 1741 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a00f3a40612b9438d2020816c117752d7}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!sendData:toHost:port:withTimeout:tag:@{sendData:toHost:port:withTimeout:tag:}}
+\index{sendData:toHost:port:withTimeout:tag:@{sendData:toHost:port:withTimeout:tag:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{sendData:toHost:port:withTimeout:tag:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) sendData: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSData $\ast$)}]{data}
+\item[{toHost:(NSString $\ast$)}]{host}
+\item[{port:(UInt16)}]{port}
+\item[{withTimeout:(NSTimeInterval)}]{timeout}
+\item[{tag:(long)}]{tag}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a00f3a40612b9438d2020816c117752d7}
+Asynchronously sends the given data, with the given timeout and tag, to the given host and port.
+
+This method cannot be used with a connected socket.
+
+If data is nil or zero-\/length, this method does nothing and immediately returns NO. If the socket is connected, this method does nothing and immediately returns NO. If unable to resolve host to a valid IPv4 or IPv6 address, this method returns NO. 
+
+Definition at line 1713 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_aa4ea3b5358c65d92e0f6256f52a81954}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!sendData:withTimeout:tag:@{sendData:withTimeout:tag:}}
+\index{sendData:withTimeout:tag:@{sendData:withTimeout:tag:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{sendData:withTimeout:tag:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) sendData: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSData $\ast$)}]{data}
+\item[{withTimeout:(NSTimeInterval)}]{timeout}
+\item[{tag:(long)}]{tag}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_aa4ea3b5358c65d92e0f6256f52a81954}
+Asynchronously sends the given data, with the given timeout and tag.
+
+This method may only be used with a connected socket.
+
+If data is nil or zero-\/length, this method does nothing and immediately returns NO. If the socket is not connected, this method does nothing and immediately returns NO. 
+
+Definition at line 1695 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a5147f10c2f5e0df2682c4ce073138ac8}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!setDelegate:@{setDelegate:}}
+\index{setDelegate:@{setDelegate:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{setDelegate:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) setDelegate: 
+\begin{DoxyParamCaption}
+\item[{dummy(id)}]{delegate}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a5147f10c2f5e0df2682c4ce073138ac8}
+
+
+Definition at line 340 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a1c08e2a89015e7f3a2f5d3737494a036}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!setMaxReceiveBufferSize:@{setMaxReceiveBufferSize:}}
+\index{setMaxReceiveBufferSize:@{setMaxReceiveBufferSize:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{setMaxReceiveBufferSize:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) setMaxReceiveBufferSize: 
+\begin{DoxyParamCaption}
+\item[{dummy(UInt32)}]{max}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a1c08e2a89015e7f3a2f5d3737494a036}
+
+
+Definition at line 408 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_aa6f2d16021ad8de163e5299f8497384e}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!setRunLoopModes:@{setRunLoopModes:}}
+\index{setRunLoopModes:@{setRunLoopModes:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{setRunLoopModes:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) setRunLoopModes: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSArray $\ast$)}]{runLoopModes}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_aa6f2d16021ad8de163e5299f8497384e}
+Allows you to configure which run loop modes the socket uses. The default set of run loop modes is NSDefaultRunLoopMode.
+
+If you'd like your socket to continue operation during other modes, you may want to add modes such as NSModalPanelRunLoopMode or NSEventTrackingRunLoopMode. Or you may simply want to use NSRunLoopCommonModes.
+
+Note: NSRunLoopCommonModes is defined in 10.5. For previous versions one can use kCFRunLoopCommonModes.
+
+See the header file for a full explanation of this method. 
+
+Definition at line 467 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_a3e2af6a69a1c75cb9b228c871ade8419}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!setUserData:@{setUserData:}}
+\index{setUserData:@{setUserData:}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{setUserData:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) setUserData: 
+\begin{DoxyParamCaption}
+\item[{dummy(long)}]{userData}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_a3e2af6a69a1c75cb9b228c871ade8419}
+
+
+Definition at line 350 of file AsyncUdpSocket.m.
+
+\hypertarget{interface_async_udp_socket_ad5ec7ee01c3a572cf338782460044b21}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!userData@{userData}}
+\index{userData@{userData}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{userData}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (long) userData 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_udp_socket_ad5ec7ee01c3a572cf338782460044b21}
+
+
+Definition at line 345 of file AsyncUdpSocket.m.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{interface_async_udp_socket_a19b1f11e0f8df8553b680877639f7cd7}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!cachedConnectedHost@{cachedConnectedHost}}
+\index{cachedConnectedHost@{cachedConnectedHost}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{cachedConnectedHost}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString$\ast$) {\bf cachedConnectedHost}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a19b1f11e0f8df8553b680877639f7cd7}
+
+
+Definition at line 58 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_ac6c5eb2925f6c9df21a9a29c0fe2b691}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!cachedConnectedPort@{cachedConnectedPort}}
+\index{cachedConnectedPort@{cachedConnectedPort}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{cachedConnectedPort}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt16) {\bf cachedConnectedPort}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_ac6c5eb2925f6c9df21a9a29c0fe2b691}
+
+
+Definition at line 59 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a70121d5428f91a258f4daf681ee9de1c}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!cachedLocalHost@{cachedLocalHost}}
+\index{cachedLocalHost@{cachedLocalHost}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{cachedLocalHost}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString$\ast$) {\bf cachedLocalHost}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a70121d5428f91a258f4daf681ee9de1c}
+
+
+Definition at line 55 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_af32f75b7bb7fa8921e37120cc76696da}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!cachedLocalPort@{cachedLocalPort}}
+\index{cachedLocalPort@{cachedLocalPort}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{cachedLocalPort}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt16) {\bf cachedLocalPort}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_af32f75b7bb7fa8921e37120cc76696da}
+
+
+Definition at line 56 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_ace077d3152576d63382d195442476f61}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!maxReceiveBufferSize@{maxReceiveBufferSize}}
+\index{maxReceiveBufferSize@{maxReceiveBufferSize}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{maxReceiveBufferSize}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt32) {\bf maxReceiveBufferSize}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_ace077d3152576d63382d195442476f61}
+
+
+Definition at line 61 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a87c18d99a5efbb5389832677241c01e9}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theContext@{theContext}}
+\index{theContext@{theContext}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theContext}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFSocketContext) {\bf theContext}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a87c18d99a5efbb5389832677241c01e9}
+
+
+Definition at line 39 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a97626f811e3aebe59e2c035cb07fb28b}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theCurrentReceive@{theCurrentReceive}}
+\index{theCurrentReceive@{theCurrentReceive}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theCurrentReceive}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf AsyncReceivePacket}$\ast$) {\bf theCurrentReceive}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a97626f811e3aebe59e2c035cb07fb28b}
+
+
+Definition at line 47 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a670636f2bac217e87ef9840ce30eb5c1}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theCurrentSend@{theCurrentSend}}
+\index{theCurrentSend@{theCurrentSend}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theCurrentSend}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf AsyncSendPacket}$\ast$) {\bf theCurrentSend}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a670636f2bac217e87ef9840ce30eb5c1}
+
+
+Definition at line 43 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a7e18c4829e83d7de259fa4c4cd78925b}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theDelegate@{theDelegate}}
+\index{theDelegate@{theDelegate}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theDelegate}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) {\bf theDelegate}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a7e18c4829e83d7de259fa4c4cd78925b}
+
+
+Definition at line 50 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a0870b15c6ba4a8fbd05122ef3994c40e}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theFlags@{theFlags}}
+\index{theFlags@{theFlags}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theFlags}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt16) {\bf theFlags}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a0870b15c6ba4a8fbd05122ef3994c40e}
+
+
+Definition at line 51 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a8461a181df1fb64915f467c9c0bc2798}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theReceiveQueue@{theReceiveQueue}}
+\index{theReceiveQueue@{theReceiveQueue}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theReceiveQueue}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSMutableArray$\ast$) {\bf theReceiveQueue}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a8461a181df1fb64915f467c9c0bc2798}
+
+
+Definition at line 46 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_abada5c7e39302439191504e9dac55532}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theReceiveTimer@{theReceiveTimer}}
+\index{theReceiveTimer@{theReceiveTimer}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theReceiveTimer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSTimer$\ast$) {\bf theReceiveTimer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_abada5c7e39302439191504e9dac55532}
+
+
+Definition at line 48 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a0df4eb574cfbcba161dc7589f8e9913e}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theRunLoop@{theRunLoop}}
+\index{theRunLoop@{theRunLoop}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theRunLoop}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFRunLoopRef) {\bf theRunLoop}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a0df4eb574cfbcba161dc7589f8e9913e}
+
+
+Definition at line 38 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a12b4b7a67bd7a3c4a03a95117020aee4}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theRunLoopModes@{theRunLoopModes}}
+\index{theRunLoopModes@{theRunLoopModes}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theRunLoopModes}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSArray$\ast$) {\bf theRunLoopModes}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a12b4b7a67bd7a3c4a03a95117020aee4}
+
+
+Definition at line 40 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a53f90f3fa05fcc0775b3b941799c0d63}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theSendQueue@{theSendQueue}}
+\index{theSendQueue@{theSendQueue}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theSendQueue}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSMutableArray$\ast$) {\bf theSendQueue}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a53f90f3fa05fcc0775b3b941799c0d63}
+
+
+Definition at line 42 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a250938cf3ea1f75b3677393e6cb464dc}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theSendTimer@{theSendTimer}}
+\index{theSendTimer@{theSendTimer}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theSendTimer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSTimer$\ast$) {\bf theSendTimer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a250938cf3ea1f75b3677393e6cb464dc}
+
+
+Definition at line 44 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a20f3d1f4bf10b95ab5e0c5b3265c5bee}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theSocket4@{theSocket4}}
+\index{theSocket4@{theSocket4}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theSocket4}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFSocketRef) {\bf theSocket4}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a20f3d1f4bf10b95ab5e0c5b3265c5bee}
+
+
+Definition at line 33 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a94c7d0086b3d4a9495e0ef87bca42a22}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theSocket6@{theSocket6}}
+\index{theSocket6@{theSocket6}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theSocket6}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFSocketRef) {\bf theSocket6}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a94c7d0086b3d4a9495e0ef87bca42a22}
+
+
+Definition at line 34 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_a11ed80b25840f9c2e1fb11fb81516e9f}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theSource4@{theSource4}}
+\index{theSource4@{theSource4}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theSource4}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFRunLoopSourceRef) {\bf theSource4}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_a11ed80b25840f9c2e1fb11fb81516e9f}
+
+
+Definition at line 36 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_afa4beb0b77a9fc1de8e37e665ef8ab99}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theSource6@{theSource6}}
+\index{theSource6@{theSource6}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theSource6}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFRunLoopSourceRef) {\bf theSource6}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_afa4beb0b77a9fc1de8e37e665ef8ab99}
+
+
+Definition at line 37 of file AsyncUdpSocket.h.
+
+\hypertarget{interface_async_udp_socket_af6dc350be3ed36a9ea2bd10580c263d2}{
+\index{AsyncUdpSocket@{AsyncUdpSocket}!theUserData@{theUserData}}
+\index{theUserData@{theUserData}!AsyncUdpSocket@{AsyncUdpSocket}}
+\subsubsection[{theUserData}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (long) {\bf theUserData}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_udp_socket_af6dc350be3ed36a9ea2bd10580c263d2}
+
+
+Definition at line 53 of file AsyncUdpSocket.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_async_udp_socket_8h}{AsyncUdpSocket.h}\item 
+\hyperlink{_async_udp_socket_8m}{AsyncUdpSocket.m}\end{DoxyCompactItemize}

@@ -1,0 +1,217 @@
+\hypertarget{interface_action_view_controller}{
+\section{ActionViewController Class Reference}
+\label{interface_action_view_controller}\index{ActionViewController@{ActionViewController}}
+}
+
+
+{\ttfamily \#import $<$ActionViewController.h$>$}
+
+Inheritance diagram for ActionViewController:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.761006cm]{interface_action_view_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(void) -\/ \hyperlink{interface_action_view_controller_a22edd1eeecdf2f7083df5a807f04cf84}{next:}
+\item 
+(void) -\/ \hyperlink{interface_action_view_controller_a0b94021bd4ccd4d8f5d939c8fd7ccfb1}{previous}
+\item 
+(IBAction) -\/ \hyperlink{interface_action_view_controller_ad91d69b4d734bc865ad70666009d7e6c}{click:}
+\item 
+(void) -\/ \hyperlink{interface_action_view_controller_ac034edbc1c7aff5bde9af09042fce53c}{handleSwipeFrom:}
+\item 
+(void) -\/ \hyperlink{interface_action_view_controller_a7f364c94977e770c78f9b2e1001c2a87}{registerNotificationCenter}
+\item 
+(void) -\/ \hyperlink{interface_action_view_controller_ab8fb10dd91608c47c056d05c7dea49d2}{unregisterNotificationCenter}
+\item 
+(void) -\/ \hyperlink{interface_action_view_controller_a2f99fc0a54c8eea088fe4b54e7921bed}{fireSyncEvent:}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(\hyperlink{interface_action_view_controller}{ActionViewController} $\ast$) + \hyperlink{interface_action_view_controller_a4509baac610fb3752ee973f0b01e0b9f}{getViewControllerFromAction:}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+IBOutlet UILabel $\ast$ \hyperlink{interface_action_view_controller_a729dc1b9adc6098142f097c005a990ba}{label}
+\item 
+IBOutlet UILabel $\ast$ \hyperlink{interface_action_view_controller_a743f2a07e0d706cacdd54bd546cf0066}{actionLabel}
+\item 
+IBOutlet UIButton $\ast$ \hyperlink{interface_action_view_controller_af768033a4289ba93a603e190d298cb55}{imageButton}
+\item 
+\hyperlink{interface_presentation}{Presentation} $\ast$ \hyperlink{interface_action_view_controller_a4687fd0668ba32c76160e4d4f1747c12}{presentation}
+\item 
+BOOL \hyperlink{interface_action_view_controller_abbe31ad947ac06e484e486dd2d47c541}{isMaster}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 19 of file ActionViewController.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_action_view_controller_ad91d69b4d734bc865ad70666009d7e6c}{
+\index{ActionViewController@{ActionViewController}!click:@{click:}}
+\index{click:@{click:}!ActionViewController@{ActionViewController}}
+\subsubsection[{click:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) click: 
+\begin{DoxyParamCaption}
+\item[{dummy(id)}]{sender}
+\end{DoxyParamCaption}
+}}
+\label{interface_action_view_controller_ad91d69b4d734bc865ad70666009d7e6c}
+
+
+Definition at line 114 of file ActionViewController.m.
+
+\hypertarget{interface_action_view_controller_a2f99fc0a54c8eea088fe4b54e7921bed}{
+\index{ActionViewController@{ActionViewController}!fireSyncEvent:@{fireSyncEvent:}}
+\index{fireSyncEvent:@{fireSyncEvent:}!ActionViewController@{ActionViewController}}
+\subsubsection[{fireSyncEvent:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) fireSyncEvent: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf SyncEventSwipeDirection})}]{direction}
+\end{DoxyParamCaption}
+}}
+\label{interface_action_view_controller_a2f99fc0a54c8eea088fe4b54e7921bed}
+
+
+Definition at line 99 of file ActionViewController.m.
+
+\hypertarget{interface_action_view_controller_a4509baac610fb3752ee973f0b01e0b9f}{
+\index{ActionViewController@{ActionViewController}!getViewControllerFromAction:@{getViewControllerFromAction:}}
+\index{getViewControllerFromAction:@{getViewControllerFromAction:}!ActionViewController@{ActionViewController}}
+\subsubsection[{getViewControllerFromAction:}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf ActionViewController} $\ast$) getViewControllerFromAction: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf Action} $\ast$)}]{action}
+\end{DoxyParamCaption}
+}}
+\label{interface_action_view_controller_a4509baac610fb3752ee973f0b01e0b9f}
+
+
+Definition at line 24 of file ActionViewController.m.
+
+\hypertarget{interface_action_view_controller_ac034edbc1c7aff5bde9af09042fce53c}{
+\index{ActionViewController@{ActionViewController}!handleSwipeFrom:@{handleSwipeFrom:}}
+\index{handleSwipeFrom:@{handleSwipeFrom:}!ActionViewController@{ActionViewController}}
+\subsubsection[{handleSwipeFrom:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) handleSwipeFrom: 
+\begin{DoxyParamCaption}
+\item[{dummy(UISwipeGestureRecognizer $\ast$)}]{recogniser}
+\end{DoxyParamCaption}
+}}
+\label{interface_action_view_controller_ac034edbc1c7aff5bde9af09042fce53c}
+
+
+Definition at line 195 of file ActionViewController.m.
+
+\hypertarget{interface_action_view_controller_a22edd1eeecdf2f7083df5a807f04cf84}{
+\index{ActionViewController@{ActionViewController}!next:@{next:}}
+\index{next:@{next:}!ActionViewController@{ActionViewController}}
+\subsubsection[{next:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) next: 
+\begin{DoxyParamCaption}
+\item[{dummy(BOOL)}]{animated}
+\end{DoxyParamCaption}
+}}
+\label{interface_action_view_controller_a22edd1eeecdf2f7083df5a807f04cf84}
+
+
+Definition at line 236 of file ActionViewController.m.
+
+\hypertarget{interface_action_view_controller_a0b94021bd4ccd4d8f5d939c8fd7ccfb1}{
+\index{ActionViewController@{ActionViewController}!previous@{previous}}
+\index{previous@{previous}!ActionViewController@{ActionViewController}}
+\subsubsection[{previous}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) previous 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_action_view_controller_a0b94021bd4ccd4d8f5d939c8fd7ccfb1}
+
+
+Definition at line 272 of file ActionViewController.m.
+
+\hypertarget{interface_action_view_controller_a7f364c94977e770c78f9b2e1001c2a87}{
+\index{ActionViewController@{ActionViewController}!registerNotificationCenter@{registerNotificationCenter}}
+\index{registerNotificationCenter@{registerNotificationCenter}!ActionViewController@{ActionViewController}}
+\subsubsection[{registerNotificationCenter}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) registerNotificationCenter 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_action_view_controller_a7f364c94977e770c78f9b2e1001c2a87}
+
+
+Definition at line 38 of file ActionViewController.m.
+
+\hypertarget{interface_action_view_controller_ab8fb10dd91608c47c056d05c7dea49d2}{
+\index{ActionViewController@{ActionViewController}!unregisterNotificationCenter@{unregisterNotificationCenter}}
+\index{unregisterNotificationCenter@{unregisterNotificationCenter}!ActionViewController@{ActionViewController}}
+\subsubsection[{unregisterNotificationCenter}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) unregisterNotificationCenter 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_action_view_controller_ab8fb10dd91608c47c056d05c7dea49d2}
+
+
+Definition at line 45 of file ActionViewController.m.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{interface_action_view_controller_a743f2a07e0d706cacdd54bd546cf0066}{
+\index{ActionViewController@{ActionViewController}!actionLabel@{actionLabel}}
+\index{actionLabel@{actionLabel}!ActionViewController@{ActionViewController}}
+\subsubsection[{actionLabel}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (IBOutlet UILabel$\ast$) actionLabel\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_action_view_controller_a743f2a07e0d706cacdd54bd546cf0066}
+
+
+Definition at line 24 of file ActionViewController.h.
+
+\hypertarget{interface_action_view_controller_af768033a4289ba93a603e190d298cb55}{
+\index{ActionViewController@{ActionViewController}!imageButton@{imageButton}}
+\index{imageButton@{imageButton}!ActionViewController@{ActionViewController}}
+\subsubsection[{imageButton}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (IBOutlet UIButton$\ast$) imageButton\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_action_view_controller_af768033a4289ba93a603e190d298cb55}
+
+
+Definition at line 25 of file ActionViewController.h.
+
+\hypertarget{interface_action_view_controller_abbe31ad947ac06e484e486dd2d47c541}{
+\index{ActionViewController@{ActionViewController}!isMaster@{isMaster}}
+\index{isMaster@{isMaster}!ActionViewController@{ActionViewController}}
+\subsubsection[{isMaster}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) isMaster\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_action_view_controller_abbe31ad947ac06e484e486dd2d47c541}
+
+
+Definition at line 27 of file ActionViewController.h.
+
+\hypertarget{interface_action_view_controller_a729dc1b9adc6098142f097c005a990ba}{
+\index{ActionViewController@{ActionViewController}!label@{label}}
+\index{label@{label}!ActionViewController@{ActionViewController}}
+\subsubsection[{label}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (IBOutlet UILabel$\ast$) label\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_action_view_controller_a729dc1b9adc6098142f097c005a990ba}
+
+
+Definition at line 23 of file ActionViewController.h.
+
+\hypertarget{interface_action_view_controller_a4687fd0668ba32c76160e4d4f1747c12}{
+\index{ActionViewController@{ActionViewController}!presentation@{presentation}}
+\index{presentation@{presentation}!ActionViewController@{ActionViewController}}
+\subsubsection[{presentation}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf Presentation}$\ast$) presentation\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_action_view_controller_a4687fd0668ba32c76160e4d4f1747c12}
+
+
+Definition at line 26 of file ActionViewController.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_action_view_controller_8h}{ActionViewController.h}\item 
+\hyperlink{_action_view_controller_8m}{ActionViewController.m}\end{DoxyCompactItemize}

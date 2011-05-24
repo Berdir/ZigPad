@@ -1,0 +1,1718 @@
+\hypertarget{interface_async_t_c_p_socket}{
+\section{AsyncTCPSocket Class Reference}
+\label{interface_async_t_c_p_socket}\index{AsyncTCPSocket@{AsyncTCPSocket}}
+}
+
+
+{\ttfamily \#import $<$AsyncTCPSocket.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(id) -\/ \hyperlink{interface_async_t_c_p_socket_a4213bb26f5207ee3f402fe463badc691}{init}
+\item 
+(id) -\/ \hyperlink{interface_async_t_c_p_socket_a918ea9d2f36714a76a7f19a5213a0473}{initWithDelegate:}
+\item 
+(id) -\/ \hyperlink{interface_async_t_c_p_socket_a65ebd73324c0920a291449a38e2ff3ff}{initWithDelegate:userData:}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a0920dc7935061bc57daab91706be5934}{description}
+\item 
+(id) -\/ \hyperlink{interface_async_t_c_p_socket_a6c98e239b6ba279cfc95c64db9de555c}{delegate}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_a168882e4d28c43d2c91f85971970afa1}{canSafelySetDelegate}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a5147f10c2f5e0df2682c4ce073138ac8}{setDelegate:}
+\item 
+(long) -\/ \hyperlink{interface_async_t_c_p_socket_ad5ec7ee01c3a572cf338782460044b21}{userData}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a3e2af6a69a1c75cb9b228c871ade8419}{setUserData:}
+\item 
+(CFSocketRef) -\/ \hyperlink{interface_async_t_c_p_socket_a717e5a3ee700cbde4df757cf8cdb407e}{getCFSocket}
+\item 
+(CFReadStreamRef) -\/ \hyperlink{interface_async_t_c_p_socket_ab32fc38e33a984e159df0a522e26a6a8}{getCFReadStream}
+\item 
+(CFWriteStreamRef) -\/ \hyperlink{interface_async_t_c_p_socket_a5651f189d6f4540c324e52bc27ecad89}{getCFWriteStream}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_ac015445dd1feaaa3b0a07ef63b4d806f}{acceptOnPort:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_a9e29595f4033e87a634c9160a7ad4a4e}{acceptOnAddress:port:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_a4e2b5a931c78d066965bdf235337b462}{connectToHost:onPort:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_adccaaf1127cdb2344954f8c8f764a48c}{connectToHost:onPort:withTimeout:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_a2e1af5ef7a3e1ee37613dddb7c0e0617}{connectToAddress:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_ae023e135c607e4ad8a7dd86a1be7efe2}{connectToAddress:withTimeout:error:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a960705de531a20389fb29928d43258c3}{disconnect}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a9c49760a3286a595f3cdc0702733baed}{disconnectAfterReading}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a40c9570c2e696d6c48347024fa1f8b5c}{disconnectAfterWriting}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a31e39568995cdc85c4feb5a76c645d5f}{disconnectAfterReadingAndWriting}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_ad3515f7fe2b8ed2b9e14233cf7ede0bc}{isConnected}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a918b8d6a97c1f0a2cd938cc61d3ff353}{connectedHost}
+\item 
+(UInt16) -\/ \hyperlink{interface_async_t_c_p_socket_a2337a76e32d4e2836888e58723977b7e}{connectedPort}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a544fa124053aea063a8be148cf24d491}{localHost}
+\item 
+(UInt16) -\/ \hyperlink{interface_async_t_c_p_socket_a1b6cdcf368d68e9ffb28e359e5c23ce8}{localPort}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_a7f1734034c9aa5b62cfeb69f203729e3}{isIPv4}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_aa009ac699bce64f1d087a0eafeb2a371}{isIPv6}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a8478e9a2d87f7a6d10b382dce90905b7}{readDataToLength:withTimeout:tag:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a3a92e46de7766b3ac649f3d68d370599}{readDataToData:withTimeout:tag:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a443ca87e6601022dcbc4d711e96dae95}{readDataToData:withTimeout:maxLength:tag:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a58e63ca19338d5e052ad36e2e64ec585}{readDataWithTimeout:tag:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a7f85c2e3c19bbe013c180b4668a28fc2}{writeData:withTimeout:tag:}
+\item 
+(float) -\/ \hyperlink{interface_async_t_c_p_socket_ab0b0ac0a1e46b2d05e094a1fc3e45ae7}{progressOfReadReturningTag:bytesDone:total:}
+\item 
+(float) -\/ \hyperlink{interface_async_t_c_p_socket_a38e3791947d9f10c2fc68f20e1a4d6c2}{progressOfWriteReturningTag:bytesDone:total:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_aec4d670add3f78c669277990d7b48056}{startTLS:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_aea1515621e1c285b7c49a8b212b978ce}{enablePreBuffering}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_a111317eafc9694b30edb4c36f513aa07}{moveToRunLoop:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_aa6f2d16021ad8de163e5299f8497384e}{setRunLoopModes:}
+\item 
+(NSData $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a7496a06a6ae2045ed442563d55bb2654}{unreadData}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a6a35d03945525a87faa9428bfd284fb8}{startConnectTimeout:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a26caa9d94af387148d3a2ddf0612d9d7}{endConnectTimeout}
+\item 
+(CFSocketRef) -\/ \hyperlink{interface_async_t_c_p_socket_af9459620a9d7e1cf4503f8995ac905df}{createAcceptSocketForAddress:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_ade0a31c61f419a44060e407bda52b93c}{createSocketForAddress:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_aa14d12a24544fdf1ed5879557f1087a6}{attachSocketsToRunLoop:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_a86039e7b6a55d373fe93d9ee5b06e249}{configureSocketAndReturnError:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_a1d6556fc7607459b0a4f59ece23688af}{connectSocketToAddress:error:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a84a0bf0e3edb90de5bfa0c39b788ed96}{doAcceptWithSocket:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_ac9f198a9ed1c09c543b9745c71656503}{doSocketOpen:withCFSocketError:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_a7a0fb83fd2ec0e82de8c18a5cb6d6b9f}{createStreamsFromNative:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_ad72f9b820cc46ddb664249be9baf586e}{createStreamsToHost:onPort:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_a94be748a443d57b698ac5078189f982e}{attachStreamsToRunLoop:error:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_afc1e424a8e4971d2e524e73b093898cd}{configureStreamsAndReturnError:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_a880586228ff523afc5d1ec48681a6713}{openStreamsAndReturnError:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_aac93ce52aa60a6a89ee1a223097513cc}{doStreamOpen}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_a0f55910b1e0ed121597c2825a693ff50}{setSocketFromStreamsAndReturnError:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_ad74a8773cf1c55dfb1fd07be9572d574}{closeWithError:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_afe4d1802ff482426cdff4872b07596cd}{recoverUnreadData}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a380f6dc6ed4dfc3a60b33d7ed6e65c73}{emptyQueues}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a5ae591df94fc66ccb85cbb6565368bca}{close}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a804640cdef7c41b9d00db44feb235149}{getErrnoError}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a485ee0cb720094374011c7c836693194}{getAbortError}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a197bac5011e90bdf2c20193d91281737}{getStreamError}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a9b0a42080e950dde8de512e46e067443}{getSocketError}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a4a9dbc78736492d8b03ef1529d73dca3}{getConnectTimeoutError}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a0e412578f825bc0dddd2f4a19b7207af}{getReadMaxedOutError}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a4b3fc35f35afafea4998af7e66dd4c97}{getReadTimeoutError}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a2e3b722527b1a23493e89815dcf284e6}{getWriteTimeoutError}
+\item 
+(NSError $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a6a37c30b55a15065dd5053d6b926ace0}{errorFromCFStreamError:}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_ace6bc797c15b8e7a5ab60bc7acfc5c81}{isSocketConnected}
+\item 
+(BOOL) -\/ \hyperlink{interface_async_t_c_p_socket_a47274c3f9410ec0f91299553dd583260}{areStreamsConnected}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a7a10cb2cb03eb0e06aea6bcb16f84a8b}{connectedHost:}
+\item 
+(UInt16) -\/ \hyperlink{interface_async_t_c_p_socket_a5910314780c573d73d483b466020a1ed}{connectedPort:}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a59fe5c5c33e9e7dfa11ffc2bc4e18c38}{localHost:}
+\item 
+(UInt16) -\/ \hyperlink{interface_async_t_c_p_socket_a384db6eb52b78874c030bcd063046e76}{localPort:}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_async_t_c_p_socket_a976fe345816349e2fe56497d85a3e9fa}{addressHost:}
+\item 
+(UInt16) -\/ \hyperlink{interface_async_t_c_p_socket_a25726245584a9fe11285fbcb6505a086}{addressPort:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a3a3502a385aa9b445ef913e199c04298}{doBytesAvailable}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_aff46e99a04ace9e7556da4a90155a7ab}{completeCurrentRead}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a7ddda9613a043ee3044c154ed877e750}{endCurrentRead}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_aa81b3af01336161f5e1873103fde54d6}{scheduleDequeueRead}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a71ded98e88b1001fd651951a35654734}{maybeDequeueRead}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a91819574f3f9c4a0cb7ab2cebe9ae5d7}{doReadTimeout:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_aa52941df4ffcb97e6a2faeccb92cd714}{doSendBytes}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a1fed06588167a9defd9b6633c0606612}{completeCurrentWrite}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a468b9f90a54b420746956c45daa48d52}{endCurrentWrite}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_ae7628474a26916d2edb61ea0c9544579}{scheduleDequeueWrite}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a185ab7cd6a129e604a01195589db6ea7}{maybeDequeueWrite}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a41c2a8e28e0f9f8499609e99ec5caaf2}{maybeScheduleDisconnect}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a15e28504239cb0c373cfcbb754d1260e}{doWriteTimeout:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a75ababb9f489e363e2f2a0400a258508}{runLoopAddSource:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a690225f977216c6c6fc151bb4ef43e36}{runLoopRemoveSource:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_acb0aace1fe5ef1c0452cad615451acfd}{runLoopAddTimer:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a15eb41629b49b8efdd181cbe9fa11137}{runLoopRemoveTimer:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a176545f228b7a3b60877d382cc91be29}{runLoopUnscheduleReadStream}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_ac02c6980f3f278ae6f901b9e9fcf5f87}{runLoopUnscheduleWriteStream}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a1bc43cb9e0ad8f6e03562838e3a61c9e}{maybeStartTLS}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_af833895f05627897d47ccf45c64f4b33}{onTLSStarted:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a5d84ad90d68f42e2c9af6c8f68965aa0}{doCFCallback:forSocket:withAddress:withData:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a5c00764bc41180585415cd80715e4934}{doCFReadStreamCallback:forStream:}
+\item 
+(void) -\/ \hyperlink{interface_async_t_c_p_socket_a3948e96628b6afc50f175f5343b35ab6}{doCFWriteStreamCallback:forStream:}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(NSData $\ast$) + \hyperlink{interface_async_t_c_p_socket_a6d7dfcd7967c0e16b86ae64e5579b709}{CRLFData}
+\item 
+(NSData $\ast$) + \hyperlink{interface_async_t_c_p_socket_adde78bb75988b51f5c403daebcd91f99}{CRData}
+\item 
+(NSData $\ast$) + \hyperlink{interface_async_t_c_p_socket_a9f80c130183f3fa0f324c7505127ab77}{LFData}
+\item 
+(NSData $\ast$) + \hyperlink{interface_async_t_c_p_socket_aa051f54bdd6c087a6b4a51c799dbc68b}{ZeroData}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+CFSocketRef \hyperlink{interface_async_t_c_p_socket_afd7bd1b4130d08f2fbe8621b08eb69ab}{theSocket}
+\item 
+CFSocketRef \hyperlink{interface_async_t_c_p_socket_a94c7d0086b3d4a9495e0ef87bca42a22}{theSocket6}
+\item 
+CFReadStreamRef \hyperlink{interface_async_t_c_p_socket_ad218c2f4f2900c520d97818aff0365c1}{theReadStream}
+\item 
+CFWriteStreamRef \hyperlink{interface_async_t_c_p_socket_aec37f271ac2a31efa3a76b450c550002}{theWriteStream}
+\item 
+CFRunLoopSourceRef \hyperlink{interface_async_t_c_p_socket_a802a0e3f2294d4bb644f44e1cd8dfbbd}{theSource}
+\item 
+CFRunLoopSourceRef \hyperlink{interface_async_t_c_p_socket_afa4beb0b77a9fc1de8e37e665ef8ab99}{theSource6}
+\item 
+CFRunLoopRef \hyperlink{interface_async_t_c_p_socket_a0df4eb574cfbcba161dc7589f8e9913e}{theRunLoop}
+\item 
+CFSocketContext \hyperlink{interface_async_t_c_p_socket_a87c18d99a5efbb5389832677241c01e9}{theContext}
+\item 
+NSArray $\ast$ \hyperlink{interface_async_t_c_p_socket_a12b4b7a67bd7a3c4a03a95117020aee4}{theRunLoopModes}
+\item 
+NSTimer $\ast$ \hyperlink{interface_async_t_c_p_socket_a72c2c05d0e082afbaa45249b504bfc39}{theConnectTimer}
+\item 
+NSMutableArray $\ast$ \hyperlink{interface_async_t_c_p_socket_a85c9e429b90f304a6ce8b91913332447}{theReadQueue}
+\item 
+\hyperlink{interface_async_read_packet}{AsyncReadPacket} $\ast$ \hyperlink{interface_async_t_c_p_socket_a714c81240b36f60805ad3b26ad0a6ab5}{theCurrentRead}
+\item 
+NSTimer $\ast$ \hyperlink{interface_async_t_c_p_socket_aea6adb1bfaf69917a47a7dcdc65863e0}{theReadTimer}
+\item 
+NSMutableData $\ast$ \hyperlink{interface_async_t_c_p_socket_a2c92583ab159460443b3d9b73b2b4156}{partialReadBuffer}
+\item 
+NSMutableArray $\ast$ \hyperlink{interface_async_t_c_p_socket_a857acc35e8665476b20d0355761e8b08}{theWriteQueue}
+\item 
+\hyperlink{interface_async_write_packet}{AsyncWritePacket} $\ast$ \hyperlink{interface_async_t_c_p_socket_a9191ab2e393964fdcf1dfee1de495872}{theCurrentWrite}
+\item 
+NSTimer $\ast$ \hyperlink{interface_async_t_c_p_socket_ac1a3ea539394e9e5650e17b76623b0a8}{theWriteTimer}
+\item 
+id \hyperlink{interface_async_t_c_p_socket_a7e18c4829e83d7de259fa4c4cd78925b}{theDelegate}
+\item 
+UInt16 \hyperlink{interface_async_t_c_p_socket_a0870b15c6ba4a8fbd05122ef3994c40e}{theFlags}
+\item 
+long \hyperlink{interface_async_t_c_p_socket_af6dc350be3ed36a9ea2bd10580c263d2}{theUserData}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 109 of file AsyncTCPSocket.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_async_t_c_p_socket_a9e29595f4033e87a634c9160a7ad4a4e}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!acceptOnAddress:port:error:@{acceptOnAddress:port:error:}}
+\index{acceptOnAddress:port:error:@{acceptOnAddress:port:error:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{acceptOnAddress:port:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) acceptOnAddress: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString $\ast$)}]{hostaddr}
+\item[{port:(UInt16)}]{port}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a9e29595f4033e87a634c9160a7ad4a4e}
+This method is the same as acceptOnPort:error: with the additional option of specifying which interface to listen on. So, for example, if you were writing code for a server that has multiple IP addresses, you could specify which address you wanted to listen on. Or you could use it to specify that the socket should only accept connections over ethernet, and not other interfaces such as wifi. You may also use the special strings \char`\"{}localhost\char`\"{} or \char`\"{}loopback\char`\"{} to specify that the socket only accept connections from the local machine.
+
+To accept connections on any interface pass nil, or simply use the acceptOnPort:error: method.
+
+To accept on a certain address, pass the address to accept on. To accept on any address, pass nil or an empty string. To accept only connections from localhost pass \char`\"{}localhost\char`\"{} or \char`\"{}loopback\char`\"{}. 
+
+Definition at line 745 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_ac015445dd1feaaa3b0a07ef63b4d806f}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!acceptOnPort:error:@{acceptOnPort:error:}}
+\index{acceptOnPort:error:@{acceptOnPort:error:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{acceptOnPort:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) acceptOnPort: 
+\begin{DoxyParamCaption}
+\item[{dummy(UInt16)}]{port}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_ac015445dd1feaaa3b0a07ef63b4d806f}
+Tells the socket to begin listening and accepting connections on the given port. When a connection comes in, the AsyncSocket instance will call the various delegate methods (see above). The socket will listen on all available interfaces (e.g. wifi, ethernet, etc) 
+
+Definition at line 735 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a976fe345816349e2fe56497d85a3e9fa}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!addressHost:@{addressHost:}}
+\index{addressHost:@{addressHost:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{addressHost:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) addressHost: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFDataRef)}]{cfaddr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a976fe345816349e2fe56497d85a3e9fa}
+\hypertarget{interface_async_t_c_p_socket_a25726245584a9fe11285fbcb6505a086}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!addressPort:@{addressPort:}}
+\index{addressPort:@{addressPort:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{addressPort:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt16) addressPort: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFDataRef)}]{cfaddr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a25726245584a9fe11285fbcb6505a086}
+\hypertarget{interface_async_t_c_p_socket_a47274c3f9410ec0f91299553dd583260}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!areStreamsConnected@{areStreamsConnected}}
+\index{areStreamsConnected@{areStreamsConnected}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{areStreamsConnected}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) areStreamsConnected 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a47274c3f9410ec0f91299553dd583260}
+\hypertarget{interface_async_t_c_p_socket_aa14d12a24544fdf1ed5879557f1087a6}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!attachSocketsToRunLoop:error:@{attachSocketsToRunLoop:error:}}
+\index{attachSocketsToRunLoop:error:@{attachSocketsToRunLoop:error:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{attachSocketsToRunLoop:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) attachSocketsToRunLoop: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSRunLoop $\ast$)}]{runLoop}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_aa14d12a24544fdf1ed5879557f1087a6}
+\hypertarget{interface_async_t_c_p_socket_a94be748a443d57b698ac5078189f982e}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!attachStreamsToRunLoop:error:@{attachStreamsToRunLoop:error:}}
+\index{attachStreamsToRunLoop:error:@{attachStreamsToRunLoop:error:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{attachStreamsToRunLoop:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) attachStreamsToRunLoop: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSRunLoop $\ast$)}]{runLoop}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a94be748a443d57b698ac5078189f982e}
+\hypertarget{interface_async_t_c_p_socket_a168882e4d28c43d2c91f85971970afa1}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!canSafelySetDelegate@{canSafelySetDelegate}}
+\index{canSafelySetDelegate@{canSafelySetDelegate}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{canSafelySetDelegate}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) canSafelySetDelegate 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a168882e4d28c43d2c91f85971970afa1}
+
+
+Definition at line 476 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a5ae591df94fc66ccb85cbb6565368bca}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!close@{close}}
+\index{close@{close}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) close 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a5ae591df94fc66ccb85cbb6565368bca}
+\hypertarget{interface_async_t_c_p_socket_ad74a8773cf1c55dfb1fd07be9572d574}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!closeWithError:@{closeWithError:}}
+\index{closeWithError:@{closeWithError:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{closeWithError:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) closeWithError: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSError $\ast$)}]{err}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_ad74a8773cf1c55dfb1fd07be9572d574}
+\hypertarget{interface_async_t_c_p_socket_aff46e99a04ace9e7556da4a90155a7ab}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!completeCurrentRead@{completeCurrentRead}}
+\index{completeCurrentRead@{completeCurrentRead}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{completeCurrentRead}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) completeCurrentRead 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_aff46e99a04ace9e7556da4a90155a7ab}
+\hypertarget{interface_async_t_c_p_socket_a1fed06588167a9defd9b6633c0606612}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!completeCurrentWrite@{completeCurrentWrite}}
+\index{completeCurrentWrite@{completeCurrentWrite}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{completeCurrentWrite}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) completeCurrentWrite 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a1fed06588167a9defd9b6633c0606612}
+\hypertarget{interface_async_t_c_p_socket_a86039e7b6a55d373fe93d9ee5b06e249}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!configureSocketAndReturnError:@{configureSocketAndReturnError:}}
+\index{configureSocketAndReturnError:@{configureSocketAndReturnError:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{configureSocketAndReturnError:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) configureSocketAndReturnError: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a86039e7b6a55d373fe93d9ee5b06e249}
+\hypertarget{interface_async_t_c_p_socket_afc1e424a8e4971d2e524e73b093898cd}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!configureStreamsAndReturnError:@{configureStreamsAndReturnError:}}
+\index{configureStreamsAndReturnError:@{configureStreamsAndReturnError:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{configureStreamsAndReturnError:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) configureStreamsAndReturnError: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_afc1e424a8e4971d2e524e73b093898cd}
+\hypertarget{interface_async_t_c_p_socket_a918b8d6a97c1f0a2cd938cc61d3ff353}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!connectedHost@{connectedHost}}
+\index{connectedHost@{connectedHost}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{connectedHost}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) connectedHost 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a918b8d6a97c1f0a2cd938cc61d3ff353}
+Returns the local or remote host and port to which this socket is connected, or nil and 0 if not connected. The host will be an IP address. 
+
+Definition at line 1919 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a7a10cb2cb03eb0e06aea6bcb16f84a8b}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!connectedHost:@{connectedHost:}}
+\index{connectedHost:@{connectedHost:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{connectedHost:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) connectedHost: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketRef)}]{socket}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a7a10cb2cb03eb0e06aea6bcb16f84a8b}
+\hypertarget{interface_async_t_c_p_socket_a2337a76e32d4e2836888e58723977b7e}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!connectedPort@{connectedPort}}
+\index{connectedPort@{connectedPort}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{connectedPort}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt16) connectedPort 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a2337a76e32d4e2836888e58723977b7e}
+
+
+Definition at line 1927 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a5910314780c573d73d483b466020a1ed}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!connectedPort:@{connectedPort:}}
+\index{connectedPort:@{connectedPort:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{connectedPort:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt16) connectedPort: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketRef)}]{socket}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a5910314780c573d73d483b466020a1ed}
+\hypertarget{interface_async_t_c_p_socket_a1d6556fc7607459b0a4f59ece23688af}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!connectSocketToAddress:error:@{connectSocketToAddress:error:}}
+\index{connectSocketToAddress:error:@{connectSocketToAddress:error:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{connectSocketToAddress:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) connectSocketToAddress: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSData $\ast$)}]{remoteAddr}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a1d6556fc7607459b0a4f59ece23688af}
+\hypertarget{interface_async_t_c_p_socket_a2e1af5ef7a3e1ee37613dddb7c0e0617}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!connectToAddress:error:@{connectToAddress:error:}}
+\index{connectToAddress:error:@{connectToAddress:error:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{connectToAddress:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) connectToAddress: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSData $\ast$)}]{remoteAddr}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a2e1af5ef7a3e1ee37613dddb7c0e0617}
+Connects to the given address, specified as a sockaddr structure wrapped in a NSData object. For example, a NSData object returned from NSNetservice's addresses method.
+
+If you have an existing struct sockaddr you can convert it to a NSData object like so: struct sockaddr sa -\/$>$ NSData $\ast$dsa = \mbox{[}NSData dataWithBytes:\&remoteAddr length:remoteAddr.sa\_\-len\mbox{]}; struct sockaddr $\ast$sa -\/$>$ NSData $\ast$dsa = \mbox{[}NSData dataWithBytes:remoteAddr length:remoteAddr-\/$>$sa\_\-len\mbox{]}; 
+
+Definition at line 980 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_ae023e135c607e4ad8a7dd86a1be7efe2}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!connectToAddress:withTimeout:error:@{connectToAddress:withTimeout:error:}}
+\index{connectToAddress:withTimeout:error:@{connectToAddress:withTimeout:error:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{connectToAddress:withTimeout:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) connectToAddress: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSData $\ast$)}]{remoteAddr}
+\item[{withTimeout:(NSTimeInterval)}]{timeout}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_ae023e135c607e4ad8a7dd86a1be7efe2}
+This method is the same as connectToAddress:error: with an additional timeout option. To not time out use a negative time interval, or simply use the connectToAddress:error: method.
+
+This method creates an initial CFSocket to the given address. The connection is then opened, and the corresponding CFReadStream and CFWriteStream will be created from the low-\/level sockets after the connection succeeds.
+
+Thus the delegate will have access to the CFSocket and CFSocketNativeHandle (BSD socket) prior to connection, specifically in the onSocketWillConnect: method.
+
+Note: The NSData parameter is expected to be a sockaddr structure. For example, an NSData object returned from NSNetservice addresses method. If you have an existing struct sockaddr you can convert it to an NSData object like so: struct sockaddr sa -\/$>$ NSData $\ast$dsa = \mbox{[}NSData dataWithBytes:\&remoteAddr length:remoteAddr.sa\_\-len\mbox{]}; struct sockaddr $\ast$sa -\/$>$ NSData $\ast$dsa = \mbox{[}NSData dataWithBytes:remoteAddr length:remoteAddr-\/$>$sa\_\-len\mbox{]}; 
+
+Definition at line 999 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a4e2b5a931c78d066965bdf235337b462}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!connectToHost:onPort:error:@{connectToHost:onPort:error:}}
+\index{connectToHost:onPort:error:@{connectToHost:onPort:error:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{connectToHost:onPort:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) connectToHost: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString $\ast$)}]{hostname}
+\item[{onPort:(UInt16)}]{port}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a4e2b5a931c78d066965bdf235337b462}
+Connects to the given host and port. The host may be a domain name (e.g. \char`\"{}deusty.com\char`\"{}) or an IP address string (e.g. \char`\"{}192.168.0.2\char`\"{}) 
+
+Definition at line 931 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_adccaaf1127cdb2344954f8c8f764a48c}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!connectToHost:onPort:withTimeout:error:@{connectToHost:onPort:withTimeout:error:}}
+\index{connectToHost:onPort:withTimeout:error:@{connectToHost:onPort:withTimeout:error:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{connectToHost:onPort:withTimeout:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) connectToHost: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString $\ast$)}]{hostname}
+\item[{onPort:(UInt16)}]{port}
+\item[{withTimeout:(NSTimeInterval)}]{timeout}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_adccaaf1127cdb2344954f8c8f764a48c}
+This method is the same as connectToHost:onPort:error: with an additional timeout option. To not time out use a negative time interval, or simply use the connectToHost:onPort:error: method.
+
+This method creates an initial CFReadStream and CFWriteStream to the given host on the given port. The connection is then opened, and the corresponding CFSocket will be extracted after the connection succeeds.
+
+Thus the delegate will have access to the CFReadStream and CFWriteStream prior to connection, specifically in the onSocketWillConnect: method. 
+
+Definition at line 943 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_adde78bb75988b51f5c403daebcd91f99}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!CRData@{CRData}}
+\index{CRData@{CRData}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{CRData}]{\setlength{\rightskip}{0pt plus 5cm}+ (NSData $\ast$) CRData 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_adde78bb75988b51f5c403daebcd91f99}
+
+
+Definition at line 2920 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_af9459620a9d7e1cf4503f8995ac905df}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!createAcceptSocketForAddress:error:@{createAcceptSocketForAddress:error:}}
+\index{createAcceptSocketForAddress:error:@{createAcceptSocketForAddress:error:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{createAcceptSocketForAddress:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFSocketRef) createAcceptSocketForAddress: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSData $\ast$)}]{addr}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_af9459620a9d7e1cf4503f8995ac905df}
+\hypertarget{interface_async_t_c_p_socket_ade0a31c61f419a44060e407bda52b93c}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!createSocketForAddress:error:@{createSocketForAddress:error:}}
+\index{createSocketForAddress:error:@{createSocketForAddress:error:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{createSocketForAddress:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) createSocketForAddress: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSData $\ast$)}]{remoteAddr}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_ade0a31c61f419a44060e407bda52b93c}
+\hypertarget{interface_async_t_c_p_socket_a7a0fb83fd2ec0e82de8c18a5cb6d6b9f}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!createStreamsFromNative:error:@{createStreamsFromNative:error:}}
+\index{createStreamsFromNative:error:@{createStreamsFromNative:error:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{createStreamsFromNative:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) createStreamsFromNative: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketNativeHandle)}]{native}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a7a0fb83fd2ec0e82de8c18a5cb6d6b9f}
+\hypertarget{interface_async_t_c_p_socket_ad72f9b820cc46ddb664249be9baf586e}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!createStreamsToHost:onPort:error:@{createStreamsToHost:onPort:error:}}
+\index{createStreamsToHost:onPort:error:@{createStreamsToHost:onPort:error:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{createStreamsToHost:onPort:error:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) createStreamsToHost: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString $\ast$)}]{hostname}
+\item[{onPort:(UInt16)}]{port}
+\item[{error:(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_ad72f9b820cc46ddb664249be9baf586e}
+\hypertarget{interface_async_t_c_p_socket_a6d7dfcd7967c0e16b86ae64e5579b709}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!CRLFData@{CRLFData}}
+\index{CRLFData@{CRLFData}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{CRLFData}]{\setlength{\rightskip}{0pt plus 5cm}+ (NSData $\ast$) CRLFData 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a6d7dfcd7967c0e16b86ae64e5579b709}
+
+
+Definition at line 2915 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a6c98e239b6ba279cfc95c64db9de555c}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!delegate@{delegate}}
+\index{delegate@{delegate}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{delegate}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) delegate 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a6c98e239b6ba279cfc95c64db9de555c}
+Use \char`\"{}canSafelySetDelegate\char`\"{} to see if there is any pending business (reads and writes) with the current delegate before changing it. It is, of course, safe to change the delegate before connecting or accepting connections. 
+
+Definition at line 466 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a0920dc7935061bc57daab91706be5934}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!description@{description}}
+\index{description@{description}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{description}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) description 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a0920dc7935061bc57daab91706be5934}
+
+
+Definition at line 2081 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a960705de531a20389fb29928d43258c3}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{disconnect}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) disconnect 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a960705de531a20389fb29928d43258c3}
+Disconnects immediately. Any pending reads or writes are dropped. 
+
+Definition at line 1633 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a9c49760a3286a595f3cdc0702733baed}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!disconnectAfterReading@{disconnectAfterReading}}
+\index{disconnectAfterReading@{disconnectAfterReading}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{disconnectAfterReading}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) disconnectAfterReading 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a9c49760a3286a595f3cdc0702733baed}
+Disconnects after all pending reads have completed. After calling this, the read and write methods will do nothing. The socket will disconnect even if there are still pending writes.
+
+Diconnects after all pending reads have completed. 
+
+Definition at line 1641 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a31e39568995cdc85c4feb5a76c645d5f}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!disconnectAfterReadingAndWriting@{disconnectAfterReadingAndWriting}}
+\index{disconnectAfterReadingAndWriting@{disconnectAfterReadingAndWriting}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{disconnectAfterReadingAndWriting}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) disconnectAfterReadingAndWriting 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a31e39568995cdc85c4feb5a76c645d5f}
+Disconnects after all pending reads and writes have completed. After calling this, the read and write methods will do nothing.
+
+Disconnects after all pending reads and writes have completed. 
+
+Definition at line 1661 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a40c9570c2e696d6c48347024fa1f8b5c}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!disconnectAfterWriting@{disconnectAfterWriting}}
+\index{disconnectAfterWriting@{disconnectAfterWriting}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{disconnectAfterWriting}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) disconnectAfterWriting 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a40c9570c2e696d6c48347024fa1f8b5c}
+Disconnects after all pending writes have completed. After calling this, the read and write methods will do nothing. The socket will disconnect even if there are still pending reads.
+
+Disconnects after all pending writes have completed. 
+
+Definition at line 1651 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a84a0bf0e3edb90de5bfa0c39b788ed96}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!doAcceptWithSocket:@{doAcceptWithSocket:}}
+\index{doAcceptWithSocket:@{doAcceptWithSocket:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{doAcceptWithSocket:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doAcceptWithSocket: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketNativeHandle)}]{newSocket}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a84a0bf0e3edb90de5bfa0c39b788ed96}
+\hypertarget{interface_async_t_c_p_socket_a3a3502a385aa9b445ef913e199c04298}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!doBytesAvailable@{doBytesAvailable}}
+\index{doBytesAvailable@{doBytesAvailable}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{doBytesAvailable}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doBytesAvailable 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a3a3502a385aa9b445ef913e199c04298}
+\hypertarget{interface_async_t_c_p_socket_a5d84ad90d68f42e2c9af6c8f68965aa0}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!doCFCallback:forSocket:withAddress:withData:@{doCFCallback:forSocket:withAddress:withData:}}
+\index{doCFCallback:forSocket:withAddress:withData:@{doCFCallback:forSocket:withAddress:withData:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{doCFCallback:forSocket:withAddress:withData:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doCFCallback: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketCallBackType)}]{type}
+\item[{forSocket:(CFSocketRef)}]{sock}
+\item[{withAddress:(NSData $\ast$)}]{address}
+\item[{withData:(const void $\ast$)}]{pData}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a5d84ad90d68f42e2c9af6c8f68965aa0}
+\hypertarget{interface_async_t_c_p_socket_a5c00764bc41180585415cd80715e4934}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!doCFReadStreamCallback:forStream:@{doCFReadStreamCallback:forStream:}}
+\index{doCFReadStreamCallback:forStream:@{doCFReadStreamCallback:forStream:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{doCFReadStreamCallback:forStream:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doCFReadStreamCallback: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFStreamEventType)}]{type}
+\item[{forStream:(CFReadStreamRef)}]{stream}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a5c00764bc41180585415cd80715e4934}
+\hypertarget{interface_async_t_c_p_socket_a3948e96628b6afc50f175f5343b35ab6}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!doCFWriteStreamCallback:forStream:@{doCFWriteStreamCallback:forStream:}}
+\index{doCFWriteStreamCallback:forStream:@{doCFWriteStreamCallback:forStream:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{doCFWriteStreamCallback:forStream:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doCFWriteStreamCallback: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFStreamEventType)}]{type}
+\item[{forStream:(CFWriteStreamRef)}]{stream}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a3948e96628b6afc50f175f5343b35ab6}
+\hypertarget{interface_async_t_c_p_socket_a91819574f3f9c4a0cb7ab2cebe9ae5d7}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!doReadTimeout:@{doReadTimeout:}}
+\index{doReadTimeout:@{doReadTimeout:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{doReadTimeout:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doReadTimeout: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSTimer $\ast$)}]{timer}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a91819574f3f9c4a0cb7ab2cebe9ae5d7}
+\hypertarget{interface_async_t_c_p_socket_aa52941df4ffcb97e6a2faeccb92cd714}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!doSendBytes@{doSendBytes}}
+\index{doSendBytes@{doSendBytes}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{doSendBytes}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doSendBytes 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_aa52941df4ffcb97e6a2faeccb92cd714}
+\hypertarget{interface_async_t_c_p_socket_ac9f198a9ed1c09c543b9745c71656503}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!doSocketOpen:withCFSocketError:@{doSocketOpen:withCFSocketError:}}
+\index{doSocketOpen:withCFSocketError:@{doSocketOpen:withCFSocketError:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{doSocketOpen:withCFSocketError:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doSocketOpen: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketRef)}]{sock}
+\item[{withCFSocketError:(CFSocketError)}]{err}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_ac9f198a9ed1c09c543b9745c71656503}
+\hypertarget{interface_async_t_c_p_socket_aac93ce52aa60a6a89ee1a223097513cc}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!doStreamOpen@{doStreamOpen}}
+\index{doStreamOpen@{doStreamOpen}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{doStreamOpen}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doStreamOpen 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_aac93ce52aa60a6a89ee1a223097513cc}
+\hypertarget{interface_async_t_c_p_socket_a15e28504239cb0c373cfcbb754d1260e}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!doWriteTimeout:@{doWriteTimeout:}}
+\index{doWriteTimeout:@{doWriteTimeout:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{doWriteTimeout:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) doWriteTimeout: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSTimer $\ast$)}]{timer}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a15e28504239cb0c373cfcbb754d1260e}
+\hypertarget{interface_async_t_c_p_socket_a380f6dc6ed4dfc3a60b33d7ed6e65c73}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!emptyQueues@{emptyQueues}}
+\index{emptyQueues@{emptyQueues}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{emptyQueues}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) emptyQueues 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a380f6dc6ed4dfc3a60b33d7ed6e65c73}
+\hypertarget{interface_async_t_c_p_socket_aea1515621e1c285b7c49a8b212b978ce}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!enablePreBuffering@{enablePreBuffering}}
+\index{enablePreBuffering@{enablePreBuffering}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{enablePreBuffering}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) enablePreBuffering 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_aea1515621e1c285b7c49a8b212b978ce}
+For handling readDataToData requests, data is necessarily read from the socket in small increments. The performance can be much improved by allowing AsyncSocket to read larger chunks at a time and store any overflow in a small internal buffer. This is termed pre-\/buffering, as some data may be read for you before you ask for it. If you use readDataToData a lot, enabling pre-\/buffering will result in better performance, especially on the iPhone.
+
+The default pre-\/buffering state is controlled by the DEFAULT\_\-PREBUFFERING definition. It is highly recommended one leave this set to YES.
+
+This method exists in case pre-\/buffering needs to be disabled by default for some reason. In that case, this method exists to allow one to easily enable pre-\/buffering when ready.
+
+See the header file for a full explanation of pre-\/buffering. 
+
+Definition at line 603 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a26caa9d94af387148d3a2ddf0612d9d7}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!endConnectTimeout@{endConnectTimeout}}
+\index{endConnectTimeout@{endConnectTimeout}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{endConnectTimeout}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) endConnectTimeout 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a26caa9d94af387148d3a2ddf0612d9d7}
+\hypertarget{interface_async_t_c_p_socket_a7ddda9613a043ee3044c154ed877e750}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!endCurrentRead@{endCurrentRead}}
+\index{endCurrentRead@{endCurrentRead}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{endCurrentRead}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) endCurrentRead 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a7ddda9613a043ee3044c154ed877e750}
+\hypertarget{interface_async_t_c_p_socket_a468b9f90a54b420746956c45daa48d52}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!endCurrentWrite@{endCurrentWrite}}
+\index{endCurrentWrite@{endCurrentWrite}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{endCurrentWrite}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) endCurrentWrite 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a468b9f90a54b420746956c45daa48d52}
+\hypertarget{interface_async_t_c_p_socket_a6a37c30b55a15065dd5053d6b926ace0}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!errorFromCFStreamError:@{errorFromCFStreamError:}}
+\index{errorFromCFStreamError:@{errorFromCFStreamError:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{errorFromCFStreamError:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) errorFromCFStreamError: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFStreamError)}]{err}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a6a37c30b55a15065dd5053d6b926ace0}
+\hypertarget{interface_async_t_c_p_socket_a485ee0cb720094374011c7c836693194}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!getAbortError@{getAbortError}}
+\index{getAbortError@{getAbortError}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{getAbortError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getAbortError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a485ee0cb720094374011c7c836693194}
+\hypertarget{interface_async_t_c_p_socket_ab32fc38e33a984e159df0a522e26a6a8}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!getCFReadStream@{getCFReadStream}}
+\index{getCFReadStream@{getCFReadStream}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{getCFReadStream}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFReadStreamRef) getCFReadStream 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_ab32fc38e33a984e159df0a522e26a6a8}
+
+
+Definition at line 489 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a717e5a3ee700cbde4df757cf8cdb407e}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!getCFSocket@{getCFSocket}}
+\index{getCFSocket@{getCFSocket}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{getCFSocket}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFSocketRef) getCFSocket 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a717e5a3ee700cbde4df757cf8cdb407e}
+
+
+Definition at line 481 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a5651f189d6f4540c324e52bc27ecad89}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!getCFWriteStream@{getCFWriteStream}}
+\index{getCFWriteStream@{getCFWriteStream}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{getCFWriteStream}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFWriteStreamRef) getCFWriteStream 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a5651f189d6f4540c324e52bc27ecad89}
+
+
+Definition at line 494 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a4a9dbc78736492d8b03ef1529d73dca3}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!getConnectTimeoutError@{getConnectTimeoutError}}
+\index{getConnectTimeoutError@{getConnectTimeoutError}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{getConnectTimeoutError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getConnectTimeoutError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a4a9dbc78736492d8b03ef1529d73dca3}
+\hypertarget{interface_async_t_c_p_socket_a804640cdef7c41b9d00db44feb235149}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!getErrnoError@{getErrnoError}}
+\index{getErrnoError@{getErrnoError}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{getErrnoError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getErrnoError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a804640cdef7c41b9d00db44feb235149}
+\hypertarget{interface_async_t_c_p_socket_a0e412578f825bc0dddd2f4a19b7207af}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!getReadMaxedOutError@{getReadMaxedOutError}}
+\index{getReadMaxedOutError@{getReadMaxedOutError}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{getReadMaxedOutError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getReadMaxedOutError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a0e412578f825bc0dddd2f4a19b7207af}
+\hypertarget{interface_async_t_c_p_socket_a4b3fc35f35afafea4998af7e66dd4c97}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!getReadTimeoutError@{getReadTimeoutError}}
+\index{getReadTimeoutError@{getReadTimeoutError}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{getReadTimeoutError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getReadTimeoutError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a4b3fc35f35afafea4998af7e66dd4c97}
+\hypertarget{interface_async_t_c_p_socket_a9b0a42080e950dde8de512e46e067443}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!getSocketError@{getSocketError}}
+\index{getSocketError@{getSocketError}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{getSocketError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getSocketError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a9b0a42080e950dde8de512e46e067443}
+\hypertarget{interface_async_t_c_p_socket_a197bac5011e90bdf2c20193d91281737}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!getStreamError@{getStreamError}}
+\index{getStreamError@{getStreamError}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{getStreamError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getStreamError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a197bac5011e90bdf2c20193d91281737}
+\hypertarget{interface_async_t_c_p_socket_a2e3b722527b1a23493e89815dcf284e6}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!getWriteTimeoutError@{getWriteTimeoutError}}
+\index{getWriteTimeoutError@{getWriteTimeoutError}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{getWriteTimeoutError}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSError $\ast$) getWriteTimeoutError 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a2e3b722527b1a23493e89815dcf284e6}
+\hypertarget{interface_async_t_c_p_socket_a4213bb26f5207ee3f402fe463badc691}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!init@{init}}
+\index{init@{init}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) init 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a4213bb26f5207ee3f402fe463badc691}
+
+
+Definition at line 386 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a918ea9d2f36714a76a7f19a5213a0473}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!initWithDelegate:@{initWithDelegate:}}
+\index{initWithDelegate:@{initWithDelegate:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{initWithDelegate:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) initWithDelegate: 
+\begin{DoxyParamCaption}
+\item[{dummy(id)}]{delegate}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a918ea9d2f36714a76a7f19a5213a0473}
+
+
+Definition at line 391 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a65ebd73324c0920a291449a38e2ff3ff}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!initWithDelegate:userData:@{initWithDelegate:userData:}}
+\index{initWithDelegate:userData:@{initWithDelegate:userData:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{initWithDelegate:userData:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) initWithDelegate: 
+\begin{DoxyParamCaption}
+\item[{dummy(id)}]{delegate}
+\item[{userData:(long)}]{userData}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a65ebd73324c0920a291449a38e2ff3ff}
+
+
+Definition at line 397 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_ad3515f7fe2b8ed2b9e14233cf7ede0bc}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{isConnected}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) isConnected 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_ad3515f7fe2b8ed2b9e14233cf7ede0bc}
+
+
+Definition at line 1914 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a7f1734034c9aa5b62cfeb69f203729e3}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!isIPv4@{isIPv4}}
+\index{isIPv4@{isIPv4}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{isIPv4}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) isIPv4 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a7f1734034c9aa5b62cfeb69f203729e3}
+
+
+Definition at line 2071 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_aa009ac699bce64f1d087a0eafeb2a371}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!isIPv6@{isIPv6}}
+\index{isIPv6@{isIPv6}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{isIPv6}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) isIPv6 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_aa009ac699bce64f1d087a0eafeb2a371}
+
+
+Definition at line 2076 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_ace6bc797c15b8e7a5ab60bc7acfc5c81}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!isSocketConnected@{isSocketConnected}}
+\index{isSocketConnected@{isSocketConnected}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{isSocketConnected}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) isSocketConnected 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_ace6bc797c15b8e7a5ab60bc7acfc5c81}
+\hypertarget{interface_async_t_c_p_socket_a9f80c130183f3fa0f324c7505127ab77}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!LFData@{LFData}}
+\index{LFData@{LFData}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{LFData}]{\setlength{\rightskip}{0pt plus 5cm}+ (NSData $\ast$) LFData 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a9f80c130183f3fa0f324c7505127ab77}
+
+
+Definition at line 2925 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a544fa124053aea063a8be148cf24d491}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!localHost@{localHost}}
+\index{localHost@{localHost}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{localHost}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) localHost 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a544fa124053aea063a8be148cf24d491}
+
+
+Definition at line 1935 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a59fe5c5c33e9e7dfa11ffc2bc4e18c38}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!localHost:@{localHost:}}
+\index{localHost:@{localHost:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{localHost:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) localHost: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketRef)}]{socket}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a59fe5c5c33e9e7dfa11ffc2bc4e18c38}
+\hypertarget{interface_async_t_c_p_socket_a1b6cdcf368d68e9ffb28e359e5c23ce8}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!localPort@{localPort}}
+\index{localPort@{localPort}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{localPort}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt16) localPort 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a1b6cdcf368d68e9ffb28e359e5c23ce8}
+
+
+Definition at line 1943 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a384db6eb52b78874c030bcd063046e76}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!localPort:@{localPort:}}
+\index{localPort:@{localPort:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{localPort:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt16) localPort: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFSocketRef)}]{socket}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a384db6eb52b78874c030bcd063046e76}
+\hypertarget{interface_async_t_c_p_socket_a71ded98e88b1001fd651951a35654734}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!maybeDequeueRead@{maybeDequeueRead}}
+\index{maybeDequeueRead@{maybeDequeueRead}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{maybeDequeueRead}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) maybeDequeueRead 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a71ded98e88b1001fd651951a35654734}
+\hypertarget{interface_async_t_c_p_socket_a185ab7cd6a129e604a01195589db6ea7}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!maybeDequeueWrite@{maybeDequeueWrite}}
+\index{maybeDequeueWrite@{maybeDequeueWrite}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{maybeDequeueWrite}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) maybeDequeueWrite 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a185ab7cd6a129e604a01195589db6ea7}
+\hypertarget{interface_async_t_c_p_socket_a41c2a8e28e0f9f8499609e99ec5caaf2}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!maybeScheduleDisconnect@{maybeScheduleDisconnect}}
+\index{maybeScheduleDisconnect@{maybeScheduleDisconnect}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{maybeScheduleDisconnect}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) maybeScheduleDisconnect 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a41c2a8e28e0f9f8499609e99ec5caaf2}
+\hypertarget{interface_async_t_c_p_socket_a1bc43cb9e0ad8f6e03562838e3a61c9e}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!maybeStartTLS@{maybeStartTLS}}
+\index{maybeStartTLS@{maybeStartTLS}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{maybeStartTLS}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) maybeStartTLS 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a1bc43cb9e0ad8f6e03562838e3a61c9e}
+\hypertarget{interface_async_t_c_p_socket_a111317eafc9694b30edb4c36f513aa07}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!moveToRunLoop:@{moveToRunLoop:}}
+\index{moveToRunLoop:@{moveToRunLoop:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{moveToRunLoop:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) moveToRunLoop: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSRunLoop $\ast$)}]{runLoop}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a111317eafc9694b30edb4c36f513aa07}
+When you create an AsyncSocket, it is added to the runloop of the current thread. So for manually created sockets, it is easiest to simply create the socket on the thread you intend to use it.
+
+If a new socket is accepted, the delegate method onSocket:wantsRunLoopForNewSocket: is called to allow you to place the socket on a separate thread. This works best in conjunction with a thread pool design.
+
+If, however, you need to move the socket to a separate thread at a later time, this method may be used to accomplish the task.
+
+This method must be called from the thread/runloop the socket is currently running on.
+
+Note: After calling this method, all further method calls to this object should be done from the given runloop. Also, all delegate calls will be sent on the given runloop.
+
+See the header file for a full explanation of this method. 
+
+Definition at line 611 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_af833895f05627897d47ccf45c64f4b33}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!onTLSStarted:@{onTLSStarted:}}
+\index{onTLSStarted:@{onTLSStarted:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{onTLSStarted:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) onTLSStarted: 
+\begin{DoxyParamCaption}
+\item[{dummy(BOOL)}]{flag}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_af833895f05627897d47ccf45c64f4b33}
+\hypertarget{interface_async_t_c_p_socket_a880586228ff523afc5d1ec48681a6713}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!openStreamsAndReturnError:@{openStreamsAndReturnError:}}
+\index{openStreamsAndReturnError:@{openStreamsAndReturnError:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{openStreamsAndReturnError:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) openStreamsAndReturnError: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a880586228ff523afc5d1ec48681a6713}
+\hypertarget{interface_async_t_c_p_socket_ab0b0ac0a1e46b2d05e094a1fc3e45ae7}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!progressOfReadReturningTag:bytesDone:total:@{progressOfReadReturningTag:bytesDone:total:}}
+\index{progressOfReadReturningTag:bytesDone:total:@{progressOfReadReturningTag:bytesDone:total:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{progressOfReadReturningTag:bytesDone:total:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (float) progressOfReadReturningTag: 
+\begin{DoxyParamCaption}
+\item[{dummy(long $\ast$)}]{tag}
+\item[{bytesDone:(CFIndex $\ast$)}]{done}
+\item[{total:(CFIndex $\ast$)}]{total}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_ab0b0ac0a1e46b2d05e094a1fc3e45ae7}
+Returns progress of current read or write, from 0.0 to 1.0, or NaN if no read/write (use isnan() to check). \char`\"{}tag\char`\"{}, \char`\"{}done\char`\"{} and \char`\"{}total\char`\"{} will be filled in if they aren't NULL. 
+
+Definition at line 499 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a38e3791947d9f10c2fc68f20e1a4d6c2}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!progressOfWriteReturningTag:bytesDone:total:@{progressOfWriteReturningTag:bytesDone:total:}}
+\index{progressOfWriteReturningTag:bytesDone:total:@{progressOfWriteReturningTag:bytesDone:total:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{progressOfWriteReturningTag:bytesDone:total:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (float) progressOfWriteReturningTag: 
+\begin{DoxyParamCaption}
+\item[{dummy(long $\ast$)}]{tag}
+\item[{bytesDone:(CFIndex $\ast$)}]{done}
+\item[{total:(CFIndex $\ast$)}]{total}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a38e3791947d9f10c2fc68f20e1a4d6c2}
+
+
+Definition at line 518 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a443ca87e6601022dcbc4d711e96dae95}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!readDataToData:withTimeout:maxLength:tag:@{readDataToData:withTimeout:maxLength:tag:}}
+\index{readDataToData:withTimeout:maxLength:tag:@{readDataToData:withTimeout:maxLength:tag:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{readDataToData:withTimeout:maxLength:tag:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) readDataToData: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSData $\ast$)}]{data}
+\item[{withTimeout:(NSTimeInterval)}]{timeout}
+\item[{maxLength:(CFIndex)}]{length}
+\item[{tag:(long)}]{tag}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a443ca87e6601022dcbc4d711e96dae95}
+Same as readDataToData:withTimeout:tag, with the additional restriction that the amount of data read may not surpass the given maxLength (specified in bytes).
+
+If you pass a maxLength parameter that is less than the length of the data parameter, the method will do nothing, and the delegate will not be called.
+
+If the max length is surpassed, it is treated the same as a timeout -\/ the socket is closed.
+
+Pass -\/1 as maxLength if no length restriction is desired, or simply use the readDataToData:withTimeout:tag method. 
+
+Definition at line 2235 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a3a92e46de7766b3ac649f3d68d370599}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!readDataToData:withTimeout:tag:@{readDataToData:withTimeout:tag:}}
+\index{readDataToData:withTimeout:tag:@{readDataToData:withTimeout:tag:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{readDataToData:withTimeout:tag:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) readDataToData: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSData $\ast$)}]{data}
+\item[{withTimeout:(NSTimeInterval)}]{timeout}
+\item[{tag:(long)}]{tag}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a3a92e46de7766b3ac649f3d68d370599}
+This reads bytes until (and including) the passed \char`\"{}data\char`\"{} parameter, which acts as a separator. The bytes and the separator are returned by the delegate method.
+
+If you pass nil or zero-\/length data as the \char`\"{}data\char`\"{} parameter, the method will do nothing, and the delegate will not be called.
+
+To read a line from the socket, use the line separator (e.g. CRLF for HTTP, see below) as the \char`\"{}data\char`\"{} parameter. Note that this method is not character-\/set aware, so if a separator can occur naturally as part of the encoding for a character, the read will prematurely end. 
+
+Definition at line 2230 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a8478e9a2d87f7a6d10b382dce90905b7}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!readDataToLength:withTimeout:tag:@{readDataToLength:withTimeout:tag:}}
+\index{readDataToLength:withTimeout:tag:@{readDataToLength:withTimeout:tag:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{readDataToLength:withTimeout:tag:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) readDataToLength: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFIndex)}]{length}
+\item[{withTimeout:(NSTimeInterval)}]{timeout}
+\item[{tag:(long)}]{tag}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a8478e9a2d87f7a6d10b382dce90905b7}
+This will read a certain number of bytes into memory, and call the delegate method when those bytes have been read. If there is an error, partially read data is lost. If the length is 0, this method does nothing and the delegate is not called. 
+
+Definition at line 2210 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a58e63ca19338d5e052ad36e2e64ec585}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!readDataWithTimeout:tag:@{readDataWithTimeout:tag:}}
+\index{readDataWithTimeout:tag:@{readDataWithTimeout:tag:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{readDataWithTimeout:tag:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) readDataWithTimeout: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSTimeInterval)}]{timeout}
+\item[{tag:(long)}]{tag}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a58e63ca19338d5e052ad36e2e64ec585}
+Reads the first available bytes that become available on the socket. 
+
+Definition at line 2256 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_afe4d1802ff482426cdff4872b07596cd}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!recoverUnreadData@{recoverUnreadData}}
+\index{recoverUnreadData@{recoverUnreadData}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{recoverUnreadData}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) recoverUnreadData 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_afe4d1802ff482426cdff4872b07596cd}
+\hypertarget{interface_async_t_c_p_socket_a75ababb9f489e363e2f2a0400a258508}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!runLoopAddSource:@{runLoopAddSource:}}
+\index{runLoopAddSource:@{runLoopAddSource:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{runLoopAddSource:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) runLoopAddSource: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFRunLoopSourceRef)}]{source}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a75ababb9f489e363e2f2a0400a258508}
+\hypertarget{interface_async_t_c_p_socket_acb0aace1fe5ef1c0452cad615451acfd}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!runLoopAddTimer:@{runLoopAddTimer:}}
+\index{runLoopAddTimer:@{runLoopAddTimer:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{runLoopAddTimer:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) runLoopAddTimer: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSTimer $\ast$)}]{timer}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_acb0aace1fe5ef1c0452cad615451acfd}
+\hypertarget{interface_async_t_c_p_socket_a690225f977216c6c6fc151bb4ef43e36}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!runLoopRemoveSource:@{runLoopRemoveSource:}}
+\index{runLoopRemoveSource:@{runLoopRemoveSource:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{runLoopRemoveSource:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) runLoopRemoveSource: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFRunLoopSourceRef)}]{source}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a690225f977216c6c6fc151bb4ef43e36}
+\hypertarget{interface_async_t_c_p_socket_a15eb41629b49b8efdd181cbe9fa11137}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!runLoopRemoveTimer:@{runLoopRemoveTimer:}}
+\index{runLoopRemoveTimer:@{runLoopRemoveTimer:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{runLoopRemoveTimer:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) runLoopRemoveTimer: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSTimer $\ast$)}]{timer}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a15eb41629b49b8efdd181cbe9fa11137}
+\hypertarget{interface_async_t_c_p_socket_a176545f228b7a3b60877d382cc91be29}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!runLoopUnscheduleReadStream@{runLoopUnscheduleReadStream}}
+\index{runLoopUnscheduleReadStream@{runLoopUnscheduleReadStream}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{runLoopUnscheduleReadStream}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) runLoopUnscheduleReadStream 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a176545f228b7a3b60877d382cc91be29}
+\hypertarget{interface_async_t_c_p_socket_ac02c6980f3f278ae6f901b9e9fcf5f87}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!runLoopUnscheduleWriteStream@{runLoopUnscheduleWriteStream}}
+\index{runLoopUnscheduleWriteStream@{runLoopUnscheduleWriteStream}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{runLoopUnscheduleWriteStream}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) runLoopUnscheduleWriteStream 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_ac02c6980f3f278ae6f901b9e9fcf5f87}
+\hypertarget{interface_async_t_c_p_socket_aa81b3af01336161f5e1873103fde54d6}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!scheduleDequeueRead@{scheduleDequeueRead}}
+\index{scheduleDequeueRead@{scheduleDequeueRead}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{scheduleDequeueRead}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) scheduleDequeueRead 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_aa81b3af01336161f5e1873103fde54d6}
+\hypertarget{interface_async_t_c_p_socket_ae7628474a26916d2edb61ea0c9544579}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!scheduleDequeueWrite@{scheduleDequeueWrite}}
+\index{scheduleDequeueWrite@{scheduleDequeueWrite}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{scheduleDequeueWrite}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) scheduleDequeueWrite 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_ae7628474a26916d2edb61ea0c9544579}
+\hypertarget{interface_async_t_c_p_socket_a5147f10c2f5e0df2682c4ce073138ac8}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!setDelegate:@{setDelegate:}}
+\index{setDelegate:@{setDelegate:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{setDelegate:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) setDelegate: 
+\begin{DoxyParamCaption}
+\item[{dummy(id)}]{delegate}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a5147f10c2f5e0df2682c4ce073138ac8}
+
+
+Definition at line 471 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_aa6f2d16021ad8de163e5299f8497384e}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!setRunLoopModes:@{setRunLoopModes:}}
+\index{setRunLoopModes:@{setRunLoopModes:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{setRunLoopModes:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) setRunLoopModes: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSArray $\ast$)}]{runLoopModes}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_aa6f2d16021ad8de163e5299f8497384e}
+Allows you to configure which run loop modes the socket uses. The default set of run loop modes is NSDefaultRunLoopMode.
+
+If you'd like your socket to continue operation during other modes, you may want to add modes such as NSModalPanelRunLoopMode or NSEventTrackingRunLoopMode. Or you may simply want to use NSRunLoopCommonModes.
+
+Accepted sockets will automatically inherit the same run loop modes as the listening socket.
+
+Note: NSRunLoopCommonModes is defined in 10.5. For previous versions one can use kCFRunLoopCommonModes.
+
+See the header file for a full explanation of this method. 
+
+Definition at line 673 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a0f55910b1e0ed121597c2825a693ff50}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!setSocketFromStreamsAndReturnError:@{setSocketFromStreamsAndReturnError:}}
+\index{setSocketFromStreamsAndReturnError:@{setSocketFromStreamsAndReturnError:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{setSocketFromStreamsAndReturnError:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) setSocketFromStreamsAndReturnError: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSError $\ast$$\ast$)}]{errPtr}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a0f55910b1e0ed121597c2825a693ff50}
+\hypertarget{interface_async_t_c_p_socket_a3e2af6a69a1c75cb9b228c871ade8419}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!setUserData:@{setUserData:}}
+\index{setUserData:@{setUserData:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{setUserData:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) setUserData: 
+\begin{DoxyParamCaption}
+\item[{dummy(long)}]{userData}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a3e2af6a69a1c75cb9b228c871ade8419}
+
+
+Definition at line 461 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a6a35d03945525a87faa9428bfd284fb8}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!startConnectTimeout:@{startConnectTimeout:}}
+\index{startConnectTimeout:@{startConnectTimeout:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{startConnectTimeout:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) startConnectTimeout: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSTimeInterval)}]{timeout}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a6a35d03945525a87faa9428bfd284fb8}
+\hypertarget{interface_async_t_c_p_socket_aec4d670add3f78c669277990d7b48056}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!startTLS:@{startTLS:}}
+\index{startTLS:@{startTLS:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{startTLS:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) startTLS: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSDictionary $\ast$)}]{tlsSettings}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_aec4d670add3f78c669277990d7b48056}
+Secures the connection using SSL/TLS.
+
+This method may be called at any time, and the TLS handshake will occur after all pending reads and writes are finished. This allows one the option of sending a protocol dependent StartTLS message, and queuing the upgrade to TLS at the same time, without having to wait for the write to finish. Any reads or writes scheduled after this method is called will occur over the secured connection.
+
+The possible keys and values for the TLS settings are well documented. Some possible keys are:
+\begin{DoxyItemize}
+\item kCFStreamSSLLevel
+\item kCFStreamSSLAllowsExpiredCertificates
+\item kCFStreamSSLAllowsExpiredRoots
+\item kCFStreamSSLAllowsAnyRoot
+\item kCFStreamSSLValidatesCertificateChain
+\item kCFStreamSSLPeerName
+\item kCFStreamSSLCertificates
+\item kCFStreamSSLIsServer
+\end{DoxyItemize}
+
+Please refer to Apple's documentation for associated values, as well as other possible keys.
+
+If you pass in nil or an empty dictionary, this method does nothing and the delegate will not be called. 
+
+Definition at line 2723 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a7496a06a6ae2045ed442563d55bb2654}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!unreadData@{unreadData}}
+\index{unreadData@{unreadData}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{unreadData}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSData $\ast$) unreadData 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a7496a06a6ae2045ed442563d55bb2654}
+In the event of an error, this method may be called during onSocket:willDisconnectWithError: to read any data that's left on the socket. 
+
+Definition at line 1712 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_ad5ec7ee01c3a572cf338782460044b21}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!userData@{userData}}
+\index{userData@{userData}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{userData}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (long) userData 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_ad5ec7ee01c3a572cf338782460044b21}
+
+
+Definition at line 456 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_a7f85c2e3c19bbe013c180b4668a28fc2}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!writeData:withTimeout:tag:@{writeData:withTimeout:tag:}}
+\index{writeData:withTimeout:tag:@{writeData:withTimeout:tag:}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{writeData:withTimeout:tag:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) writeData: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSData $\ast$)}]{data}
+\item[{withTimeout:(NSTimeInterval)}]{timeout}
+\item[{tag:(long)}]{tag}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_a7f85c2e3c19bbe013c180b4668a28fc2}
+Writes data to the socket, and calls the delegate when finished.
+
+If you pass in nil or zero-\/length data, this method does nothing and the delegate will not be called. 
+
+Definition at line 2573 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_t_c_p_socket_aa051f54bdd6c087a6b4a51c799dbc68b}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!ZeroData@{ZeroData}}
+\index{ZeroData@{ZeroData}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{ZeroData}]{\setlength{\rightskip}{0pt plus 5cm}+ (NSData $\ast$) ZeroData 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_t_c_p_socket_aa051f54bdd6c087a6b4a51c799dbc68b}
+
+
+Definition at line 2930 of file AsyncTCPSocket.m.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{interface_async_t_c_p_socket_a2c92583ab159460443b3d9b73b2b4156}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!partialReadBuffer@{partialReadBuffer}}
+\index{partialReadBuffer@{partialReadBuffer}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{partialReadBuffer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSMutableData$\ast$) {\bf partialReadBuffer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_a2c92583ab159460443b3d9b73b2b4156}
+
+
+Definition at line 127 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_a72c2c05d0e082afbaa45249b504bfc39}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theConnectTimer@{theConnectTimer}}
+\index{theConnectTimer@{theConnectTimer}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theConnectTimer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSTimer$\ast$) {\bf theConnectTimer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_a72c2c05d0e082afbaa45249b504bfc39}
+
+
+Definition at line 122 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_a87c18d99a5efbb5389832677241c01e9}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theContext@{theContext}}
+\index{theContext@{theContext}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theContext}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFSocketContext) {\bf theContext}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_a87c18d99a5efbb5389832677241c01e9}
+
+
+Definition at line 119 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_a714c81240b36f60805ad3b26ad0a6ab5}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theCurrentRead@{theCurrentRead}}
+\index{theCurrentRead@{theCurrentRead}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theCurrentRead}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf AsyncReadPacket}$\ast$) {\bf theCurrentRead}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_a714c81240b36f60805ad3b26ad0a6ab5}
+
+
+Definition at line 125 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_a9191ab2e393964fdcf1dfee1de495872}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theCurrentWrite@{theCurrentWrite}}
+\index{theCurrentWrite@{theCurrentWrite}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theCurrentWrite}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf AsyncWritePacket}$\ast$) {\bf theCurrentWrite}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_a9191ab2e393964fdcf1dfee1de495872}
+
+
+Definition at line 130 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_a7e18c4829e83d7de259fa4c4cd78925b}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theDelegate@{theDelegate}}
+\index{theDelegate@{theDelegate}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theDelegate}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) {\bf theDelegate}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_a7e18c4829e83d7de259fa4c4cd78925b}
+
+
+Definition at line 133 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_a0870b15c6ba4a8fbd05122ef3994c40e}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theFlags@{theFlags}}
+\index{theFlags@{theFlags}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theFlags}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UInt16) {\bf theFlags}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_a0870b15c6ba4a8fbd05122ef3994c40e}
+
+
+Definition at line 134 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_a85c9e429b90f304a6ce8b91913332447}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theReadQueue@{theReadQueue}}
+\index{theReadQueue@{theReadQueue}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theReadQueue}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSMutableArray$\ast$) {\bf theReadQueue}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_a85c9e429b90f304a6ce8b91913332447}
+
+
+Definition at line 124 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_ad218c2f4f2900c520d97818aff0365c1}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theReadStream@{theReadStream}}
+\index{theReadStream@{theReadStream}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theReadStream}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFReadStreamRef) {\bf theReadStream}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_ad218c2f4f2900c520d97818aff0365c1}
+
+
+Definition at line 113 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_aea6adb1bfaf69917a47a7dcdc65863e0}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theReadTimer@{theReadTimer}}
+\index{theReadTimer@{theReadTimer}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theReadTimer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSTimer$\ast$) {\bf theReadTimer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_aea6adb1bfaf69917a47a7dcdc65863e0}
+
+
+Definition at line 126 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_a0df4eb574cfbcba161dc7589f8e9913e}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theRunLoop@{theRunLoop}}
+\index{theRunLoop@{theRunLoop}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theRunLoop}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFRunLoopRef) {\bf theRunLoop}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_a0df4eb574cfbcba161dc7589f8e9913e}
+
+
+Definition at line 118 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_a12b4b7a67bd7a3c4a03a95117020aee4}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theRunLoopModes@{theRunLoopModes}}
+\index{theRunLoopModes@{theRunLoopModes}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theRunLoopModes}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSArray$\ast$) {\bf theRunLoopModes}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_a12b4b7a67bd7a3c4a03a95117020aee4}
+
+
+Definition at line 120 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_afd7bd1b4130d08f2fbe8621b08eb69ab}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theSocket@{theSocket}}
+\index{theSocket@{theSocket}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theSocket}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFSocketRef) {\bf theSocket}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_afd7bd1b4130d08f2fbe8621b08eb69ab}
+
+
+Definition at line 111 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_a94c7d0086b3d4a9495e0ef87bca42a22}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theSocket6@{theSocket6}}
+\index{theSocket6@{theSocket6}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theSocket6}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFSocketRef) {\bf theSocket6}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_a94c7d0086b3d4a9495e0ef87bca42a22}
+
+
+Definition at line 112 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_a802a0e3f2294d4bb644f44e1cd8dfbbd}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theSource@{theSource}}
+\index{theSource@{theSource}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theSource}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFRunLoopSourceRef) {\bf theSource}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_a802a0e3f2294d4bb644f44e1cd8dfbbd}
+
+
+Definition at line 116 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_afa4beb0b77a9fc1de8e37e665ef8ab99}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theSource6@{theSource6}}
+\index{theSource6@{theSource6}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theSource6}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFRunLoopSourceRef) {\bf theSource6}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_afa4beb0b77a9fc1de8e37e665ef8ab99}
+
+
+Definition at line 117 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_af6dc350be3ed36a9ea2bd10580c263d2}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theUserData@{theUserData}}
+\index{theUserData@{theUserData}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theUserData}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (long) {\bf theUserData}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_af6dc350be3ed36a9ea2bd10580c263d2}
+
+
+Definition at line 136 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_a857acc35e8665476b20d0355761e8b08}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theWriteQueue@{theWriteQueue}}
+\index{theWriteQueue@{theWriteQueue}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theWriteQueue}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSMutableArray$\ast$) {\bf theWriteQueue}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_a857acc35e8665476b20d0355761e8b08}
+
+
+Definition at line 129 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_aec37f271ac2a31efa3a76b450c550002}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theWriteStream@{theWriteStream}}
+\index{theWriteStream@{theWriteStream}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theWriteStream}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFWriteStreamRef) {\bf theWriteStream}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_aec37f271ac2a31efa3a76b450c550002}
+
+
+Definition at line 114 of file AsyncTCPSocket.h.
+
+\hypertarget{interface_async_t_c_p_socket_ac1a3ea539394e9e5650e17b76623b0a8}{
+\index{AsyncTCPSocket@{AsyncTCPSocket}!theWriteTimer@{theWriteTimer}}
+\index{theWriteTimer@{theWriteTimer}!AsyncTCPSocket@{AsyncTCPSocket}}
+\subsubsection[{theWriteTimer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSTimer$\ast$) {\bf theWriteTimer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_async_t_c_p_socket_ac1a3ea539394e9e5650e17b76623b0a8}
+
+
+Definition at line 131 of file AsyncTCPSocket.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_async_t_c_p_socket_8h}{AsyncTCPSocket.h}\item 
+\hyperlink{_async_t_c_p_socket_8m}{AsyncTCPSocket.m}\end{DoxyCompactItemize}

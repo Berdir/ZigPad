@@ -1,0 +1,179 @@
+\hypertarget{_async_udp_socket_8m}{
+\section{AsyncUdpSocket.m File Reference}
+\label{_async_udp_socket_8m}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}}
+}
+{\ttfamily \#import \char`\"{}AsyncUdpSocket.h\char`\"{}}\par
+{\ttfamily \#import $<$sys/socket.h$>$}\par
+{\ttfamily \#import $<$netinet/in.h$>$}\par
+{\ttfamily \#import $<$arpa/inet.h$>$}\par
+{\ttfamily \#import $<$sys/ioctl.h$>$}\par
+{\ttfamily \#import $<$net/if.h$>$}\par
+{\ttfamily \#import $<$netdb.h$>$}\par
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries AsyncUdpSocket(Private)}
+\item 
+class \hyperlink{interface_async_send_packet}{AsyncSendPacket}
+\item 
+class \hyperlink{interface_async_receive_packet}{AsyncReceivePacket}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_async_udp_socket_8m_a5b8545acbe96a1b29ac5c2fe998fadbf}{SENDQUEUE\_\-CAPACITY}~5
+\item 
+\#define \hyperlink{_async_udp_socket_8m_a9012e2997a2ebdde4e3aaf6a654fbd2e}{RECEIVEQUEUE\_\-CAPACITY}~5
+\item 
+\#define \hyperlink{_async_udp_socket_8m_a4ead979126cb42a99f0c844f264764e7}{DEFAULT\_\-MAX\_\-RECEIVE\_\-BUFFER\_\-SIZE}~9216
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5c}{AsyncUdpSocketFlags} \{ \par
+\hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5cacfcd361a36bf5e3eea5a4241692d5745}{kDidBind} =  1 $<$$<$ 0, 
+\hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5caea3c22a1e4515b5f1da3796cd2285c13}{kDidConnect} =  1 $<$$<$ 1, 
+\hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5cab4827d3c822728989f624208f298f541}{kSock4CanAcceptBytes} =  1 $<$$<$ 2, 
+\hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5cafc1ee1362f1b2c771e6a8cb296ba39d2}{kSock6CanAcceptBytes} =  1 $<$$<$ 3, 
+\par
+\hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca951983944d6e6093160a38da5e3b20da}{kSock4HasBytesAvailable} =  1 $<$$<$ 4, 
+\hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5cac4e1642be9c866c3477b195ebfbf8088}{kSock6HasBytesAvailable} =  1 $<$$<$ 5, 
+\hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca243e601cee8e5cfd140c13a97b37a34b}{kForbidSendReceive} =  1 $<$$<$ 6, 
+\hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5caaaabca91973dfa796a5f05c1f73f3c43}{kCloseAfterSends} =  1 $<$$<$ 7, 
+\par
+\hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5caf378ba3bbd828d52a7aa4d0afd4ee9fa}{kCloseAfterReceives} =  1 $<$$<$ 8, 
+\hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca8c6a8b8abcac98ac47a9e599c6d813b8}{kDidClose} =  1 $<$$<$ 9, 
+\hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca705ca882bc1f22195d47907b69b3e975}{kDequeueSendScheduled} =  1 $<$$<$ 10, 
+\hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca6b8a20c518ec39826b71f6debddb9cf7}{kDequeueReceiveScheduled} =  1 $<$$<$ 11, 
+\par
+\hyperlink{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5caa208ea2444c79a2496d07ec6beb60719}{kFlipFlop} =  1 $<$$<$ 12
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+NSString $\ast$const \hyperlink{_async_udp_socket_8m_ad6df1cce3ce4139412b562b3fc8231b1}{AsyncUdpSocketException} = @\char`\"{}AsyncUdpSocketException\char`\"{}
+\item 
+NSString $\ast$const \hyperlink{_async_udp_socket_8m_a6ff76c5796f217d98a427c4e28c69861}{AsyncUdpSocketErrorDomain} = @\char`\"{}AsyncUdpSocketErrorDomain\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{_async_udp_socket_8m_a4ead979126cb42a99f0c844f264764e7}{
+\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!DEFAULT\_\-MAX\_\-RECEIVE\_\-BUFFER\_\-SIZE@{DEFAULT\_\-MAX\_\-RECEIVE\_\-BUFFER\_\-SIZE}}
+\index{DEFAULT\_\-MAX\_\-RECEIVE\_\-BUFFER\_\-SIZE@{DEFAULT\_\-MAX\_\-RECEIVE\_\-BUFFER\_\-SIZE}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}
+\subsubsection[{DEFAULT\_\-MAX\_\-RECEIVE\_\-BUFFER\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-MAX\_\-RECEIVE\_\-BUFFER\_\-SIZE~9216}}
+\label{_async_udp_socket_8m_a4ead979126cb42a99f0c844f264764e7}
+
+
+Definition at line 28 of file AsyncUdpSocket.m.
+
+\hypertarget{_async_udp_socket_8m_a9012e2997a2ebdde4e3aaf6a654fbd2e}{
+\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!RECEIVEQUEUE\_\-CAPACITY@{RECEIVEQUEUE\_\-CAPACITY}}
+\index{RECEIVEQUEUE\_\-CAPACITY@{RECEIVEQUEUE\_\-CAPACITY}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}
+\subsubsection[{RECEIVEQUEUE\_\-CAPACITY}]{\setlength{\rightskip}{0pt plus 5cm}\#define RECEIVEQUEUE\_\-CAPACITY~5}}
+\label{_async_udp_socket_8m_a9012e2997a2ebdde4e3aaf6a654fbd2e}
+
+
+Definition at line 26 of file AsyncUdpSocket.m.
+
+\hypertarget{_async_udp_socket_8m_a5b8545acbe96a1b29ac5c2fe998fadbf}{
+\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!SENDQUEUE\_\-CAPACITY@{SENDQUEUE\_\-CAPACITY}}
+\index{SENDQUEUE\_\-CAPACITY@{SENDQUEUE\_\-CAPACITY}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}
+\subsubsection[{SENDQUEUE\_\-CAPACITY}]{\setlength{\rightskip}{0pt plus 5cm}\#define SENDQUEUE\_\-CAPACITY~5}}
+\label{_async_udp_socket_8m_a5b8545acbe96a1b29ac5c2fe998fadbf}
+
+
+Definition at line 25 of file AsyncUdpSocket.m.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5c}{
+\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!AsyncUdpSocketFlags@{AsyncUdpSocketFlags}}
+\index{AsyncUdpSocketFlags@{AsyncUdpSocketFlags}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}
+\subsubsection[{AsyncUdpSocketFlags}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf AsyncUdpSocketFlags}}}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5c}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{kDidBind@{kDidBind}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!kDidBind@{kDidBind}}\item[{\em 
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5cacfcd361a36bf5e3eea5a4241692d5745}{
+kDidBind}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5cacfcd361a36bf5e3eea5a4241692d5745}
+}]\index{kDidConnect@{kDidConnect}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!kDidConnect@{kDidConnect}}\item[{\em 
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5caea3c22a1e4515b5f1da3796cd2285c13}{
+kDidConnect}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5caea3c22a1e4515b5f1da3796cd2285c13}
+}]\index{kSock4CanAcceptBytes@{kSock4CanAcceptBytes}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!kSock4CanAcceptBytes@{kSock4CanAcceptBytes}}\item[{\em 
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5cab4827d3c822728989f624208f298f541}{
+kSock4CanAcceptBytes}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5cab4827d3c822728989f624208f298f541}
+}]\index{kSock6CanAcceptBytes@{kSock6CanAcceptBytes}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!kSock6CanAcceptBytes@{kSock6CanAcceptBytes}}\item[{\em 
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5cafc1ee1362f1b2c771e6a8cb296ba39d2}{
+kSock6CanAcceptBytes}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5cafc1ee1362f1b2c771e6a8cb296ba39d2}
+}]\index{kSock4HasBytesAvailable@{kSock4HasBytesAvailable}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!kSock4HasBytesAvailable@{kSock4HasBytesAvailable}}\item[{\em 
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca951983944d6e6093160a38da5e3b20da}{
+kSock4HasBytesAvailable}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca951983944d6e6093160a38da5e3b20da}
+}]\index{kSock6HasBytesAvailable@{kSock6HasBytesAvailable}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!kSock6HasBytesAvailable@{kSock6HasBytesAvailable}}\item[{\em 
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5cac4e1642be9c866c3477b195ebfbf8088}{
+kSock6HasBytesAvailable}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5cac4e1642be9c866c3477b195ebfbf8088}
+}]\index{kForbidSendReceive@{kForbidSendReceive}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!kForbidSendReceive@{kForbidSendReceive}}\item[{\em 
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca243e601cee8e5cfd140c13a97b37a34b}{
+kForbidSendReceive}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca243e601cee8e5cfd140c13a97b37a34b}
+}]\index{kCloseAfterSends@{kCloseAfterSends}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!kCloseAfterSends@{kCloseAfterSends}}\item[{\em 
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5caaaabca91973dfa796a5f05c1f73f3c43}{
+kCloseAfterSends}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5caaaabca91973dfa796a5f05c1f73f3c43}
+}]\index{kCloseAfterReceives@{kCloseAfterReceives}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!kCloseAfterReceives@{kCloseAfterReceives}}\item[{\em 
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5caf378ba3bbd828d52a7aa4d0afd4ee9fa}{
+kCloseAfterReceives}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5caf378ba3bbd828d52a7aa4d0afd4ee9fa}
+}]\index{kDidClose@{kDidClose}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!kDidClose@{kDidClose}}\item[{\em 
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca8c6a8b8abcac98ac47a9e599c6d813b8}{
+kDidClose}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca8c6a8b8abcac98ac47a9e599c6d813b8}
+}]\index{kDequeueSendScheduled@{kDequeueSendScheduled}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!kDequeueSendScheduled@{kDequeueSendScheduled}}\item[{\em 
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca705ca882bc1f22195d47907b69b3e975}{
+kDequeueSendScheduled}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca705ca882bc1f22195d47907b69b3e975}
+}]\index{kDequeueReceiveScheduled@{kDequeueReceiveScheduled}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!kDequeueReceiveScheduled@{kDequeueReceiveScheduled}}\item[{\em 
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca6b8a20c518ec39826b71f6debddb9cf7}{
+kDequeueReceiveScheduled}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5ca6b8a20c518ec39826b71f6debddb9cf7}
+}]\index{kFlipFlop@{kFlipFlop}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!kFlipFlop@{kFlipFlop}}\item[{\em 
+\hypertarget{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5caa208ea2444c79a2496d07ec6beb60719}{
+kFlipFlop}
+\label{_async_udp_socket_8m_a6ac40ceb05ba214d0a27ffbef7b79f5caa208ea2444c79a2496d07ec6beb60719}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 39 of file AsyncUdpSocket.m.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{_async_udp_socket_8m_a6ff76c5796f217d98a427c4e28c69861}{
+\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!AsyncUdpSocketErrorDomain@{AsyncUdpSocketErrorDomain}}
+\index{AsyncUdpSocketErrorDomain@{AsyncUdpSocketErrorDomain}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}
+\subsubsection[{AsyncUdpSocketErrorDomain}]{\setlength{\rightskip}{0pt plus 5cm}NSString$\ast$ const {\bf AsyncUdpSocketErrorDomain} = @\char`\"{}AsyncUdpSocketErrorDomain\char`\"{}}}
+\label{_async_udp_socket_8m_a6ff76c5796f217d98a427c4e28c69861}
+
+
+Definition at line 31 of file AsyncUdpSocket.m.
+
+\hypertarget{_async_udp_socket_8m_ad6df1cce3ce4139412b562b3fc8231b1}{
+\index{AsyncUdpSocket.m@{AsyncUdpSocket.m}!AsyncUdpSocketException@{AsyncUdpSocketException}}
+\index{AsyncUdpSocketException@{AsyncUdpSocketException}!AsyncUdpSocket.m@{AsyncUdpSocket.m}}
+\subsubsection[{AsyncUdpSocketException}]{\setlength{\rightskip}{0pt plus 5cm}NSString$\ast$ const {\bf AsyncUdpSocketException} = @\char`\"{}AsyncUdpSocketException\char`\"{}}}
+\label{_async_udp_socket_8m_ad6df1cce3ce4139412b562b3fc8231b1}
+
+
+Definition at line 30 of file AsyncUdpSocket.m.
+

@@ -1,0 +1,168 @@
+\hypertarget{interface_zig_pad_settings}{
+\section{ZigPadSettings Class Reference}
+\label{interface_zig_pad_settings}\index{ZigPadSettings@{ZigPadSettings}}
+}
+
+
+{\ttfamily \#import $<$ZigPadSettings.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(void) -\/ \hyperlink{interface_zig_pad_settings_a510ae0a55f24da67a68e8758252ccfda}{setIP:simulationMode:}
+\item 
+(void) -\/ \hyperlink{interface_zig_pad_settings_a35d36542dd82b12e24791819092906c5}{setPort:simulationMode:}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(\hyperlink{interface_zig_pad_settings}{ZigPadSettings} $\ast$) + \hyperlink{interface_zig_pad_settings_a62b9daa68893a19f9b6a6737fb8f875a}{sharedInstance}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+BOOL \hyperlink{interface_zig_pad_settings_ab314ed8d97474bb5391236ced665bd3b}{simulationMode}
+\item 
+NSString $\ast$ \hyperlink{interface_zig_pad_settings_a3b2dbac08a4748cccf3aea0c3f557fd4}{configuratorURL}
+\item 
+UIColor $\ast$ \hyperlink{interface_zig_pad_settings_a22b7a43d44d562d77d8534e46db89fe1}{modeColor}
+\item 
+NSString $\ast$ \hyperlink{interface_zig_pad_settings_ad56edd22bf5c939f2931577a179b55ab}{ip}
+\item 
+int \hyperlink{interface_zig_pad_settings_a63c89c04d1feae07ca35558055155ffb}{port}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Allows to access and store application settings.
+
+Uses NSUserDefaults to store these permanently. 
+
+Definition at line 16 of file ZigPadSettings.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_zig_pad_settings_a510ae0a55f24da67a68e8758252ccfda}{
+\index{ZigPadSettings@{ZigPadSettings}!setIP:simulationMode:@{setIP:simulationMode:}}
+\index{setIP:simulationMode:@{setIP:simulationMode:}!ZigPadSettings@{ZigPadSettings}}
+\subsubsection[{setIP:simulationMode:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) setIP: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString $\ast$)}]{ip}
+\item[{simulationMode:(BOOL)}]{simulationMode}
+\end{DoxyParamCaption}
+}}
+\label{interface_zig_pad_settings_a510ae0a55f24da67a68e8758252ccfda}
+Allows to set the IP for a specific simulation mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & The IP to be used for this simulation mode. \\
+\hline
+{\em simulationMode} & YES if this IP is for the simulation mode.\\
+\hline
+\end{DoxyParams}
+Setter method for the ip property. 
+
+Definition at line 135 of file ZigPadSettings.m.
+
+\hypertarget{interface_zig_pad_settings_a35d36542dd82b12e24791819092906c5}{
+\index{ZigPadSettings@{ZigPadSettings}!setPort:simulationMode:@{setPort:simulationMode:}}
+\index{setPort:simulationMode:@{setPort:simulationMode:}!ZigPadSettings@{ZigPadSettings}}
+\subsubsection[{setPort:simulationMode:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) setPort: 
+\begin{DoxyParamCaption}
+\item[{dummy(int)}]{port}
+\item[{simulationMode:(BOOL)}]{simulationMode}
+\end{DoxyParamCaption}
+}}
+\label{interface_zig_pad_settings_a35d36542dd82b12e24791819092906c5}
+Allows to set the Port for a specific simulation mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & The Port to be used for this simulation mode. \\
+\hline
+{\em simulationMode} & YES if this Port is for the simulation mode.\\
+\hline
+\end{DoxyParams}
+Setter method for the port property. 
+
+Definition at line 144 of file ZigPadSettings.m.
+
+\hypertarget{interface_zig_pad_settings_a62b9daa68893a19f9b6a6737fb8f875a}{
+\index{ZigPadSettings@{ZigPadSettings}!sharedInstance@{sharedInstance}}
+\index{sharedInstance@{sharedInstance}!ZigPadSettings@{ZigPadSettings}}
+\subsubsection[{sharedInstance}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf ZigPadSettings} $\ast$) sharedInstance 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_zig_pad_settings_a62b9daa68893a19f9b6a6737fb8f875a}
+Returns the shared instance of this class. 
+
+Definition at line 31 of file ZigPadSettings.m.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{interface_zig_pad_settings_a3b2dbac08a4748cccf3aea0c3f557fd4}{
+\index{ZigPadSettings@{ZigPadSettings}!configuratorURL@{configuratorURL}}
+\index{configuratorURL@{configuratorURL}!ZigPadSettings@{ZigPadSettings}}
+\subsubsection[{configuratorURL}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) configuratorURL\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_zig_pad_settings_a3b2dbac08a4748cccf3aea0c3f557fd4}
+Setting for the configurator URL.
+
+Get method for the configurationURL property. 
+
+Definition at line 37 of file ZigPadSettings.h.
+
+\hypertarget{interface_zig_pad_settings_ad56edd22bf5c939f2931577a179b55ab}{
+\index{ZigPadSettings@{ZigPadSettings}!ip@{ip}}
+\index{ip@{ip}!ZigPadSettings@{ZigPadSettings}}
+\subsubsection[{ip}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) ip\hspace{0.3cm}{\ttfamily  \mbox{[}read, assign\mbox{]}}}}
+\label{interface_zig_pad_settings_ad56edd22bf5c939f2931577a179b55ab}
+Setting for the HomeServer IP, depends on the simulation mode.
+
+Getter method for the IP property. 
+
+Definition at line 47 of file ZigPadSettings.h.
+
+\hypertarget{interface_zig_pad_settings_a22b7a43d44d562d77d8534e46db89fe1}{
+\index{ZigPadSettings@{ZigPadSettings}!modeColor@{modeColor}}
+\index{modeColor@{modeColor}!ZigPadSettings@{ZigPadSettings}}
+\subsubsection[{modeColor}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UIColor $\ast$) modeColor\hspace{0.3cm}{\ttfamily  \mbox{[}read, assign\mbox{]}}}}
+\label{interface_zig_pad_settings_a22b7a43d44d562d77d8534e46db89fe1}
+Returns the UIColor instance for the navigationBar.
+
+Getter method for the modeColor property. 
+
+Definition at line 42 of file ZigPadSettings.h.
+
+\hypertarget{interface_zig_pad_settings_a63c89c04d1feae07ca35558055155ffb}{
+\index{ZigPadSettings@{ZigPadSettings}!port@{port}}
+\index{port@{port}!ZigPadSettings@{ZigPadSettings}}
+\subsubsection[{port}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (int) port\hspace{0.3cm}{\ttfamily  \mbox{[}read, assign\mbox{]}}}}
+\label{interface_zig_pad_settings_a63c89c04d1feae07ca35558055155ffb}
+Setting for the HomeServer Port, depends on the simulation mode.
+
+Getter method for the port property. 
+
+Definition at line 52 of file ZigPadSettings.h.
+
+\hypertarget{interface_zig_pad_settings_ab314ed8d97474bb5391236ced665bd3b}{
+\index{ZigPadSettings@{ZigPadSettings}!simulationMode@{simulationMode}}
+\index{simulationMode@{simulationMode}!ZigPadSettings@{ZigPadSettings}}
+\subsubsection[{simulationMode}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) simulationMode\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_zig_pad_settings_ab314ed8d97474bb5391236ced665bd3b}
+Setting for the SimulationMode, YES if on.
+
+Getter method for the simulationMode property. 
+
+Definition at line 32 of file ZigPadSettings.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_zig_pad_settings_8h}{ZigPadSettings.h}\item 
+\hyperlink{_zig_pad_settings_8m}{ZigPadSettings.m}\end{DoxyCompactItemize}

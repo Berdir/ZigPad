@@ -1,0 +1,181 @@
+\hypertarget{interface_async_read_packet}{
+\section{AsyncReadPacket Class Reference}
+\label{interface_async_read_packet}\index{AsyncReadPacket@{AsyncReadPacket}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(id) -\/ \hyperlink{interface_async_read_packet_a93a1eccd6e5b14afa9187c0e2058e828}{initWithData:timeout:tag:readAllAvailable:terminator:maxLength:}
+\item 
+(unsigned) -\/ \hyperlink{interface_async_read_packet_abe74c2dae7ffb20a67fdb22489c216b2}{readLengthForTerm}
+\item 
+(unsigned) -\/ \hyperlink{interface_async_read_packet_ac6b18b826ccef6c8228961772c9ad908}{prebufferReadLengthForTerm}
+\item 
+(CFIndex) -\/ \hyperlink{interface_async_read_packet_a6db5d6519eb30f831300d459da350c4d}{searchForTermAfterPreBuffering:}
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+NSMutableData $\ast$ \hyperlink{interface_async_read_packet_a7ab0bf89e1cb8317d120c9c44ab611f0}{buffer}
+\item 
+CFIndex \hyperlink{interface_async_read_packet_a804028456a90dacc02875cce444fc633}{bytesDone}
+\item 
+NSTimeInterval \hyperlink{interface_async_read_packet_a39233eb85b4cbae04411577510e7c5e6}{timeout}
+\item 
+CFIndex \hyperlink{interface_async_read_packet_af40e9808177892b59a4da837758cbd46}{maxLength}
+\item 
+long \hyperlink{interface_async_read_packet_ae10c29173f0af40507d7e787905c7130}{tag}
+\item 
+NSData $\ast$ \hyperlink{interface_async_read_packet_ac09dba8aa168ea0ea2797060e554412e}{term}
+\item 
+BOOL \hyperlink{interface_async_read_packet_aa5c1fe7301afb88f18c0330044951924}{readAllAvailableData}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{interface_async_read_packet}{AsyncReadPacket} encompasses the instructions for any given read. The content of a read packet allows the code to determine if we're:
+\begin{DoxyItemize}
+\item reading to a certain length
+\item reading to a certain separator
+\item or simply reading the first chunk of available data 
+\end{DoxyItemize}
+
+Definition at line 153 of file AsyncTCPSocket.m.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_async_read_packet_a93a1eccd6e5b14afa9187c0e2058e828}{
+\index{AsyncReadPacket@{AsyncReadPacket}!initWithData:timeout:tag:readAllAvailable:terminator:maxLength:@{initWithData:timeout:tag:readAllAvailable:terminator:maxLength:}}
+\index{initWithData:timeout:tag:readAllAvailable:terminator:maxLength:@{initWithData:timeout:tag:readAllAvailable:terminator:maxLength:}!AsyncReadPacket@{AsyncReadPacket}}
+\subsubsection[{initWithData:timeout:tag:readAllAvailable:terminator:maxLength:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) initWithData: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSMutableData $\ast$)}]{d}
+\item[{timeout:(NSTimeInterval)}]{t}
+\item[{tag:(long)}]{i}
+\item[{readAllAvailable:(BOOL)}]{a}
+\item[{terminator:(NSData $\ast$)}]{e}
+\item[{maxLength:(CFIndex)}]{m}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_read_packet_a93a1eccd6e5b14afa9187c0e2058e828}
+
+
+Definition at line 179 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_read_packet_ac6b18b826ccef6c8228961772c9ad908}{
+\index{AsyncReadPacket@{AsyncReadPacket}!prebufferReadLengthForTerm@{prebufferReadLengthForTerm}}
+\index{prebufferReadLengthForTerm@{prebufferReadLengthForTerm}!AsyncReadPacket@{AsyncReadPacket}}
+\subsubsection[{prebufferReadLengthForTerm}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (unsigned) prebufferReadLengthForTerm 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_read_packet_ac6b18b826ccef6c8228961772c9ad908}
+Assuming pre-\/buffering is enabled, returns the amount of data that can be read without going over the maxLength. 
+
+Definition at line 252 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_read_packet_abe74c2dae7ffb20a67fdb22489c216b2}{
+\index{AsyncReadPacket@{AsyncReadPacket}!readLengthForTerm@{readLengthForTerm}}
+\index{readLengthForTerm@{readLengthForTerm}!AsyncReadPacket@{AsyncReadPacket}}
+\subsubsection[{readLengthForTerm}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (unsigned) readLengthForTerm 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_read_packet_abe74c2dae7ffb20a67fdb22489c216b2}
+For read packets with a set terminator, returns the safe length of data that can be read without going over a terminator, or the maxLength.
+
+It is assumed the terminator has not already been read. 
+
+Definition at line 205 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_read_packet_a6db5d6519eb30f831300d459da350c4d}{
+\index{AsyncReadPacket@{AsyncReadPacket}!searchForTermAfterPreBuffering:@{searchForTermAfterPreBuffering:}}
+\index{searchForTermAfterPreBuffering:@{searchForTermAfterPreBuffering:}!AsyncReadPacket@{AsyncReadPacket}}
+\subsubsection[{searchForTermAfterPreBuffering:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFIndex) searchForTermAfterPreBuffering: 
+\begin{DoxyParamCaption}
+\item[{dummy(CFIndex)}]{numBytes}
+\end{DoxyParamCaption}
+}}
+\label{interface_async_read_packet_a6db5d6519eb30f831300d459da350c4d}
+For read packets with a set terminator, scans the packet buffer for the term. It is assumed the terminator had not been fully read prior to the new bytes.
+
+If the term is found, the number of excess bytes after the term are returned. If the term is not found, this method will return -\/1.
+
+Note: A return value of zero means the term was found at the very end. 
+
+Definition at line 269 of file AsyncTCPSocket.m.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{interface_async_read_packet_a7ab0bf89e1cb8317d120c9c44ab611f0}{
+\index{AsyncReadPacket@{AsyncReadPacket}!buffer@{buffer}}
+\index{buffer@{buffer}!AsyncReadPacket@{AsyncReadPacket}}
+\subsubsection[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSMutableData$\ast$) {\bf buffer}}}
+\label{interface_async_read_packet_a7ab0bf89e1cb8317d120c9c44ab611f0}
+
+
+Definition at line 156 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_read_packet_a804028456a90dacc02875cce444fc633}{
+\index{AsyncReadPacket@{AsyncReadPacket}!bytesDone@{bytesDone}}
+\index{bytesDone@{bytesDone}!AsyncReadPacket@{AsyncReadPacket}}
+\subsubsection[{bytesDone}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFIndex) {\bf bytesDone}}}
+\label{interface_async_read_packet_a804028456a90dacc02875cce444fc633}
+
+
+Definition at line 157 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_read_packet_af40e9808177892b59a4da837758cbd46}{
+\index{AsyncReadPacket@{AsyncReadPacket}!maxLength@{maxLength}}
+\index{maxLength@{maxLength}!AsyncReadPacket@{AsyncReadPacket}}
+\subsubsection[{maxLength}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CFIndex) {\bf maxLength}}}
+\label{interface_async_read_packet_af40e9808177892b59a4da837758cbd46}
+
+
+Definition at line 159 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_read_packet_aa5c1fe7301afb88f18c0330044951924}{
+\index{AsyncReadPacket@{AsyncReadPacket}!readAllAvailableData@{readAllAvailableData}}
+\index{readAllAvailableData@{readAllAvailableData}!AsyncReadPacket@{AsyncReadPacket}}
+\subsubsection[{readAllAvailableData}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) {\bf readAllAvailableData}}}
+\label{interface_async_read_packet_aa5c1fe7301afb88f18c0330044951924}
+
+
+Definition at line 162 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_read_packet_ae10c29173f0af40507d7e787905c7130}{
+\index{AsyncReadPacket@{AsyncReadPacket}!tag@{tag}}
+\index{tag@{tag}!AsyncReadPacket@{AsyncReadPacket}}
+\subsubsection[{tag}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (long) {\bf tag}}}
+\label{interface_async_read_packet_ae10c29173f0af40507d7e787905c7130}
+
+
+Definition at line 160 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_read_packet_ac09dba8aa168ea0ea2797060e554412e}{
+\index{AsyncReadPacket@{AsyncReadPacket}!term@{term}}
+\index{term@{term}!AsyncReadPacket@{AsyncReadPacket}}
+\subsubsection[{term}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSData$\ast$) {\bf term}}}
+\label{interface_async_read_packet_ac09dba8aa168ea0ea2797060e554412e}
+
+
+Definition at line 161 of file AsyncTCPSocket.m.
+
+\hypertarget{interface_async_read_packet_a39233eb85b4cbae04411577510e7c5e6}{
+\index{AsyncReadPacket@{AsyncReadPacket}!timeout@{timeout}}
+\index{timeout@{timeout}!AsyncReadPacket@{AsyncReadPacket}}
+\subsubsection[{timeout}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSTimeInterval) {\bf timeout}}}
+\label{interface_async_read_packet_a39233eb85b4cbae04411577510e7c5e6}
+
+
+Definition at line 158 of file AsyncTCPSocket.m.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_async_t_c_p_socket_8m}{AsyncTCPSocket.m}\end{DoxyCompactItemize}

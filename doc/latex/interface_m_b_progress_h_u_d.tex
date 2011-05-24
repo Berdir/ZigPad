@@ -1,0 +1,714 @@
+\hypertarget{interface_m_b_progress_h_u_d}{
+\section{MBProgressHUD Class Reference}
+\label{interface_m_b_progress_h_u_d}\index{MBProgressHUD@{MBProgressHUD}}
+}
+
+
+{\ttfamily \#import $<$MBProgressHUD.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(id) -\/ \hyperlink{interface_m_b_progress_h_u_d_ad99c92b4be7b1d6f7eb2762bbfce6c6e}{initWithWindow:}
+\item 
+(id) -\/ \hyperlink{interface_m_b_progress_h_u_d_ad5fd1005074eea7ba14a56b7256c1e47}{initWithView:}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_a2399f0aa26eadb79a5ec7a7ff66ac9b9}{show:}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_a7a511191430dbd182d69f85fb96c8a88}{hide:}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_a09cc0168f613c61e322c18a3df1c916f}{showWhileExecuting:onTarget:withObject:animated:}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_a702cc0f7d9fa3c6ead24f10910f87843}{hideUsingAnimation:}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_a17b1c3c1493f9e4a48eeea0023591d84}{showUsingAnimation:}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_a127ca9118e4fa3ad9159da4daac392e7}{fillRoundedRect:inContext:}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_ab650651e4cda2869f73100c6fd2c821a}{done}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_a1d61d7c9c4e477613dfd6d07b3377a8d}{updateLabelText:}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_a9629b5ff700902ca97a7d07234b03391}{updateDetailsLabelText:}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_ac0b3d882b8cd04f7a6de489cd3557050}{updateProgress}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_aea71f80dc5011b14b0ff96cc7930e809}{updateIndicators}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_a9f07c4812fc94f455556c66b3f8beef7}{handleGraceTimer:}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_ad386fdf9b21c0a35c3fbb28b1adc5927}{handleMinShowTimer:}
+\item 
+(void) -\/ \hyperlink{interface_m_b_progress_h_u_d_a4b5bf5dc83bdf021f8038ec1a7521abe}{setTransformForCurrentOrientation:}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(\hyperlink{interface_m_b_progress_h_u_d}{MBProgressHUD} $\ast$) + \hyperlink{interface_m_b_progress_h_u_d_a2f54863d49e67015d6164e5fc2ca36ba}{showHUDAddedTo:animated:}
+\item 
+(BOOL) + \hyperlink{interface_m_b_progress_h_u_d_ad688ad504d1a601c26ce4f9889276f40}{hideHUDForView:animated:}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+SEL \hyperlink{interface_m_b_progress_h_u_d_ae28780a2d6fe7834cc029fbbdf206b62}{methodForExecution}
+\item 
+id \hyperlink{interface_m_b_progress_h_u_d_ac38a276e24f577d9c261e271f57a33c4}{targetForExecution}
+\item 
+id \hyperlink{interface_m_b_progress_h_u_d_a8a5775046c2febf1bffd946f6febce85}{objectForExecution}
+\item 
+BOOL \hyperlink{interface_m_b_progress_h_u_d_a46218ca7550d93cf0d9f10b864889f43}{useAnimation}
+\item 
+float \hyperlink{interface_m_b_progress_h_u_d_ae426f00e82704fa09578f5446e22d915}{width}
+\item 
+float \hyperlink{interface_m_b_progress_h_u_d_a48083b65ac9a863566dc3e3fff09a5b4}{height}
+\item 
+NSTimer $\ast$ \hyperlink{interface_m_b_progress_h_u_d_ab4b1d4d09e833eabdb13dc83f73da1d8}{graceTimer}
+\item 
+NSTimer $\ast$ \hyperlink{interface_m_b_progress_h_u_d_a697ca7d4c1e40af232c289e8ab9b1ff6}{minShowTimer}
+\item 
+NSDate $\ast$ \hyperlink{interface_m_b_progress_h_u_d_aec6a7dafb64489e886976bac1d834c49}{showStarted}
+\item 
+UIView $\ast$ \hyperlink{interface_m_b_progress_h_u_d_abd7020204dc7ede51b3e46958c313422}{indicator}
+\item 
+UILabel $\ast$ \hyperlink{interface_m_b_progress_h_u_d_a077d2090d973b1d47c6e3d6e0c47e8af}{label}
+\item 
+UILabel $\ast$ \hyperlink{interface_m_b_progress_h_u_d_a077099bddd69564b35222123f4c42f33}{detailsLabel}
+\item 
+BOOL \hyperlink{interface_m_b_progress_h_u_d_a2f9955018d8c22980f27a7f93876e39a}{isFinished}
+\item 
+CGAffineTransform \hyperlink{interface_m_b_progress_h_u_d_adc611101946978c2d856725aee5f3268}{rotationTransform}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+UIView $\ast$ \hyperlink{interface_m_b_progress_h_u_d_a3a6f62a10481ff864c43768214335413}{customView}
+\item 
+\hyperlink{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621}{MBProgressHUDMode} \hyperlink{interface_m_b_progress_h_u_d_a9eccf2d6fd3a3aee4df6e264de66b9b3}{mode}
+\item 
+\hyperlink{_m_b_progress_h_u_d_8h_a892ebf586d23b21a74bc54138ca25990}{MBProgressHUDAnimation} \hyperlink{interface_m_b_progress_h_u_d_a58c96d0d9d41e71d1f6e5490fa86fa96}{animationType}
+\item 
+id$<$ \hyperlink{protocol_m_b_progress_h_u_d_delegate-p}{MBProgressHUDDelegate} $>$ \hyperlink{interface_m_b_progress_h_u_d_a11525953bb5a88c09134de82a59bac22}{delegate}
+\item 
+NSString $\ast$ \hyperlink{interface_m_b_progress_h_u_d_a1d899875abfd1523c91b988113e6ecd1}{labelText}
+\item 
+NSString $\ast$ \hyperlink{interface_m_b_progress_h_u_d_ae16c349e909c11b26e72501ba1a13154}{detailsLabelText}
+\item 
+float \hyperlink{interface_m_b_progress_h_u_d_a6f4dca6b48529c4d3dade0e8d46f4e43}{opacity}
+\item 
+float \hyperlink{interface_m_b_progress_h_u_d_a4c9cc7a344711c6782bfad7ce9e12bb7}{xOffset}
+\item 
+float \hyperlink{interface_m_b_progress_h_u_d_a5193d79f9884fd5dad21aa7981429d16}{yOffset}
+\item 
+float \hyperlink{interface_m_b_progress_h_u_d_aea1419deaadb54e70abae7fe5aada09e}{margin}
+\item 
+float \hyperlink{interface_m_b_progress_h_u_d_ab22f44d31708d989ea3c1fe8452b13d2}{graceTime}
+\item 
+float \hyperlink{interface_m_b_progress_h_u_d_a776e5016e02affa05b3748fa6d975fd2}{minShowTime}
+\item 
+BOOL \hyperlink{interface_m_b_progress_h_u_d_a283d5cb9a069816a9a0406bc90d79a25}{taskInProgress}
+\item 
+BOOL \hyperlink{interface_m_b_progress_h_u_d_ae941fefd3aee82dc342657b52edb1e2b}{removeFromSuperViewOnHide}
+\item 
+UIFont $\ast$ \hyperlink{interface_m_b_progress_h_u_d_a4cfdebd008893a876603f2b234eb2ccd}{labelFont}
+\item 
+UIFont $\ast$ \hyperlink{interface_m_b_progress_h_u_d_af64b9ad0a4e509b96b9ffefc6f379b53}{detailsLabelFont}
+\item 
+float \hyperlink{interface_m_b_progress_h_u_d_ac7abb4766cd3f65c31f56279d7decff8}{progress}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Displays a simple HUD window containing a progress indicator and two optional labels for short messages.
+
+This is a simple drop-\/in class for displaying a progress HUD view similar to Apples private UIProgressHUD class. The \hyperlink{interface_m_b_progress_h_u_d}{MBProgressHUD} window spans over the entire space given to it by the initWithFrame constructor and catches all user input on this region, thereby preventing the user operations on components below the view. The HUD itself is drawn centered as a rounded semi-\/transparent view witch resizes depending on the user specified content.
+
+This view supports three modes of operation:
+\begin{DoxyItemize}
+\item MBProgressHUDModeIndeterminate -\/ shows a UIActivityIndicatorView
+\item MBProgressHUDModeDeterminate -\/ shows a custom round progress indicator (\hyperlink{interface_m_b_round_progress_view}{MBRoundProgressView})
+\item MBProgressHUDModeCustomView -\/ shows an arbitrary, user specified view (\begin{DoxySeeAlso}{See also}
+\hyperlink{interface_m_b_progress_h_u_d_a3a6f62a10481ff864c43768214335413}{customView})
+\end{DoxySeeAlso}
+All three modes can have optional labels assigned:
+\item If the labelText property is set and non-\/empty then a label containing the provided content is placed below the indicator view.
+\item If also the detailsLabelText property is set then another label is placed below the first label. 
+\end{DoxyItemize}
+
+Definition at line 97 of file MBProgressHUD.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_m_b_progress_h_u_d_ab650651e4cda2869f73100c6fd2c821a}{
+\index{MBProgressHUD@{MBProgressHUD}!done@{done}}
+\index{done@{done}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{done}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) done 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_ab650651e4cda2869f73100c6fd2c821a}
+\hypertarget{interface_m_b_progress_h_u_d_a127ca9118e4fa3ad9159da4daac392e7}{
+\index{MBProgressHUD@{MBProgressHUD}!fillRoundedRect:inContext:@{fillRoundedRect:inContext:}}
+\index{fillRoundedRect:inContext:@{fillRoundedRect:inContext:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{fillRoundedRect:inContext:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) fillRoundedRect: 
+\begin{DoxyParamCaption}
+\item[{dummy(CGRect)}]{rect}
+\item[{inContext:(CGContextRef)}]{context}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_a127ca9118e4fa3ad9159da4daac392e7}
+\hypertarget{interface_m_b_progress_h_u_d_a9f07c4812fc94f455556c66b3f8beef7}{
+\index{MBProgressHUD@{MBProgressHUD}!handleGraceTimer:@{handleGraceTimer:}}
+\index{handleGraceTimer:@{handleGraceTimer:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{handleGraceTimer:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) handleGraceTimer: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSTimer $\ast$)}]{theTimer}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_a9f07c4812fc94f455556c66b3f8beef7}
+\hypertarget{interface_m_b_progress_h_u_d_ad386fdf9b21c0a35c3fbb28b1adc5927}{
+\index{MBProgressHUD@{MBProgressHUD}!handleMinShowTimer:@{handleMinShowTimer:}}
+\index{handleMinShowTimer:@{handleMinShowTimer:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{handleMinShowTimer:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) handleMinShowTimer: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSTimer $\ast$)}]{theTimer}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_ad386fdf9b21c0a35c3fbb28b1adc5927}
+\hypertarget{interface_m_b_progress_h_u_d_a7a511191430dbd182d69f85fb96c8a88}{
+\index{MBProgressHUD@{MBProgressHUD}!hide:@{hide:}}
+\index{hide:@{hide:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{hide:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) hide: 
+\begin{DoxyParamCaption}
+\item[{dummy(BOOL)}]{animated}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_a7a511191430dbd182d69f85fb96c8a88}
+Hide the HUD, this still calls the hudWasHidden delegate. This is the counterpart of the hide: method. Use it to hide the HUD when your task completes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em animated} & If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use animations while disappearing. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 422 of file MBProgressHUD.m.
+
+\hypertarget{interface_m_b_progress_h_u_d_ad688ad504d1a601c26ce4f9889276f40}{
+\index{MBProgressHUD@{MBProgressHUD}!hideHUDForView:animated:@{hideHUDForView:animated:}}
+\index{hideHUDForView:animated:@{hideHUDForView:animated:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{hideHUDForView:animated:}]{\setlength{\rightskip}{0pt plus 5cm}+ (BOOL) hideHUDForView: 
+\begin{DoxyParamCaption}
+\item[{dummy(UIView $\ast$)}]{view}
+\item[{animated:(BOOL)}]{animated}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_ad688ad504d1a601c26ce4f9889276f40}
+Finds a HUD sibview and hides it. The counterpart to this method is showHUDAddedTo:animated:.
+
+
+\begin{DoxyParams}{Parameters}
+{\em view} & The view that is going to be searched for a HUD subview. \\
+\hline
+{\em animated} & If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use animations while disappearing. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+YES if a HUD was found and removed, NO otherwise.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interface_m_b_progress_h_u_d_ad688ad504d1a601c26ce4f9889276f40}{+ hideHUDForView:animated:} 
+\end{DoxySeeAlso}
+
+
+Definition at line 200 of file MBProgressHUD.m.
+
+\hypertarget{interface_m_b_progress_h_u_d_a702cc0f7d9fa3c6ead24f10910f87843}{
+\index{MBProgressHUD@{MBProgressHUD}!hideUsingAnimation:@{hideUsingAnimation:}}
+\index{hideUsingAnimation:@{hideUsingAnimation:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{hideUsingAnimation:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) hideUsingAnimation: 
+\begin{DoxyParamCaption}
+\item[{dummy(BOOL)}]{animated}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_a702cc0f7d9fa3c6ead24f10910f87843}
+\hypertarget{interface_m_b_progress_h_u_d_ad5fd1005074eea7ba14a56b7256c1e47}{
+\index{MBProgressHUD@{MBProgressHUD}!initWithView:@{initWithView:}}
+\index{initWithView:@{initWithView:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{initWithView:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) initWithView: 
+\begin{DoxyParamCaption}
+\item[{dummy(UIView $\ast$)}]{view}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_ad5fd1005074eea7ba14a56b7256c1e47}
+A convenience constructor that initializes the HUD with the view's bounds. Calls the designated constructor with view.bounds as the parameter
+
+
+\begin{DoxyParams}{Parameters}
+{\em view} & The view instance that will provide the bounds for the HUD. Should probably be the same instance as the HUD's superview (i.e., the view that the HUD will be added to). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 225 of file MBProgressHUD.m.
+
+\hypertarget{interface_m_b_progress_h_u_d_ad99c92b4be7b1d6f7eb2762bbfce6c6e}{
+\index{MBProgressHUD@{MBProgressHUD}!initWithWindow:@{initWithWindow:}}
+\index{initWithWindow:@{initWithWindow:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{initWithWindow:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) initWithWindow: 
+\begin{DoxyParamCaption}
+\item[{dummy(UIWindow $\ast$)}]{window}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_ad99c92b4be7b1d6f7eb2762bbfce6c6e}
+A convenience constructor that initializes the HUD with the window's bounds. Calls the designated constructor with window.bounds as the parameter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window instance that will provide the bounds for the HUD. Should probably be the same instance as the HUD's superview (i.e., the window that the HUD will be added to). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 221 of file MBProgressHUD.m.
+
+\hypertarget{interface_m_b_progress_h_u_d_a4b5bf5dc83bdf021f8038ec1a7521abe}{
+\index{MBProgressHUD@{MBProgressHUD}!setTransformForCurrentOrientation:@{setTransformForCurrentOrientation:}}
+\index{setTransformForCurrentOrientation:@{setTransformForCurrentOrientation:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{setTransformForCurrentOrientation:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) setTransformForCurrentOrientation: 
+\begin{DoxyParamCaption}
+\item[{dummy(BOOL)}]{animated}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_a4b5bf5dc83bdf021f8038ec1a7521abe}
+\hypertarget{interface_m_b_progress_h_u_d_a2399f0aa26eadb79a5ec7a7ff66ac9b9}{
+\index{MBProgressHUD@{MBProgressHUD}!show:@{show:}}
+\index{show:@{show:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{show:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) show: 
+\begin{DoxyParamCaption}
+\item[{dummy(BOOL)}]{animated}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_a2399f0aa26eadb79a5ec7a7ff66ac9b9}
+Display the HUD. You need to make sure that the main thread completes its run loop soon after this method call so the user interface can be updated. Call this method when your task is already set-\/up to be executed in a new thread (e.g., when using something like NSOperation or calling an asynchronous call like NSUrlRequest).
+
+
+\begin{DoxyParams}{Parameters}
+{\em animated} & If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use animations while disappearing. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 404 of file MBProgressHUD.m.
+
+\hypertarget{interface_m_b_progress_h_u_d_a2f54863d49e67015d6164e5fc2ca36ba}{
+\index{MBProgressHUD@{MBProgressHUD}!showHUDAddedTo:animated:@{showHUDAddedTo:animated:}}
+\index{showHUDAddedTo:animated:@{showHUDAddedTo:animated:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{showHUDAddedTo:animated:}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf MBProgressHUD} $\ast$) showHUDAddedTo: 
+\begin{DoxyParamCaption}
+\item[{dummy(UIView $\ast$)}]{view}
+\item[{animated:(BOOL)}]{animated}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_a2f54863d49e67015d6164e5fc2ca36ba}
+Creates a new hud, adds it to provided view and shows it. The counterpart to this method is hideHUDForView:animated:.
+
+
+\begin{DoxyParams}{Parameters}
+{\em view} & The view that the HUD will be added to \\
+\hline
+{\em animated} & If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use animations while disappearing. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the created HUD.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interface_m_b_progress_h_u_d_ad688ad504d1a601c26ce4f9889276f40}{+ hideHUDForView:animated:} 
+\end{DoxySeeAlso}
+
+
+Definition at line 193 of file MBProgressHUD.m.
+
+\hypertarget{interface_m_b_progress_h_u_d_a17b1c3c1493f9e4a48eeea0023591d84}{
+\index{MBProgressHUD@{MBProgressHUD}!showUsingAnimation:@{showUsingAnimation:}}
+\index{showUsingAnimation:@{showUsingAnimation:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{showUsingAnimation:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) showUsingAnimation: 
+\begin{DoxyParamCaption}
+\item[{dummy(BOOL)}]{animated}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_a17b1c3c1493f9e4a48eeea0023591d84}
+\hypertarget{interface_m_b_progress_h_u_d_a09cc0168f613c61e322c18a3df1c916f}{
+\index{MBProgressHUD@{MBProgressHUD}!showWhileExecuting:onTarget:withObject:animated:@{showWhileExecuting:onTarget:withObject:animated:}}
+\index{showWhileExecuting:onTarget:withObject:animated:@{showWhileExecuting:onTarget:withObject:animated:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{showWhileExecuting:onTarget:withObject:animated:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) showWhileExecuting: 
+\begin{DoxyParamCaption}
+\item[{dummy(SEL)}]{method}
+\item[{onTarget:(id)}]{target}
+\item[{withObject:(id)}]{object}
+\item[{animated:(BOOL)}]{animated}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_a09cc0168f613c61e322c18a3df1c916f}
+Shows the HUD while a background task is executing in a new thread, then hides the HUD.
+
+This method also takes care of NSAutoreleasePools so your method does not have to be concerned with setting up a pool.
+
+
+\begin{DoxyParams}{Parameters}
+{\em method} & The method to be executed while the HUD is shown. This method will be executed in a new thread. \\
+\hline
+{\em target} & The object that the target method belongs to. \\
+\hline
+{\em object} & An optional object to be passed to the method. \\
+\hline
+{\em animated} & If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use animations while disappearing. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 455 of file MBProgressHUD.m.
+
+\hypertarget{interface_m_b_progress_h_u_d_a9629b5ff700902ca97a7d07234b03391}{
+\index{MBProgressHUD@{MBProgressHUD}!updateDetailsLabelText:@{updateDetailsLabelText:}}
+\index{updateDetailsLabelText:@{updateDetailsLabelText:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{updateDetailsLabelText:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) updateDetailsLabelText: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString $\ast$)}]{newText}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_a9629b5ff700902ca97a7d07234b03391}
+\hypertarget{interface_m_b_progress_h_u_d_aea71f80dc5011b14b0ff96cc7930e809}{
+\index{MBProgressHUD@{MBProgressHUD}!updateIndicators@{updateIndicators}}
+\index{updateIndicators@{updateIndicators}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{updateIndicators}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) updateIndicators 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_aea71f80dc5011b14b0ff96cc7930e809}
+\hypertarget{interface_m_b_progress_h_u_d_a1d61d7c9c4e477613dfd6d07b3377a8d}{
+\index{MBProgressHUD@{MBProgressHUD}!updateLabelText:@{updateLabelText:}}
+\index{updateLabelText:@{updateLabelText:}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{updateLabelText:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) updateLabelText: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString $\ast$)}]{newText}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_a1d61d7c9c4e477613dfd6d07b3377a8d}
+\hypertarget{interface_m_b_progress_h_u_d_ac0b3d882b8cd04f7a6de489cd3557050}{
+\index{MBProgressHUD@{MBProgressHUD}!updateProgress@{updateProgress}}
+\index{updateProgress@{updateProgress}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{updateProgress}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) updateProgress 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_m_b_progress_h_u_d_ac0b3d882b8cd04f7a6de489cd3557050}
+
+
+\subsection{Field Documentation}
+\hypertarget{interface_m_b_progress_h_u_d_a077099bddd69564b35222123f4c42f33}{
+\index{MBProgressHUD@{MBProgressHUD}!detailsLabel@{detailsLabel}}
+\index{detailsLabel@{detailsLabel}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{detailsLabel}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UILabel$\ast$) {\bf detailsLabel}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a077099bddd69564b35222123f4c42f33}
+
+
+Definition at line 124 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_ab4b1d4d09e833eabdb13dc83f73da1d8}{
+\index{MBProgressHUD@{MBProgressHUD}!graceTimer@{graceTimer}}
+\index{graceTimer@{graceTimer}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{graceTimer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSTimer$\ast$) {\bf graceTimer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_ab4b1d4d09e833eabdb13dc83f73da1d8}
+
+
+Definition at line 118 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a48083b65ac9a863566dc3e3fff09a5b4}{
+\index{MBProgressHUD@{MBProgressHUD}!height@{height}}
+\index{height@{height}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{height}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (float) {\bf height}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a48083b65ac9a863566dc3e3fff09a5b4}
+
+
+Definition at line 111 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_abd7020204dc7ede51b3e46958c313422}{
+\index{MBProgressHUD@{MBProgressHUD}!indicator@{indicator}}
+\index{indicator@{indicator}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{indicator}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UIView$\ast$) {\bf indicator}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_abd7020204dc7ede51b3e46958c313422}
+
+
+Definition at line 122 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a2f9955018d8c22980f27a7f93876e39a}{
+\index{MBProgressHUD@{MBProgressHUD}!isFinished@{isFinished}}
+\index{isFinished@{isFinished}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{isFinished}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) {\bf isFinished}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a2f9955018d8c22980f27a7f93876e39a}
+
+
+Definition at line 135 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a077d2090d973b1d47c6e3d6e0c47e8af}{
+\index{MBProgressHUD@{MBProgressHUD}!label@{label}}
+\index{label@{label}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{label}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UILabel$\ast$) {\bf label}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a077d2090d973b1d47c6e3d6e0c47e8af}
+
+
+Definition at line 123 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_ae28780a2d6fe7834cc029fbbdf206b62}{
+\index{MBProgressHUD@{MBProgressHUD}!methodForExecution@{methodForExecution}}
+\index{methodForExecution@{methodForExecution}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{methodForExecution}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (SEL) {\bf methodForExecution}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_ae28780a2d6fe7834cc029fbbdf206b62}
+
+
+Definition at line 102 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a697ca7d4c1e40af232c289e8ab9b1ff6}{
+\index{MBProgressHUD@{MBProgressHUD}!minShowTimer@{minShowTimer}}
+\index{minShowTimer@{minShowTimer}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{minShowTimer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSTimer$\ast$) {\bf minShowTimer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a697ca7d4c1e40af232c289e8ab9b1ff6}
+
+
+Definition at line 119 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a8a5775046c2febf1bffd946f6febce85}{
+\index{MBProgressHUD@{MBProgressHUD}!objectForExecution@{objectForExecution}}
+\index{objectForExecution@{objectForExecution}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{objectForExecution}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) {\bf objectForExecution}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a8a5775046c2febf1bffd946f6febce85}
+
+
+Definition at line 104 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_adc611101946978c2d856725aee5f3268}{
+\index{MBProgressHUD@{MBProgressHUD}!rotationTransform@{rotationTransform}}
+\index{rotationTransform@{rotationTransform}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{rotationTransform}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CGAffineTransform) {\bf rotationTransform}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_adc611101946978c2d856725aee5f3268}
+
+
+Definition at line 140 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_aec6a7dafb64489e886976bac1d834c49}{
+\index{MBProgressHUD@{MBProgressHUD}!showStarted@{showStarted}}
+\index{showStarted@{showStarted}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{showStarted}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSDate$\ast$) {\bf showStarted}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_aec6a7dafb64489e886976bac1d834c49}
+
+
+Definition at line 120 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_ac38a276e24f577d9c261e271f57a33c4}{
+\index{MBProgressHUD@{MBProgressHUD}!targetForExecution@{targetForExecution}}
+\index{targetForExecution@{targetForExecution}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{targetForExecution}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) {\bf targetForExecution}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_ac38a276e24f577d9c261e271f57a33c4}
+
+
+Definition at line 103 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a46218ca7550d93cf0d9f10b864889f43}{
+\index{MBProgressHUD@{MBProgressHUD}!useAnimation@{useAnimation}}
+\index{useAnimation@{useAnimation}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{useAnimation}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) {\bf useAnimation}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a46218ca7550d93cf0d9f10b864889f43}
+
+
+Definition at line 105 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_ae426f00e82704fa09578f5446e22d915}{
+\index{MBProgressHUD@{MBProgressHUD}!width@{width}}
+\index{width@{width}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{width}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (float) {\bf width}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_ae426f00e82704fa09578f5446e22d915}
+
+
+Definition at line 110 of file MBProgressHUD.h.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{interface_m_b_progress_h_u_d_a58c96d0d9d41e71d1f6e5490fa86fa96}{
+\index{MBProgressHUD@{MBProgressHUD}!animationType@{animationType}}
+\index{animationType@{animationType}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{animationType}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf MBProgressHUDAnimation}) animationType\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a58c96d0d9d41e71d1f6e5490fa86fa96}
+The animation type that should be used when the HUD is shown and hidden.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{_m_b_progress_h_u_d_8h_a892ebf586d23b21a74bc54138ca25990}{MBProgressHUDAnimation} 
+\end{DoxySeeAlso}
+
+
+Definition at line 100 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a3a6f62a10481ff864c43768214335413}{
+\index{MBProgressHUD@{MBProgressHUD}!customView@{customView}}
+\index{customView@{customView}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{customView}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UIView $\ast$) customView\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a3a6f62a10481ff864c43768214335413}
+The UIView (i.g., a UIIMageView) to be shown when the HUD is in MBProgressHUDModeCustomView. For best results use a 37 by 37 pixel view (so the bounds match the build in indicator bounds). 
+
+Definition at line 138 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a11525953bb5a88c09134de82a59bac22}{
+\index{MBProgressHUD@{MBProgressHUD}!delegate@{delegate}}
+\index{delegate@{delegate}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{delegate}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id$<$ {\bf MBProgressHUDDelegate} $>$) delegate\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a11525953bb5a88c09134de82a59bac22}
+The HUD delegate object. If set the delegate will receive hudWasHidden callbacks when the HUD was hidden. The delegate should conform to the \hyperlink{protocol_m_b_progress_h_u_d_delegate-p}{MBProgressHUDDelegate} protocol and implement the hudWasHidden method. The delegate object will not be retained. 
+
+Definition at line 128 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_af64b9ad0a4e509b96b9ffefc6f379b53}{
+\index{MBProgressHUD@{MBProgressHUD}!detailsLabelFont@{detailsLabelFont}}
+\index{detailsLabelFont@{detailsLabelFont}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{detailsLabelFont}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UIFont $\ast$) detailsLabelFont\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_af64b9ad0a4e509b96b9ffefc6f379b53}
+Font to be used for the details label. Set this property if the default is not adequate. 
+
+Definition at line 133 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_ae16c349e909c11b26e72501ba1a13154}{
+\index{MBProgressHUD@{MBProgressHUD}!detailsLabelText@{detailsLabelText}}
+\index{detailsLabelText@{detailsLabelText}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{detailsLabelText}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) detailsLabelText\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, copy\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_ae16c349e909c11b26e72501ba1a13154}
+An optional details message displayed below the labelText message. This message is displayed only if the labelText property is also set and is different from an empty string (""). 
+
+Definition at line 130 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_ab22f44d31708d989ea3c1fe8452b13d2}{
+\index{MBProgressHUD@{MBProgressHUD}!graceTime@{graceTime}}
+\index{graceTime@{graceTime}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{graceTime}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (float) graceTime\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_ab22f44d31708d989ea3c1fe8452b13d2}
+
+
+Definition at line 116 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a4cfdebd008893a876603f2b234eb2ccd}{
+\index{MBProgressHUD@{MBProgressHUD}!labelFont@{labelFont}}
+\index{labelFont@{labelFont}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{labelFont}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (UIFont $\ast$) labelFont\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a4cfdebd008893a876603f2b234eb2ccd}
+Font to be used for the main label. Set this property if the default is not adequate. 
+
+Definition at line 132 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a1d899875abfd1523c91b988113e6ecd1}{
+\index{MBProgressHUD@{MBProgressHUD}!labelText@{labelText}}
+\index{labelText@{labelText}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{labelText}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) labelText\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, copy\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a1d899875abfd1523c91b988113e6ecd1}
+An optional short message to be displayed below the activity indicator. The HUD is automatically resized to fit the entire text. If the text is too long it will get clipped by displaying \char`\"{}...\char`\"{} at the end. If left unchanged or set to "", then no message is displayed. 
+
+Definition at line 129 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_aea1419deaadb54e70abae7fe5aada09e}{
+\index{MBProgressHUD@{MBProgressHUD}!margin@{margin}}
+\index{margin@{margin}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{margin}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (float) margin\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_aea1419deaadb54e70abae7fe5aada09e}
+The amounth of space between the HUD edge and the HUD elements (labels, indicators or custom views).
+
+Defaults to 20.0 
+
+Definition at line 113 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a776e5016e02affa05b3748fa6d975fd2}{
+\index{MBProgressHUD@{MBProgressHUD}!minShowTime@{minShowTime}}
+\index{minShowTime@{minShowTime}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{minShowTime}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (float) minShowTime\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a776e5016e02affa05b3748fa6d975fd2}
+The minimum time (in seconds) that the HUD is shown. This avoids the problem of the HUD being shown and than instantly hidden. Defaults to 0 (no minimum show time). 
+
+Definition at line 117 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a9eccf2d6fd3a3aee4df6e264de66b9b3}{
+\index{MBProgressHUD@{MBProgressHUD}!mode@{mode}}
+\index{mode@{mode}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{mode}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf MBProgressHUDMode}) mode\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a9eccf2d6fd3a3aee4df6e264de66b9b3}
+\hyperlink{interface_m_b_progress_h_u_d}{MBProgressHUD} operation mode. Switches between indeterminate (MBProgressHUDModeIndeterminate) and determinate progress (MBProgressHUDModeDeterminate). The default is MBProgressHUDModeIndeterminate.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{_m_b_progress_h_u_d_8h_a553b6bab1602fa03257edde8491bb621}{MBProgressHUDMode} 
+\end{DoxySeeAlso}
+
+
+Definition at line 99 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a6f4dca6b48529c4d3dade0e8d46f4e43}{
+\index{MBProgressHUD@{MBProgressHUD}!opacity@{opacity}}
+\index{opacity@{opacity}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{opacity}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (float) opacity\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a6f4dca6b48529c4d3dade0e8d46f4e43}
+The opacity of the HUD window. Defaults to 0.9 (90\% opacity). 
+
+Definition at line 131 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_ac7abb4766cd3f65c31f56279d7decff8}{
+\index{MBProgressHUD@{MBProgressHUD}!progress@{progress}}
+\index{progress@{progress}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{progress}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (float) progress\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_ac7abb4766cd3f65c31f56279d7decff8}
+The progress of the progress indicator, from 0.0 to 1.0. Defaults to 0.0. 
+
+Definition at line 126 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_ae941fefd3aee82dc342657b52edb1e2b}{
+\index{MBProgressHUD@{MBProgressHUD}!removeFromSuperViewOnHide@{removeFromSuperViewOnHide}}
+\index{removeFromSuperViewOnHide@{removeFromSuperViewOnHide}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{removeFromSuperViewOnHide}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) removeFromSuperViewOnHide\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_ae941fefd3aee82dc342657b52edb1e2b}
+Removes the HUD from it's parent view when hidden. Defaults to NO. 
+
+Definition at line 136 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a283d5cb9a069816a9a0406bc90d79a25}{
+\index{MBProgressHUD@{MBProgressHUD}!taskInProgress@{taskInProgress}}
+\index{taskInProgress@{taskInProgress}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{taskInProgress}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) taskInProgress\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a283d5cb9a069816a9a0406bc90d79a25}
+Indicates that the executed operation is in progress. Needed for correct graceTime operation. If you don't set a graceTime (different than 0.0) this does nothing. This property is automatically set when using showWhileExecuting:onTarget:withObject:animated:. When threading is done outside of the HUD (i.e., when the show: and hide: methods are used directly), you need to set this property when your task starts and completes in order to have normal graceTime functunality. 
+
+Definition at line 115 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a4c9cc7a344711c6782bfad7ce9e12bb7}{
+\index{MBProgressHUD@{MBProgressHUD}!xOffset@{xOffset}}
+\index{xOffset@{xOffset}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{xOffset}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (float) xOffset\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a4c9cc7a344711c6782bfad7ce9e12bb7}
+The x-\/axis offset of the HUD relative to the centre of the superview. 
+
+Definition at line 108 of file MBProgressHUD.h.
+
+\hypertarget{interface_m_b_progress_h_u_d_a5193d79f9884fd5dad21aa7981429d16}{
+\index{MBProgressHUD@{MBProgressHUD}!yOffset@{yOffset}}
+\index{yOffset@{yOffset}!MBProgressHUD@{MBProgressHUD}}
+\subsubsection[{yOffset}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (float) yOffset\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_m_b_progress_h_u_d_a5193d79f9884fd5dad21aa7981429d16}
+The y-\/ayis offset of the HUD relative to the centre of the superview. 
+
+Definition at line 107 of file MBProgressHUD.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+MBProgressHUD/\hyperlink{_m_b_progress_h_u_d_8h}{MBProgressHUD.h}\item 
+MBProgressHUD/\hyperlink{_m_b_progress_h_u_d_8m}{MBProgressHUD.m}\end{DoxyCompactItemize}

@@ -1,0 +1,69 @@
+\hypertarget{protocol_t_c_p_server_delegate-p}{
+\section{$<$TCPServerDelegate$>$ Protocol Reference}
+\label{protocol_t_c_p_server_delegate-p}\index{TCPServerDelegate-\/p@{TCPServerDelegate-\/p}}
+}
+
+
+{\ttfamily \#import $<$TCPServer.h$>$}
+
+Inheritance diagram for $<$TCPServerDelegate$>$:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{protocol_t_c_p_server_delegate-p}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(void) -\/ \hyperlink{protocol_t_c_p_server_delegate-p_acc0491f690db167abf8d776edda8a026}{serverDidEnableBonjour:withName:}
+\item 
+(void) -\/ \hyperlink{protocol_t_c_p_server_delegate-p_a850cb2ce60e3121effb7f93087669097}{server:didNotEnableBonjour:}
+\item 
+(void) -\/ \hyperlink{protocol_t_c_p_server_delegate-p_a4d30e6d8dab68bde9d295209db2ab492}{didAcceptConnectionForServer:inputStream:outputStream:}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 61 of file TCPServer.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{protocol_t_c_p_server_delegate-p_a4d30e6d8dab68bde9d295209db2ab492}{
+\index{TCPServerDelegate-\/p@{TCPServerDelegate-\/p}!didAcceptConnectionForServer:inputStream:outputStream:@{didAcceptConnectionForServer:inputStream:outputStream:}}
+\index{didAcceptConnectionForServer:inputStream:outputStream:@{didAcceptConnectionForServer:inputStream:outputStream:}!TCPServerDelegate-p@{TCPServerDelegate-\/p}}
+\subsubsection[{didAcceptConnectionForServer:inputStream:outputStream:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) didAcceptConnectionForServer: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf TCPServer} $\ast$)}]{server}
+\item[{inputStream:(NSInputStream $\ast$)}]{istr}
+\item[{outputStream:(NSOutputStream $\ast$)}]{ostr}
+\end{DoxyParamCaption}
+\hspace{0.3cm}{\ttfamily  \mbox{[}optional\mbox{]}}}}
+\label{protocol_t_c_p_server_delegate-p_a4d30e6d8dab68bde9d295209db2ab492}
+\hypertarget{protocol_t_c_p_server_delegate-p_a850cb2ce60e3121effb7f93087669097}{
+\index{TCPServerDelegate-\/p@{TCPServerDelegate-\/p}!server:didNotEnableBonjour:@{server:didNotEnableBonjour:}}
+\index{server:didNotEnableBonjour:@{server:didNotEnableBonjour:}!TCPServerDelegate-p@{TCPServerDelegate-\/p}}
+\subsubsection[{server:didNotEnableBonjour:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) server: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf TCPServer} $\ast$)}]{server}
+\item[{didNotEnableBonjour:(NSDictionary $\ast$)}]{errorDict}
+\end{DoxyParamCaption}
+\hspace{0.3cm}{\ttfamily  \mbox{[}optional\mbox{]}}}}
+\label{protocol_t_c_p_server_delegate-p_a850cb2ce60e3121effb7f93087669097}
+\hypertarget{protocol_t_c_p_server_delegate-p_acc0491f690db167abf8d776edda8a026}{
+\index{TCPServerDelegate-\/p@{TCPServerDelegate-\/p}!serverDidEnableBonjour:withName:@{serverDidEnableBonjour:withName:}}
+\index{serverDidEnableBonjour:withName:@{serverDidEnableBonjour:withName:}!TCPServerDelegate-p@{TCPServerDelegate-\/p}}
+\subsubsection[{serverDidEnableBonjour:withName:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) serverDidEnableBonjour: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf TCPServer} $\ast$)}]{server}
+\item[{withName:(NSString $\ast$)}]{name}
+\end{DoxyParamCaption}
+\hspace{0.3cm}{\ttfamily  \mbox{[}optional\mbox{]}}}}
+\label{protocol_t_c_p_server_delegate-p_acc0491f690db167abf8d776edda8a026}
+
+
+The documentation for this protocol was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_t_c_p_server_8h}{TCPServer.h}\end{DoxyCompactItemize}

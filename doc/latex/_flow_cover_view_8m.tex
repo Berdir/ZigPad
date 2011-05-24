@@ -1,0 +1,140 @@
+\hypertarget{_flow_cover_view_8m}{
+\section{FlowCoverView.m File Reference}
+\label{_flow_cover_view_8m}\index{FlowCoverView.m@{FlowCoverView.m}}
+}
+{\ttfamily \#import \char`\"{}FlowCoverView.h\char`\"{}}\par
+{\ttfamily \#import $<$QuartzCore/QuartzCore.h$>$}\par
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{interface_flow_cover_record}{FlowCoverRecord}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_flow_cover_view_8m_a43b78aadc891478746649c2503e87fcc}{TEXTURESIZE}~256
+\item 
+\#define \hyperlink{_flow_cover_view_8m_a26516831d65bdea0fbe3ee754bac4d38}{MAXTILES}~48
+\item 
+\#define \hyperlink{_flow_cover_view_8m_a3f3e2da70290d7c527a632c454890cd9}{VISTILES}~6
+\item 
+\#define \hyperlink{_flow_cover_view_8m_a3dec30aa6ddcf4d638bf9ae17d63c0ea}{SPREADIMAGE}~0.1
+\item 
+\#define \hyperlink{_flow_cover_view_8m_aa59c82cdd4623d9745d4200405273cd3}{FLANKSPREAD}~0.4
+\item 
+\#define \hyperlink{_flow_cover_view_8m_a670e281e909d14a6172f3014861e30e4}{FRICTION}~10.0
+\item 
+\#define \hyperlink{_flow_cover_view_8m_a7e49c0004749dd2461e791b4c4a97895}{MAXSPEED}~10.0
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const GLfloat \hyperlink{_flow_cover_view_8m_a9e32a2b2e3b73ab8044f7ce971b89a09}{GVertices} \mbox{[}$\,$\mbox{]}
+\item 
+const GLshort \hyperlink{_flow_cover_view_8m_a1124aee3430fcb9c405c262ecbdd0dc2}{GTextures} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{_flow_cover_view_8m_aa59c82cdd4623d9745d4200405273cd3}{
+\index{FlowCoverView.m@{FlowCoverView.m}!FLANKSPREAD@{FLANKSPREAD}}
+\index{FLANKSPREAD@{FLANKSPREAD}!FlowCoverView.m@{FlowCoverView.m}}
+\subsubsection[{FLANKSPREAD}]{\setlength{\rightskip}{0pt plus 5cm}\#define FLANKSPREAD~0.4}}
+\label{_flow_cover_view_8m_aa59c82cdd4623d9745d4200405273cd3}
+
+
+Definition at line 58 of file FlowCoverView.m.
+
+\hypertarget{_flow_cover_view_8m_a670e281e909d14a6172f3014861e30e4}{
+\index{FlowCoverView.m@{FlowCoverView.m}!FRICTION@{FRICTION}}
+\index{FRICTION@{FRICTION}!FlowCoverView.m@{FlowCoverView.m}}
+\subsubsection[{FRICTION}]{\setlength{\rightskip}{0pt plus 5cm}\#define FRICTION~10.0}}
+\label{_flow_cover_view_8m_a670e281e909d14a6172f3014861e30e4}
+
+
+Definition at line 59 of file FlowCoverView.m.
+
+\hypertarget{_flow_cover_view_8m_a7e49c0004749dd2461e791b4c4a97895}{
+\index{FlowCoverView.m@{FlowCoverView.m}!MAXSPEED@{MAXSPEED}}
+\index{MAXSPEED@{MAXSPEED}!FlowCoverView.m@{FlowCoverView.m}}
+\subsubsection[{MAXSPEED}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAXSPEED~10.0}}
+\label{_flow_cover_view_8m_a7e49c0004749dd2461e791b4c4a97895}
+
+
+Definition at line 60 of file FlowCoverView.m.
+
+\hypertarget{_flow_cover_view_8m_a26516831d65bdea0fbe3ee754bac4d38}{
+\index{FlowCoverView.m@{FlowCoverView.m}!MAXTILES@{MAXTILES}}
+\index{MAXTILES@{MAXTILES}!FlowCoverView.m@{FlowCoverView.m}}
+\subsubsection[{MAXTILES}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAXTILES~48}}
+\label{_flow_cover_view_8m_a26516831d65bdea0fbe3ee754bac4d38}
+
+
+Definition at line 50 of file FlowCoverView.m.
+
+\hypertarget{_flow_cover_view_8m_a3dec30aa6ddcf4d638bf9ae17d63c0ea}{
+\index{FlowCoverView.m@{FlowCoverView.m}!SPREADIMAGE@{SPREADIMAGE}}
+\index{SPREADIMAGE@{SPREADIMAGE}!FlowCoverView.m@{FlowCoverView.m}}
+\subsubsection[{SPREADIMAGE}]{\setlength{\rightskip}{0pt plus 5cm}\#define SPREADIMAGE~0.1}}
+\label{_flow_cover_view_8m_a3dec30aa6ddcf4d638bf9ae17d63c0ea}
+
+
+Definition at line 57 of file FlowCoverView.m.
+
+\hypertarget{_flow_cover_view_8m_a43b78aadc891478746649c2503e87fcc}{
+\index{FlowCoverView.m@{FlowCoverView.m}!TEXTURESIZE@{TEXTURESIZE}}
+\index{TEXTURESIZE@{TEXTURESIZE}!FlowCoverView.m@{FlowCoverView.m}}
+\subsubsection[{TEXTURESIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define TEXTURESIZE~256}}
+\label{_flow_cover_view_8m_a43b78aadc891478746649c2503e87fcc}
+
+
+Definition at line 49 of file FlowCoverView.m.
+
+\hypertarget{_flow_cover_view_8m_a3f3e2da70290d7c527a632c454890cd9}{
+\index{FlowCoverView.m@{FlowCoverView.m}!VISTILES@{VISTILES}}
+\index{VISTILES@{VISTILES}!FlowCoverView.m@{FlowCoverView.m}}
+\subsubsection[{VISTILES}]{\setlength{\rightskip}{0pt plus 5cm}\#define VISTILES~6}}
+\label{_flow_cover_view_8m_a3f3e2da70290d7c527a632c454890cd9}
+
+
+Definition at line 51 of file FlowCoverView.m.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{_flow_cover_view_8m_a1124aee3430fcb9c405c262ecbdd0dc2}{
+\index{FlowCoverView.m@{FlowCoverView.m}!GTextures@{GTextures}}
+\index{GTextures@{GTextures}!FlowCoverView.m@{FlowCoverView.m}}
+\subsubsection[{GTextures}]{\setlength{\rightskip}{0pt plus 5cm}const GLshort {\bf GTextures}\mbox{[}$\,$\mbox{]}}}
+\label{_flow_cover_view_8m_a1124aee3430fcb9c405c262ecbdd0dc2}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {
+        0, 0,
+        1, 0,
+        0, 1,
+        1, 1,
+}
+\end{DoxyCode}
+
+
+Definition at line 75 of file FlowCoverView.m.
+
+\hypertarget{_flow_cover_view_8m_a9e32a2b2e3b73ab8044f7ce971b89a09}{
+\index{FlowCoverView.m@{FlowCoverView.m}!GVertices@{GVertices}}
+\index{GVertices@{GVertices}!FlowCoverView.m@{FlowCoverView.m}}
+\subsubsection[{GVertices}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf GVertices}\mbox{[}$\,$\mbox{]}}}
+\label{_flow_cover_view_8m_a9e32a2b2e3b73ab8044f7ce971b89a09}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {
+        -1.0f, -1.0f, 0.0f,
+         1.0f, -1.0f, 0.0f,
+        -1.0f,  1.0f, 0.0f,
+         1.0f,  1.0f, 0.0f,
+}
+\end{DoxyCode}
+
+
+Definition at line 68 of file FlowCoverView.m.
+

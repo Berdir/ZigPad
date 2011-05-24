@@ -1,0 +1,117 @@
+\hypertarget{_async_t_c_p_socket_8h}{
+\section{AsyncTCPSocket.h File Reference}
+\label{_async_t_c_p_socket_8h}\index{AsyncTCPSocket.h@{AsyncTCPSocket.h}}
+}
+{\ttfamily \#import $<$Foundation/Foundation.h$>$}\par
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{interface_n_s_object_07_async_socket_delegate_08}{NSObject(AsyncSocketDelegate)}
+\item 
+class \hyperlink{interface_async_t_c_p_socket}{AsyncTCPSocket}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dd}{AsyncSocketError} \hyperlink{_async_t_c_p_socket_8h_a3b28439df5d5672401d1a8cb4b83364d}{AsyncSocketError}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dd}{AsyncSocketError} \{ \par
+\hyperlink{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda6987423d817bd0f1581000b68c6bba02}{AsyncSocketCFSocketError} =  kCFSocketError, 
+\hyperlink{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda8eda4911041dc2cf0457802af22a5479}{AsyncSocketNoError} =  0, 
+\hyperlink{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda6e99e20af517352402857ec08cc4aec1}{AsyncSocketCanceledError}, 
+\hyperlink{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda6ff90547898dd83de948f938bd7b0dac}{AsyncSocketConnectTimeoutError}, 
+\par
+\hyperlink{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521ddac34f6796dc33f1bc4ad1c590abb7aa0b}{AsyncSocketReadMaxedOutError}, 
+\hyperlink{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521ddabb64f7d43c8a2031e6c7b71df279eacd}{AsyncSocketReadTimeoutError}, 
+\hyperlink{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda65c9114b4c46e81ec0b2bd5249c83937}{AsyncSocketWriteTimeoutError}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+NSString $\ast$const \hyperlink{_async_t_c_p_socket_8h_a668defc0cf40f33eae5ca84d1517ce5f}{AsyncSocketException}
+\item 
+NSString $\ast$const \hyperlink{_async_t_c_p_socket_8h_a94f35571d7a3100001d0e6512d65ac06}{AsyncSocketErrorDomain}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_async_t_c_p_socket_8h_a3b28439df5d5672401d1a8cb4b83364d}{
+\index{AsyncTCPSocket.h@{AsyncTCPSocket.h}!AsyncSocketError@{AsyncSocketError}}
+\index{AsyncSocketError@{AsyncSocketError}!AsyncTCPSocket.h@{AsyncTCPSocket.h}}
+\subsubsection[{AsyncSocketError}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf AsyncSocketError} {\bf AsyncSocketError}}}
+\label{_async_t_c_p_socket_8h_a3b28439df5d5672401d1a8cb4b83364d}
+
+
+Definition at line 30 of file AsyncTCPSocket.h.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dd}{
+\index{AsyncTCPSocket.h@{AsyncTCPSocket.h}!AsyncSocketError@{AsyncSocketError}}
+\index{AsyncSocketError@{AsyncSocketError}!AsyncTCPSocket.h@{AsyncTCPSocket.h}}
+\subsubsection[{AsyncSocketError}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf AsyncSocketError}}}
+\label{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dd}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{AsyncSocketCFSocketError@{AsyncSocketCFSocketError}!AsyncTCPSocket.h@{AsyncTCPSocket.h}}\index{AsyncTCPSocket.h@{AsyncTCPSocket.h}!AsyncSocketCFSocketError@{AsyncSocketCFSocketError}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda6987423d817bd0f1581000b68c6bba02}{
+AsyncSocketCFSocketError}
+\label{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda6987423d817bd0f1581000b68c6bba02}
+}]\index{AsyncSocketNoError@{AsyncSocketNoError}!AsyncTCPSocket.h@{AsyncTCPSocket.h}}\index{AsyncTCPSocket.h@{AsyncTCPSocket.h}!AsyncSocketNoError@{AsyncSocketNoError}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda8eda4911041dc2cf0457802af22a5479}{
+AsyncSocketNoError}
+\label{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda8eda4911041dc2cf0457802af22a5479}
+}]\index{AsyncSocketCanceledError@{AsyncSocketCanceledError}!AsyncTCPSocket.h@{AsyncTCPSocket.h}}\index{AsyncTCPSocket.h@{AsyncTCPSocket.h}!AsyncSocketCanceledError@{AsyncSocketCanceledError}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda6e99e20af517352402857ec08cc4aec1}{
+AsyncSocketCanceledError}
+\label{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda6e99e20af517352402857ec08cc4aec1}
+}]\index{AsyncSocketConnectTimeoutError@{AsyncSocketConnectTimeoutError}!AsyncTCPSocket.h@{AsyncTCPSocket.h}}\index{AsyncTCPSocket.h@{AsyncTCPSocket.h}!AsyncSocketConnectTimeoutError@{AsyncSocketConnectTimeoutError}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda6ff90547898dd83de948f938bd7b0dac}{
+AsyncSocketConnectTimeoutError}
+\label{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda6ff90547898dd83de948f938bd7b0dac}
+}]\index{AsyncSocketReadMaxedOutError@{AsyncSocketReadMaxedOutError}!AsyncTCPSocket.h@{AsyncTCPSocket.h}}\index{AsyncTCPSocket.h@{AsyncTCPSocket.h}!AsyncSocketReadMaxedOutError@{AsyncSocketReadMaxedOutError}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521ddac34f6796dc33f1bc4ad1c590abb7aa0b}{
+AsyncSocketReadMaxedOutError}
+\label{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521ddac34f6796dc33f1bc4ad1c590abb7aa0b}
+}]\index{AsyncSocketReadTimeoutError@{AsyncSocketReadTimeoutError}!AsyncTCPSocket.h@{AsyncTCPSocket.h}}\index{AsyncTCPSocket.h@{AsyncTCPSocket.h}!AsyncSocketReadTimeoutError@{AsyncSocketReadTimeoutError}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521ddabb64f7d43c8a2031e6c7b71df279eacd}{
+AsyncSocketReadTimeoutError}
+\label{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521ddabb64f7d43c8a2031e6c7b71df279eacd}
+}]\index{AsyncSocketWriteTimeoutError@{AsyncSocketWriteTimeoutError}!AsyncTCPSocket.h@{AsyncTCPSocket.h}}\index{AsyncTCPSocket.h@{AsyncTCPSocket.h}!AsyncSocketWriteTimeoutError@{AsyncSocketWriteTimeoutError}}\item[{\em 
+\hypertarget{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda65c9114b4c46e81ec0b2bd5249c83937}{
+AsyncSocketWriteTimeoutError}
+\label{_async_t_c_p_socket_8h_a56e335fb9f145ce9496ddbef724521dda65c9114b4c46e81ec0b2bd5249c83937}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 20 of file AsyncTCPSocket.h.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{_async_t_c_p_socket_8h_a94f35571d7a3100001d0e6512d65ac06}{
+\index{AsyncTCPSocket.h@{AsyncTCPSocket.h}!AsyncSocketErrorDomain@{AsyncSocketErrorDomain}}
+\index{AsyncSocketErrorDomain@{AsyncSocketErrorDomain}!AsyncTCPSocket.h@{AsyncTCPSocket.h}}
+\subsubsection[{AsyncSocketErrorDomain}]{\setlength{\rightskip}{0pt plus 5cm}NSString$\ast$ const {\bf AsyncSocketErrorDomain}}}
+\label{_async_t_c_p_socket_8h_a94f35571d7a3100001d0e6512d65ac06}
+
+
+Definition at line 32 of file AsyncTCPSocket.m.
+
+\hypertarget{_async_t_c_p_socket_8h_a668defc0cf40f33eae5ca84d1517ce5f}{
+\index{AsyncTCPSocket.h@{AsyncTCPSocket.h}!AsyncSocketException@{AsyncSocketException}}
+\index{AsyncSocketException@{AsyncSocketException}!AsyncTCPSocket.h@{AsyncTCPSocket.h}}
+\subsubsection[{AsyncSocketException}]{\setlength{\rightskip}{0pt plus 5cm}NSString$\ast$ const {\bf AsyncSocketException}}}
+\label{_async_t_c_p_socket_8h_a668defc0cf40f33eae5ca84d1517ce5f}
+
+
+Definition at line 31 of file AsyncTCPSocket.m.
+

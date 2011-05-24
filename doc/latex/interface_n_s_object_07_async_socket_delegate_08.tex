@@ -1,0 +1,151 @@
+\hypertarget{interface_n_s_object_07_async_socket_delegate_08}{
+\section{NSObject(AsyncSocketDelegate) Class Reference}
+\label{interface_n_s_object_07_async_socket_delegate_08}\index{NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}}
+}
+
+
+{\ttfamily \#import $<$AsyncTCPSocket.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(void) -\/ \hyperlink{interface_n_s_object_07_async_socket_delegate_08_a5d21094e2a90101a6719835d004e000d}{onSocket:willDisconnectWithError:}
+\item 
+(void) -\/ \hyperlink{interface_n_s_object_07_async_socket_delegate_08_a058e6f19c26861e2b1b9b5dcdc91aebd}{onSocketDidDisconnect:}
+\item 
+(void) -\/ \hyperlink{interface_n_s_object_07_async_socket_delegate_08_af0db37e6bbfff8d814e569e789e68439}{onSocket:didAcceptNewSocket:}
+\item 
+(NSRunLoop $\ast$) -\/ \hyperlink{interface_n_s_object_07_async_socket_delegate_08_a36826ecbbd53c65e59095c94a692a021}{onSocket:wantsRunLoopForNewSocket:}
+\item 
+(BOOL) -\/ \hyperlink{interface_n_s_object_07_async_socket_delegate_08_ae1a8da1303f2068f4f0933eb61b2e121}{onSocketWillConnect:}
+\item 
+(void) -\/ \hyperlink{interface_n_s_object_07_async_socket_delegate_08_a86ef5d4058eb4382b59e613afea6c06c}{onSocket:didConnectToHost:port:}
+\item 
+(void) -\/ \hyperlink{interface_n_s_object_07_async_socket_delegate_08_a1dbbd6cfc560bc44072caddcb493e30b}{onSocket:didReadData:withTag:}
+\item 
+(void) -\/ \hyperlink{interface_n_s_object_07_async_socket_delegate_08_a99ca1be6f4bc8c1162e479c073b8ffb5}{onSocket:didReadPartialDataOfLength:tag:}
+\item 
+(void) -\/ \hyperlink{interface_n_s_object_07_async_socket_delegate_08_a08341f1521b025a34d2a595cb23a1eb9}{onSocket:didWriteDataWithTag:}
+\item 
+(void) -\/ \hyperlink{interface_n_s_object_07_async_socket_delegate_08_aad56da2e1f775e8fd17096864dadbe34}{onSocket:didSecure:}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 32 of file AsyncTCPSocket.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_n_s_object_07_async_socket_delegate_08_af0db37e6bbfff8d814e569e789e68439}{
+\index{NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}!onSocket:didAcceptNewSocket:@{onSocket:didAcceptNewSocket:}}
+\index{onSocket:didAcceptNewSocket:@{onSocket:didAcceptNewSocket:}!NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}}
+\subsubsection[{onSocket:didAcceptNewSocket:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) onSocket: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf AsyncTCPSocket} $\ast$)}]{sock}
+\item[{didAcceptNewSocket:({\bf AsyncTCPSocket} $\ast$)}]{newSocket}
+\end{DoxyParamCaption}
+}}
+\label{interface_n_s_object_07_async_socket_delegate_08_af0db37e6bbfff8d814e569e789e68439}
+Called when a socket accepts a connection. Another socket is spawned to handle it. The new socket will have the same delegate and will call \char`\"{}onSocket:didConnectToHost:port:\char`\"{}. \hypertarget{interface_n_s_object_07_async_socket_delegate_08_a86ef5d4058eb4382b59e613afea6c06c}{
+\index{NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}!onSocket:didConnectToHost:port:@{onSocket:didConnectToHost:port:}}
+\index{onSocket:didConnectToHost:port:@{onSocket:didConnectToHost:port:}!NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}}
+\subsubsection[{onSocket:didConnectToHost:port:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) onSocket: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf AsyncTCPSocket} $\ast$)}]{sock}
+\item[{didConnectToHost:(NSString $\ast$)}]{host}
+\item[{port:(UInt16)}]{port}
+\end{DoxyParamCaption}
+}}
+\label{interface_n_s_object_07_async_socket_delegate_08_a86ef5d4058eb4382b59e613afea6c06c}
+Called when a socket connects and is ready for reading and writing. The host parameter will be an IP address, not a DNS name. \hypertarget{interface_n_s_object_07_async_socket_delegate_08_a1dbbd6cfc560bc44072caddcb493e30b}{
+\index{NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}!onSocket:didReadData:withTag:@{onSocket:didReadData:withTag:}}
+\index{onSocket:didReadData:withTag:@{onSocket:didReadData:withTag:}!NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}}
+\subsubsection[{onSocket:didReadData:withTag:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) onSocket: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf AsyncTCPSocket} $\ast$)}]{sock}
+\item[{didReadData:(NSData $\ast$)}]{data}
+\item[{withTag:(long)}]{tag}
+\end{DoxyParamCaption}
+}}
+\label{interface_n_s_object_07_async_socket_delegate_08_a1dbbd6cfc560bc44072caddcb493e30b}
+Called when a socket has completed reading the requested data into memory. Not called if there is an error. \hypertarget{interface_n_s_object_07_async_socket_delegate_08_a99ca1be6f4bc8c1162e479c073b8ffb5}{
+\index{NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}!onSocket:didReadPartialDataOfLength:tag:@{onSocket:didReadPartialDataOfLength:tag:}}
+\index{onSocket:didReadPartialDataOfLength:tag:@{onSocket:didReadPartialDataOfLength:tag:}!NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}}
+\subsubsection[{onSocket:didReadPartialDataOfLength:tag:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) onSocket: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf AsyncTCPSocket} $\ast$)}]{sock}
+\item[{didReadPartialDataOfLength:(CFIndex)}]{partialLength}
+\item[{tag:(long)}]{tag}
+\end{DoxyParamCaption}
+}}
+\label{interface_n_s_object_07_async_socket_delegate_08_a99ca1be6f4bc8c1162e479c073b8ffb5}
+Called when a socket has read in data, but has not yet completed the read. This would occur if using readToData: or readToLength: methods. It may be used to for things such as updating progress bars. \hypertarget{interface_n_s_object_07_async_socket_delegate_08_aad56da2e1f775e8fd17096864dadbe34}{
+\index{NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}!onSocket:didSecure:@{onSocket:didSecure:}}
+\index{onSocket:didSecure:@{onSocket:didSecure:}!NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}}
+\subsubsection[{onSocket:didSecure:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) onSocket: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf AsyncTCPSocket} $\ast$)}]{sock}
+\item[{didSecure:(BOOL)}]{flag}
+\end{DoxyParamCaption}
+}}
+\label{interface_n_s_object_07_async_socket_delegate_08_aad56da2e1f775e8fd17096864dadbe34}
+Called after the socket has completed SSL/TLS negotiation. This method is not called unless you use the provided startTLS method. \hypertarget{interface_n_s_object_07_async_socket_delegate_08_a08341f1521b025a34d2a595cb23a1eb9}{
+\index{NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}!onSocket:didWriteDataWithTag:@{onSocket:didWriteDataWithTag:}}
+\index{onSocket:didWriteDataWithTag:@{onSocket:didWriteDataWithTag:}!NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}}
+\subsubsection[{onSocket:didWriteDataWithTag:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) onSocket: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf AsyncTCPSocket} $\ast$)}]{sock}
+\item[{didWriteDataWithTag:(long)}]{tag}
+\end{DoxyParamCaption}
+}}
+\label{interface_n_s_object_07_async_socket_delegate_08_a08341f1521b025a34d2a595cb23a1eb9}
+Called when a socket has completed writing the requested data. Not called if there is an error. \hypertarget{interface_n_s_object_07_async_socket_delegate_08_a36826ecbbd53c65e59095c94a692a021}{
+\index{NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}!onSocket:wantsRunLoopForNewSocket:@{onSocket:wantsRunLoopForNewSocket:}}
+\index{onSocket:wantsRunLoopForNewSocket:@{onSocket:wantsRunLoopForNewSocket:}!NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}}
+\subsubsection[{onSocket:wantsRunLoopForNewSocket:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSRunLoop $\ast$) onSocket: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf AsyncTCPSocket} $\ast$)}]{sock}
+\item[{wantsRunLoopForNewSocket:({\bf AsyncTCPSocket} $\ast$)}]{newSocket}
+\end{DoxyParamCaption}
+}}
+\label{interface_n_s_object_07_async_socket_delegate_08_a36826ecbbd53c65e59095c94a692a021}
+Called when a new socket is spawned to handle a connection. This method should return the run-\/loop of the thread on which the new socket and its delegate should operate. If omitted, \mbox{[}NSRunLoop currentRunLoop\mbox{]} is used. \hypertarget{interface_n_s_object_07_async_socket_delegate_08_a5d21094e2a90101a6719835d004e000d}{
+\index{NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}!onSocket:willDisconnectWithError:@{onSocket:willDisconnectWithError:}}
+\index{onSocket:willDisconnectWithError:@{onSocket:willDisconnectWithError:}!NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}}
+\subsubsection[{onSocket:willDisconnectWithError:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) onSocket: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf AsyncTCPSocket} $\ast$)}]{sock}
+\item[{willDisconnectWithError:(NSError $\ast$)}]{err}
+\end{DoxyParamCaption}
+}}
+\label{interface_n_s_object_07_async_socket_delegate_08_a5d21094e2a90101a6719835d004e000d}
+In the event of an error, the socket is closed. You may call \char`\"{}unreadData\char`\"{} during this call-\/back to get the last bit of data off the socket. When connecting, this delegate method may be called before\char`\"{}onSocket:didAcceptNewSocket:\char`\"{} or \char`\"{}onSocket:didConnectToHost:\char`\"{}. \hypertarget{interface_n_s_object_07_async_socket_delegate_08_a058e6f19c26861e2b1b9b5dcdc91aebd}{
+\index{NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}!onSocketDidDisconnect:@{onSocketDidDisconnect:}}
+\index{onSocketDidDisconnect:@{onSocketDidDisconnect:}!NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}}
+\subsubsection[{onSocketDidDisconnect:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) onSocketDidDisconnect: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf AsyncTCPSocket} $\ast$)}]{sock}
+\end{DoxyParamCaption}
+}}
+\label{interface_n_s_object_07_async_socket_delegate_08_a058e6f19c26861e2b1b9b5dcdc91aebd}
+Called when a socket disconnects with or without error. If you want to release a socket after it disconnects, do so here. It is not safe to do that during \char`\"{}onSocket:willDisconnectWithError:\char`\"{}. \hypertarget{interface_n_s_object_07_async_socket_delegate_08_ae1a8da1303f2068f4f0933eb61b2e121}{
+\index{NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}!onSocketWillConnect:@{onSocketWillConnect:}}
+\index{onSocketWillConnect:@{onSocketWillConnect:}!NSObject(AsyncSocketDelegate)@{NSObject(AsyncSocketDelegate)}}
+\subsubsection[{onSocketWillConnect:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) onSocketWillConnect: 
+\begin{DoxyParamCaption}
+\item[{dummy({\bf AsyncTCPSocket} $\ast$)}]{sock}
+\end{DoxyParamCaption}
+}}
+\label{interface_n_s_object_07_async_socket_delegate_08_ae1a8da1303f2068f4f0933eb61b2e121}
+Called when a socket is about to connect. This method should return YES to continue, or NO to abort. If aborted, will result in AsyncSocketCanceledError.
+
+If the connectToHost:onPort:error: method was called, the delegate will be able to access and configure the CFReadStream and CFWriteStream as desired prior to connection.
+
+If the connectToAddress:error: method was called, the delegate will be able to access and configure the CFSocket and CFSocketNativeHandle (BSD socket) as desired prior to connection. You will be able to access and configure the CFReadStream and CFWriteStream in the onSocket:didConnectToHost:port: method. 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_async_t_c_p_socket_8h}{AsyncTCPSocket.h}\end{DoxyCompactItemize}

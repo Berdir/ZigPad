@@ -1,0 +1,146 @@
+\hypertarget{interface_t_c_p_server}{
+\section{TCPServer Class Reference}
+\label{interface_t_c_p_server}\index{TCPServer@{TCPServer}}
+}
+
+
+{\ttfamily \#import $<$TCPServer.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(BOOL) -\/ \hyperlink{interface_t_c_p_server_a4f5ccd60101c92c274f39d73cb2cd240}{start:}
+\item 
+(BOOL) -\/ \hyperlink{interface_t_c_p_server_a7bee99ce2238a838f9909c87b1b7ae36}{stop}
+\item 
+(BOOL) -\/ \hyperlink{interface_t_c_p_server_a138dad88adf5026bf7c2a0f6c09bbf64}{enableBonjourWithDomain:applicationProtocol:name:}
+\item 
+(void) -\/ \hyperlink{interface_t_c_p_server_abf3dab105d01290e617522eb7573948e}{disableBonjour}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(NSString $\ast$) + \hyperlink{interface_t_c_p_server_ac5f92c26e9def6b8acffd0471ab4ad94}{bonjourTypeFromIdentifier:}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+id$<$ \hyperlink{protocol_t_c_p_server_delegate-p}{TCPServerDelegate} $>$ \hyperlink{interface_t_c_p_server_a13a8a34ddb4e3e1d8175da5cbb575b94}{delegate}
+\item 
+NSNetService $\ast$ \hyperlink{interface_t_c_p_server_a36376bb50bc0e6bba06d8508dd3bc61b}{netService}
+\item 
+uint16\_\-t \hyperlink{interface_t_c_p_server_a8e0798404bf2cf5dabb84c5ba9a4f236}{port}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 69 of file TCPServer.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_t_c_p_server_ac5f92c26e9def6b8acffd0471ab4ad94}{
+\index{TCPServer@{TCPServer}!bonjourTypeFromIdentifier:@{bonjourTypeFromIdentifier:}}
+\index{bonjourTypeFromIdentifier:@{bonjourTypeFromIdentifier:}!TCPServer@{TCPServer}}
+\subsubsection[{bonjourTypeFromIdentifier:}]{\setlength{\rightskip}{0pt plus 5cm}+ (NSString $\ast$) bonjourTypeFromIdentifier: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString$\ast$)}]{identifier}
+\end{DoxyParamCaption}
+}}
+\label{interface_t_c_p_server_ac5f92c26e9def6b8acffd0471ab4ad94}
+
+
+Definition at line 271 of file TCPServer.m.
+
+\hypertarget{interface_t_c_p_server_abf3dab105d01290e617522eb7573948e}{
+\index{TCPServer@{TCPServer}!disableBonjour@{disableBonjour}}
+\index{disableBonjour@{disableBonjour}!TCPServer@{TCPServer}}
+\subsubsection[{disableBonjour}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) disableBonjour 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_t_c_p_server_abf3dab105d01290e617522eb7573948e}
+
+
+Definition at line 256 of file TCPServer.m.
+
+\hypertarget{interface_t_c_p_server_a138dad88adf5026bf7c2a0f6c09bbf64}{
+\index{TCPServer@{TCPServer}!enableBonjourWithDomain:applicationProtocol:name:@{enableBonjourWithDomain:applicationProtocol:name:}}
+\index{enableBonjourWithDomain:applicationProtocol:name:@{enableBonjourWithDomain:applicationProtocol:name:}!TCPServer@{TCPServer}}
+\subsubsection[{enableBonjourWithDomain:applicationProtocol:name:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) enableBonjourWithDomain: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString$\ast$)}]{domain}
+\item[{applicationProtocol:(NSString$\ast$)}]{protocol}
+\item[{name:(NSString$\ast$)}]{name}
+\end{DoxyParamCaption}
+}}
+\label{interface_t_c_p_server_a138dad88adf5026bf7c2a0f6c09bbf64}
+
+
+Definition at line 215 of file TCPServer.m.
+
+\hypertarget{interface_t_c_p_server_a4f5ccd60101c92c274f39d73cb2cd240}{
+\index{TCPServer@{TCPServer}!start:@{start:}}
+\index{start:@{start:}!TCPServer@{TCPServer}}
+\subsubsection[{start:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) start: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSError $\ast$$\ast$)}]{error}
+\end{DoxyParamCaption}
+}}
+\label{interface_t_c_p_server_a4f5ccd60101c92c274f39d73cb2cd240}
+
+
+Definition at line 113 of file TCPServer.m.
+
+\hypertarget{interface_t_c_p_server_a7bee99ce2238a838f9909c87b1b7ae36}{
+\index{TCPServer@{TCPServer}!stop@{stop}}
+\index{stop@{stop}!TCPServer@{TCPServer}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) stop 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_t_c_p_server_a7bee99ce2238a838f9909c87b1b7ae36}
+
+
+Definition at line 202 of file TCPServer.m.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{interface_t_c_p_server_a13a8a34ddb4e3e1d8175da5cbb575b94}{
+\index{TCPServer@{TCPServer}!delegate@{delegate}}
+\index{delegate@{delegate}!TCPServer@{TCPServer}}
+\subsubsection[{delegate}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id$<${\bf TCPServerDelegate}$>$) delegate\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_t_c_p_server_a13a8a34ddb4e3e1d8175da5cbb575b94}
+
+
+Definition at line 83 of file TCPServer.h.
+
+\hypertarget{interface_t_c_p_server_a36376bb50bc0e6bba06d8508dd3bc61b}{
+\index{TCPServer@{TCPServer}!netService@{netService}}
+\index{netService@{netService}!TCPServer@{TCPServer}}
+\subsubsection[{netService}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSNetService$\ast$) netService\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_t_c_p_server_a36376bb50bc0e6bba06d8508dd3bc61b}
+
+
+Definition at line 58 of file TCPServer.m.
+
+\hypertarget{interface_t_c_p_server_a8e0798404bf2cf5dabb84c5ba9a4f236}{
+\index{TCPServer@{TCPServer}!port@{port}}
+\index{port@{port}!TCPServer@{TCPServer}}
+\subsubsection[{port}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (uint16\_\-t) port\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_t_c_p_server_a8e0798404bf2cf5dabb84c5ba9a4f236}
+
+
+Definition at line 59 of file TCPServer.m.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_t_c_p_server_8h}{TCPServer.h}\item 
+\hyperlink{_t_c_p_server_8m}{TCPServer.m}\end{DoxyCompactItemize}

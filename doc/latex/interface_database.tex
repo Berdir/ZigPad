@@ -1,0 +1,114 @@
+\hypertarget{interface_database}{
+\section{Database Class Reference}
+\label{interface_database}\index{Database@{Database}}
+}
+
+
+{\ttfamily \#import $<$Database.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(NSURL $\ast$) -\/ \hyperlink{interface_database_a13f63ca0981501b3ae86e9931049c2f9}{applicationDocumentsDirectory}
+\item 
+(id) -\/ \hyperlink{interface_database_a65bc495f9aa1e5b6f8d4343f5d48efc4}{createEntity:}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(\hyperlink{interface_database}{Database} $\ast$) + \hyperlink{interface_database_af9f8fecabcb05202b4e4127f577c0a49}{sharedInstance}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+NSManagedObjectContext $\ast$ \hyperlink{interface_database_af5d2f65acff5f2c9e7e4ad472f38dfff}{managedObjectContext}
+\item 
+NSManagedObjectModel $\ast$ \hyperlink{interface_database_a688e19e1a5eeabf38cb33bc0e0630950}{managedObjectModel}
+\item 
+NSPersistentStoreCoordinator $\ast$ \hyperlink{interface_database_a11b8c3b6ec8fa5f88cd057beec16a166}{persistentStoreCoordinator}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file Database.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_database_a13f63ca0981501b3ae86e9931049c2f9}{
+\index{Database@{Database}!applicationDocumentsDirectory@{applicationDocumentsDirectory}}
+\index{applicationDocumentsDirectory@{applicationDocumentsDirectory}!Database@{Database}}
+\subsubsection[{applicationDocumentsDirectory}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSURL $\ast$) applicationDocumentsDirectory 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_database_a13f63ca0981501b3ae86e9931049c2f9}
+Returns the URL to the application's Documents directory. 
+
+Definition at line 147 of file Database.m.
+
+\hypertarget{interface_database_a65bc495f9aa1e5b6f8d4343f5d48efc4}{
+\index{Database@{Database}!createEntity:@{createEntity:}}
+\index{createEntity:@{createEntity:}!Database@{Database}}
+\subsubsection[{createEntity:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) createEntity: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString $\ast$)}]{name}
+\end{DoxyParamCaption}
+}}
+\label{interface_database_a65bc495f9aa1e5b6f8d4343f5d48efc4}
+
+
+Definition at line 152 of file Database.m.
+
+\hypertarget{interface_database_af9f8fecabcb05202b4e4127f577c0a49}{
+\index{Database@{Database}!sharedInstance@{sharedInstance}}
+\index{sharedInstance@{sharedInstance}!Database@{Database}}
+\subsubsection[{sharedInstance}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf Database} $\ast$) sharedInstance 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_database_af9f8fecabcb05202b4e4127f577c0a49}
+
+
+Definition at line 21 of file Database.m.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{interface_database_af5d2f65acff5f2c9e7e4ad472f38dfff}{
+\index{Database@{Database}!managedObjectContext@{managedObjectContext}}
+\index{managedObjectContext@{managedObjectContext}!Database@{Database}}
+\subsubsection[{managedObjectContext}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSManagedObjectContext $\ast$) managedObjectContext\hspace{0.3cm}{\ttfamily  \mbox{[}read, retain\mbox{]}}}}
+\label{interface_database_af5d2f65acff5f2c9e7e4ad472f38dfff}
+Returns the managed object context for the application. If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application. 
+
+Definition at line 23 of file Database.h.
+
+\hypertarget{interface_database_a688e19e1a5eeabf38cb33bc0e0630950}{
+\index{Database@{Database}!managedObjectModel@{managedObjectModel}}
+\index{managedObjectModel@{managedObjectModel}!Database@{Database}}
+\subsubsection[{managedObjectModel}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSManagedObjectModel $\ast$) managedObjectModel\hspace{0.3cm}{\ttfamily  \mbox{[}read, retain\mbox{]}}}}
+\label{interface_database_a688e19e1a5eeabf38cb33bc0e0630950}
+Returns the managed object model for the application. If the model doesn't already exist, it is created from the application's model. 
+
+Definition at line 24 of file Database.h.
+
+\hypertarget{interface_database_a11b8c3b6ec8fa5f88cd057beec16a166}{
+\index{Database@{Database}!persistentStoreCoordinator@{persistentStoreCoordinator}}
+\index{persistentStoreCoordinator@{persistentStoreCoordinator}!Database@{Database}}
+\subsubsection[{persistentStoreCoordinator}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSPersistentStoreCoordinator $\ast$) persistentStoreCoordinator\hspace{0.3cm}{\ttfamily  \mbox{[}read, retain\mbox{]}}}}
+\label{interface_database_a11b8c3b6ec8fa5f88cd057beec16a166}
+Returns the persistent store coordinator for the application. If the coordinator doesn't already exist, it is created and the application's store added to it. 
+
+Definition at line 25 of file Database.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+coredata/\hyperlink{_database_8h}{Database.h}\item 
+coredata/\hyperlink{_database_8m}{Database.m}\end{DoxyCompactItemize}

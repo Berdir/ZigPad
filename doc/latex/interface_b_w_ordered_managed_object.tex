@@ -1,0 +1,263 @@
+\hypertarget{interface_b_w_ordered_managed_object}{
+\section{BWOrderedManagedObject Class Reference}
+\label{interface_b_w_ordered_managed_object}\index{BWOrderedManagedObject@{BWOrderedManagedObject}}
+}
+
+
+{\ttfamily \#import $<$BWOrderedManagedObject.h$>$}
+
+Inheritance diagram for BWOrderedManagedObject:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.265537cm]{interface_b_w_ordered_managed_object}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(NSArray $\ast$) -\/ \hyperlink{interface_b_w_ordered_managed_object_a3b7b006e5dbf3b5da19442ccd30c7969}{orderedKeys}
+\item 
+(NSString $\ast$) -\/ \hyperlink{interface_b_w_ordered_managed_object_ad0692503af87a1bcf276f7e3c752829d}{orderingKeyForRelationshipKey:}
+\item 
+(NSArray $\ast$) -\/ \hyperlink{interface_b_w_ordered_managed_object_ab0625646f630aa2e8aa0409b416474e4}{orderingForKey:}
+\item 
+(void) -\/ \hyperlink{interface_b_w_ordered_managed_object_a18a349d2c91511b606abf47492c73556}{setOrdering:forKey:}
+\item 
+(NSArray $\ast$) -\/ \hyperlink{interface_b_w_ordered_managed_object_ae0c5c3c9b315eaf00cff7dd19b47e942}{orderedValueForKey:}
+\item 
+(NSMutableArray $\ast$) -\/ \hyperlink{interface_b_w_ordered_managed_object_a4337f8a96827013c2c5cf796c7cc9052}{mutableOrderedValueForKey:}
+\item 
+(unsigned) -\/ \hyperlink{interface_b_w_ordered_managed_object_acc1e7219358d050b0a215e6f8543027e}{countOfOrderedValueForKey:}
+\item 
+(NSManagedObject $\ast$) -\/ \hyperlink{interface_b_w_ordered_managed_object_ab047379bcc7f258f953f790465c63b2f}{objectInOrderedValueForKey:atIndex:}
+\item 
+(void) -\/ \hyperlink{interface_b_w_ordered_managed_object_aa154c884fcf3437633ef336d8083f340}{insertObject:inOrderedValueForKey:atIndex:}
+\item 
+(void) -\/ \hyperlink{interface_b_w_ordered_managed_object_a636a8bb46bebe9f798bf2fa8218aa488}{removeObjectFromOrderedValueForKey:atIndex:}
+\item 
+(void) -\/ \hyperlink{interface_b_w_ordered_managed_object_a15b3597d3b688271d46841d009da0f78}{replaceObjectInOrderedValueForKey:atIndex:withObject:}
+\item 
+(void) -\/ \hyperlink{interface_b_w_ordered_managed_object_a7d09d2f428f979fb55874a9888e77ae7}{moveObjectsInOrderedValueForKey:fromIndexes:toIndex:}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A subclass of NSManagedObject that provide support for imposing an ordering on to-\/many relationships
+
+By default, to-\/many Core Data relationships are unordered, but there are some cases where you want to impose a specific ordering on a relationship. The classic example of this is iTunes, where each playlist can have a list of tracks, but those tracks can be put in a specific order by the user.
+
+\hyperlink{interface_b_w_ordered_managed_object}{BWOrderedManagedObject} manages this by using an additional property to store the ordering for each relationship that you want to be ordered. By default, the string \char`\"{}Ordering\char`\"{} is appended to the name of the relationship key to form the key that the ordering data is stored in (e.g. the ordering for the \char`\"{}tracks\char`\"{} relationship is stored under the key \char`\"{}tracksOrdering\char`\"{})
+
+\hyperlink{interface_b_w_ordered_managed_object}{BWOrderedManagedObject} also provides a set of methods that allow for inserting, deleting, and rearranging objects in a specific order. 
+
+Definition at line 35 of file BWOrderedManagedObject.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_b_w_ordered_managed_object_acc1e7219358d050b0a215e6f8543027e}{
+\index{BWOrderedManagedObject@{BWOrderedManagedObject}!countOfOrderedValueForKey:@{countOfOrderedValueForKey:}}
+\index{countOfOrderedValueForKey:@{countOfOrderedValueForKey:}!BWOrderedManagedObject@{BWOrderedManagedObject}}
+\subsubsection[{countOfOrderedValueForKey:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (unsigned) countOfOrderedValueForKey: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString$\ast$)}]{key}
+\end{DoxyParamCaption}
+}}
+\label{interface_b_w_ordered_managed_object_acc1e7219358d050b0a215e6f8543027e}
+
+
+Definition at line 195 of file BWOrderedManagedObject.m.
+
+\hypertarget{interface_b_w_ordered_managed_object_aa154c884fcf3437633ef336d8083f340}{
+\index{BWOrderedManagedObject@{BWOrderedManagedObject}!insertObject:inOrderedValueForKey:atIndex:@{insertObject:inOrderedValueForKey:atIndex:}}
+\index{insertObject:inOrderedValueForKey:atIndex:@{insertObject:inOrderedValueForKey:atIndex:}!BWOrderedManagedObject@{BWOrderedManagedObject}}
+\subsubsection[{insertObject:inOrderedValueForKey:atIndex:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) insertObject: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSManagedObject$\ast$)}]{object}
+\item[{inOrderedValueForKey:(NSString$\ast$)}]{key}
+\item[{atIndex:(NSUInteger)}]{index}
+\end{DoxyParamCaption}
+}}
+\label{interface_b_w_ordered_managed_object_aa154c884fcf3437633ef336d8083f340}
+
+
+Definition at line 210 of file BWOrderedManagedObject.m.
+
+\hypertarget{interface_b_w_ordered_managed_object_a7d09d2f428f979fb55874a9888e77ae7}{
+\index{BWOrderedManagedObject@{BWOrderedManagedObject}!moveObjectsInOrderedValueForKey:fromIndexes:toIndex:@{moveObjectsInOrderedValueForKey:fromIndexes:toIndex:}}
+\index{moveObjectsInOrderedValueForKey:fromIndexes:toIndex:@{moveObjectsInOrderedValueForKey:fromIndexes:toIndex:}!BWOrderedManagedObject@{BWOrderedManagedObject}}
+\subsubsection[{moveObjectsInOrderedValueForKey:fromIndexes:toIndex:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) moveObjectsInOrderedValueForKey: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString$\ast$)}]{key}
+\item[{fromIndexes:(NSIndexSet$\ast$)}]{indexes}
+\item[{toIndex:(unsigned)}]{newIndex}
+\end{DoxyParamCaption}
+}}
+\label{interface_b_w_ordered_managed_object_a7d09d2f428f979fb55874a9888e77ae7}
+moveObjectsInOrderedValueForKey:fromIndexes:toIndex:  Moves a set of objects to a different position in the array  This is a convenience method for the typical case where a user is rearranging objects in a relationship by drag and drop in a table view or other ordered view. 
+\begin{DoxyParams}{Parameters}
+{\em key} & The relationship whose objects you want to move \\
+\hline
+{\em indexes} & The indexes of the objects that are being moved (i.e. the dragged selection in the table view) \\
+\hline
+{\em newIndex} & The index to which the objects will be moved (i.e. the drop position in the table view) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 246 of file BWOrderedManagedObject.m.
+
+\hypertarget{interface_b_w_ordered_managed_object_a4337f8a96827013c2c5cf796c7cc9052}{
+\index{BWOrderedManagedObject@{BWOrderedManagedObject}!mutableOrderedValueForKey:@{mutableOrderedValueForKey:}}
+\index{mutableOrderedValueForKey:@{mutableOrderedValueForKey:}!BWOrderedManagedObject@{BWOrderedManagedObject}}
+\subsubsection[{mutableOrderedValueForKey:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSMutableArray $\ast$) mutableOrderedValueForKey: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString$\ast$)}]{key}
+\end{DoxyParamCaption}
+}}
+\label{interface_b_w_ordered_managed_object_a4337f8a96827013c2c5cf796c7cc9052}
+mutableOrderedValueForKey:  Returns a mutable proxy array that can be used to manipulate a relationship  The mutable array returned by this method will pass through any operations to the underlying relationship, in a similar manner to mutableArrayValueForKey: 
+\begin{DoxyParams}{Parameters}
+{\em key} & The key for the relationship whose objects you want to manipulate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A mutable proxy array 
+\end{DoxyReturn}
+
+
+Definition at line 190 of file BWOrderedManagedObject.m.
+
+\hypertarget{interface_b_w_ordered_managed_object_ab047379bcc7f258f953f790465c63b2f}{
+\index{BWOrderedManagedObject@{BWOrderedManagedObject}!objectInOrderedValueForKey:atIndex:@{objectInOrderedValueForKey:atIndex:}}
+\index{objectInOrderedValueForKey:atIndex:@{objectInOrderedValueForKey:atIndex:}!BWOrderedManagedObject@{BWOrderedManagedObject}}
+\subsubsection[{objectInOrderedValueForKey:atIndex:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSManagedObject $\ast$) objectInOrderedValueForKey: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString$\ast$)}]{key}
+\item[{atIndex:(NSUInteger)}]{index}
+\end{DoxyParamCaption}
+}}
+\label{interface_b_w_ordered_managed_object_ab047379bcc7f258f953f790465c63b2f}
+
+
+Definition at line 200 of file BWOrderedManagedObject.m.
+
+\hypertarget{interface_b_w_ordered_managed_object_a3b7b006e5dbf3b5da19442ccd30c7969}{
+\index{BWOrderedManagedObject@{BWOrderedManagedObject}!orderedKeys@{orderedKeys}}
+\index{orderedKeys@{orderedKeys}!BWOrderedManagedObject@{BWOrderedManagedObject}}
+\subsubsection[{orderedKeys}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSArray $\ast$) orderedKeys 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_b_w_ordered_managed_object_a3b7b006e5dbf3b5da19442ccd30c7969}
+orderedKeys
+
+Returns the list of to-\/many relationships that have an ordering
+
+By default, this method will compile a list of keys based on the entity definition of the object. Any to-\/many relationship which has the corresponding ordering key also defined will be returned. This method can be overridden if you want to use some other method of determining which of your relationships should be ordered. 
+
+Definition at line 145 of file BWOrderedManagedObject.m.
+
+\hypertarget{interface_b_w_ordered_managed_object_ae0c5c3c9b315eaf00cff7dd19b47e942}{
+\index{BWOrderedManagedObject@{BWOrderedManagedObject}!orderedValueForKey:@{orderedValueForKey:}}
+\index{orderedValueForKey:@{orderedValueForKey:}!BWOrderedManagedObject@{BWOrderedManagedObject}}
+\subsubsection[{orderedValueForKey:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSArray $\ast$) orderedValueForKey: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString$\ast$)}]{key}
+\end{DoxyParamCaption}
+}}
+\label{interface_b_w_ordered_managed_object_ae0c5c3c9b315eaf00cff7dd19b47e942}
+orderedValueForKey:  Returns the objects in a relationship in order  This method returns an array of the NSManagedObjects in the given relationship, in the order specified by the relationship's ordering key. 
+\begin{DoxyParams}{Parameters}
+{\em key} & The key for the relationship whose objects you want to obtain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ordered array of objects for the relationship 
+\end{DoxyReturn}
+
+
+Definition at line 185 of file BWOrderedManagedObject.m.
+
+\hypertarget{interface_b_w_ordered_managed_object_ab0625646f630aa2e8aa0409b416474e4}{
+\index{BWOrderedManagedObject@{BWOrderedManagedObject}!orderingForKey:@{orderingForKey:}}
+\index{orderingForKey:@{orderingForKey:}!BWOrderedManagedObject@{BWOrderedManagedObject}}
+\subsubsection[{orderingForKey:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSArray $\ast$) orderingForKey: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString$\ast$)}]{key}
+\end{DoxyParamCaption}
+}}
+\label{interface_b_w_ordered_managed_object_ab0625646f630aa2e8aa0409b416474e4}
+orderingForKey  Returns the ordering for a given relationship 
+
+The ordering for a relationship is stored as an array of NSURLs. Each URL corresponds to the URIRepresentation of an object in the relationship, and the order of the URLs in the array determines the order of the objects. 
+
+Definition at line 162 of file BWOrderedManagedObject.m.
+
+\hypertarget{interface_b_w_ordered_managed_object_ad0692503af87a1bcf276f7e3c752829d}{
+\index{BWOrderedManagedObject@{BWOrderedManagedObject}!orderingKeyForRelationshipKey:@{orderingKeyForRelationshipKey:}}
+\index{orderingKeyForRelationshipKey:@{orderingKeyForRelationshipKey:}!BWOrderedManagedObject@{BWOrderedManagedObject}}
+\subsubsection[{orderingKeyForRelationshipKey:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString $\ast$) orderingKeyForRelationshipKey: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString$\ast$)}]{key}
+\end{DoxyParamCaption}
+}}
+\label{interface_b_w_ordered_managed_object_ad0692503af87a1bcf276f7e3c752829d}
+Returns the key used to store the ordering for a given relationship 
+
+By default, this method simply appends \char`\"{}Ordering\char`\"{} to the given key to form the ordering key. You can override this method if you wish to use a different technique to map from relationship to ordering. 
+
+Definition at line 140 of file BWOrderedManagedObject.m.
+
+\hypertarget{interface_b_w_ordered_managed_object_a636a8bb46bebe9f798bf2fa8218aa488}{
+\index{BWOrderedManagedObject@{BWOrderedManagedObject}!removeObjectFromOrderedValueForKey:atIndex:@{removeObjectFromOrderedValueForKey:atIndex:}}
+\index{removeObjectFromOrderedValueForKey:atIndex:@{removeObjectFromOrderedValueForKey:atIndex:}!BWOrderedManagedObject@{BWOrderedManagedObject}}
+\subsubsection[{removeObjectFromOrderedValueForKey:atIndex:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) removeObjectFromOrderedValueForKey: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString$\ast$)}]{key}
+\item[{atIndex:(NSUInteger)}]{index}
+\end{DoxyParamCaption}
+}}
+\label{interface_b_w_ordered_managed_object_a636a8bb46bebe9f798bf2fa8218aa488}
+
+
+Definition at line 221 of file BWOrderedManagedObject.m.
+
+\hypertarget{interface_b_w_ordered_managed_object_a15b3597d3b688271d46841d009da0f78}{
+\index{BWOrderedManagedObject@{BWOrderedManagedObject}!replaceObjectInOrderedValueForKey:atIndex:withObject:@{replaceObjectInOrderedValueForKey:atIndex:withObject:}}
+\index{replaceObjectInOrderedValueForKey:atIndex:withObject:@{replaceObjectInOrderedValueForKey:atIndex:withObject:}!BWOrderedManagedObject@{BWOrderedManagedObject}}
+\subsubsection[{replaceObjectInOrderedValueForKey:atIndex:withObject:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) replaceObjectInOrderedValueForKey: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSString$\ast$)}]{key}
+\item[{atIndex:(NSUInteger)}]{index}
+\item[{withObject:(NSManagedObject$\ast$)}]{newObject}
+\end{DoxyParamCaption}
+}}
+\label{interface_b_w_ordered_managed_object_a15b3597d3b688271d46841d009da0f78}
+
+
+Definition at line 233 of file BWOrderedManagedObject.m.
+
+\hypertarget{interface_b_w_ordered_managed_object_a18a349d2c91511b606abf47492c73556}{
+\index{BWOrderedManagedObject@{BWOrderedManagedObject}!setOrdering:forKey:@{setOrdering:forKey:}}
+\index{setOrdering:forKey:@{setOrdering:forKey:}!BWOrderedManagedObject@{BWOrderedManagedObject}}
+\subsubsection[{setOrdering:forKey:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) setOrdering: 
+\begin{DoxyParamCaption}
+\item[{dummy(NSArray$\ast$)}]{newOrdering}
+\item[{forKey:(NSString$\ast$)}]{key}
+\end{DoxyParamCaption}
+}}
+\label{interface_b_w_ordered_managed_object_a18a349d2c91511b606abf47492c73556}
+setOrdering:forKey:  Sets a new ordering for a given relationship 
+
+Sets a new ordering for a relationship. You typically don't need to call this method directly, as the various insert/delete methods will usually suffice. The newOrdering array should contain NSURL objects containing the URIRepresentation of the objects in the relationship, in the order you want them to be. 
+
+Definition at line 176 of file BWOrderedManagedObject.m.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+coredata/\hyperlink{_b_w_ordered_managed_object_8h}{BWOrderedManagedObject.h}\item 
+coredata/\hyperlink{_b_w_ordered_managed_object_8m}{BWOrderedManagedObject.m}\end{DoxyCompactItemize}

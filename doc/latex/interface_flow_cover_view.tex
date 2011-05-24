@@ -1,0 +1,263 @@
+\hypertarget{interface_flow_cover_view}{
+\section{FlowCoverView Class Reference}
+\label{interface_flow_cover_view}\index{FlowCoverView@{FlowCoverView}}
+}
+
+
+{\ttfamily \#import $<$FlowCoverView.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(void) -\/ \hyperlink{interface_flow_cover_view_a56c5cf8a568cff737ff95520cbe6b405}{draw}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+NSTimer $\ast$ \hyperlink{interface_flow_cover_view_a49efd1a3e05e38497c176a4e11fdbaab}{timer}
+\item 
+double \hyperlink{interface_flow_cover_view_a0a07a521d3525b9b7dc70c0a625adea0}{startTime}
+\item 
+double \hyperlink{interface_flow_cover_view_a940d757461ee76fd56faddb9b5599771}{startOff}
+\item 
+double \hyperlink{interface_flow_cover_view_a55ce5cf7840850f6ed838404916a48ba}{startPos}
+\item 
+double \hyperlink{interface_flow_cover_view_a35a653c4b8539d4059c697f60c81fa1d}{startSpeed}
+\item 
+double \hyperlink{interface_flow_cover_view_a800395a77f71778e7c0dc0bd16ba352d}{runDelta}
+\item 
+BOOL \hyperlink{interface_flow_cover_view_a1a25ad3e6c05c8e905d31e7a9dcbce20}{touchFlag}
+\item 
+CGPoint \hyperlink{interface_flow_cover_view_acaf7025590c212741e6217f30fb042be}{startTouch}
+\item 
+double \hyperlink{interface_flow_cover_view_ad65e2b4a144cd8065f78983d6130534a}{lastPos}
+\item 
+IBOutlet id$<$ \hyperlink{protocol_flow_cover_view_delegate-p}{FlowCoverViewDelegate} $>$ \hyperlink{interface_flow_cover_view_ad6e325e8aedd2961604d7099532f48e8}{delegate}
+\item 
+\hyperlink{interface_data_cache}{DataCache} $\ast$ \hyperlink{interface_flow_cover_view_ab4f53a1cd1e7112495a5d9db8eb780c8}{cache}
+\item 
+GLint \hyperlink{interface_flow_cover_view_acef316e43bd2cab027258e37efe3f1ce}{backingWidth}
+\item 
+GLint \hyperlink{interface_flow_cover_view_a0eaf51a70ed8a324697a1de075bf013d}{backingHeight}
+\item 
+EAGLContext $\ast$ \hyperlink{interface_flow_cover_view_a65e9007d4e86c1deff1cdfeaf19556ff}{context}
+\item 
+GLuint \hyperlink{interface_flow_cover_view_a0b132c2e2c9e93be7eff4b1d12644922}{viewRenderbuffer}
+\item 
+GLuint \hyperlink{interface_flow_cover_view_ab782ac2fa71bae57432171d6ee8a0933}{viewFramebuffer}
+\item 
+GLuint \hyperlink{interface_flow_cover_view_aa7c9cf3bf8b4be70bb35f472b8a45eda}{depthRenderbuffer}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+id$<$ \hyperlink{protocol_flow_cover_view_delegate-p}{FlowCoverViewDelegate} $>$ \hyperlink{interface_flow_cover_view_a1d8f500666d885b6348c31483be52c4a}{delegate}
+\item 
+double \hyperlink{interface_flow_cover_view_a129303e4bd38a8cdba722b6238ed56e9}{offset}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 55 of file FlowCoverView.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_flow_cover_view_a56c5cf8a568cff737ff95520cbe6b405}{
+\index{FlowCoverView@{FlowCoverView}!draw@{draw}}
+\index{draw@{draw}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) draw 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}
+\label{interface_flow_cover_view_a56c5cf8a568cff737ff95520cbe6b405}
+
+
+Definition at line 411 of file FlowCoverView.m.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{interface_flow_cover_view_a0eaf51a70ed8a324697a1de075bf013d}{
+\index{FlowCoverView@{FlowCoverView}!backingHeight@{backingHeight}}
+\index{backingHeight@{backingHeight}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{backingHeight}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (GLint) {\bf backingHeight}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_a0eaf51a70ed8a324697a1de075bf013d}
+
+
+Definition at line 78 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_acef316e43bd2cab027258e37efe3f1ce}{
+\index{FlowCoverView@{FlowCoverView}!backingWidth@{backingWidth}}
+\index{backingWidth@{backingWidth}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{backingWidth}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (GLint) {\bf backingWidth}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_acef316e43bd2cab027258e37efe3f1ce}
+
+
+Definition at line 77 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_ab4f53a1cd1e7112495a5d9db8eb780c8}{
+\index{FlowCoverView@{FlowCoverView}!cache@{cache}}
+\index{cache@{cache}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{cache}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf DataCache}$\ast$) {\bf cache}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_ab4f53a1cd1e7112495a5d9db8eb780c8}
+
+
+Definition at line 74 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_a65e9007d4e86c1deff1cdfeaf19556ff}{
+\index{FlowCoverView@{FlowCoverView}!context@{context}}
+\index{context@{context}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{context}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (EAGLContext$\ast$) {\bf context}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_a65e9007d4e86c1deff1cdfeaf19556ff}
+
+
+Definition at line 79 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_ad6e325e8aedd2961604d7099532f48e8}{
+\index{FlowCoverView@{FlowCoverView}!delegate@{delegate}}
+\index{delegate@{delegate}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{delegate}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (IBOutlet id$<${\bf FlowCoverViewDelegate}$>$) {\bf delegate}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_ad6e325e8aedd2961604d7099532f48e8}
+
+
+Definition at line 72 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_aa7c9cf3bf8b4be70bb35f472b8a45eda}{
+\index{FlowCoverView@{FlowCoverView}!depthRenderbuffer@{depthRenderbuffer}}
+\index{depthRenderbuffer@{depthRenderbuffer}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{depthRenderbuffer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (GLuint) {\bf depthRenderbuffer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_aa7c9cf3bf8b4be70bb35f472b8a45eda}
+
+
+Definition at line 81 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_ad65e2b4a144cd8065f78983d6130534a}{
+\index{FlowCoverView@{FlowCoverView}!lastPos@{lastPos}}
+\index{lastPos@{lastPos}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{lastPos}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (double) {\bf lastPos}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_ad65e2b4a144cd8065f78983d6130534a}
+
+
+Definition at line 69 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_a800395a77f71778e7c0dc0bd16ba352d}{
+\index{FlowCoverView@{FlowCoverView}!runDelta@{runDelta}}
+\index{runDelta@{runDelta}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{runDelta}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (double) {\bf runDelta}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_a800395a77f71778e7c0dc0bd16ba352d}
+
+
+Definition at line 65 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_a940d757461ee76fd56faddb9b5599771}{
+\index{FlowCoverView@{FlowCoverView}!startOff@{startOff}}
+\index{startOff@{startOff}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{startOff}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (double) {\bf startOff}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_a940d757461ee76fd56faddb9b5599771}
+
+
+Definition at line 62 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_a55ce5cf7840850f6ed838404916a48ba}{
+\index{FlowCoverView@{FlowCoverView}!startPos@{startPos}}
+\index{startPos@{startPos}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{startPos}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (double) {\bf startPos}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_a55ce5cf7840850f6ed838404916a48ba}
+
+
+Definition at line 63 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_a35a653c4b8539d4059c697f60c81fa1d}{
+\index{FlowCoverView@{FlowCoverView}!startSpeed@{startSpeed}}
+\index{startSpeed@{startSpeed}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{startSpeed}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (double) {\bf startSpeed}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_a35a653c4b8539d4059c697f60c81fa1d}
+
+
+Definition at line 64 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_a0a07a521d3525b9b7dc70c0a625adea0}{
+\index{FlowCoverView@{FlowCoverView}!startTime@{startTime}}
+\index{startTime@{startTime}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{startTime}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (double) {\bf startTime}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_a0a07a521d3525b9b7dc70c0a625adea0}
+
+
+Definition at line 61 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_acaf7025590c212741e6217f30fb042be}{
+\index{FlowCoverView@{FlowCoverView}!startTouch@{startTouch}}
+\index{startTouch@{startTouch}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{startTouch}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (CGPoint) {\bf startTouch}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_acaf7025590c212741e6217f30fb042be}
+
+
+Definition at line 67 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_a49efd1a3e05e38497c176a4e11fdbaab}{
+\index{FlowCoverView@{FlowCoverView}!timer@{timer}}
+\index{timer@{timer}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{timer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSTimer$\ast$) {\bf timer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_a49efd1a3e05e38497c176a4e11fdbaab}
+
+
+Definition at line 60 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_a1a25ad3e6c05c8e905d31e7a9dcbce20}{
+\index{FlowCoverView@{FlowCoverView}!touchFlag@{touchFlag}}
+\index{touchFlag@{touchFlag}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{touchFlag}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) {\bf touchFlag}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_a1a25ad3e6c05c8e905d31e7a9dcbce20}
+
+
+Definition at line 66 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_ab782ac2fa71bae57432171d6ee8a0933}{
+\index{FlowCoverView@{FlowCoverView}!viewFramebuffer@{viewFramebuffer}}
+\index{viewFramebuffer@{viewFramebuffer}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{viewFramebuffer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (GLuint) {\bf viewFramebuffer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_ab782ac2fa71bae57432171d6ee8a0933}
+
+
+Definition at line 80 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_a0b132c2e2c9e93be7eff4b1d12644922}{
+\index{FlowCoverView@{FlowCoverView}!viewRenderbuffer@{viewRenderbuffer}}
+\index{viewRenderbuffer@{viewRenderbuffer}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{viewRenderbuffer}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (GLuint) {\bf viewRenderbuffer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{interface_flow_cover_view_a0b132c2e2c9e93be7eff4b1d12644922}
+
+
+Definition at line 80 of file FlowCoverView.h.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{interface_flow_cover_view_a1d8f500666d885b6348c31483be52c4a}{
+\index{FlowCoverView@{FlowCoverView}!delegate@{delegate}}
+\index{delegate@{delegate}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{delegate}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id$<${\bf FlowCoverViewDelegate}$>$) {\bf delegate}\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_flow_cover_view_a1d8f500666d885b6348c31483be52c4a}
+
+
+Definition at line 84 of file FlowCoverView.h.
+
+\hypertarget{interface_flow_cover_view_a129303e4bd38a8cdba722b6238ed56e9}{
+\index{FlowCoverView@{FlowCoverView}!offset@{offset}}
+\index{offset@{offset}!FlowCoverView@{FlowCoverView}}
+\subsubsection[{offset}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (double) offset\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_flow_cover_view_a129303e4bd38a8cdba722b6238ed56e9}
+
+
+Definition at line 58 of file FlowCoverView.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_flow_cover_view_8h}{FlowCoverView.h}\item 
+\hyperlink{_flow_cover_view_8m}{FlowCoverView.m}\end{DoxyCompactItemize}

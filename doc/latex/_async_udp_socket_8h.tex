@@ -1,0 +1,117 @@
+\hypertarget{_async_udp_socket_8h}{
+\section{AsyncUdpSocket.h File Reference}
+\label{_async_udp_socket_8h}\index{AsyncUdpSocket.h@{AsyncUdpSocket.h}}
+}
+{\ttfamily \#import $<$Foundation/Foundation.h$>$}\par
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{interface_async_udp_socket}{AsyncUdpSocket}
+\item 
+protocol \hyperlink{protocol_async_udp_socket_delegate-p}{$<$AsyncUdpSocketDelegate$>$}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644a}{AsyncUdpSocketError} \hyperlink{_async_udp_socket_8h_a684741016676dcfaa4f828b513008c14}{AsyncUdpSocketError}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644a}{AsyncUdpSocketError} \{ \par
+\hyperlink{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aa1b29f7f9110645c9d6b845b43d7e8b37}{AsyncUdpSocketCFSocketError} =  kCFSocketError, 
+\hyperlink{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aaeb841bef97514299423cfbad5cc98aff}{AsyncUdpSocketNoError} =  0, 
+\hyperlink{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aa86daa92efa59c86fce1963645aa2103e}{AsyncUdpSocketBadParameter}, 
+\hyperlink{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aae4d45b7609b8d6d9e0f8e45227b9129c}{AsyncUdpSocketIPv4Unavailable}, 
+\par
+\hyperlink{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aa94276c645ee390471d9b68724ef54eb8}{AsyncUdpSocketIPv6Unavailable}, 
+\hyperlink{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aaa1c623c64626c1dcd625d5beedf7a30a}{AsyncUdpSocketSendTimeoutError}, 
+\hyperlink{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aa728e70bb47090f88ce22cacf551126a1}{AsyncUdpSocketReceiveTimeoutError}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+NSString $\ast$const \hyperlink{_async_udp_socket_8h_ad6df1cce3ce4139412b562b3fc8231b1}{AsyncUdpSocketException}
+\item 
+NSString $\ast$const \hyperlink{_async_udp_socket_8h_a6ff76c5796f217d98a427c4e28c69861}{AsyncUdpSocketErrorDomain}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_async_udp_socket_8h_a684741016676dcfaa4f828b513008c14}{
+\index{AsyncUdpSocket.h@{AsyncUdpSocket.h}!AsyncUdpSocketError@{AsyncUdpSocketError}}
+\index{AsyncUdpSocketError@{AsyncUdpSocketError}!AsyncUdpSocket.h@{AsyncUdpSocket.h}}
+\subsubsection[{AsyncUdpSocketError}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf AsyncUdpSocketError} {\bf AsyncUdpSocketError}}}
+\label{_async_udp_socket_8h_a684741016676dcfaa4f828b513008c14}
+
+
+Definition at line 29 of file AsyncUdpSocket.h.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644a}{
+\index{AsyncUdpSocket.h@{AsyncUdpSocket.h}!AsyncUdpSocketError@{AsyncUdpSocketError}}
+\index{AsyncUdpSocketError@{AsyncUdpSocketError}!AsyncUdpSocket.h@{AsyncUdpSocket.h}}
+\subsubsection[{AsyncUdpSocketError}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf AsyncUdpSocketError}}}
+\label{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644a}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{AsyncUdpSocketCFSocketError@{AsyncUdpSocketCFSocketError}!AsyncUdpSocket.h@{AsyncUdpSocket.h}}\index{AsyncUdpSocket.h@{AsyncUdpSocket.h}!AsyncUdpSocketCFSocketError@{AsyncUdpSocketCFSocketError}}\item[{\em 
+\hypertarget{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aa1b29f7f9110645c9d6b845b43d7e8b37}{
+AsyncUdpSocketCFSocketError}
+\label{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aa1b29f7f9110645c9d6b845b43d7e8b37}
+}]\index{AsyncUdpSocketNoError@{AsyncUdpSocketNoError}!AsyncUdpSocket.h@{AsyncUdpSocket.h}}\index{AsyncUdpSocket.h@{AsyncUdpSocket.h}!AsyncUdpSocketNoError@{AsyncUdpSocketNoError}}\item[{\em 
+\hypertarget{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aaeb841bef97514299423cfbad5cc98aff}{
+AsyncUdpSocketNoError}
+\label{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aaeb841bef97514299423cfbad5cc98aff}
+}]\index{AsyncUdpSocketBadParameter@{AsyncUdpSocketBadParameter}!AsyncUdpSocket.h@{AsyncUdpSocket.h}}\index{AsyncUdpSocket.h@{AsyncUdpSocket.h}!AsyncUdpSocketBadParameter@{AsyncUdpSocketBadParameter}}\item[{\em 
+\hypertarget{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aa86daa92efa59c86fce1963645aa2103e}{
+AsyncUdpSocketBadParameter}
+\label{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aa86daa92efa59c86fce1963645aa2103e}
+}]\index{AsyncUdpSocketIPv4Unavailable@{AsyncUdpSocketIPv4Unavailable}!AsyncUdpSocket.h@{AsyncUdpSocket.h}}\index{AsyncUdpSocket.h@{AsyncUdpSocket.h}!AsyncUdpSocketIPv4Unavailable@{AsyncUdpSocketIPv4Unavailable}}\item[{\em 
+\hypertarget{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aae4d45b7609b8d6d9e0f8e45227b9129c}{
+AsyncUdpSocketIPv4Unavailable}
+\label{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aae4d45b7609b8d6d9e0f8e45227b9129c}
+}]\index{AsyncUdpSocketIPv6Unavailable@{AsyncUdpSocketIPv6Unavailable}!AsyncUdpSocket.h@{AsyncUdpSocket.h}}\index{AsyncUdpSocket.h@{AsyncUdpSocket.h}!AsyncUdpSocketIPv6Unavailable@{AsyncUdpSocketIPv6Unavailable}}\item[{\em 
+\hypertarget{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aa94276c645ee390471d9b68724ef54eb8}{
+AsyncUdpSocketIPv6Unavailable}
+\label{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aa94276c645ee390471d9b68724ef54eb8}
+}]\index{AsyncUdpSocketSendTimeoutError@{AsyncUdpSocketSendTimeoutError}!AsyncUdpSocket.h@{AsyncUdpSocket.h}}\index{AsyncUdpSocket.h@{AsyncUdpSocket.h}!AsyncUdpSocketSendTimeoutError@{AsyncUdpSocketSendTimeoutError}}\item[{\em 
+\hypertarget{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aaa1c623c64626c1dcd625d5beedf7a30a}{
+AsyncUdpSocketSendTimeoutError}
+\label{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aaa1c623c64626c1dcd625d5beedf7a30a}
+}]\index{AsyncUdpSocketReceiveTimeoutError@{AsyncUdpSocketReceiveTimeoutError}!AsyncUdpSocket.h@{AsyncUdpSocket.h}}\index{AsyncUdpSocket.h@{AsyncUdpSocket.h}!AsyncUdpSocketReceiveTimeoutError@{AsyncUdpSocketReceiveTimeoutError}}\item[{\em 
+\hypertarget{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aa728e70bb47090f88ce22cacf551126a1}{
+AsyncUdpSocketReceiveTimeoutError}
+\label{_async_udp_socket_8h_a8485e4d1b1e3f9030fc40806e00a644aa728e70bb47090f88ce22cacf551126a1}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 19 of file AsyncUdpSocket.h.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{_async_udp_socket_8h_a6ff76c5796f217d98a427c4e28c69861}{
+\index{AsyncUdpSocket.h@{AsyncUdpSocket.h}!AsyncUdpSocketErrorDomain@{AsyncUdpSocketErrorDomain}}
+\index{AsyncUdpSocketErrorDomain@{AsyncUdpSocketErrorDomain}!AsyncUdpSocket.h@{AsyncUdpSocket.h}}
+\subsubsection[{AsyncUdpSocketErrorDomain}]{\setlength{\rightskip}{0pt plus 5cm}NSString$\ast$ const {\bf AsyncUdpSocketErrorDomain}}}
+\label{_async_udp_socket_8h_a6ff76c5796f217d98a427c4e28c69861}
+
+
+Definition at line 31 of file AsyncUdpSocket.m.
+
+\hypertarget{_async_udp_socket_8h_ad6df1cce3ce4139412b562b3fc8231b1}{
+\index{AsyncUdpSocket.h@{AsyncUdpSocket.h}!AsyncUdpSocketException@{AsyncUdpSocketException}}
+\index{AsyncUdpSocketException@{AsyncUdpSocketException}!AsyncUdpSocket.h@{AsyncUdpSocket.h}}
+\subsubsection[{AsyncUdpSocketException}]{\setlength{\rightskip}{0pt plus 5cm}NSString$\ast$ const {\bf AsyncUdpSocketException}}}
+\label{_async_udp_socket_8h_ad6df1cce3ce4139412b562b3fc8231b1}
+
+
+Definition at line 30 of file AsyncUdpSocket.m.
+

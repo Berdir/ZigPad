@@ -1,0 +1,114 @@
+\hypertarget{_sync_event_8h}{
+\section{SyncEvent.h File Reference}
+\label{_sync_event_8h}\index{SyncEvent.h@{SyncEvent.h}}
+}
+{\ttfamily \#import $<$Foundation/Foundation.h$>$}\par
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{interface_sync_event}{SyncEvent}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34}{SyncEventCommand} \{ \par
+\hyperlink{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a1697a91b22c2369eb2ba427c2d193329}{SELECT} =  83, 
+\hyperlink{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a1f28d4392b1c1e7da2af2283632d81e1}{JUMP} =  74, 
+\hyperlink{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a691a2430ec26878897b5fbc9c22a4c}{CONNECTED} =  67, 
+\hyperlink{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34ac430318ffe8093a350d85d70daa54cd7}{LOST\_\-CONNECTION} =  76, 
+\par
+\hyperlink{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34abaf6b8e08edf0e9d2eb38551fed1fb39}{REQUEST} =  82, 
+\hyperlink{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a0c2c933912b1834f832d17e973cd8100}{ANSWER} =  65, 
+\hyperlink{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a10b5d68d31711288e1fe0fa17dbf4f}{EXIT} =  69
+ \}
+\item 
+enum \hyperlink{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04}{SyncEventSwipeDirection} \{ \par
+\hyperlink{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04aec8379af7490bb9eaaf579cf17876f38}{RIGHT}, 
+\hyperlink{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04adb45120aafd37a973140edee24708065}{LEFT}, 
+\hyperlink{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04a446112f9fefaf7dff0892523dfc476ef}{RIGHT\_\-ANIMATED}, 
+\hyperlink{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04a3e5d93a888235c25d4e1ff145faa9f45}{LEFT\_\-ANIMATED}, 
+\par
+\hyperlink{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04aba595d8bca8bc5e67c37c0a9d89becfa}{UP}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34}{
+\index{SyncEvent.h@{SyncEvent.h}!SyncEventCommand@{SyncEventCommand}}
+\index{SyncEventCommand@{SyncEventCommand}!SyncEvent.h@{SyncEvent.h}}
+\subsubsection[{SyncEventCommand}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf SyncEventCommand}}}
+\label{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{SELECT@{SELECT}!SyncEvent.h@{SyncEvent.h}}\index{SyncEvent.h@{SyncEvent.h}!SELECT@{SELECT}}\item[{\em 
+\hypertarget{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a1697a91b22c2369eb2ba427c2d193329}{
+SELECT}
+\label{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a1697a91b22c2369eb2ba427c2d193329}
+}]\index{JUMP@{JUMP}!SyncEvent.h@{SyncEvent.h}}\index{SyncEvent.h@{SyncEvent.h}!JUMP@{JUMP}}\item[{\em 
+\hypertarget{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a1f28d4392b1c1e7da2af2283632d81e1}{
+JUMP}
+\label{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a1f28d4392b1c1e7da2af2283632d81e1}
+}]\index{CONNECTED@{CONNECTED}!SyncEvent.h@{SyncEvent.h}}\index{SyncEvent.h@{SyncEvent.h}!CONNECTED@{CONNECTED}}\item[{\em 
+\hypertarget{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a691a2430ec26878897b5fbc9c22a4c}{
+CONNECTED}
+\label{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a691a2430ec26878897b5fbc9c22a4c}
+}]\index{LOST\_\-CONNECTION@{LOST\_\-CONNECTION}!SyncEvent.h@{SyncEvent.h}}\index{SyncEvent.h@{SyncEvent.h}!LOST\_\-CONNECTION@{LOST\_\-CONNECTION}}\item[{\em 
+\hypertarget{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34ac430318ffe8093a350d85d70daa54cd7}{
+LOST\_\-CONNECTION}
+\label{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34ac430318ffe8093a350d85d70daa54cd7}
+}]\index{REQUEST@{REQUEST}!SyncEvent.h@{SyncEvent.h}}\index{SyncEvent.h@{SyncEvent.h}!REQUEST@{REQUEST}}\item[{\em 
+\hypertarget{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34abaf6b8e08edf0e9d2eb38551fed1fb39}{
+REQUEST}
+\label{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34abaf6b8e08edf0e9d2eb38551fed1fb39}
+}]\index{ANSWER@{ANSWER}!SyncEvent.h@{SyncEvent.h}}\index{SyncEvent.h@{SyncEvent.h}!ANSWER@{ANSWER}}\item[{\em 
+\hypertarget{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a0c2c933912b1834f832d17e973cd8100}{
+ANSWER}
+\label{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a0c2c933912b1834f832d17e973cd8100}
+}]\index{EXIT@{EXIT}!SyncEvent.h@{SyncEvent.h}}\index{SyncEvent.h@{SyncEvent.h}!EXIT@{EXIT}}\item[{\em 
+\hypertarget{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a10b5d68d31711288e1fe0fa17dbf4f}{
+EXIT}
+\label{_sync_event_8h_a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a10b5d68d31711288e1fe0fa17dbf4f}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 11 of file SyncEvent.h.
+
+\hypertarget{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04}{
+\index{SyncEvent.h@{SyncEvent.h}!SyncEventSwipeDirection@{SyncEventSwipeDirection}}
+\index{SyncEventSwipeDirection@{SyncEventSwipeDirection}!SyncEvent.h@{SyncEvent.h}}
+\subsubsection[{SyncEventSwipeDirection}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf SyncEventSwipeDirection}}}
+\label{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{RIGHT@{RIGHT}!SyncEvent.h@{SyncEvent.h}}\index{SyncEvent.h@{SyncEvent.h}!RIGHT@{RIGHT}}\item[{\em 
+\hypertarget{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04aec8379af7490bb9eaaf579cf17876f38}{
+RIGHT}
+\label{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04aec8379af7490bb9eaaf579cf17876f38}
+}]\index{LEFT@{LEFT}!SyncEvent.h@{SyncEvent.h}}\index{SyncEvent.h@{SyncEvent.h}!LEFT@{LEFT}}\item[{\em 
+\hypertarget{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04adb45120aafd37a973140edee24708065}{
+LEFT}
+\label{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04adb45120aafd37a973140edee24708065}
+}]\index{RIGHT\_\-ANIMATED@{RIGHT\_\-ANIMATED}!SyncEvent.h@{SyncEvent.h}}\index{SyncEvent.h@{SyncEvent.h}!RIGHT\_\-ANIMATED@{RIGHT\_\-ANIMATED}}\item[{\em 
+\hypertarget{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04a446112f9fefaf7dff0892523dfc476ef}{
+RIGHT\_\-ANIMATED}
+\label{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04a446112f9fefaf7dff0892523dfc476ef}
+}]\index{LEFT\_\-ANIMATED@{LEFT\_\-ANIMATED}!SyncEvent.h@{SyncEvent.h}}\index{SyncEvent.h@{SyncEvent.h}!LEFT\_\-ANIMATED@{LEFT\_\-ANIMATED}}\item[{\em 
+\hypertarget{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04a3e5d93a888235c25d4e1ff145faa9f45}{
+LEFT\_\-ANIMATED}
+\label{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04a3e5d93a888235c25d4e1ff145faa9f45}
+}]\index{UP@{UP}!SyncEvent.h@{SyncEvent.h}}\index{SyncEvent.h@{SyncEvent.h}!UP@{UP}}\item[{\em 
+\hypertarget{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04aba595d8bca8bc5e67c37c0a9d89becfa}{
+UP}
+\label{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04aba595d8bca8bc5e67c37c0a9d89becfa}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 22 of file SyncEvent.h.
+
