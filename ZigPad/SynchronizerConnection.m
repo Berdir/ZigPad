@@ -15,6 +15,7 @@
 @synthesize inStream = _inStream;
 @synthesize outReady;
 @synthesize outStream = _outStream;
+@synthesize name = _name;
 
 
 - (void) openStreams
@@ -40,6 +41,8 @@
 	[self.outStream release];
 	self.outStream = nil;
 	self.outReady = NO;
+    
+    self.name = service.name;
     
     
 	// note the following method returns _inStream and _outStream with a retain count that the caller must eventually release
@@ -75,11 +78,18 @@
     
     [self openStreams];
     
+    // Inbound connection only, do not send.
+    self.name = nil;
+    
     return i;
 }
 
 - (void) send:(SyncEvent *) event
 {
+    if (self.name == nil) {
+        return;
+    }
+    
     if (self.outReady) {
         NSLog(@"Sending SyncEvent %i : %d", event.command, event.argument);
         

@@ -18,6 +18,7 @@
 @property (readwrite, retain) NSOutputStream	*outStream;
 @property (readwrite) BOOL				inReady;
 @property (readwrite) BOOL				outReady;
+@property (readwrite, retain) NSString *name;
 
 - (id) initWithService: (NSNetService *) service;
 - (id) initWithStreams: (NSInputStream *) istr : (NSOutputStream *) ostr;

@@ -146,6 +146,13 @@
             [self stopCurrentResolve];
         }
         
+        for (SynchronizerConnection *existing in connections) {
+            if ([existing.name isEqualToString:[service name]]) {
+                NSLog(@"Already connected to %@", [service name]);
+                return;
+            }
+        }
+        
         // Then set the current resolve to the service corresponding to the tapped cell
         [service setDelegate:self];
         
@@ -202,12 +209,12 @@
     [connections addObject:conn];
     [conn release];
     
-    SyncEvent *event = [[SyncEvent alloc] init];
+    /*SyncEvent *event = [[SyncEvent alloc] init];
     event.command = CONNECTED;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncReceive" object:event];
     
-    [event release];
+    [event release];*/
     
     NSLog(@"Accepted connection from remote device");
 
