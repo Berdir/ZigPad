@@ -7,8 +7,6 @@
 //
 
 #import "Commander.h"
-#import "AsyncTCPSocket.h"
-#import "ZigPadSettings.h"
 
 /**
  * Indicate which class should be used as the actual implementation.
@@ -16,11 +14,6 @@
  * When changing this, remember to also update the @class statement below.
  */
 NSString * const COMMANDER_IMPL = @"TCPCommander";
-
-/**
- * Make sure that class is loaded.
- */
-@class TCPCommander;
 
 @implementation Commander
 
