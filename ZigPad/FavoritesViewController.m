@@ -68,13 +68,16 @@ NSArray* favorites; //favorite cache
  
     favorites = [[self getSortedAndFilteredFavoritesFromDB] retain];
     
+    CGRect cgRect =[[UIScreen mainScreen] bounds];
+    CGSize cgSize = cgRect.size;
+    
     int padding = 10; //buttonPadding
     int numOfcols = 3;//num of buttons per row on UIview
     int numOfFavorites = [favorites count];
-    int buttonWith = 80;
-    int buttonHeight = 80;
-    int labelWith = 80;
-    int labelHeight = 20;
+    int buttonWith = cgSize.width / 4;
+    int buttonHeight = cgSize.width / 4;
+    int labelWith = cgSize.width / 4;
+    int labelHeight = cgSize.width / 16;
     int btnPosX,btnPosY,labPosX, labPosY = 0; 
     
     for (int i = 0; numOfcols*i < numOfFavorites ; i++) {
@@ -103,13 +106,18 @@ NSArray* favorites; //favorite cache
             [btn.layer setBorderWidth:1.0];
             [btn.layer setCornerRadius:7.0f];
             [btn.layer setMasksToBounds:YES];
-
             
+            btn.contentMode = UIViewContentModeScaleToFill;
+
             //fill Button with Text or LocalImage
-            //[btn setImage:[UIImage imageNamed:@"testpic2.png"]  forState:UIControlStateNormal];
             LocalPicture* image = [self findPictureInAction:a];            
-            if (image !=nil)[btn setImage:[UIImage imageWithData:image.picture] forState:UIControlStateNormal];
-            else [btn setTitle:@"?" forState:UIControlStateNormal];
+            if (image !=nil)
+            {
+                [btn setBackgroundImage:[UIImage imageWithData:image.picture] forState:UIControlStateNormal];
+            }
+            else {
+                [btn setTitle:@"?" forState:UIControlStateNormal];
+            }
 
             
             //eventlistener

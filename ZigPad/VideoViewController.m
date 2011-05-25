@@ -11,47 +11,67 @@
 
 @implementation VideoViewController
 
-@synthesize myWebView = _myWebView;
-
-bool clickWasFirstTime = false;
-
-
+bool movieIsPlaying = false;
 
 - (void)dealloc
 {
-    [_myWebView release];
-    clickWasFirstTime = false; //because Memorymanager makes recycling of deallocated objects
+    // Stop and release movie player if necessary.
+    if (moviePlayer) {
+        [moviePlayer stop];
+        [moviePlayer release];
+        moviePlayer = nil;
+    }
+    movieIsPlaying = false; //because Memorymanager makes recycling of deallocated objects
     [super dealloc];
 }
 
 //called by button of VideoView
 - (void)click: (id) sender {
     
-    //go next action
-    if (clickWasFirstTime)
+    // Check if the vide is already playing.
+    if (movieIsPlaying) {
+        // Stop and release movie player if necessary.
+        if (moviePlayer) {
+            [moviePlayer stop];
+            [moviePlayer release];
+            moviePlayer = nil;
+        }
+
+        // Switch back to normal grey status bar.
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
         [super click:sender];
-    else
+    } else
     {
+        
         //play the movie
         //NSString* urlAddress = @"http://user.enterpriselab.ch/~tazimmer/kungfupigeon5.mov";
         
         Param* urlParam = [self.presentation.activeAction getParamForKey:@"url"];
-        NSString* urlAddress = urlParam.value;
         
-        //Create a URL object.
-        NSURL *url = [NSURL URLWithString:urlAddress];
+        // Initalize and start the movie player with the video URL.
+        NSURL* videoURL = [NSURL URLWithString:urlParam.value];
+        moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoURL];
+        [moviePlayer prepareToPlay];
+        [moviePlayer play];
         
-        //URL Requst Object
-        NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+        // Set size and autoresizing flags of the movie player view.
+        [moviePlayer.view setFrame: self.view.frame];
+        moviePlayer.view.backgroundColor = [UIColor grayColor];
+        moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
-        //Load the request in the UIWebView.
-        [self.myWebView loadRequest:requestObj];
+        // Display movie player view below button.
+        [self.view insertSubview:moviePlayer.view belowSubview:self.imageButton];
         
-        clickWasFirstTime = TRUE;
+        // Make the button invincible
+        [self.imageButton setImage:nil forState:UIControlStateNormal];
+        [self.imageButton setBackgroundColor: [UIColor clearColor]];
         
+        // Make the status bar dark to be less intrusive.
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+
+        // Set the movie is playing flag, next button click goes to next action.
+        movieIsPlaying = TRUE;        
     }
-    
-    
 }
 
 #pragma mark - View lifecycle
@@ -77,6 +97,12 @@ bool clickWasFirstTime = false;
         img = [UIImage imageNamed:@"play.jpg"];
         [self.imageButton setImage:img forState:UIControlStateNormal];
  
+}
+
+// Override to allow orientations other than the default portrait orientation.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations.
+    return YES;
 }
 
 //generated code....

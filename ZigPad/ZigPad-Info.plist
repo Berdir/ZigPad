@@ -32,13 +32,15 @@
 	<true/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
+	<key>NSMainNibFile~ipad</key>
+	<string>MainWindow-iPad</string>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
 	<key>UIApplicationExitsOnSuspend</key>
 	<true/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
 </dict>
 </plist>

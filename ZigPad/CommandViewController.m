@@ -43,7 +43,10 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     
-    [self.imageButton setImage:[self getCommandImage] forState:UIControlStateNormal];
+    [self.imageButton setBackgroundImage:[self getCommandImage] forState:UIControlStateNormal];
+    //[self.imageButton setBackgroundImage:[self getCommandImage]];
+    
+    self.imageButton.contentMode = UIViewContentModeScaleToFill;
     
     Param *p = [self.presentation.activeAction getParamForKey:@"stay"];
     // Show repeat icon if we can't press imagebutton to go next action

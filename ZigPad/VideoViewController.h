@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ActionViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 
 @interface VideoViewController : ActionViewController {
-    
+    MPMoviePlayerController *moviePlayer;
 }
-@property (nonatomic, retain) IBOutlet UIWebView *myWebView;
 
 @end

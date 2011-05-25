@@ -47,7 +47,7 @@
 					<object class="IBUIImageView" id="660669819">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrameSize">{320, 480}</string>
+						<string key="NSFrameSize">{768, 1024}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSNextKeyView" ref="296149799"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -60,7 +60,7 @@
 					<object class="IBUILabel" id="296149799">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{78, 48}, {164, 37}}</string>
+						<string key="NSFrame">{{302, 56.5}, {164, 37}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSNextKeyView" ref="547204624"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -89,14 +89,14 @@
 					<object class="IBUIButton" id="372731608">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 124}, {320, 295}}</string>
+						<string key="NSFrame">{{64, 195}, {640, 590}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
 						</object>
 						<bool key="IBUIOpaque">NO</bool>
-						<int key="IBUIContentMode">4</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -119,8 +119,9 @@
 					<object class="IBUIImageView" id="731785834">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{240, 32}, {67, 70}}</string>
+						<string key="NSFrame">{{529, 92}, {67, 70}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSNextKeyView" ref="372731608"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MSAwAA</bytes>
@@ -135,9 +136,9 @@
 					<object class="IBUILabel" id="547204624">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{23, 95}, {274, 21}}</string>
+						<string key="NSFrame">{{247, 139.5}, {274, 21}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSNextKeyView" ref="372731608"/>
+						<reference key="NSNextKeyView" ref="731785834"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -151,7 +152,7 @@
 						<int key="IBUITextAlignment">1</int>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 480}</string>
+				<string key="NSFrameSize">{768, 1024}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="660669819"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -244,11 +245,11 @@
 						<reference key="object" ref="766721923"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="372731608"/>
-							<reference ref="296149799"/>
 							<reference ref="660669819"/>
-							<reference ref="547204624"/>
 							<reference ref="731785834"/>
+							<reference ref="296149799"/>
+							<reference ref="547204624"/>
+							<reference ref="372731608"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>

@@ -59,7 +59,7 @@
 		B9ABC413138A5541002AB405 /* UDPCommander.m in Sources */ = {isa = PBXBuildFile; fileRef = B9ABC412138A5541002AB405 /* UDPCommander.m */; };
 		B9ABC417138A59AC002AB405 /* TCPCommander.m in Sources */ = {isa = PBXBuildFile; fileRef = B9ABC416138A59AC002AB405 /* TCPCommander.m */; };
 		B9AF2B9F135DBFF8005944B7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */; };
-		B9AF2BA0135DBFF8005944B7 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */; };
+		B9AF2BA0135DBFF8005944B7 /* SettingsView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9AF2B9E135DBFF7005944B7 /* SettingsView~ipad.xib */; };
 		B9BC41B2134C86B60085D597 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B1134C86B60085D597 /* Importer.m */; };
 		B9BC41B5134C86CC0085D597 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BC41B4134C86CC0085D597 /* Config.m */; };
 		B9BC41B7134C8A230085D597 /* xml-example.xml in Resources */ = {isa = PBXBuildFile; fileRef = B9BC41B6134C8A230085D597 /* xml-example.xml */; };
@@ -88,6 +88,15 @@
 		B9EB40CF13797446007127B6 /* VideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9EB40CD13797446007127B6 /* VideoView.xib */; };
 		B9F03A161355BEA9008474A9 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F03A151355BEA9008474A9 /* 37x-Checkmark.png */; };
 		B9F03A181355C04E008474A9 /* Failure.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F03A171355C04E008474A9 /* Failure.png */; };
+		B9F0A6BF138BE62700976943 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F0A6BD138BE62700976943 /* MainWindow-iPad.xib */; };
+		B9F0A6C1138BE9F300976943 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F0A6C0138BE9F300976943 /* SettingsView.xib */; };
+		B9F0A6C3138BEE7900976943 /* CommandView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F0A6C2138BEE7900976943 /* CommandView~ipad.xib */; };
+		B9F0A6C5138BF26500976943 /* SequenceChoiceView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F0A6C4138BF26500976943 /* SequenceChoiceView~ipad.xib */; };
+		B9F0A6C7138BF33700976943 /* FavoritesView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F0A6C6138BF33700976943 /* FavoritesView~ipad.xib */; };
+		B9F0A6C9138CD95300976943 /* ImageView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F0A6C8138CD95300976943 /* ImageView~ipad.xib */; };
+		B9F0A6CD138CDABE00976943 /* WebCamView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F0A6CC138CDABE00976943 /* WebCamView~ipad.xib */; };
+		B9F0A6CF138CDD7A00976943 /* VideoView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F0A6CE138CDD7A00976943 /* VideoView~ipad.xib */; };
+		B9F0A6D1138CDFEF00976943 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F0A6D0138CDFEF00976943 /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -179,7 +188,7 @@
 		B9ABC416138A59AC002AB405 /* TCPCommander.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPCommander.m; sourceTree = "<group>"; };
 		B9AF2B9C135DBFF7005944B7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
+		B9AF2B9E135DBFF7005944B7 /* SettingsView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SettingsView~ipad.xib"; sourceTree = "<group>"; };
 		B9BC41B0134C86B60085D597 /* Importer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Importer.h; sourceTree = "<group>"; };
 		B9BC41B1134C86B60085D597 /* Importer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Importer.m; sourceTree = "<group>"; };
 		B9BC41B3134C86CC0085D597 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
@@ -217,6 +226,15 @@
 		B9EB40CD13797446007127B6 /* VideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoView.xib; sourceTree = "<group>"; };
 		B9F03A151355BEA9008474A9 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
 		B9F03A171355C04E008474A9 /* Failure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Failure.png; sourceTree = "<group>"; };
+		B9F0A6BE138BE62700976943 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		B9F0A6C0138BE9F300976943 /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
+		B9F0A6C2138BEE7900976943 /* CommandView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "CommandView~ipad.xib"; sourceTree = "<group>"; };
+		B9F0A6C4138BF26500976943 /* SequenceChoiceView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SequenceChoiceView~ipad.xib"; sourceTree = "<group>"; };
+		B9F0A6C6138BF33700976943 /* FavoritesView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "FavoritesView~ipad.xib"; sourceTree = "<group>"; };
+		B9F0A6C8138CD95300976943 /* ImageView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ImageView~ipad.xib"; sourceTree = "<group>"; };
+		B9F0A6CC138CDABE00976943 /* WebCamView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "WebCamView~ipad.xib"; sourceTree = "<group>"; };
+		B9F0A6CE138CDD7A00976943 /* VideoView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "VideoView~ipad.xib"; sourceTree = "<group>"; };
+		B9F0A6D0138CDFEF00976943 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F0A6D1138CDFEF00976943 /* MediaPlayer.framework in Frameworks */,
 				B98A071E13795CBA00B30B16 /* CFNetwork.framework in Frameworks */,
 				B994BDDB135EF9460067529F /* AudioToolbox.framework in Frameworks */,
 				B9E2CBC51354910B00F1E5FE /* QuartzCore.framework in Frameworks */,
@@ -282,6 +301,7 @@
 		B998B8DD134C6768003C2C7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B9F0A6D0138CDFEF00976943 /* MediaPlayer.framework */,
 				B9A75F2F1383A48100215845 /* GHUnitIOS.framework */,
 				B98A071D13795CBA00B30B16 /* CFNetwork.framework */,
 				B994BDDA135EF9460067529F /* AudioToolbox.framework */,
@@ -309,7 +329,6 @@
 				B998B8F5134C6768003C2C7B /* MainWindow.xib */,
 				B998B8F8134C6768003C2C7B /* RootViewController.h */,
 				B998B8F9134C6768003C2C7B /* RootViewController.m */,
-				B998B8FB134C6768003C2C7B /* RootViewController.xib */,
 				B9BC41AA134C85F50085D597 /* UI */,
 				B9E00CE5137A8682002A1340 /* helperClassesAllLayers */,
 				B998B8E7134C6768003C2C7B /* Supporting Files */,
@@ -365,19 +384,17 @@
 		B9BC41AA134C85F50085D597 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B9F0A6BC138BE61F00976943 /* Xib */,
 				B9E00CE4137A8564002A1340 /* ActionViewPlugins */,
 				B9E00CE2137A84A6002A1340 /* openLibs */,
 				B98000381367FAD500A629D4 /* ActionViewController.h */,
 				B98000391367FAD500A629D4 /* ActionViewController.m */,
 				B9E2CBB313548FBF00F1E5FE /* SequenceChoiceViewController.h */,
 				B9E2CBB413548FBF00F1E5FE /* SequenceChoiceViewController.m */,
-				B9E2CBB613548FEA00F1E5FE /* SequenceChoiceView.xib */,
 				B993FB7A1355E29C00A69334 /* FavoritesViewController.h */,
 				B993FB7B1355E29C00A69334 /* FavoritesViewController.m */,
-				B993FB7C1355E29D00A69334 /* FavoritesView.xib */,
 				B9AF2B9C135DBFF7005944B7 /* SettingsViewController.h */,
 				B9AF2B9D135DBFF7005944B7 /* SettingsViewController.m */,
-				B9AF2B9E135DBFF7005944B7 /* SettingsView.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -477,13 +494,17 @@
 				B982349F1371974B00132F9E /* ImageViewController.h */,
 				B98234A01371974D00132F9E /* ImageViewController.m */,
 				B98234A11371974F00132F9E /* ImageView.xib */,
+				B9F0A6C8138CD95300976943 /* ImageView~ipad.xib */,
 				B9EB40CB13797446007127B6 /* VideoViewController.h */,
 				B9EB40CC13797446007127B6 /* VideoViewController.m */,
 				B9EB40CD13797446007127B6 /* VideoView.xib */,
+				B9F0A6CE138CDD7A00976943 /* VideoView~ipad.xib */,
 				B994BDCB135EDCDE0067529F /* CommandViewController.h */,
 				B994BDCC135EDCDE0067529F /* CommandViewController.m */,
 				B994BDCD135EDCDE0067529F /* CommandView.xib */,
+				B9F0A6C2138BEE7900976943 /* CommandView~ipad.xib */,
 				B9DA4B7E1368749300EFD4B1 /* WebcamView.xib */,
+				B9F0A6CC138CDABE00976943 /* WebCamView~ipad.xib */,
 				B9DA4B7F1368749300EFD4B1 /* WebcamViewController.h */,
 				B9DA4B801368749300EFD4B1 /* WebcamViewController.m */,
 			);
@@ -544,6 +565,21 @@
 			);
 			name = Resources;
 			path = ZigPad;
+			sourceTree = "<group>";
+		};
+		B9F0A6BC138BE61F00976943 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				B998B8FB134C6768003C2C7B /* RootViewController.xib */,
+				B993FB7C1355E29D00A69334 /* FavoritesView.xib */,
+				B9F0A6C6138BF33700976943 /* FavoritesView~ipad.xib */,
+				B9E2CBB613548FEA00F1E5FE /* SequenceChoiceView.xib */,
+				B9F0A6C4138BF26500976943 /* SequenceChoiceView~ipad.xib */,
+				B9F0A6C0138BE9F300976943 /* SettingsView.xib */,
+				B9AF2B9E135DBFF7005944B7 /* SettingsView~ipad.xib */,
+				B9F0A6BD138BE62700976943 /* MainWindow-iPad.xib */,
+			);
+			name = Xib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -623,7 +659,7 @@
 				B993FB7E1355E29D00A69334 /* FavoritesView.xib in Resources */,
 				B9F03A161355BEA9008474A9 /* 37x-Checkmark.png in Resources */,
 				B9F03A181355C04E008474A9 /* Failure.png in Resources */,
-				B9AF2BA0135DBFF8005944B7 /* SettingsView.xib in Resources */,
+				B9AF2BA0135DBFF8005944B7 /* SettingsView~ipad.xib in Resources */,
 				B994BDCF135EDCDE0067529F /* CommandView.xib in Resources */,
 				B994BDD3135EDD3F0067529F /* 00_background_home_control_2.png in Resources */,
 				B994BDD7135EDD6D0067529F /* 00_icon_home_control.png in Resources */,
@@ -634,6 +670,14 @@
 				B9EB40CF13797446007127B6 /* VideoView.xib in Resources */,
 				B97D3BC213842C2A00653009 /* play.jpg in Resources */,
 				B97D3BC513842CD100653009 /* repeat.jpg in Resources */,
+				B9F0A6BF138BE62700976943 /* MainWindow-iPad.xib in Resources */,
+				B9F0A6C1138BE9F300976943 /* SettingsView.xib in Resources */,
+				B9F0A6C3138BEE7900976943 /* CommandView~ipad.xib in Resources */,
+				B9F0A6C5138BF26500976943 /* SequenceChoiceView~ipad.xib in Resources */,
+				B9F0A6C7138BF33700976943 /* FavoritesView~ipad.xib in Resources */,
+				B9F0A6C9138CD95300976943 /* ImageView~ipad.xib in Resources */,
+				B9F0A6CD138CDABE00976943 /* WebCamView~ipad.xib in Resources */,
+				B9F0A6CF138CDD7A00976943 /* VideoView~ipad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +785,14 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		B9F0A6BD138BE62700976943 /* MainWindow-iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B9F0A6BE138BE62700976943 /* en */,
+			);
+			name = "MainWindow-iPad.xib";
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -785,8 +837,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZigPad/ZigPad-Prefix.pch";
 				INFOPLIST_FILE = "ZigPad/ZigPad-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -799,8 +853,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZigPad/ZigPad-Prefix.pch";
 				INFOPLIST_FILE = "ZigPad/ZigPad-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
