@@ -16,12 +16,6 @@
 
 @synthesize window=_window;
 
-@synthesize managedObjectContext=__managedObjectContext;
-
-@synthesize managedObjectModel=__managedObjectModel;
-
-@synthesize persistentStoreCoordinator=__persistentStoreCoordinator;
-
 @synthesize navigationController=_navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -72,17 +66,8 @@
 - (void)dealloc
 {
     [_window release];
-    [__managedObjectContext release];
-    [__managedObjectModel release];
-    [__persistentStoreCoordinator release];
     [_navigationController release];
     [super dealloc];
-}
-
-- (void)awakeFromNib
-{
-    RootViewController *rootViewController = (RootViewController *)[self.navigationController topViewController];
-    rootViewController.managedObjectContext = [[Database sharedInstance] managedObjectContext];
 }
 
 - (void)saveContext

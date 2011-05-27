@@ -21,7 +21,7 @@ NSString * const CONFIGURATOR = @"KonfiguratorURL";
 /**
  * Default configurator URL.
  */
-NSString * const DEFAULT_CONFIGURATOR_URL = @"http://z.worldempire.ch/1/zigpad/config.xml";
+NSString * const DEFAULT_CONFIGURATOR_URL = @"http://www.ihomelab.ch/zigpad/1/zigpad/config.xml";
 
 @implementation ZigPadSettings
 

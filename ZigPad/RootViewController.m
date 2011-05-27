@@ -7,13 +7,11 @@
 //
 
 #import "RootViewController.h"
+#import "ActionViewController.h"
 #import "MBProgressHUD.h"
 #import "Importer.h"
-#import "Presentation.h"
 #import "Database.h"
 #import "Synchronizer.h"
-#import "CommandViewController.h"
-#import "WebCamViewController.h"
 #import "ZigPadSettings.h"
 #import "SyncEvent.h"
 #import "AnimatorHelper.h"
@@ -22,8 +20,6 @@
 @implementation RootViewController
 
 @synthesize fetchedResultsController=__fetchedResultsController;
-
-@synthesize managedObjectContext=__managedObjectContext;
 
 @synthesize activePresentation = _activePresentation;
 
@@ -121,8 +117,6 @@
     [super viewDidLoad];
     
     [self registerNotificationCenter];
-    
-    self.managedObjectContext = [Database sharedInstance].managedObjectContext;
     
     // Set navigation bar to corresponding color.
     self.navigationController.navigationBar.tintColor = [ZigPadSettings sharedInstance].modeColor;
@@ -293,7 +287,6 @@
     [self unregisterNotificationCenter];
     [_activePresentation release];
     [__fetchedResultsController release];
-    [__managedObjectContext release];
     [sync release];
     [super dealloc];
 }
@@ -307,7 +300,7 @@
     
     // Set up the fetched result controlEler.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Presentation" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Presentation" inManagedObjectContext: [Database sharedInstance].managedObjectContext];
     [fetchRequest setEntity:entity];
     
     
@@ -317,7 +310,7 @@
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     [fetchRequest setFetchBatchSize:20];
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext: [Database sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
     
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
