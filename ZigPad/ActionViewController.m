@@ -7,10 +7,7 @@
 //
 
 #import "ActionViewController.h"
-#import "CommandViewController.h"
-#import "WebcamViewController.h"
 #import "AnimatorHelper.h"
-#import "SyncEvent.h"
 
 @implementation ActionViewController
 
