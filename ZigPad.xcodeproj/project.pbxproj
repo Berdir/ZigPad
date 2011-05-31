@@ -326,7 +326,6 @@
 				B9BC41AF134C864A0085D597 /* Importer */,
 				B998B8EF134C6768003C2C7B /* ZigPadAppDelegate.h */,
 				B998B8F0134C6768003C2C7B /* ZigPadAppDelegate.m */,
-				B998B8F5134C6768003C2C7B /* MainWindow.xib */,
 				B998B8F8134C6768003C2C7B /* RootViewController.h */,
 				B998B8F9134C6768003C2C7B /* RootViewController.m */,
 				B9BC41AA134C85F50085D597 /* UI */,
@@ -577,6 +576,7 @@
 				B9F0A6C4138BF26500976943 /* SequenceChoiceView~ipad.xib */,
 				B9F0A6C0138BE9F300976943 /* SettingsView.xib */,
 				B9AF2B9E135DBFF7005944B7 /* SettingsView~ipad.xib */,
+				B998B8F5134C6768003C2C7B /* MainWindow.xib */,
 				B9F0A6BD138BE62700976943 /* MainWindow-iPad.xib */,
 			);
 			name = Xib;

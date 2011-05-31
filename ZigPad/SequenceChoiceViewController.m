@@ -41,13 +41,32 @@
 }
 */
 
+//remake last action and pop to navigationcontroller
+-(void) navigateBackToActions:(UISwipeGestureRecognizer *) recogniser
+{
+    ActionViewController *nextPage = [ActionViewController getViewControllerFromAction:self.presentation.activeAction];
+    nextPage.presentation = self.presentation;
+    nextPage.isMaster = TRUE;
 
-/*
+    [AnimatorHelper slideWithAnimation:2 :self :nextPage :true:true:true];
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    //init a swipe listener
+    UISwipeGestureRecognizer* recognicer = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(navigateBackToActions:)];
+    [recognicer setDirection:UISwipeGestureRecognizerDirectionUp];
+    [[self view] addGestureRecognizer:recognicer];
+    [recognicer release];
+    
+    //show the current sequence on view
+    ((FlowCoverView*) self.view).offset = self.presentation.currentSequenceIndex;
+    self.label.text = self.presentation.activeSequence.name; 
+    
 }
-*/
+
 
 // Show navigation and toolbar when the view appears.
 - (void) viewWillAppear:(BOOL)animated
@@ -55,13 +74,8 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController setToolbarHidden:YES animated:YES];
     self.navigationController.navigationBar.topItem.title = @"Sequences";
-    
-    ((FlowCoverView*) self.view).offset = self.presentation.currentSequenceIndex;
-    self.label.text = self.presentation.activeSequence.name;
-    
+
     [super viewWillAppear:animated];
-    
-    
 }
 
 
