@@ -240,7 +240,7 @@ NSManagedObjectContext* context;
         [s addActionsObject:a];
     } @catch (NSException *exception) {
         NSLog(@"Failed to add ActionRef (ref = %@, sequence = %@)", actionRef, keyCache);
-        [exception raise];
+        // Ignore this reference in this case.
     }
     
 }
@@ -264,8 +264,14 @@ NSManagedObjectContext* context;
     Presentation* p = (Presentation*)[context objectWithID:[managedObjectIDs valueForKey:keyCache]];
     
     // Get the referenced sequence.
-    NSString* sequenceRef = [attrib objectForKey:@"ref"];
-    Sequence* s = (Sequence*)[context objectWithID:[managedObjectIDs valueForKey:sequenceRef]];
+    @try {
+        NSString* sequenceRef = [attrib objectForKey:@"ref"];
+        Sequence* s = (Sequence*)[context objectWithID:[managedObjectIDs valueForKey:sequenceRef]];
+        
+    } @catch (NSException *exception) {
+        NSLog(@"Failed to add SequenceRef (ref = %@, presentation = %@)", sequenceRef, keyCache);
+        // Ignore this reference in this case.
+    }
     
     // Add sequence to presentation.
     [p addSequencesObject:s];
