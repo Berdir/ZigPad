@@ -86,6 +86,9 @@
 
 - (void) send:(SyncEvent *) event
 {
+    // Only send something if the service name is set. This means that this
+    // connection was initialized through a NSNetService. This is to avoid
+    // sending the event twice (as there are two connections between each device)
     if (self.name == nil) {
         return;
     }

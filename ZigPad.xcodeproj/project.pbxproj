@@ -269,15 +269,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B94666D9135DB00900EDA740 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				B94666DB135DB03000EDA740 /* ZigPadSettings.h */,
-				B94666DC135DB03000EDA740 /* ZigPadSettings.m */,
-			);
-			name = Settings;
-			sourceTree = "<group>";
-		};
 		B998B8CF134C6768003C2C7B = {
 			isa = PBXGroup;
 			children = (
@@ -320,7 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				B9BC41FB134DAE390085D597 /* Commander */,
-				B94666D9135DB00900EDA740 /* Settings */,
 				B9BC41F4134DA4A90085D597 /* Synchronize */,
 				B9BC41C7134C8EB40085D597 /* CoreData */,
 				B9BC41AF134C864A0085D597 /* Importer */,
@@ -513,6 +503,8 @@
 		B9E00CE5137A8682002A1340 /* helperClassesAllLayers */ = {
 			isa = PBXGroup;
 			children = (
+				B94666DB135DB03000EDA740 /* ZigPadSettings.h */,
+				B94666DC135DB03000EDA740 /* ZigPadSettings.m */,
 				B98234A41371A7EA00132F9E /* ImageDownloader.h */,
 				B98234A51371A7F000132F9E /* ImageDownloader.m */,
 				B982349B1371346A00132F9E /* AnimatorHelper.h */,
