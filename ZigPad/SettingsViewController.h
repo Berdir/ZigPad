@@ -12,13 +12,18 @@
 
 @interface SettingsViewController : UIViewController {
     
-    
-    
 }
+
 @property (nonatomic, retain) IBOutlet UISwitch *simSwitch;
+@property (nonatomic, retain) IBOutlet UISwitch *vibrationSwitch;
+@property (nonatomic, retain) IBOutlet UISwitch *synchronizeSwitch;
+
 @property (nonatomic, retain) IBOutlet UITextField *textfield;
 
 -(IBAction)changeConfigHost:(id)sender;
 -(IBAction)switchSimulationMode:(id)sender;
+-(IBAction)switchVibrationMode:(id)sender;
+-(IBAction)switchSynchronizationMode:(id)sender;
+
 
 @end

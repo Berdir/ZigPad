@@ -121,8 +121,11 @@
     // Set navigation bar to corresponding color.
     self.navigationController.navigationBar.tintColor = [ZigPadSettings sharedInstance].modeColor;
     
-    sync = [[Synchronizer alloc] init];
-    [sync lookForDevice];
+    // Start synchronization if enabled.
+    if ([ZigPadSettings sharedInstance].synchronizationMode) {
+        sync = [[Synchronizer alloc] init];
+        [sync lookForDevice];
+    }
 }
 
 // Show navigation and toolbar when the view appears.

@@ -52,6 +52,16 @@
 @property (readonly,assign) int port;
 
 /**
+ * Setting for the vibration mode, YES if enabled.
+ */
+@property (readwrite,assign) BOOL vibrationMode;
+
+/**
+ * Setting for synchronization mode, YES if enabled.
+ */
+@property (readwrite,assign) BOOL synchronizationMode;
+
+/**
  * Allows to set the IP for a specific simulation mode.
  *
  * @param ip The IP to be used for this simulation mode.

@@ -119,7 +119,9 @@
         [self next:false];
     }
     
-    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); 
+    if ([ZigPadSettings sharedInstance].vibrationMode) {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    }
 }
 
 //set Finger-Swipe Listener

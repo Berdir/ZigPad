@@ -86,6 +86,7 @@
 		B9E2CBC51354910B00F1E5FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E2CBC41354910B00F1E5FE /* QuartzCore.framework */; };
 		B9EB40CE13797446007127B6 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EB40CC13797446007127B6 /* VideoViewController.m */; };
 		B9EB40CF13797446007127B6 /* VideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9EB40CD13797446007127B6 /* VideoView.xib */; };
+		B9EE234D139663AA0053F968 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9EE234C139663AA0053F968 /* Defaults.plist */; };
 		B9F03A161355BEA9008474A9 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F03A151355BEA9008474A9 /* 37x-Checkmark.png */; };
 		B9F03A181355C04E008474A9 /* Failure.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F03A171355C04E008474A9 /* Failure.png */; };
 		B9F0A6BF138BE62700976943 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F0A6BD138BE62700976943 /* MainWindow-iPad.xib */; };
@@ -224,6 +225,7 @@
 		B9EB40CB13797446007127B6 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		B9EB40CC13797446007127B6 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		B9EB40CD13797446007127B6 /* VideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoView.xib; sourceTree = "<group>"; };
+		B9EE234C139663AA0053F968 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		B9F03A151355BEA9008474A9 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
 		B9F03A171355C04E008474A9 /* Failure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Failure.png; sourceTree = "<group>"; };
 		B9F0A6BE138BE62700976943 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
@@ -269,6 +271,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B94666D9135DB00900EDA740 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B94666DB135DB03000EDA740 /* ZigPadSettings.h */,
+				B94666DC135DB03000EDA740 /* ZigPadSettings.m */,
+				B9EE234C139663AA0053F968 /* Defaults.plist */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		B998B8CF134C6768003C2C7B = {
 			isa = PBXGroup;
 			children = (
@@ -670,6 +682,7 @@
 				B9F0A6C9138CD95300976943 /* ImageView~ipad.xib in Resources */,
 				B9F0A6CD138CDABE00976943 /* WebCamView~ipad.xib in Resources */,
 				B9F0A6CF138CDD7A00976943 /* VideoView~ipad.xib in Resources */,
+				B9EE234D139663AA0053F968 /* Defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
