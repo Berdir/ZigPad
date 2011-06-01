@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B915F99213716BD70037F1E8 /* SyncEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B915F99113716BD60037F1E8 /* SyncEvent.m */; };
 		B921B59F1379553B00A9EB7A /* SynchronizerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B921B59E1379553B00A9EB7A /* SynchronizerConnection.m */; };
+		B92A48A81396949F00A48508 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = B92A48A71396949F00A48508 /* Defaults.plist */; };
 		B94666DD135DB03000EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
 		B94666E0135DB40700EDA740 /* SettingsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DF135DB40700EDA740 /* SettingsTest.m */; };
 		B94666E1135DB57B00EDA740 /* ZigPadSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B94666DC135DB03000EDA740 /* ZigPadSettings.m */; };
@@ -119,6 +120,7 @@
 		B915F99113716BD60037F1E8 /* SyncEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncEvent.m; sourceTree = "<group>"; };
 		B921B59D1379553B00A9EB7A /* SynchronizerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizerConnection.h; sourceTree = "<group>"; };
 		B921B59E1379553B00A9EB7A /* SynchronizerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronizerConnection.m; sourceTree = "<group>"; };
+		B92A48A71396949F00A48508 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		B94666DB135DB03000EDA740 /* ZigPadSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZigPadSettings.h; sourceTree = "<group>"; };
 		B94666DC135DB03000EDA740 /* ZigPadSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZigPadSettings.m; sourceTree = "<group>"; };
 		B94666DF135DB40700EDA740 /* SettingsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTest.m; sourceTree = "<group>"; };
@@ -271,16 +273,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B94666D9135DB00900EDA740 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				B94666DB135DB03000EDA740 /* ZigPadSettings.h */,
-				B94666DC135DB03000EDA740 /* ZigPadSettings.m */,
-				B9EE234C139663AA0053F968 /* Defaults.plist */,
-			);
-			name = Settings;
-			sourceTree = "<group>";
-		};
 		B998B8CF134C6768003C2C7B = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +332,7 @@
 		B998B8E7134C6768003C2C7B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B92A48A71396949F00A48508 /* Defaults.plist */,
 				B998B8E8134C6768003C2C7B /* ZigPad-Info.plist */,
 				B998B8E9134C6768003C2C7B /* InfoPlist.strings */,
 				B998B8EC134C6768003C2C7B /* ZigPad-Prefix.pch */,
@@ -683,6 +676,7 @@
 				B9F0A6CD138CDABE00976943 /* WebCamView~ipad.xib in Resources */,
 				B9F0A6CF138CDD7A00976943 /* VideoView~ipad.xib in Resources */,
 				B9EE234D139663AA0053F968 /* Defaults.plist in Resources */,
+				B92A48A81396949F00A48508 /* Defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
