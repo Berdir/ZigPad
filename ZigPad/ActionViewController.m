@@ -231,6 +231,10 @@
 
 //slides the next Action to GUI
 - (void) next:(BOOL) animated {
+    
+    //deaktivate synchListener
+    [self unregisterNotificationCenter];
+    
     Action *a = [self.presentation getNextAction];
     
     // Finished.
@@ -268,6 +272,9 @@
 //Slides the previous Action to GUI
 - (void) previous
 {
+    //deaktivate synchListener
+    [self unregisterNotificationCenter];
+    
     Action *a = [self.presentation getPreviousAction];
     
     // Finished.
