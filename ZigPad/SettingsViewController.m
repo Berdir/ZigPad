@@ -13,6 +13,9 @@
 
 
 @synthesize simSwitch = _simSwitch;
+@synthesize vibrationSwitch = _vibrationSwitch;
+@synthesize synchronizeSwitch = _synchronizeSwitch;
+
 @synthesize textfield = _textfield;
 
 
@@ -23,6 +26,7 @@
     
     [ZigPadSettings sharedInstance].configuratorURL = _textfield.text;
 }
+
 //called if switch is switched
 -(IBAction)switchSimulationMode:(id)sender
 {
@@ -36,12 +40,33 @@
     
 }
 
+- (IBAction) switchSynchronizationMode:(id)sender 
+{
+    [ZigPadSettings sharedInstance].synchronizationMode = _synchronizeSwitch.on;
+    
+    // Also issue visual alert
+	UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Restart required"
+                          message:@"A restart of this application is required to active the synchronization mode change."
+                          delegate:nil
+                          cancelButtonTitle:nil
+                          otherButtonTitles:@"OK", nil];
+	[alert show];
+}
+
+- (IBAction) switchVibrationMode:(id)sender
+{
+    [ZigPadSettings sharedInstance].vibrationMode = _vibrationSwitch.on;
+}
+
 //main entry
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib
     _simSwitch.on = [ZigPadSettings sharedInstance].simulationMode;
+    _vibrationSwitch.on = [ZigPadSettings sharedInstance].vibrationMode;
+    _synchronizeSwitch.on = [ZigPadSettings sharedInstance].synchronizationMode;
     _textfield.text = [ZigPadSettings sharedInstance].configuratorURL;
 }
 

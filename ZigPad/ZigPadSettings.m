@@ -18,11 +18,6 @@ NSString * const SIMULATOR = @"Simulator";
  */
 NSString * const CONFIGURATOR = @"KonfiguratorURL";
 
-/**
- * Default configurator URL.
- */
-NSString * const DEFAULT_CONFIGURATOR_URL = @"http://www.ihomelab.ch/zigpad/1/zigpad/config.xml";
-
 @implementation ZigPadSettings
 
 // Contains the shared instance of the class.
@@ -61,6 +56,9 @@ static ZigPadSettings * _sharedInstance = nil;
 	if (self != nil) {
         // Get the standard userdefaults instance.
 		standardUserDefaults = [NSUserDefaults standardUserDefaults];
+
+        // Load default values from Defaults.plist
+        [standardUserDefaults registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
 	}
     
 	return self;
@@ -103,12 +101,7 @@ static ZigPadSettings * _sharedInstance = nil;
  */
 - (NSString *) configuratorURL
 {	
-    NSString *url = [standardUserDefaults stringForKey:CONFIGURATOR];
-    if (url == nil || [url isEqualToString:@""]) {
-        // If the current string is empty, use the default.
-        url = DEFAULT_CONFIGURATOR_URL;
-    }
-    return url;
+    return [standardUserDefaults stringForKey:CONFIGURATOR];
 }
 
 /**
@@ -162,5 +155,36 @@ static ZigPadSettings * _sharedInstance = nil;
     }
 }
 
+/**
+ * Setter method for the vibrationMode property.
+ */
+-(void)setVibrationMode:(BOOL)vibrationMode
+{
+    [standardUserDefaults setBool:vibrationMode forKey:@"vibrationMode"];
+}
+
+/**
+ * Getter method for the vibrationMode property.
+ */
+- (BOOL)vibrationMode
+{	
+    return [standardUserDefaults boolForKey:@"vibrationMode"];
+}
+
+/**
+ * Setter method for the synchronizationMode property.
+ */
+-(void)setSynchronizationMode:(BOOL)synchronizationMode
+{
+    [standardUserDefaults setBool:synchronizationMode forKey:@"synchronizationMode"];
+}
+
+/**
+ * Getter method for the simulationMode property.
+ */
+- (BOOL)synchronizationMode
+{	
+    return [standardUserDefaults boolForKey:@"synchronizationMode"];
+}
 
 @end
