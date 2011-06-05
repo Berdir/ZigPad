@@ -22,6 +22,8 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIView *mySubview;
+@property (nonatomic, retain) IBOutlet UILabel *favoritesLabel;
+@property (nonatomic, assign) int startIndex;
 
 
 @end

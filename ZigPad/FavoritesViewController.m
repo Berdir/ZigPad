@@ -12,8 +12,12 @@
 
 @implementation FavoritesViewController
 @synthesize mySubview = _mySubview;
+@synthesize startIndex = _startIndex;
+@synthesize favoritesLabel = _favoritesLabel;
 
 NSArray* favorites; //favorite cache
+
+int favoritesCount;
 
 //grab Database
 -(NSArray*)getSortedAndFilteredFavoritesFromDB
@@ -41,6 +45,8 @@ NSArray* favorites; //favorite cache
     [sortDescriptors release];
     [sortDescriptor release];
     [request release];
+    
+    favoritesCount = [favorites count];
     
     return favorites;
 }
@@ -73,7 +79,7 @@ NSArray* favorites; //favorite cache
     
     int padding = 10; //buttonPadding
     int numOfcols = 3;//num of buttons per row on UIview
-    int numOfFavorites = [favorites count];
+    int numOfFavorites = favoritesCount > _startIndex + 9 ? 9 : favoritesCount - _startIndex;
     int buttonWith = cgSize.width / 4;
     int buttonHeight = cgSize.width / 4;
     int labelWith = cgSize.width / 4;
@@ -83,8 +89,8 @@ NSArray* favorites; //favorite cache
     for (int i = 0; numOfcols*i < numOfFavorites ; i++) {
         for (int j = 0 ; j < numOfcols && i*numOfcols+j < numOfFavorites; j++) {
             
-            int currentFavorite = i*numOfcols+j;
-            Action* a = [favorites objectAtIndex:currentFavorite];
+            int currentFavorite = _startIndex + (i * numOfcols) + j;
+            Action* a = [favorites objectAtIndex: currentFavorite];
             
             btnPosX = (2*padding+buttonWith)*j+2*padding; //buttonPosition
             btnPosY = (3*padding+buttonHeight+labelHeight)*i+2*padding;
@@ -154,10 +160,39 @@ NSArray* favorites; //favorite cache
    
 }
 //swipe eventhandler
--(void)handleSwipe:(id)sender
+-(void)handleSwipe: (UISwipeGestureRecognizer *) recogniser
 {
-    [AnimatorHelper slideWithAnimation:-2 :self :nil :true:false:true];
-    //[self.navigationController popViewControllerAnimated:true];
+    switch (recogniser.direction) {
+        case UISwipeGestureRecognizerDirectionDown:
+        {
+            [AnimatorHelper slideWithAnimation:-2 :self :nil :true:false:true];
+            break;
+        }
+        case UISwipeGestureRecognizerDirectionLeft:
+        {
+            FavoritesViewController* favorite = [[FavoritesViewController alloc] initWithNibName:@"FavoritesView" bundle:[NSBundle mainBundle]];
+            
+            // Either increase by 9 or set back to 0 if of last page.
+            favorite.startIndex = favoritesCount > _startIndex + 9 ? _startIndex + 9 : 0;
+            NSLog(@"left: startIndex: %d", favorite.startIndex);
+            
+            [AnimatorHelper slideWithAnimation:-1 :self :favorite :true:true:true];
+            [favorite release];
+            break;
+        }
+        case UISwipeGestureRecognizerDirectionRight:
+        {
+            FavoritesViewController* favorite = [[FavoritesViewController alloc] initWithNibName:@"FavoritesView" bundle:[NSBundle mainBundle]];
+            
+            // Either decrease by 9 or set back to max if of first page.
+            favorite.startIndex = _startIndex > 0 ? _startIndex - 9 : favoritesCount / 9 * 9;
+            NSLog(@"right: startIndex: %d", favorite.startIndex);
+            
+            [AnimatorHelper slideWithAnimation:1 :self :favorite :true:true:true];
+            [favorite release];
+            break;
+        }
+    }
 }
 
 
@@ -175,11 +210,28 @@ NSArray* favorites; //favorite cache
     [self initButtons];
     
     NSLog(@"Favoriten geladen");
-    UISwipeGestureRecognizer *recognicer;    
+    UISwipeGestureRecognizer *recognicer;
+    
     recognicer = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(handleSwipe:)];
     [recognicer setDirection:UISwipeGestureRecognizerDirectionDown];
     [self.view addGestureRecognizer:recognicer];
     [recognicer release];
+    
+    // Only enable left/right swiping if there are more than 9 favorites
+    if ([favorites count] > 9) {
+        recognicer = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(handleSwipe:)];
+        [recognicer setDirection:UISwipeGestureRecognizerDirectionLeft];
+        [self.view addGestureRecognizer:recognicer];
+        [recognicer release];
+    
+        recognicer = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(handleSwipe:)];
+        [recognicer setDirection:UISwipeGestureRecognizerDirectionRight];
+        [self.view addGestureRecognizer:recognicer];
+        [recognicer release];
+        
+        // Update title to indicate the page we are on.
+        _favoritesLabel.text = [NSString stringWithFormat:@"Favorites #%d", (_startIndex / 9) + 1];
+    }
 }
 
 // Show navigation bar when the view appeared.

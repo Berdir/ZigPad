@@ -213,6 +213,8 @@
         {	
             FavoritesViewController* favorite = [[FavoritesViewController alloc] initWithNibName:@"FavoritesView" bundle:[NSBundle mainBundle]];
             
+            favorite.startIndex = 0;
+            
             [AnimatorHelper slideWithAnimation:2 :self :favorite :false:true:false];
             [favorite release]; 
             break;   
