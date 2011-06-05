@@ -128,7 +128,7 @@
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)image
 {
     //Send an exit command to uninitialize current sequence
-    if (self.presentation.activeSequence.command !=nil)
+    if (self.presentation.activeSequence.command != nil && self.presentation.currentActionIndex > 0)
     {
         NSString* exitCommand = [NSString stringWithFormat:@"%@_EXIT",self.presentation.activeSequence.command];
         [[Commander defaultCommander] sendString:exitCommand];
