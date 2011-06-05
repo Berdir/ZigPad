@@ -44,6 +44,11 @@
         case ANSWER:
         case SELECT:
         {
+            // Only act when no presentation is currently running.
+            if ([self.navigationController.viewControllers count] != 1) {
+                return;
+            }
+            
             //get Presentation with selected refId from Database.
             NSManagedObjectContext* context =  [[Database sharedInstance] managedObjectContext];
             NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Presentation" inManagedObjectContext:context];
@@ -99,12 +104,14 @@
             
             // Send a REQUEST if no presentation is running.
             if ([self.navigationController.viewControllers count] == 1) {
-                SyncEvent *event = [[SyncEvent alloc] init];
-                event.command = REQUEST;
+                SyncEvent *request_event = [[SyncEvent alloc] init];
+                request_event.command = REQUEST;
                 
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncFire" object:event];
+                [event.connection send: request_event];
                 
-                [event release];
+                //[[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncFire" object:request_event];
+                
+                [request_event release];
             }
             break;
         case LOST_CONNECTION:

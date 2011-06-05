@@ -76,15 +76,29 @@
     }
     else if (event.command == REQUEST) {
         if (self.isMaster) {
+            // First, send an answer.
             SyncEvent *syncEvent = [[SyncEvent alloc] init];
             syncEvent.command = ANSWER; 
             syncEvent.argument = [self.presentation.refId unsignedIntValue];
-        
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncFire" object:syncEvent];
-        
+            
+            [event.connection send: syncEvent];
+            
+            //[[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncFire" object:syncEvent];
+            
             [syncEvent release];
             
-            [self fireSyncEvent:RIGHT];
+            SyncEvent *jumpEvent = [[SyncEvent alloc] init];
+            jumpEvent.command = JUMP;
+            jumpEvent.direction = RIGHT;
+            jumpEvent.argument_upperByte = self.presentation.currentSequenceIndex;
+            jumpEvent.argument_lowerByte = self.presentation.currentActionIndex;
+            
+            [event.connection send: jumpEvent];
+            
+            //[[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncFire" object:event];
+            [jumpEvent release];
+            
+            
         }
     }
     else if (event.command == EXIT) {

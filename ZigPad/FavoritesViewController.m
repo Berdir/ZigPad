@@ -174,7 +174,6 @@ int favoritesCount;
             
             // Either increase by 9 or set back to 0 if of last page.
             favorite.startIndex = favoritesCount > _startIndex + 9 ? _startIndex + 9 : 0;
-            NSLog(@"left: startIndex: %d", favorite.startIndex);
             
             [AnimatorHelper slideWithAnimation:-1 :self :favorite :true:true:true];
             [favorite release];
@@ -186,7 +185,6 @@ int favoritesCount;
             
             // Either decrease by 9 or set back to max if of first page.
             favorite.startIndex = _startIndex > 0 ? _startIndex - 9 : favoritesCount / 9 * 9;
-            NSLog(@"right: startIndex: %d", favorite.startIndex);
             
             [AnimatorHelper slideWithAnimation:1 :self :favorite :true:true:true];
             [favorite release];

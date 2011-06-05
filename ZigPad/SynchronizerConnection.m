@@ -8,7 +8,6 @@
 
 #import "SynchronizerConnection.h"
 
-
 @implementation SynchronizerConnection
 
 @synthesize inReady;
@@ -18,11 +17,17 @@
 @synthesize name = _name;
 
 
+/**
+ * Helper method to open the streams to the connected device.
+ */
 - (void) openStreams
 {
+    // Open input stream.
 	_inStream.delegate = self;
 	[_inStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 	[_inStream open];
+    
+    // Open outbound stream.
 	_outStream.delegate = self;
 	[_outStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 	[_outStream open];
@@ -32,67 +37,64 @@
     
     id i = [super init];
     
-    [self.inStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-	[self.inStream release];
-	self.inStream = nil;
-	self.inReady = NO;
-    
-	[self.outStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-	[self.outStream release];
-	self.outStream = nil;
-	self.outReady = NO;
-    
-    self.name = service.name;
-    
-    
-	// note the following method returns _inStream and _outStream with a retain count that the caller must eventually release
-	if (![service getInputStream:&_inStream outputStream:&_outStream]) {
-        NSLog(@"Failed to connect to server.");
-	}
-    
-    [self openStreams];
+    if (i) {
+        // Make sure no connection is open yet.
+        [self.inStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+        [self.inStream release];
+        self.inStream = nil;
+        self.inReady = NO;
+        
+        [self.outStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+        [self.outStream release];
+        self.outStream = nil;
+        self.outReady = NO;
+        
+        self.name = service.name;
+
+        // Note the following method returns _inStream and _outStream with a 
+        // retain count that the caller must eventually release
+        if (![service getInputStream:&_inStream outputStream:&_outStream]) {
+            NSLog(@"Failed to connect to server.");
+        }
+        
+        [_inStream retain];
+        [_outStream retain];
+        
+        [self openStreams];
+    }
     
     return i;
 }
 
 - (id) initWithStreams:(NSInputStream *)istr :(NSOutputStream *)ostr {
-    
-    
-    
     id i = [super init];
     
-    [self.inStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-	[self.inStream release];
-	self.inStream = nil;
-	self.inReady = NO;
-    
-	[self.outStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-	[self.outStream release];
-	self.outStream = nil;
-	self.outReady = NO;
-    
-	_inStream = istr;
-	[_inStream retain];
-	_outStream = ostr;
-	[_outStream retain];
-    
-    [self openStreams];
-    
-    // Inbound connection only, do not send.
-    self.name = nil;
-    
+    if (i) {
+        [self.inStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+        [self.inStream release];
+        self.inStream = nil;
+        self.inReady = NO;
+        
+        [self.outStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+        [self.outStream release];
+        self.outStream = nil;
+        self.outReady = NO;
+        
+        _inStream = istr;
+        [_inStream retain];
+        _outStream = ostr;
+        [_outStream retain];
+        
+        [self openStreams];
+        
+        // Inbound connection only, do not send.
+        self.name = nil;
+    }
     return i;
 }
 
 - (void) send:(SyncEvent *) event
 {
-    // Only send something if the service name is set. This means that this
-    // connection was initialized through a NSNetService. This is to avoid
-    // sending the event twice (as there are two connections between each device)
-    if (self.name == nil) {
-        return;
-    }
-    
     if (self.outReady) {
         NSLog(@"Sending SyncEvent %i : %d", event.command, event.argument);
         
@@ -101,43 +103,50 @@
         [self.outStream write:[event bytes] maxLength:event.bytesLength];
     }
     else if (self.outStream) {
-        // Outstream is not yet ready but we have an outstream, wait a second and try again.
+        // Outstream is not yet ready but we have an outstream, wait a moment and try again.
         NSLog(@"Trying to send sync event but stream is not yet ready, wait 1s before retrying");
-        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(sendTimed:) userInfo:event repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(sendTimed:) userInfo:event repeats:NO];
     }
 }
 
 - (void) sendTimed:(NSTimer *)timer {
+    // Simply call the send method again.
     [self send:[timer userInfo]];
 }
 
+#pragma mark -
+#pragma mark NSNetService delegate methods.
 
 - (void) stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode
 {
 	switch(eventCode) {
 		case NSStreamEventOpenCompleted:
 		{
-			if (stream == _inStream)
+            // Mark streams as ready.
+			if (stream == _inStream) {
 				self.inReady = YES;
-			else
+            }
+			else {
 				self.outReady = YES;
-			
-			if (self.inReady && self.outReady) {
-                NSLog(@"Connected");
-			}
+            }
 			break;
 		}
 		case NSStreamEventHasBytesAvailable:
 		{
+            // Only read if this is the input stream.
 			if (stream == _inStream) {
+                // Create a temporary bytes array to store the sent data.
 				uint8_t b[3];
-				int len = 0;
-				len = [_inStream read:b maxLength:4];
+
+				int len = [_inStream read:b maxLength:4];
 				if(len < 3) {
-					if ([stream streamStatus] != NSStreamStatusAtEnd)
+					if ([stream streamStatus] != NSStreamStatusAtEnd) {
 						NSLog(@"Failed reading data from peer");
-				} else {                    
+                    }
+				} else {          
+                    // Create a SyncEvent instance based on the sent data.
                     SyncEvent *event = [[SyncEvent alloc] initWithBytes:b];
+                    event.connection = self;
                     
                     NSLog(@"Got SyncEvent %d with argument %d", event.command, event.argument);
                     
@@ -150,8 +159,9 @@
 		}
 		case NSStreamEventErrorOccurred:
 		{
+            // An error happened, close the connection and log an error.
             NSError *theError = [stream streamError];
-            NSLog(@"Error %i: %@", [theError code], [theError localizedDescription]);
+            NSLog(@"Connection error %i: %@", [theError code], [theError localizedDescription]);
             
             [stream close];
             [stream release];
@@ -160,18 +170,24 @@
 			
 		case NSStreamEventEndEncountered:
 		{
+            // The connection was closed, send a lost connection event.
             SyncEvent *event = [[SyncEvent alloc] init];
             event.command = LOST_CONNECTION;
+            event.connection = self;
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ZigPadSyncReceive" object:event];
             
             [event release];
             
-			NSLog(@"Device Disconnected!");
+            if (self.name) {
+                NSLog(@"Service %@ disconnected!", self.name);
+            }
 			break;
 		}
 	}
 }
+
+#pragma mark -
 
 - (void) dealloc {
     [_inStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];

@@ -87,7 +87,6 @@ static Database * _sharedInstance = nil;
         return __managedObjectModel;
     }
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Presentations" withExtension:@"momd"];
-    NSLog(@"Model URL: %@", modelURL);
     __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    
     return __managedObjectModel;
 }

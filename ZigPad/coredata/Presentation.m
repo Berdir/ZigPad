@@ -106,7 +106,6 @@ bool isFirstCallOfGetNextMethod = true;
 
 -  (Action*) getNextAction
 {
-    
     [self doIndexMapping];
     
     //increment action (the first time do nothing)
@@ -171,6 +170,8 @@ bool isFirstCallOfGetNextMethod = true;
 }
 
 - (Action*) jumpToAction: (int) actionIndex sequenceIndex: (int) sequenceIndex {
+    
+    isFirstCallOfGetNextMethod = false;
     
     activeSequencesIndex = sequenceIndex;
     
