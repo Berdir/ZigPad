@@ -26,8 +26,9 @@
     // only sends a single time for every connection.
     AsyncTCPSocket *tcpSocket = [[AsyncTCPSocket alloc] initWithDelegate:self];
     
-    [tcpSocket connectToHost:s.ip onPort:s.port error:nil];
-    NSLog(@"Connected to Host %@, port %d", s.ip, s.port);
+    NSError *error = nil;
+    [tcpSocket connectToHost:s.ip onPort:s.port error:&error];
+    NSLog(@"Connected to Host %@, port %d, error: %@", s.ip, s.port, error ? [error localizedDescription] : @"No error");
     
     [tcpSocket writeData:data withTimeout:500 tag:1];
     [tcpSocket readDataWithTimeout:500 tag:1];
