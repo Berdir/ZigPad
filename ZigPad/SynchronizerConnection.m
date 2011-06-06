@@ -7,6 +7,7 @@
 //
 
 #import "SynchronizerConnection.h"
+#import "SyncEvent.h"
 
 @implementation SynchronizerConnection
 

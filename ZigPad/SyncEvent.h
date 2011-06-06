@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class SynchronizerConnection;
+#import "SynchronizerConnection.h"
 
 /**
  * SyncEventCommand enumeration, list of the existing commands including the

@@ -2,13 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>vibrationMode</key>
-	<true/>
-	<key>synchronizationMode</key>
-	<true/>
 	<key>KonfiguratorURL</key>
-	<string>http://z.worldempire.ch/1/zigpad/config.xml</string>
+	<string>http://www.ihomelab.ch/zigpad/1/zigpad/config.xml</string>
 	<key>simulationMode</key>
 	<false/>
+	<key>synchronizationMode</key>
+	<true/>
+	<key>vibrationMode</key>
+	<true/>
 </dict>
 </plist>

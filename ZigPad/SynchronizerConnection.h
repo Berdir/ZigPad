@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SyncEvent.h"
+
+@class SyncEvent;
 
 /**
  * This class represents a connection to another device.
