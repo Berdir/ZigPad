@@ -40,15 +40,15 @@ int favoritesCount;
     
     //read db
     NSError* error = nil;
-    NSArray *favorites = [context executeFetchRequest:request error:&error]; 
+    NSArray * favoriten = [context executeFetchRequest:request error:&error]; 
     
     [sortDescriptors release];
     [sortDescriptor release];
     [request release];
     
-    favoritesCount = [favorites count];
+    favoritesCount = [favoriten count];
     
-    return favorites;
+    return favoriten;
 }
 
 //grab action Object for a Local Picture
@@ -176,7 +176,6 @@ int favoritesCount;
             favorite.startIndex = favoritesCount > _startIndex + 9 ? _startIndex + 9 : 0;
             
             [AnimatorHelper slideWithAnimation:-1 :self :favorite :true:true:true];
-            [favorite release];
             break;
         }
         case UISwipeGestureRecognizerDirectionRight:
@@ -187,7 +186,6 @@ int favoritesCount;
             favorite.startIndex = _startIndex > 0 ? _startIndex - 9 : favoritesCount / 9 * 9;
             
             [AnimatorHelper slideWithAnimation:1 :self :favorite :true:true:true];
-            [favorite release];
             break;
         }
     }

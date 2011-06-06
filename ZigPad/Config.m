@@ -136,6 +136,7 @@ NSManagedObjectContext* context;
 
 -(void)clearDB
 {
+    
     // Make sure that the tables are cleared in the correct order.
     NSArray* tableList =[[NSArray alloc]initWithObjects:@"Presentation",@"Sequence",@"Action",@"Param",@"LocalPicture", nil];
     
