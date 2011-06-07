@@ -15,9 +15,9 @@
 @synthesize startIndex = _startIndex;
 @synthesize favoritesLabel = _favoritesLabel;
 
-NSArray* favorites; //favorite cache
-
 int favoritesCount;
+
+@synthesize favorites;
 
 //grab Database
 -(NSArray*)getSortedAndFilteredFavoritesFromDB
@@ -152,7 +152,7 @@ int favoritesCount;
     if([sender isKindOfClass:[UIButton class]])
     {
         b = (UIButton*)sender;
-        Action* a = [favorites objectAtIndex:b.tag];
+        Action* a = [favorites objectAtIndex: b.tag];
         
         //send to gira server
         [[Commander defaultCommander]sendAction:a];
@@ -176,6 +176,7 @@ int favoritesCount;
             favorite.startIndex = favoritesCount > _startIndex + 9 ? _startIndex + 9 : 0;
             
             [AnimatorHelper slideWithAnimation:-1 :self :favorite :true:true:true];
+            [favorite release];
             break;
         }
         case UISwipeGestureRecognizerDirectionRight:
@@ -186,6 +187,7 @@ int favoritesCount;
             favorite.startIndex = _startIndex > 0 ? _startIndex - 9 : favoritesCount / 9 * 9;
             
             [AnimatorHelper slideWithAnimation:1 :self :favorite :true:true:true];
+            [favorite release];
             break;
         }
     }
@@ -195,7 +197,6 @@ int favoritesCount;
 - (void)dealloc
 {
     [_mySubview release];
-    [favorites release];
     [super dealloc];
 }
 //main entry to build the GUI
@@ -205,7 +206,6 @@ int favoritesCount;
     
     [self initButtons];
     
-    NSLog(@"Favoriten geladen");
     UISwipeGestureRecognizer *recognicer;
     
     recognicer = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(handleSwipe:)];
