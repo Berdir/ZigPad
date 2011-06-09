@@ -6,6 +6,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript">
+$(document).ready(initResizable);
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body onload='searchBox.OnSelectItem(0);'>
@@ -20,7 +27,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="00_icon_home_control.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ZigPad</div>
+   <div id="projectname">ZigPad&#160;<span id="projectnumber">1.0</span></div>
   </td>
  </tr>
  </tbody>
@@ -29,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -58,6 +66,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('interface_sync_event.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -81,10 +102,12 @@ Properties</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sync_event.html#a74dff7bd5049f91fd54db0388f730206">argument</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04">SyncEventSwipeDirection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sync_event.html#af2e9a1b1dcae54a6d29d4ab3ea82ac36">direction</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sync_event.html#a539fd2db1da9757b1e4cb56c56313b91">bytesLength</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_synchronizer_connection.html">SynchronizerConnection</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sync_event.html#a9e3771e5997eb55dbe39b33090297c78">connection</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00027">27</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
+<div class="textblock"><p>A class that contaions information about a synchronization notification event. </p>
+
+<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00044">44</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a484f93618ed90870534d4632b0bb811b"></a><!-- doxytag: member="SyncEvent::bytes" ref="a484f93618ed90870534d4632b0bb811b" args="()" -->
 <div class="memitem">
@@ -99,8 +122,9 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Returns a byte array that can be sent to another device. </p>
 
-<p>Definition at line <a class="el" href="_sync_event_8m_source.html#l00038">38</a> of file <a class="el" href="_sync_event_8m_source.html">SyncEvent.m</a>.</p>
+<p>Definition at line <a class="el" href="_sync_event_8m_source.html#l00052">52</a> of file <a class="el" href="_sync_event_8m_source.html">SyncEvent.m</a>.</p>
 
 </div>
 </div>
@@ -118,8 +142,9 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Create an instance based on a received bytes array. </p>
 
-<p>Definition at line <a class="el" href="_sync_event_8m_source.html#l00019">19</a> of file <a class="el" href="_sync_event_8m_source.html">SyncEvent.m</a>.</p>
+<p>Definition at line <a class="el" href="_sync_event_8m_source.html#l00020">20</a> of file <a class="el" href="_sync_event_8m_source.html">SyncEvent.m</a>.</p>
 
 </div>
 </div>
@@ -134,8 +159,12 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>The 16bit unsigned int argument.</p>
+<p>The meaning depends on the used command. Some command also use each byte seperately, in that case, those bytes can be accessed directly through the argument_lowerByte/upperByte properties.</p>
+<p>Getter method for the argument property.</p>
+<p>This is a virtual property which is created on-demand based on the upper and lower bytes. </p>
 
-<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00035">35</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00070">70</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
 
 </div>
 </div>
@@ -149,8 +178,9 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>The lower byte of the 16bit argument. </p>
 
-<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00034">34</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00061">61</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
 
 </div>
 </div>
@@ -164,8 +194,9 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>The upper byte of the 16bit argument. </p>
 
-<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00033">33</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00056">56</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
 
 </div>
 </div>
@@ -179,8 +210,9 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Length of the bytes array returned by <a class="el" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">bytes</a>. </p>
 
-<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00039">39</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00080">80</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
 
 </div>
 </div>
@@ -194,8 +226,24 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>The command of this sync event. </p>
 
-<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00031">31</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00051">51</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9e3771e5997eb55dbe39b33090297c78"></a><!-- doxytag: member="SyncEvent::connection" ref="a9e3771e5997eb55dbe39b33090297c78" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (<a class="el" href="interface_synchronizer_connection.html">SynchronizerConnection</a>*) connection<code> [read, write, retain]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00082">82</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
 
 </div>
 </div>
@@ -209,8 +257,9 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>The swipe direction of the command, only relevant for JUMP commands. </p>
 
-<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00037">37</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="_sync_event_8h_source.html#l00075">75</a> of file <a class="el" href="_sync_event_8h_source.html">SyncEvent.h</a>.</p>
 
 </div>
 </div>
@@ -219,6 +268,15 @@ Properties</h2></td></tr>
 <li>ZigPad/<a class="el" href="_sync_event_8m_source.html">SyncEvent.m</a></li>
 </ul>
 </div>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="interface_sync_event.html">SyncEvent</a>      </li>
+      <li class="footer">Generated on Thu Jun 9 2011 10:16:57 for ZigPad by&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -233,8 +291,6 @@ Properties</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 24 2011 13:04:25 for ZigPad by&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+
 </body>
 </html>

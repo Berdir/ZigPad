@@ -6,6 +6,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript">
+$(document).ready(initResizable);
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body onload='searchBox.OnSelectItem(0);'>
@@ -20,7 +27,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="00_icon_home_control.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ZigPad</div>
+   <div id="projectname">ZigPad&#160;<span id="projectnumber">1.0</span></div>
   </td>
  </tr>
  </tbody>
@@ -29,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -55,6 +63,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_t_c_p_commander_8m.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">ZigPad/TCPCommander.m</div>  </div>
@@ -75,39 +97,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00013"></a>00013 
 <a name="l00014"></a>00014 - (void) sendString:(NSString *)message
 <a name="l00015"></a>00015 {
-<a name="l00016"></a>00016     NSData *data = [message dataUsingEncoding: NSASCIIStringEncoding];
-<a name="l00017"></a>00017     
-<a name="l00018"></a>00018     <a class="code" href="interface_zig_pad_settings.html">ZigPadSettings</a> *s = [<a class="code" href="interface_zig_pad_settings.html">ZigPadSettings</a> <a class="code" href="interface_zig_pad_settings.html#a62b9daa68893a19f9b6a6737fb8f875a">sharedInstance</a>];
-<a name="l00019"></a>00019     
-<a name="l00020"></a>00020     NSLog(<span class="stringliteral">@&quot;Sending command &#39;%@&#39;&quot;</span>, message);
-<a name="l00021"></a>00021     
-<a name="l00022"></a>00022     <span class="comment">// Initialize new every times of this method call because it otherwise</span>
-<a name="l00023"></a>00023     <span class="comment">// only sends a single time for every connection.</span>
-<a name="l00024"></a>00024     <a class="code" href="interface_async_t_c_p_socket.html">AsyncTCPSocket</a> *tcpSocket = [[<a class="code" href="interface_async_t_c_p_socket.html">AsyncTCPSocket</a> alloc] initWithDelegate:self];
-<a name="l00025"></a>00025     
-<a name="l00026"></a>00026     [tcpSocket <a class="code" href="interface_async_t_c_p_socket.html#a4e2b5a931c78d066965bdf235337b462">connectToHost</a>:s.ip <a class="code" href="interface_async_t_c_p_socket.html#a4e2b5a931c78d066965bdf235337b462">onPort</a>:s.port <a class="code" href="interface_async_t_c_p_socket.html#a4e2b5a931c78d066965bdf235337b462">error</a>:nil];
-<a name="l00027"></a>00027     NSLog(<span class="stringliteral">@&quot;Connected to Host %@, port %d&quot;</span>, s.<a class="code" href="interface_zig_pad_settings.html#ad56edd22bf5c939f2931577a179b55ab">ip</a>, s.<a class="code" href="interface_zig_pad_settings.html#a63c89c04d1feae07ca35558055155ffb">port</a>);
+<a name="l00016"></a>00016     
+<a name="l00017"></a>00017     NSData *data = [message dataUsingEncoding: NSASCIIStringEncoding];
+<a name="l00018"></a>00018     
+<a name="l00019"></a>00019     <a class="code" href="interface_zig_pad_settings.html">ZigPadSettings</a> *s = [<a class="code" href="interface_zig_pad_settings.html">ZigPadSettings</a> <a class="code" href="interface_zig_pad_settings.html#a62b9daa68893a19f9b6a6737fb8f875a">sharedInstance</a>];
+<a name="l00020"></a>00020     
+<a name="l00021"></a>00021     NSLog(<span class="stringliteral">@&quot;Sending command &#39;%@&#39;&quot;</span>, message);
+<a name="l00022"></a>00022     
+<a name="l00023"></a>00023     NSDate * start = [NSDate date];
+<a name="l00024"></a>00024     
+<a name="l00025"></a>00025     <span class="comment">// Initialize new every times of this method call because it otherwise</span>
+<a name="l00026"></a>00026     <span class="comment">// only sends a single time for every connection.</span>
+<a name="l00027"></a>00027     <a class="code" href="interface_async_t_c_p_socket.html">AsyncTCPSocket</a> *tcpSocket = [[<a class="code" href="interface_async_t_c_p_socket.html">AsyncTCPSocket</a> alloc] initWithDelegate:self];
 <a name="l00028"></a>00028     
-<a name="l00029"></a>00029     [tcpSocket <a class="code" href="interface_async_t_c_p_socket.html#a7f85c2e3c19bbe013c180b4668a28fc2">writeData</a>:data <a class="code" href="interface_async_t_c_p_socket.html#a7f85c2e3c19bbe013c180b4668a28fc2">withTimeout</a>:500 <a class="code" href="interface_async_t_c_p_socket.html#a7f85c2e3c19bbe013c180b4668a28fc2">tag</a>:1];
-<a name="l00030"></a>00030     [tcpSocket <a class="code" href="interface_async_t_c_p_socket.html#a58e63ca19338d5e052ad36e2e64ec585">readDataWithTimeout</a>:500 <a class="code" href="interface_async_t_c_p_socket.html#a58e63ca19338d5e052ad36e2e64ec585">tag</a>:1];
-<a name="l00031"></a>00031     
-<a name="l00032"></a>00032     [tcpSocket <a class="code" href="interface_async_t_c_p_socket.html#a31e39568995cdc85c4feb5a76c645d5f">disconnectAfterReadingAndWriting</a>];
-<a name="l00033"></a>00033     
-<a name="l00034"></a>00034     [tcpSocket release];
-<a name="l00035"></a>00035 }
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037 <span class="preprocessor">#pragma mark AsyncTCP Socket delegates</span>
-<a name="l00038"></a>00038 <span class="preprocessor"></span>
-<a name="l00039"></a>00039 - (void)onSocket:(<a class="code" href="interface_async_t_c_p_socket.html">AsyncTCPSocket</a> *)sock didReadData:(NSData *)data withTag:(<span class="keywordtype">long</span>)tag
-<a name="l00040"></a>00040 {
-<a name="l00041"></a>00041     NSString *response = [NSString stringWithCString:[data bytes] encoding:NSASCIIStringEncoding];
-<a name="l00042"></a>00042     NSLog(<span class="stringliteral">@&quot;Got Response: &#39;%@&#39;&quot;</span>, response);
-<a name="l00043"></a>00043     
-<a name="l00044"></a>00044 }
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046 <span class="keyword">@end</span>
+<a name="l00029"></a>00029     NSError *error = nil;
+<a name="l00030"></a>00030     [tcpSocket <a class="code" href="interface_async_t_c_p_socket.html#a4e2b5a931c78d066965bdf235337b462">connectToHost</a>:s.ip <a class="code" href="interface_async_t_c_p_socket.html#a4e2b5a931c78d066965bdf235337b462">onPort</a>:s.port <a class="code" href="interface_async_t_c_p_socket.html#a4e2b5a931c78d066965bdf235337b462">error</a>:&amp;error];
+<a name="l00031"></a>00031     NSLog(<span class="stringliteral">@&quot;Connected to Host %@, port %d, error: %@&quot;</span>, s.<a class="code" href="interface_zig_pad_settings.html#ad56edd22bf5c939f2931577a179b55ab">ip</a>, s.<a class="code" href="interface_zig_pad_settings.html#a63c89c04d1feae07ca35558055155ffb">port</a>, error ? [error localizedDescription] : <span class="stringliteral">@&quot;No error&quot;</span>);
+<a name="l00032"></a>00032     
+<a name="l00033"></a>00033     [tcpSocket <a class="code" href="interface_async_t_c_p_socket.html#a7f85c2e3c19bbe013c180b4668a28fc2">writeData</a>:data <a class="code" href="interface_async_t_c_p_socket.html#a7f85c2e3c19bbe013c180b4668a28fc2">withTimeout</a>:500 <a class="code" href="interface_async_t_c_p_socket.html#a7f85c2e3c19bbe013c180b4668a28fc2">tag</a>:1];
+<a name="l00034"></a>00034     [tcpSocket <a class="code" href="interface_async_t_c_p_socket.html#a58e63ca19338d5e052ad36e2e64ec585">readDataWithTimeout</a>:500 <a class="code" href="interface_async_t_c_p_socket.html#a58e63ca19338d5e052ad36e2e64ec585">tag</a>:1];
+<a name="l00035"></a>00035     
+<a name="l00036"></a>00036     [tcpSocket <a class="code" href="interface_async_t_c_p_socket.html#a31e39568995cdc85c4feb5a76c645d5f">disconnectAfterReadingAndWriting</a>];
+<a name="l00037"></a>00037     
+<a name="l00038"></a>00038     [tcpSocket release];
+<a name="l00039"></a>00039     
+<a name="l00040"></a>00040     NSLog(<span class="stringliteral">@&quot;Done sending, took %f milliseconds&quot;</span>, fabs([start timeIntervalSinceNow] * 1000));
+<a name="l00041"></a>00041 }
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="preprocessor">#pragma mark AsyncTCP Socket delegates</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span>
+<a name="l00045"></a>00045 - (void)onSocket:(<a class="code" href="interface_async_t_c_p_socket.html">AsyncTCPSocket</a> *)sock didReadData:(NSData *)data withTag:(<span class="keywordtype">long</span>)tag
+<a name="l00046"></a>00046 {
+<a name="l00047"></a>00047     NSString *response = [NSString stringWithCString:[data bytes] encoding:NSASCIIStringEncoding];
+<a name="l00048"></a>00048     NSLog(<span class="stringliteral">@&quot;Got Response: &#39;%@&#39;&quot;</span>, response);
+<a name="l00049"></a>00049     
+<a name="l00050"></a>00050 }
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_t_c_p_commander_8m.html">TCPCommander.m</a>      </li>
+      <li class="footer">Generated on Thu Jun 9 2011 10:16:56 for ZigPad by&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -122,8 +158,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 24 2011 13:04:24 for ZigPad by&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+
 </body>
 </html>

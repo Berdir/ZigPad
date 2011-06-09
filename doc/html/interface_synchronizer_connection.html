@@ -6,6 +6,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript">
+$(document).ready(initResizable);
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body onload='searchBox.OnSelectItem(0);'>
@@ -20,7 +27,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="00_icon_home_control.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ZigPad</div>
+   <div id="projectname">ZigPad&#160;<span id="projectnumber">1.0</span></div>
   </td>
  </tr>
  </tbody>
@@ -29,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -58,6 +66,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('interface_synchronizer_connection.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -75,17 +96,19 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_synchronizer_connection.html#a97b996ff087bec3e20030ea7a28ae97c">initWithStreams::</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_synchronizer_connection.html#a939a6f91cc8242331d9667962c0bee25">send:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_synchronizer_connection.html#ab99a267a91e1318c7cbb20a5b70ea644">sendTimed:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_synchronizer_connection.html#a5d689c3d763d3d97afd81ce370fd36a2">openStreams</a></td></tr>
 <tr><td colspan="2"><h2><a name="properties"></a>
 Properties</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSInputStream *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_synchronizer_connection.html#a6518f57e11a87d0fa1592f43e6c09ef6">inStream</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSOutputStream *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_synchronizer_connection.html#a40bb251ce886c4b07fe1c1e4c5107eeb">outStream</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_synchronizer_connection.html#af9691c42e72c2c15aee4012b5de79aae">inReady</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_synchronizer_connection.html#a64d91b9747d4876f20415079bb9d9f7f">outReady</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_synchronizer_connection.html#a4b93d352d2fca75b34e1b5a50e03f587">name</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_synchronizer_connection_8h_source.html#l00013">13</a> of file <a class="el" href="_synchronizer_connection_8h_source.html">SynchronizerConnection.h</a>.</p>
+<div class="textblock"><p>This class represents a connection to another device.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>: The class is currently only used either as a outbound or a inbound connection, but both a input and output stream is opened for both. This should be improved somehow. </dd></dl>
+
+<p>Definition at line <a class="el" href="_synchronizer_connection_8h_source.html#l00020">20</a> of file <a class="el" href="_synchronizer_connection_8h_source.html">SynchronizerConnection.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a85d039f4fe918b4ab91b90c1bac883f1"></a><!-- doxytag: member="SynchronizerConnection::initWithService:" ref="a85d039f4fe918b4ab91b90c1bac883f1" args="(NSNetService *service)" -->
 <div class="memitem">
@@ -101,8 +124,9 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Init with a NSNetService instance for an outbound connection. </p>
 
-<p>Definition at line <a class="el" href="_synchronizer_connection_8m_source.html#l00030">30</a> of file <a class="el" href="_synchronizer_connection_8m_source.html">SynchronizerConnection.m</a>.</p>
+<p>Definition at line <a class="el" href="_synchronizer_connection_8m_source.html#l00037">37</a> of file <a class="el" href="_synchronizer_connection_8m_source.html">SynchronizerConnection.m</a>.</p>
 
 </div>
 </div>
@@ -130,26 +154,9 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Init with an input and output stream for an inbound connection. </p>
 
-<p>Definition at line <a class="el" href="_synchronizer_connection_8m_source.html#l00055">55</a> of file <a class="el" href="_synchronizer_connection_8m_source.html">SynchronizerConnection.m</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5d689c3d763d3d97afd81ce370fd36a2"></a><!-- doxytag: member="SynchronizerConnection::openStreams" ref="a5d689c3d763d3d97afd81ce370fd36a2" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (void) openStreams </td>
-          <td></td>
-          <td class="paramname"></td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="_synchronizer_connection_8m_source.html#l00020">20</a> of file <a class="el" href="_synchronizer_connection_8m_source.html">SynchronizerConnection.m</a>.</p>
+<p>Definition at line <a class="el" href="_synchronizer_connection_8m_source.html#l00070">70</a> of file <a class="el" href="_synchronizer_connection_8m_source.html">SynchronizerConnection.m</a>.</p>
 
 </div>
 </div>
@@ -167,8 +174,9 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Send a sync event to the connected device. </p>
 
-<p>Definition at line <a class="el" href="_synchronizer_connection_8m_source.html#l00081">81</a> of file <a class="el" href="_synchronizer_connection_8m_source.html">SynchronizerConnection.m</a>.</p>
+<p>Definition at line <a class="el" href="_synchronizer_connection_8m_source.html#l00097">97</a> of file <a class="el" href="_synchronizer_connection_8m_source.html">SynchronizerConnection.m</a>.</p>
 
 </div>
 </div>
@@ -186,8 +194,9 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>NSTimer callback used for automatically re-sending data when the connection is not yet ready. </p>
 
-<p>Definition at line <a class="el" href="_synchronizer_connection_8m_source.html#l00097">97</a> of file <a class="el" href="_synchronizer_connection_8m_source.html">SynchronizerConnection.m</a>.</p>
+<p>Definition at line <a class="el" href="_synchronizer_connection_8m_source.html#l00113">113</a> of file <a class="el" href="_synchronizer_connection_8m_source.html">SynchronizerConnection.m</a>.</p>
 
 </div>
 </div>
@@ -202,8 +211,9 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Indicates if the input stream is ready to be used. </p>
 
-<p>Definition at line <a class="el" href="_synchronizer_connection_8h_source.html#l00019">19</a> of file <a class="el" href="_synchronizer_connection_8h_source.html">SynchronizerConnection.h</a>.</p>
+<p>Definition at line <a class="el" href="_synchronizer_connection_8h_source.html#l00037">37</a> of file <a class="el" href="_synchronizer_connection_8h_source.html">SynchronizerConnection.h</a>.</p>
 
 </div>
 </div>
@@ -217,8 +227,26 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Input stream. </p>
 
-<p>Definition at line <a class="el" href="_synchronizer_connection_8h_source.html#l00017">17</a> of file <a class="el" href="_synchronizer_connection_8h_source.html">SynchronizerConnection.h</a>.</p>
+<p>Definition at line <a class="el" href="_synchronizer_connection_8h_source.html#l00027">27</a> of file <a class="el" href="_synchronizer_connection_8h_source.html">SynchronizerConnection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4b93d352d2fca75b34e1b5a50e03f587"></a><!-- doxytag: member="SynchronizerConnection::name" ref="a4b93d352d2fca75b34e1b5a50e03f587" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSString*) name<code> [read, write, retain]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Name of service related to this connection.</p>
+<p>This is only set for outbound connections. </p>
+
+<p>Definition at line <a class="el" href="_synchronizer_connection_8h_source.html#l00049">49</a> of file <a class="el" href="_synchronizer_connection_8h_source.html">SynchronizerConnection.h</a>.</p>
 
 </div>
 </div>
@@ -232,8 +260,9 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Indicates if the output stream is ready to be used </p>
 
-<p>Definition at line <a class="el" href="_synchronizer_connection_8h_source.html#l00020">20</a> of file <a class="el" href="_synchronizer_connection_8h_source.html">SynchronizerConnection.h</a>.</p>
+<p>Definition at line <a class="el" href="_synchronizer_connection_8h_source.html#l00042">42</a> of file <a class="el" href="_synchronizer_connection_8h_source.html">SynchronizerConnection.h</a>.</p>
 
 </div>
 </div>
@@ -247,8 +276,9 @@ Properties</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Output stream. </p>
 
-<p>Definition at line <a class="el" href="_synchronizer_connection_8h_source.html#l00018">18</a> of file <a class="el" href="_synchronizer_connection_8h_source.html">SynchronizerConnection.h</a>.</p>
+<p>Definition at line <a class="el" href="_synchronizer_connection_8h_source.html#l00032">32</a> of file <a class="el" href="_synchronizer_connection_8h_source.html">SynchronizerConnection.h</a>.</p>
 
 </div>
 </div>
@@ -257,6 +287,15 @@ Properties</h2></td></tr>
 <li>ZigPad/<a class="el" href="_synchronizer_connection_8m_source.html">SynchronizerConnection.m</a></li>
 </ul>
 </div>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="interface_synchronizer_connection.html">SynchronizerConnection</a>      </li>
+      <li class="footer">Generated on Thu Jun 9 2011 10:16:57 for ZigPad by&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -271,8 +310,6 @@ Properties</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 24 2011 13:04:25 for ZigPad by&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+
 </body>
 </html>

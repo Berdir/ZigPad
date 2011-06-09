@@ -16,8 +16,6 @@
 (void) -\/ \hyperlink{interface_synchronizer_connection_a939a6f91cc8242331d9667962c0bee25}{send:}
 \item 
 (void) -\/ \hyperlink{interface_synchronizer_connection_ab99a267a91e1318c7cbb20a5b70ea644}{sendTimed:}
-\item 
-(void) -\/ \hyperlink{interface_synchronizer_connection_a5d689c3d763d3d97afd81ce370fd36a2}{openStreams}
 \end{DoxyCompactItemize}
 \subsection*{Properties}
 \begin{DoxyCompactItemize}
@@ -29,13 +27,19 @@ NSOutputStream $\ast$ \hyperlink{interface_synchronizer_connection_a40bb251ce886
 BOOL \hyperlink{interface_synchronizer_connection_af9691c42e72c2c15aee4012b5de79aae}{inReady}
 \item 
 BOOL \hyperlink{interface_synchronizer_connection_a64d91b9747d4876f20415079bb9d9f7f}{outReady}
+\item 
+NSString $\ast$ \hyperlink{interface_synchronizer_connection_a4b93d352d2fca75b34e1b5a50e03f587}{name}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+This class represents a connection to another device.
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000001}{Todo}]: The class is currently only used either as a outbound or a inbound connection, but both a input and output stream is opened for both. This should be improved somehow. \end{Desc}
 
 
-Definition at line 13 of file SynchronizerConnection.h.
+Definition at line 20 of file SynchronizerConnection.h.
 
 
 
@@ -49,9 +53,9 @@ Definition at line 13 of file SynchronizerConnection.h.
 \end{DoxyParamCaption}
 }}
 \label{interface_synchronizer_connection_a85d039f4fe918b4ab91b90c1bac883f1}
+Init with a NSNetService instance for an outbound connection. 
 
-
-Definition at line 30 of file SynchronizerConnection.m.
+Definition at line 37 of file SynchronizerConnection.m.
 
 \hypertarget{interface_synchronizer_connection_a97b996ff087bec3e20030ea7a28ae97c}{
 \index{SynchronizerConnection@{SynchronizerConnection}!initWithStreams::@{initWithStreams::}}
@@ -63,22 +67,9 @@ Definition at line 30 of file SynchronizerConnection.m.
 \end{DoxyParamCaption}
 }}
 \label{interface_synchronizer_connection_a97b996ff087bec3e20030ea7a28ae97c}
+Init with an input and output stream for an inbound connection. 
 
-
-Definition at line 55 of file SynchronizerConnection.m.
-
-\hypertarget{interface_synchronizer_connection_a5d689c3d763d3d97afd81ce370fd36a2}{
-\index{SynchronizerConnection@{SynchronizerConnection}!openStreams@{openStreams}}
-\index{openStreams@{openStreams}!SynchronizerConnection@{SynchronizerConnection}}
-\subsubsection[{openStreams}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) openStreams 
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-}}
-\label{interface_synchronizer_connection_a5d689c3d763d3d97afd81ce370fd36a2}
-
-
-Definition at line 20 of file SynchronizerConnection.m.
+Definition at line 70 of file SynchronizerConnection.m.
 
 \hypertarget{interface_synchronizer_connection_a939a6f91cc8242331d9667962c0bee25}{
 \index{SynchronizerConnection@{SynchronizerConnection}!send:@{send:}}
@@ -89,9 +80,9 @@ Definition at line 20 of file SynchronizerConnection.m.
 \end{DoxyParamCaption}
 }}
 \label{interface_synchronizer_connection_a939a6f91cc8242331d9667962c0bee25}
+Send a sync event to the connected device. 
 
-
-Definition at line 81 of file SynchronizerConnection.m.
+Definition at line 97 of file SynchronizerConnection.m.
 
 \hypertarget{interface_synchronizer_connection_ab99a267a91e1318c7cbb20a5b70ea644}{
 \index{SynchronizerConnection@{SynchronizerConnection}!sendTimed:@{sendTimed:}}
@@ -102,9 +93,9 @@ Definition at line 81 of file SynchronizerConnection.m.
 \end{DoxyParamCaption}
 }}
 \label{interface_synchronizer_connection_ab99a267a91e1318c7cbb20a5b70ea644}
+NSTimer callback used for automatically re-\/sending data when the connection is not yet ready. 
 
-
-Definition at line 97 of file SynchronizerConnection.m.
+Definition at line 113 of file SynchronizerConnection.m.
 
 
 
@@ -114,36 +105,47 @@ Definition at line 97 of file SynchronizerConnection.m.
 \index{inReady@{inReady}!SynchronizerConnection@{SynchronizerConnection}}
 \subsubsection[{inReady}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) inReady\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
 \label{interface_synchronizer_connection_af9691c42e72c2c15aee4012b5de79aae}
+Indicates if the input stream is ready to be used. 
 
-
-Definition at line 19 of file SynchronizerConnection.h.
+Definition at line 37 of file SynchronizerConnection.h.
 
 \hypertarget{interface_synchronizer_connection_a6518f57e11a87d0fa1592f43e6c09ef6}{
 \index{SynchronizerConnection@{SynchronizerConnection}!inStream@{inStream}}
 \index{inStream@{inStream}!SynchronizerConnection@{SynchronizerConnection}}
 \subsubsection[{inStream}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSInputStream$\ast$) inStream\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
 \label{interface_synchronizer_connection_a6518f57e11a87d0fa1592f43e6c09ef6}
+Input stream. 
 
+Definition at line 27 of file SynchronizerConnection.h.
 
-Definition at line 17 of file SynchronizerConnection.h.
+\hypertarget{interface_synchronizer_connection_a4b93d352d2fca75b34e1b5a50e03f587}{
+\index{SynchronizerConnection@{SynchronizerConnection}!name@{name}}
+\index{name@{name}!SynchronizerConnection@{SynchronizerConnection}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSString$\ast$) name\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_synchronizer_connection_a4b93d352d2fca75b34e1b5a50e03f587}
+Name of service related to this connection.
+
+This is only set for outbound connections. 
+
+Definition at line 49 of file SynchronizerConnection.h.
 
 \hypertarget{interface_synchronizer_connection_a64d91b9747d4876f20415079bb9d9f7f}{
 \index{SynchronizerConnection@{SynchronizerConnection}!outReady@{outReady}}
 \index{outReady@{outReady}!SynchronizerConnection@{SynchronizerConnection}}
 \subsubsection[{outReady}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) outReady\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
 \label{interface_synchronizer_connection_a64d91b9747d4876f20415079bb9d9f7f}
+Indicates if the output stream is ready to be used 
 
-
-Definition at line 20 of file SynchronizerConnection.h.
+Definition at line 42 of file SynchronizerConnection.h.
 
 \hypertarget{interface_synchronizer_connection_a40bb251ce886c4b07fe1c1e4c5107eeb}{
 \index{SynchronizerConnection@{SynchronizerConnection}!outStream@{outStream}}
 \index{outStream@{outStream}!SynchronizerConnection@{SynchronizerConnection}}
 \subsubsection[{outStream}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSOutputStream$\ast$) outStream\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
 \label{interface_synchronizer_connection_a40bb251ce886c4b07fe1c1e4c5107eeb}
+Output stream. 
 
-
-Definition at line 18 of file SynchronizerConnection.h.
+Definition at line 32 of file SynchronizerConnection.h.
 
 
 

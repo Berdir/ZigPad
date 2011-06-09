@@ -27,13 +27,15 @@ uint16\_\-t \hyperlink{interface_sync_event_a74dff7bd5049f91fd54db0388f730206}{a
 \hyperlink{_sync_event_8h_acace9ff8e6c7501a7db172418a364d04}{SyncEventSwipeDirection} \hyperlink{interface_sync_event_af2e9a1b1dcae54a6d29d4ab3ea82ac36}{direction}
 \item 
 int \hyperlink{interface_sync_event_a539fd2db1da9757b1e4cb56c56313b91}{bytesLength}
+\item 
+\hyperlink{interface_synchronizer_connection}{SynchronizerConnection} $\ast$ \hyperlink{interface_sync_event_a9e3771e5997eb55dbe39b33090297c78}{connection}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+A class that contaions information about a synchronization notification event. 
 
-
-Definition at line 27 of file SyncEvent.h.
+Definition at line 44 of file SyncEvent.h.
 
 
 
@@ -47,9 +49,9 @@ Definition at line 27 of file SyncEvent.h.
 \end{DoxyParamCaption}
 }}
 \label{interface_sync_event_a484f93618ed90870534d4632b0bb811b}
+Returns a byte array that can be sent to another device. 
 
-
-Definition at line 38 of file SyncEvent.m.
+Definition at line 52 of file SyncEvent.m.
 
 \hypertarget{interface_sync_event_a3f7fdc48c3c3cab2371b8adf14de9b99}{
 \index{SyncEvent@{SyncEvent}!initWithBytes:@{initWithBytes:}}
@@ -60,9 +62,9 @@ Definition at line 38 of file SyncEvent.m.
 \end{DoxyParamCaption}
 }}
 \label{interface_sync_event_a3f7fdc48c3c3cab2371b8adf14de9b99}
+Create an instance based on a received bytes array. 
 
-
-Definition at line 19 of file SyncEvent.m.
+Definition at line 20 of file SyncEvent.m.
 
 
 
@@ -72,54 +74,69 @@ Definition at line 19 of file SyncEvent.m.
 \index{argument@{argument}!SyncEvent@{SyncEvent}}
 \subsubsection[{argument}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (uint16\_\-t) argument\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
 \label{interface_sync_event_a74dff7bd5049f91fd54db0388f730206}
+The 16bit unsigned int argument.
 
+The meaning depends on the used command. Some command also use each byte seperately, in that case, those bytes can be accessed directly through the argument\_\-lowerByte/upperByte properties.
 
-Definition at line 35 of file SyncEvent.h.
+Getter method for the argument property.
+
+This is a virtual property which is created on-\/demand based on the upper and lower bytes. 
+
+Definition at line 70 of file SyncEvent.h.
 
 \hypertarget{interface_sync_event_a4300b74bd54ca339d5fdbf0187a32d50}{
 \index{SyncEvent@{SyncEvent}!argument\_\-lowerByte@{argument\_\-lowerByte}}
 \index{argument\_\-lowerByte@{argument\_\-lowerByte}!SyncEvent@{SyncEvent}}
 \subsubsection[{argument\_\-lowerByte}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (uint8\_\-t) argument\_\-lowerByte\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
 \label{interface_sync_event_a4300b74bd54ca339d5fdbf0187a32d50}
+The lower byte of the 16bit argument. 
 
-
-Definition at line 34 of file SyncEvent.h.
+Definition at line 61 of file SyncEvent.h.
 
 \hypertarget{interface_sync_event_aabc9ba86996bb61d9eb530b84f5a16f9}{
 \index{SyncEvent@{SyncEvent}!argument\_\-upperByte@{argument\_\-upperByte}}
 \index{argument\_\-upperByte@{argument\_\-upperByte}!SyncEvent@{SyncEvent}}
 \subsubsection[{argument\_\-upperByte}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (uint8\_\-t) argument\_\-upperByte\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
 \label{interface_sync_event_aabc9ba86996bb61d9eb530b84f5a16f9}
+The upper byte of the 16bit argument. 
 
-
-Definition at line 33 of file SyncEvent.h.
+Definition at line 56 of file SyncEvent.h.
 
 \hypertarget{interface_sync_event_a539fd2db1da9757b1e4cb56c56313b91}{
 \index{SyncEvent@{SyncEvent}!bytesLength@{bytesLength}}
 \index{bytesLength@{bytesLength}!SyncEvent@{SyncEvent}}
 \subsubsection[{bytesLength}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (int) bytesLength\hspace{0.3cm}{\ttfamily  \mbox{[}read, assign\mbox{]}}}}
 \label{interface_sync_event_a539fd2db1da9757b1e4cb56c56313b91}
+Length of the bytes array returned by \hyperlink{interface_sync_event_a484f93618ed90870534d4632b0bb811b}{bytes}. 
 
-
-Definition at line 39 of file SyncEvent.h.
+Definition at line 80 of file SyncEvent.h.
 
 \hypertarget{interface_sync_event_aa6a5afb0f81c492c56b326c711e72aff}{
 \index{SyncEvent@{SyncEvent}!command@{command}}
 \index{command@{command}!SyncEvent@{SyncEvent}}
 \subsubsection[{command}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf SyncEventCommand}) command\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
 \label{interface_sync_event_aa6a5afb0f81c492c56b326c711e72aff}
+The command of this sync event. 
+
+Definition at line 51 of file SyncEvent.h.
+
+\hypertarget{interface_sync_event_a9e3771e5997eb55dbe39b33090297c78}{
+\index{SyncEvent@{SyncEvent}!connection@{connection}}
+\index{connection@{connection}!SyncEvent@{SyncEvent}}
+\subsubsection[{connection}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf SynchronizerConnection}$\ast$) connection\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
+\label{interface_sync_event_a9e3771e5997eb55dbe39b33090297c78}
 
 
-Definition at line 31 of file SyncEvent.h.
+Definition at line 82 of file SyncEvent.h.
 
 \hypertarget{interface_sync_event_af2e9a1b1dcae54a6d29d4ab3ea82ac36}{
 \index{SyncEvent@{SyncEvent}!direction@{direction}}
 \index{direction@{direction}!SyncEvent@{SyncEvent}}
 \subsubsection[{direction}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf SyncEventSwipeDirection}) direction\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
 \label{interface_sync_event_af2e9a1b1dcae54a6d29d4ab3ea82ac36}
+The swipe direction of the command, only relevant for JUMP commands. 
 
-
-Definition at line 37 of file SyncEvent.h.
+Definition at line 75 of file SyncEvent.h.
 
 
 

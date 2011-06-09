@@ -50,9 +50,11 @@ BOOL \hyperlink{interface_action_view_controller_abbe31ad947ac06e484e486dd2d47c5
 
 
 \subsection{Detailed Description}
+Base view controller for all actions.
 
+Extend this class when creating a new action controller and override the default implementations as appropriate. 
 
-Definition at line 19 of file ActionViewController.h.
+Definition at line 25 of file ActionViewController.h.
 
 
 
@@ -66,9 +68,16 @@ Definition at line 19 of file ActionViewController.h.
 \end{DoxyParamCaption}
 }}
 \label{interface_action_view_controller_ad91d69b4d734bc865ad70666009d7e6c}
+Click callback for the image button.
 
 
-Definition at line 114 of file ActionViewController.m.
+\begin{DoxyParams}{Parameters}
+{\em sender} & Indicates the button that is executing this action. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 125 of file ActionViewController.m.
 
 \hypertarget{interface_action_view_controller_a2f99fc0a54c8eea088fe4b54e7921bed}{
 \index{ActionViewController@{ActionViewController}!fireSyncEvent:@{fireSyncEvent:}}
@@ -79,9 +88,18 @@ Definition at line 114 of file ActionViewController.m.
 \end{DoxyParamCaption}
 }}
 \label{interface_action_view_controller_a2f99fc0a54c8eea088fe4b54e7921bed}
+Send a sync event.
+
+This sends a sync notification event for the currently active action.
 
 
-Definition at line 99 of file ActionViewController.m.
+\begin{DoxyParams}{Parameters}
+{\em direction} & Indicates the animation direction of the connected devices. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 110 of file ActionViewController.m.
 
 \hypertarget{interface_action_view_controller_a4509baac610fb3752ee973f0b01e0b9f}{
 \index{ActionViewController@{ActionViewController}!getViewControllerFromAction:@{getViewControllerFromAction:}}
@@ -92,9 +110,19 @@ Definition at line 99 of file ActionViewController.m.
 \end{DoxyParamCaption}
 }}
 \label{interface_action_view_controller_a4509baac610fb3752ee973f0b01e0b9f}
+Helper method that initiates the view controller for a given action.
 
 
-Definition at line 24 of file ActionViewController.m.
+\begin{DoxyParams}{Parameters}
+{\em action} & The action for which the view controller should be created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A child-\/class of \hyperlink{interface_action_view_controller}{ActionViewController}. 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file ActionViewController.m.
 
 \hypertarget{interface_action_view_controller_ac034edbc1c7aff5bde9af09042fce53c}{
 \index{ActionViewController@{ActionViewController}!handleSwipeFrom:@{handleSwipeFrom:}}
@@ -105,9 +133,16 @@ Definition at line 24 of file ActionViewController.m.
 \end{DoxyParamCaption}
 }}
 \label{interface_action_view_controller_ac034edbc1c7aff5bde9af09042fce53c}
+Callback to handle swipe events.
 
 
-Definition at line 195 of file ActionViewController.m.
+\begin{DoxyParams}{Parameters}
+{\em recogniser} & Instance of the swipe recognizer instance. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 208 of file ActionViewController.m.
 
 \hypertarget{interface_action_view_controller_a22edd1eeecdf2f7083df5a807f04cf84}{
 \index{ActionViewController@{ActionViewController}!next:@{next:}}
@@ -118,9 +153,16 @@ Definition at line 195 of file ActionViewController.m.
 \end{DoxyParamCaption}
 }}
 \label{interface_action_view_controller_a22edd1eeecdf2f7083df5a807f04cf84}
+Switch to the next action in the current presentation.
 
 
-Definition at line 236 of file ActionViewController.m.
+\begin{DoxyParams}{Parameters}
+{\em animated} & If the switch should be animated (swipe) or not (click). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 251 of file ActionViewController.m.
 
 \hypertarget{interface_action_view_controller_a0b94021bd4ccd4d8f5d939c8fd7ccfb1}{
 \index{ActionViewController@{ActionViewController}!previous@{previous}}
@@ -131,9 +173,9 @@ Definition at line 236 of file ActionViewController.m.
 \end{DoxyParamCaption}
 }}
 \label{interface_action_view_controller_a0b94021bd4ccd4d8f5d939c8fd7ccfb1}
+Switch to the previous action in the current presentation. 
 
-
-Definition at line 272 of file ActionViewController.m.
+Definition at line 291 of file ActionViewController.m.
 
 \hypertarget{interface_action_view_controller_a7f364c94977e770c78f9b2e1001c2a87}{
 \index{ActionViewController@{ActionViewController}!registerNotificationCenter@{registerNotificationCenter}}
@@ -144,9 +186,9 @@ Definition at line 272 of file ActionViewController.m.
 \end{DoxyParamCaption}
 }}
 \label{interface_action_view_controller_a7f364c94977e770c78f9b2e1001c2a87}
+Register for sync events through the notification center. 
 
-
-Definition at line 38 of file ActionViewController.m.
+Definition at line 35 of file ActionViewController.m.
 
 \hypertarget{interface_action_view_controller_ab8fb10dd91608c47c056d05c7dea49d2}{
 \index{ActionViewController@{ActionViewController}!unregisterNotificationCenter@{unregisterNotificationCenter}}
@@ -157,9 +199,9 @@ Definition at line 38 of file ActionViewController.m.
 \end{DoxyParamCaption}
 }}
 \label{interface_action_view_controller_ab8fb10dd91608c47c056d05c7dea49d2}
+Unregister for sync events through the notification center. 
 
-
-Definition at line 45 of file ActionViewController.m.
+Definition at line 42 of file ActionViewController.m.
 
 
 
@@ -169,9 +211,9 @@ Definition at line 45 of file ActionViewController.m.
 \index{actionLabel@{actionLabel}!ActionViewController@{ActionViewController}}
 \subsubsection[{actionLabel}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (IBOutlet UILabel$\ast$) actionLabel\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
 \label{interface_action_view_controller_a743f2a07e0d706cacdd54bd546cf0066}
+Reference to the label that displays the current action name. 
 
-
-Definition at line 24 of file ActionViewController.h.
+Definition at line 37 of file ActionViewController.h.
 
 \hypertarget{interface_action_view_controller_af768033a4289ba93a603e190d298cb55}{
 \index{ActionViewController@{ActionViewController}!imageButton@{imageButton}}
@@ -180,34 +222,36 @@ Definition at line 24 of file ActionViewController.h.
 \label{interface_action_view_controller_af768033a4289ba93a603e190d298cb55}
 
 
-Definition at line 25 of file ActionViewController.h.
+Definition at line 42 of file ActionViewController.h.
 
 \hypertarget{interface_action_view_controller_abbe31ad947ac06e484e486dd2d47c541}{
 \index{ActionViewController@{ActionViewController}!isMaster@{isMaster}}
 \index{isMaster@{isMaster}!ActionViewController@{ActionViewController}}
 \subsubsection[{isMaster}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) isMaster\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
 \label{interface_action_view_controller_abbe31ad947ac06e484e486dd2d47c541}
+A flag to indicate if this is the currently active device.
 
+Active means in this case that it is directly controlled through the UI as opposed to synchronization events.. 
 
-Definition at line 27 of file ActionViewController.h.
+Definition at line 55 of file ActionViewController.h.
 
 \hypertarget{interface_action_view_controller_a729dc1b9adc6098142f097c005a990ba}{
 \index{ActionViewController@{ActionViewController}!label@{label}}
 \index{label@{label}!ActionViewController@{ActionViewController}}
 \subsubsection[{label}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (IBOutlet UILabel$\ast$) label\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
 \label{interface_action_view_controller_a729dc1b9adc6098142f097c005a990ba}
+Reference to the label that displays the current sequence. 
 
-
-Definition at line 23 of file ActionViewController.h.
+Definition at line 32 of file ActionViewController.h.
 
 \hypertarget{interface_action_view_controller_a4687fd0668ba32c76160e4d4f1747c12}{
 \index{ActionViewController@{ActionViewController}!presentation@{presentation}}
 \index{presentation@{presentation}!ActionViewController@{ActionViewController}}
 \subsubsection[{presentation}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf Presentation}$\ast$) presentation\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
 \label{interface_action_view_controller_a4687fd0668ba32c76160e4d4f1747c12}
+The active presentation instance. 
 
-
-Definition at line 26 of file ActionViewController.h.
+Definition at line 47 of file ActionViewController.h.
 
 
 

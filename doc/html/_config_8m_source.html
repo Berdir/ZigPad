@@ -6,6 +6,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript">
+$(document).ready(initResizable);
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body onload='searchBox.OnSelectItem(0);'>
@@ -20,7 +27,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="00_icon_home_control.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ZigPad</div>
+   <div id="projectname">ZigPad&#160;<span id="projectnumber">1.0</span></div>
   </td>
  </tr>
  </tbody>
@@ -29,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -55,6 +63,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_config_8m.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">ZigPad/Config.m</div>  </div>
@@ -173,207 +195,222 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00136"></a>00136 
 <a name="l00137"></a><a class="code" href="interface_config.html#a7830478092d7eb0d164d3ae07be48fe7">00137</a> -(void)<a class="code" href="interface_config.html#a7830478092d7eb0d164d3ae07be48fe7">clearDB</a>
 <a name="l00138"></a>00138 {
-<a name="l00139"></a>00139     <span class="comment">// Make sure that the tables are cleared in the correct order.</span>
-<a name="l00140"></a>00140     NSArray* tableList =[[NSArray alloc]initWithObjects:@&quot;Presentation&quot;,@&quot;Sequence&quot;,@&quot;Action&quot;,@&quot;Param&quot;,@&quot;LocalPicture&quot;, nil];
-<a name="l00141"></a>00141     
-<a name="l00142"></a>00142     <span class="comment">// Loop over all tables, fetch all entities and delete them.</span>
-<a name="l00143"></a>00143     <span class="keywordflow">for</span> (NSString* table in tableList) {
-<a name="l00144"></a>00144         NSFetchRequest * fetch;
-<a name="l00145"></a>00145         <span class="keywordflow">@try</span> {
-<a name="l00146"></a>00146             fetch = [[NSFetchRequest alloc] init];
-<a name="l00147"></a>00147             [fetch setEntity:[NSEntityDescription entityForName:table inManagedObjectContext:context]];
-<a name="l00148"></a>00148             NSArray * result = [context executeFetchRequest:fetch error:nil];
-<a name="l00149"></a>00149             <span class="keywordflow">for</span> (<span class="keywordtype">id</span> basket in result)
-<a name="l00150"></a>00150                 [context deleteObject:basket];
-<a name="l00151"></a>00151         } <span class="keywordflow">@catch</span> (NSException* ex)
-<a name="l00152"></a>00152         {
-<a name="l00153"></a>00153             NSLog(<span class="stringliteral">@&quot;Tabelle %@ nicht vorhanden&quot;</span>, table);
-<a name="l00154"></a>00154         }
-<a name="l00155"></a>00155         <span class="keywordflow">@finally</span> {
-<a name="l00156"></a>00156             [fetch release];
-<a name="l00157"></a>00157         }
-<a name="l00158"></a>00158     }
-<a name="l00159"></a>00159     
-<a name="l00160"></a>00160     [tableList release];
-<a name="l00161"></a>00161 }
-<a name="l00162"></a>00162 
-<a name="l00163"></a><a class="code" href="interface_config.html#ad736974b0fa1ff6118003a824e2561b2">00163</a> -(void)addAction:(NSDictionary*) attrib
-<a name="l00164"></a>00164 {
-<a name="l00165"></a>00165     <span class="comment">// Get an action entity with a permament object id which can be used for </span>
-<a name="l00166"></a>00166     <span class="comment">// reference in BWOrderedObject.</span>
-<a name="l00167"></a>00167     <a class="code" href="interface_action.html">Action</a>*  a = [[<a class="code" href="interface_database.html">Database</a> <a class="code" href="interface_database.html#af9f8fecabcb05202b4e4127f577c0a49">sharedInstance</a>] <a class="code" href="interface_database.html#a65bc495f9aa1e5b6f8d4343f5d48efc4">createEntity</a>:@&quot;Action&quot;];
-<a name="l00168"></a>00168 
-<a name="l00169"></a>00169     <a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a> = [attrib objectForKey:@&quot;id&quot;]; <span class="comment">//this information will be used by next child tag-method</span>
-<a name="l00170"></a>00170     [managedObjectIDs setValue:[a objectID] forKey:keyCache];<span class="comment">// dito</span>
-<a name="l00171"></a>00171     
-<a name="l00172"></a>00172     a.<a class="code" href="interface_action.html#ae24e2568d0d3a40bebefe304cb92656c">refId</a> = [<span class="keyword">self</span> getRefId:attrib];
-<a name="l00173"></a>00173     
-<a name="l00174"></a>00174     a.<a class="code" href="interface_action.html#a4b93d352d2fca75b34e1b5a50e03f587">name</a> = [attrib objectForKey:@&quot;name&quot;];
-<a name="l00175"></a>00175     a.<a class="code" href="interface_action.html#abff6a04d71c2bba87e646615388a1f5c">type</a> = [attrib objectForKey:@&quot;type&quot;];    
-<a name="l00176"></a>00176     a.<a class="code" href="interface_action.html#adf700105022080ae6b26ce9ad3369901">favorite</a> = [<span class="keyword">self</span> getAsNumber:[attrib objectForKey:@&quot;favorite&quot;]];
-<a name="l00177"></a>00177 }
-<a name="l00178"></a>00178 
-<a name="l00179"></a><a class="code" href="interface_config.html#a47a88ff3de3b7101817eff6b8069ce4c">00179</a> -(void)addParam:(NSDictionary*)attrib
-<a name="l00180"></a>00180 {
-<a name="l00181"></a>00181     <span class="comment">// Get parent action.</span>
-<a name="l00182"></a>00182     <a class="code" href="interface_action.html">Action</a>* a = (<a class="code" href="interface_action.html">Action</a>*)[<a class="code" href="_config_8m.html#a0c1bdef486a8d1c22b9bc7651b9de79b">context</a> objectWithID:[<a class="code" href="_config_8m.html#a2d70e9fd2bb9a96e09ccc3cd0729f718">managedObjectIDs</a> valueForKey:<a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a>]];
-<a name="l00183"></a>00183     
-<a name="l00184"></a>00184     <a class="code" href="interface_param.html">Param</a>* p = [[<a class="code" href="interface_database.html">Database</a> <a class="code" href="interface_database.html#af9f8fecabcb05202b4e4127f577c0a49">sharedInstance</a>] <a class="code" href="interface_database.html#a65bc495f9aa1e5b6f8d4343f5d48efc4">createEntity</a>:@&quot;Param&quot;];    
-<a name="l00185"></a>00185     
-<a name="l00186"></a>00186     p.<a class="code" href="interface_param.html#a0b6a9866e1390620790387442c1fb8be">key</a> = [attrib objectForKey:@&quot;key&quot;];
-<a name="l00187"></a>00187     NSString* picture = [attrib objectForKey:@&quot;picture&quot;];
-<a name="l00188"></a>00188     p.<a class="code" href="interface_param.html#a450e6764e415b0f430eac319e099ba48">value</a> = [attrib objectForKey:@&quot;value&quot;];
-<a name="l00189"></a>00189     
-<a name="l00190"></a>00190     <span class="comment">// Calling of a generated code.. (fill the 1:n-collection).</span>
-<a name="l00191"></a>00191     [a <a class="code" href="interface_action.html#a32f962aa26fe070eeb2618c5a49f739c">addParamsObject</a>:p];
-<a name="l00192"></a>00192     
-<a name="l00193"></a>00193     <span class="comment">// If there is a picture url, load it.</span>
-<a name="l00194"></a>00194     <span class="keywordflow">if</span> (picture != nil)
-<a name="l00195"></a>00195     {
-<a name="l00196"></a>00196         p.<a class="code" href="interface_param.html#a188b0e359426f49c922be3306c54e028">localPicture</a> = [<span class="keyword">self</span> loadPicture:picture];
-<a name="l00197"></a>00197         <span class="keywordflow">if</span> (p.<a class="code" href="interface_param.html#a188b0e359426f49c922be3306c54e028">localPicture</a> == nil)
-<a name="l00198"></a>00198         {
-<a name="l00199"></a>00199             <span class="keyword">@throw</span>([NSException exceptionWithName:@&quot;PictureLoadingException&quot; reason:@&quot;could not load Picture&quot; userInfo:nil]);
-<a name="l00200"></a>00200         }
-<a name="l00201"></a>00201 
-<a name="l00202"></a>00202     }
-<a name="l00203"></a>00203     
-<a name="l00204"></a>00204 }
-<a name="l00205"></a>00205 
-<a name="l00206"></a><a class="code" href="interface_config.html#ae3094aa95cca8757e7d8c85db5645d86">00206</a> -(void) addSequence:(NSDictionary *)attrib
-<a name="l00207"></a>00207 {
-<a name="l00208"></a>00208     <a class="code" href="interface_sequence.html">Sequence</a>*  s = [[<a class="code" href="interface_database.html">Database</a> <a class="code" href="interface_database.html#af9f8fecabcb05202b4e4127f577c0a49">sharedInstance</a>] <a class="code" href="interface_database.html#a65bc495f9aa1e5b6f8d4343f5d48efc4">createEntity</a>:@&quot;Sequence&quot;];
-<a name="l00209"></a>00209     
-<a name="l00210"></a>00210     <span class="comment">// This information will be used by next child tag-method.</span>
-<a name="l00211"></a>00211     <a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a> = [attrib objectForKey:@&quot;id&quot;]; 
-<a name="l00212"></a>00212     [managedObjectIDs setValue:[s objectID] forKey:keyCache];
-<a name="l00213"></a>00213     
-<a name="l00214"></a>00214     s.<a class="code" href="interface_sequence.html#a4b93d352d2fca75b34e1b5a50e03f587">name</a> = [attrib objectForKey:@&quot;name&quot;];
-<a name="l00215"></a>00215     s.<a class="code" href="interface_sequence.html#a2522bcccf0cad2b648b173e46f9ae203">command</a> =[attrib objectForKey:@&quot;command&quot;];
-<a name="l00216"></a>00216     NSString* icon = [attrib objectForKey:@&quot;icon&quot;];
-<a name="l00217"></a>00217     
-<a name="l00218"></a>00218     s.<a class="code" href="interface_sequence.html#ae24e2568d0d3a40bebefe304cb92656c">refId</a> = [<span class="keyword">self</span> getRefId:attrib];
-<a name="l00219"></a>00219     
-<a name="l00220"></a>00220     <span class="comment">// If there is an icon url, load and save it.</span>
-<a name="l00221"></a>00221     <span class="keywordflow">if</span> (icon != nil)
-<a name="l00222"></a>00222     {
-<a name="l00223"></a>00223         s.<a class="code" href="interface_sequence.html#a21e2c6aa7561358d31fa0a3b1c8b25f2">icon</a> = [<span class="keyword">self</span> loadPicture:icon];
-<a name="l00224"></a>00224         <span class="keywordflow">if</span> (s.<a class="code" href="interface_sequence.html#a21e2c6aa7561358d31fa0a3b1c8b25f2">icon</a> == nil) { 
-<a name="l00225"></a>00225             <span class="keyword">@throw</span>([NSException exceptionWithName:@&quot;PictureLoadingException&quot; reason:@&quot;could not load Picture&quot; userInfo:nil]);
-<a name="l00226"></a>00226         }
-<a name="l00227"></a>00227     }    
-<a name="l00228"></a>00228 }
-<a name="l00229"></a>00229 
-<a name="l00230"></a><a class="code" href="interface_config.html#a6c5f7ab5dbf61e6ec0d0a11d3c6d0bcc">00230</a> - (void)addActionRef:(NSDictionary *)attrib
-<a name="l00231"></a>00231 {
-<a name="l00232"></a>00232     <span class="comment">// Get parent sequence.</span>
-<a name="l00233"></a>00233     <a class="code" href="interface_sequence.html">Sequence</a>* s = (<a class="code" href="interface_sequence.html">Sequence</a>*)[<a class="code" href="_config_8m.html#a0c1bdef486a8d1c22b9bc7651b9de79b">context</a> objectWithID:[<a class="code" href="_config_8m.html#a2d70e9fd2bb9a96e09ccc3cd0729f718">managedObjectIDs</a> valueForKey:<a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a>]];
-<a name="l00234"></a>00234  
-<a name="l00235"></a>00235     <span class="comment">// Get the Action.</span>
-<a name="l00236"></a>00236     NSString* actionRef = [attrib objectForKey:@&quot;ref&quot;];
-<a name="l00237"></a>00237     <span class="keywordflow">@try</span> {
-<a name="l00238"></a>00238         <a class="code" href="interface_action.html">Action</a>* a = (<a class="code" href="interface_action.html">Action</a>*)[<a class="code" href="_config_8m.html#a0c1bdef486a8d1c22b9bc7651b9de79b">context</a> objectWithID:[<a class="code" href="_config_8m.html#a2d70e9fd2bb9a96e09ccc3cd0729f718">managedObjectIDs</a> valueForKey:actionRef]];
-<a name="l00239"></a>00239         <span class="comment">// Calling of a generated code.. (fill the 1:n-collection).</span>
-<a name="l00240"></a>00240         [s <a class="code" href="interface_sequence.html#a94cfbe9fb0dab500d4a394ce7cb05e26">addActionsObject</a>:a];
-<a name="l00241"></a>00241     } <span class="keywordflow">@catch</span> (NSException *exception) {
-<a name="l00242"></a>00242         NSLog(<span class="stringliteral">@&quot;Failed to add ActionRef (ref = %@, sequence = %@)&quot;</span>, actionRef, <a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a>);
-<a name="l00243"></a>00243         [exception raise];
-<a name="l00244"></a>00244     }
-<a name="l00245"></a>00245     
-<a name="l00246"></a>00246 }
-<a name="l00247"></a>00247 
-<a name="l00248"></a><a class="code" href="interface_config.html#a2a5392539537865fdcd3263d79667dd5">00248</a> -(void) addPresentation:(NSDictionary *)attrib
-<a name="l00249"></a>00249 {
-<a name="l00250"></a>00250     <a class="code" href="interface_presentation.html">Presentation</a>*  s = [[<a class="code" href="interface_database.html">Database</a> <a class="code" href="interface_database.html#af9f8fecabcb05202b4e4127f577c0a49">sharedInstance</a>] <a class="code" href="interface_database.html#a65bc495f9aa1e5b6f8d4343f5d48efc4">createEntity</a>: @&quot;Presentation&quot;];
-<a name="l00251"></a>00251     
-<a name="l00252"></a>00252     <span class="comment">// This information will be used by next child tag-method.</span>
-<a name="l00253"></a>00253     <a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a> = [attrib objectForKey:@&quot;id&quot;];
-<a name="l00254"></a>00254     [managedObjectIDs setValue:[s objectID] forKey:keyCache];
-<a name="l00255"></a>00255     
-<a name="l00256"></a>00256     s.<a class="code" href="interface_presentation.html#a4b93d352d2fca75b34e1b5a50e03f587">name</a> = [attrib objectForKey:@&quot;name&quot;];
-<a name="l00257"></a>00257     s.<a class="code" href="interface_presentation.html#a962c78efb82559b96783952a501e2975">comment</a> =[attrib objectForKey:@&quot;comment&quot;];
-<a name="l00258"></a>00258     s.<a class="code" href="interface_presentation.html#ae24e2568d0d3a40bebefe304cb92656c">refId</a> = [<span class="keyword">self</span> getRefId:attrib];
-<a name="l00259"></a>00259 }
-<a name="l00260"></a>00260 
-<a name="l00261"></a><a class="code" href="interface_config.html#ac912dcbfeb62c818e5723b1290067277">00261</a> -(void) addSequenceRef:(NSDictionary *)attrib
-<a name="l00262"></a>00262 {
-<a name="l00263"></a>00263     <span class="comment">// Get the parent presentation.</span>
-<a name="l00264"></a>00264     <a class="code" href="interface_presentation.html">Presentation</a>* p = (<a class="code" href="interface_presentation.html">Presentation</a>*)[<a class="code" href="_config_8m.html#a0c1bdef486a8d1c22b9bc7651b9de79b">context</a> objectWithID:[<a class="code" href="_config_8m.html#a2d70e9fd2bb9a96e09ccc3cd0729f718">managedObjectIDs</a> valueForKey:<a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a>]];
-<a name="l00265"></a>00265     
-<a name="l00266"></a>00266     <span class="comment">// Get the referenced sequence.</span>
-<a name="l00267"></a>00267     NSString* sequenceRef = [attrib objectForKey:@&quot;ref&quot;];
-<a name="l00268"></a>00268     <a class="code" href="interface_sequence.html">Sequence</a>* s = (<a class="code" href="interface_sequence.html">Sequence</a>*)[<a class="code" href="_config_8m.html#a0c1bdef486a8d1c22b9bc7651b9de79b">context</a> objectWithID:[<a class="code" href="_config_8m.html#a2d70e9fd2bb9a96e09ccc3cd0729f718">managedObjectIDs</a> valueForKey:sequenceRef]];
-<a name="l00269"></a>00269     
-<a name="l00270"></a>00270     <span class="comment">// Add sequence to presentation.</span>
-<a name="l00271"></a>00271     [p <a class="code" href="interface_presentation.html#abe0d577eacc5979af6c36f33152bdba1">addSequencesObject</a>:s];
-<a name="l00272"></a>00272     
-<a name="l00273"></a>00273 }
-<a name="l00274"></a>00274 
-<a name="l00275"></a>00275 
-<a name="l00276"></a><a class="code" href="interface_config.html#a58e5d989af8285ae713070e3a6a48d5b">00276</a> -(void) addServer:(NSDictionary *)attrib
-<a name="l00277"></a>00277 {
-<a name="l00278"></a>00278     NSString* type = [attrib objectForKey:@&quot;type&quot;];
+<a name="l00139"></a>00139     
+<a name="l00140"></a>00140     <span class="comment">// Make sure that the tables are cleared in the correct order.</span>
+<a name="l00141"></a>00141     NSArray* tableList =[[NSArray alloc]initWithObjects:@&quot;Presentation&quot;,@&quot;Sequence&quot;,@&quot;Action&quot;,@&quot;Param&quot;,@&quot;LocalPicture&quot;, nil];
+<a name="l00142"></a>00142     
+<a name="l00143"></a>00143     <span class="comment">// Loop over all tables, fetch all entities and delete them.</span>
+<a name="l00144"></a>00144     <span class="keywordflow">for</span> (NSString* table in tableList) {
+<a name="l00145"></a>00145         NSFetchRequest * fetch;
+<a name="l00146"></a>00146         <span class="keywordflow">@try</span> {
+<a name="l00147"></a>00147             fetch = [[NSFetchRequest alloc] init];
+<a name="l00148"></a>00148             [fetch setEntity:[NSEntityDescription entityForName:table inManagedObjectContext:context]];
+<a name="l00149"></a>00149             NSArray * result = [context executeFetchRequest:fetch error:nil];
+<a name="l00150"></a>00150             <span class="keywordflow">for</span> (<span class="keywordtype">id</span> basket in result)
+<a name="l00151"></a>00151                 [context deleteObject:basket];
+<a name="l00152"></a>00152         } <span class="keywordflow">@catch</span> (NSException* ex)
+<a name="l00153"></a>00153         {
+<a name="l00154"></a>00154             NSLog(<span class="stringliteral">@&quot;Tabelle %@ nicht vorhanden&quot;</span>, table);
+<a name="l00155"></a>00155         }
+<a name="l00156"></a>00156         <span class="keywordflow">@finally</span> {
+<a name="l00157"></a>00157             [fetch release];
+<a name="l00158"></a>00158         }
+<a name="l00159"></a>00159     }
+<a name="l00160"></a>00160     
+<a name="l00161"></a>00161     [tableList release];
+<a name="l00162"></a>00162 }
+<a name="l00163"></a>00163 
+<a name="l00164"></a><a class="code" href="interface_config.html#ad736974b0fa1ff6118003a824e2561b2">00164</a> -(void)addAction:(NSDictionary*) attrib
+<a name="l00165"></a>00165 {
+<a name="l00166"></a>00166     <span class="comment">// Get an action entity with a permament object id which can be used for </span>
+<a name="l00167"></a>00167     <span class="comment">// reference in BWOrderedObject.</span>
+<a name="l00168"></a>00168     <a class="code" href="interface_action.html">Action</a>*  a = [[<a class="code" href="interface_database.html">Database</a> <a class="code" href="interface_database.html#af9f8fecabcb05202b4e4127f577c0a49">sharedInstance</a>] <a class="code" href="interface_database.html#a65bc495f9aa1e5b6f8d4343f5d48efc4">createEntity</a>:@&quot;Action&quot;];
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170     <a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a> = [attrib objectForKey:@&quot;id&quot;]; <span class="comment">//this information will be used by next child tag-method</span>
+<a name="l00171"></a>00171     [managedObjectIDs setValue:[a objectID] forKey:keyCache];<span class="comment">// dito</span>
+<a name="l00172"></a>00172     
+<a name="l00173"></a>00173     a.<a class="code" href="interface_action.html#ae24e2568d0d3a40bebefe304cb92656c">refId</a> = [<span class="keyword">self</span> getRefId:attrib];
+<a name="l00174"></a>00174     
+<a name="l00175"></a>00175     a.<a class="code" href="interface_action.html#a4b93d352d2fca75b34e1b5a50e03f587">name</a> = [attrib objectForKey:@&quot;name&quot;];
+<a name="l00176"></a>00176     a.<a class="code" href="interface_action.html#abff6a04d71c2bba87e646615388a1f5c">type</a> = [attrib objectForKey:@&quot;type&quot;];    
+<a name="l00177"></a>00177     a.<a class="code" href="interface_action.html#adf700105022080ae6b26ce9ad3369901">favorite</a> = [<span class="keyword">self</span> getAsNumber:[attrib objectForKey:@&quot;favorite&quot;]];
+<a name="l00178"></a>00178 }
+<a name="l00179"></a>00179 
+<a name="l00180"></a><a class="code" href="interface_config.html#a47a88ff3de3b7101817eff6b8069ce4c">00180</a> -(void)addParam:(NSDictionary*)attrib
+<a name="l00181"></a>00181 {
+<a name="l00182"></a>00182     <span class="comment">// Get parent action.</span>
+<a name="l00183"></a>00183     <a class="code" href="interface_action.html">Action</a>* a = (<a class="code" href="interface_action.html">Action</a>*)[<a class="code" href="_config_8m.html#a0c1bdef486a8d1c22b9bc7651b9de79b">context</a> objectWithID:[<a class="code" href="_config_8m.html#a2d70e9fd2bb9a96e09ccc3cd0729f718">managedObjectIDs</a> valueForKey:<a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a>]];
+<a name="l00184"></a>00184     
+<a name="l00185"></a>00185     <a class="code" href="interface_param.html">Param</a>* p = [[<a class="code" href="interface_database.html">Database</a> <a class="code" href="interface_database.html#af9f8fecabcb05202b4e4127f577c0a49">sharedInstance</a>] <a class="code" href="interface_database.html#a65bc495f9aa1e5b6f8d4343f5d48efc4">createEntity</a>:@&quot;Param&quot;];    
+<a name="l00186"></a>00186     
+<a name="l00187"></a>00187     p.<a class="code" href="interface_param.html#a0b6a9866e1390620790387442c1fb8be">key</a> = [attrib objectForKey:@&quot;key&quot;];
+<a name="l00188"></a>00188     NSString* picture = [attrib objectForKey:@&quot;picture&quot;];
+<a name="l00189"></a>00189     p.<a class="code" href="interface_param.html#a450e6764e415b0f430eac319e099ba48">value</a> = [attrib objectForKey:@&quot;value&quot;];
+<a name="l00190"></a>00190     
+<a name="l00191"></a>00191     <span class="comment">// Calling of a generated code.. (fill the 1:n-collection).</span>
+<a name="l00192"></a>00192     [a <a class="code" href="interface_action.html#a32f962aa26fe070eeb2618c5a49f739c">addParamsObject</a>:p];
+<a name="l00193"></a>00193     
+<a name="l00194"></a>00194     <span class="comment">// If there is a picture url, load it.</span>
+<a name="l00195"></a>00195     <span class="keywordflow">if</span> (picture != nil)
+<a name="l00196"></a>00196     {
+<a name="l00197"></a>00197         p.<a class="code" href="interface_param.html#a188b0e359426f49c922be3306c54e028">localPicture</a> = [<span class="keyword">self</span> loadPicture:picture];
+<a name="l00198"></a>00198         <span class="keywordflow">if</span> (p.<a class="code" href="interface_param.html#a188b0e359426f49c922be3306c54e028">localPicture</a> == nil)
+<a name="l00199"></a>00199         {
+<a name="l00200"></a>00200             <span class="keyword">@throw</span>([NSException exceptionWithName:@&quot;PictureLoadingException&quot; reason:@&quot;could not load Picture&quot; userInfo:nil]);
+<a name="l00201"></a>00201         }
+<a name="l00202"></a>00202 
+<a name="l00203"></a>00203     }
+<a name="l00204"></a>00204     
+<a name="l00205"></a>00205 }
+<a name="l00206"></a>00206 
+<a name="l00207"></a><a class="code" href="interface_config.html#ae3094aa95cca8757e7d8c85db5645d86">00207</a> -(void) addSequence:(NSDictionary *)attrib
+<a name="l00208"></a>00208 {
+<a name="l00209"></a>00209     <a class="code" href="interface_sequence.html">Sequence</a>*  s = [[<a class="code" href="interface_database.html">Database</a> <a class="code" href="interface_database.html#af9f8fecabcb05202b4e4127f577c0a49">sharedInstance</a>] <a class="code" href="interface_database.html#a65bc495f9aa1e5b6f8d4343f5d48efc4">createEntity</a>:@&quot;Sequence&quot;];
+<a name="l00210"></a>00210     
+<a name="l00211"></a>00211     <span class="comment">// This information will be used by next child tag-method.</span>
+<a name="l00212"></a>00212     <a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a> = [attrib objectForKey:@&quot;id&quot;]; 
+<a name="l00213"></a>00213     [managedObjectIDs setValue:[s objectID] forKey:keyCache];
+<a name="l00214"></a>00214     
+<a name="l00215"></a>00215     s.<a class="code" href="interface_sequence.html#a4b93d352d2fca75b34e1b5a50e03f587">name</a> = [attrib objectForKey:@&quot;name&quot;];
+<a name="l00216"></a>00216     s.<a class="code" href="interface_sequence.html#a2522bcccf0cad2b648b173e46f9ae203">command</a> =[attrib objectForKey:@&quot;command&quot;];
+<a name="l00217"></a>00217     NSString* icon = [attrib objectForKey:@&quot;icon&quot;];
+<a name="l00218"></a>00218     
+<a name="l00219"></a>00219     s.<a class="code" href="interface_sequence.html#ae24e2568d0d3a40bebefe304cb92656c">refId</a> = [<span class="keyword">self</span> getRefId:attrib];
+<a name="l00220"></a>00220     
+<a name="l00221"></a>00221     <span class="comment">// If there is an icon url, load and save it.</span>
+<a name="l00222"></a>00222     <span class="keywordflow">if</span> (icon != nil)
+<a name="l00223"></a>00223     {
+<a name="l00224"></a>00224         s.<a class="code" href="interface_sequence.html#a21e2c6aa7561358d31fa0a3b1c8b25f2">icon</a> = [<span class="keyword">self</span> loadPicture:icon];
+<a name="l00225"></a>00225         <span class="keywordflow">if</span> (s.<a class="code" href="interface_sequence.html#a21e2c6aa7561358d31fa0a3b1c8b25f2">icon</a> == nil) { 
+<a name="l00226"></a>00226             <span class="keyword">@throw</span>([NSException exceptionWithName:@&quot;PictureLoadingException&quot; reason:@&quot;could not load Picture&quot; userInfo:nil]);
+<a name="l00227"></a>00227         }
+<a name="l00228"></a>00228     }    
+<a name="l00229"></a>00229 }
+<a name="l00230"></a>00230 
+<a name="l00231"></a><a class="code" href="interface_config.html#a6c5f7ab5dbf61e6ec0d0a11d3c6d0bcc">00231</a> - (void)addActionRef:(NSDictionary *)attrib
+<a name="l00232"></a>00232 {
+<a name="l00233"></a>00233     <span class="comment">// Get parent sequence.</span>
+<a name="l00234"></a>00234     <a class="code" href="interface_sequence.html">Sequence</a>* s = (<a class="code" href="interface_sequence.html">Sequence</a>*)[<a class="code" href="_config_8m.html#a0c1bdef486a8d1c22b9bc7651b9de79b">context</a> objectWithID:[<a class="code" href="_config_8m.html#a2d70e9fd2bb9a96e09ccc3cd0729f718">managedObjectIDs</a> valueForKey:<a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a>]];
+<a name="l00235"></a>00235  
+<a name="l00236"></a>00236     <span class="comment">// Get the Action.</span>
+<a name="l00237"></a>00237     NSString* actionRef = [attrib objectForKey:@&quot;ref&quot;];
+<a name="l00238"></a>00238     <span class="keywordflow">@try</span> {
+<a name="l00239"></a>00239         <a class="code" href="interface_action.html">Action</a>* a = (<a class="code" href="interface_action.html">Action</a>*)[<a class="code" href="_config_8m.html#a0c1bdef486a8d1c22b9bc7651b9de79b">context</a> objectWithID:[<a class="code" href="_config_8m.html#a2d70e9fd2bb9a96e09ccc3cd0729f718">managedObjectIDs</a> valueForKey:actionRef]];
+<a name="l00240"></a>00240         <span class="comment">// Calling of a generated code.. (fill the 1:n-collection).</span>
+<a name="l00241"></a>00241         [s <a class="code" href="interface_sequence.html#a94cfbe9fb0dab500d4a394ce7cb05e26">addActionsObject</a>:a];
+<a name="l00242"></a>00242     } <span class="keywordflow">@catch</span> (NSException *exception) {
+<a name="l00243"></a>00243         NSLog(<span class="stringliteral">@&quot;Failed to add ActionRef (ref = %@, sequence = %@)&quot;</span>, actionRef, <a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a>);
+<a name="l00244"></a>00244         <span class="comment">// Ignore this reference in this case.</span>
+<a name="l00245"></a>00245     }
+<a name="l00246"></a>00246     
+<a name="l00247"></a>00247 }
+<a name="l00248"></a>00248 
+<a name="l00249"></a><a class="code" href="interface_config.html#a2a5392539537865fdcd3263d79667dd5">00249</a> -(void) addPresentation:(NSDictionary *)attrib
+<a name="l00250"></a>00250 {
+<a name="l00251"></a>00251     <a class="code" href="interface_presentation.html">Presentation</a>*  s = [[<a class="code" href="interface_database.html">Database</a> <a class="code" href="interface_database.html#af9f8fecabcb05202b4e4127f577c0a49">sharedInstance</a>] <a class="code" href="interface_database.html#a65bc495f9aa1e5b6f8d4343f5d48efc4">createEntity</a>: @&quot;Presentation&quot;];
+<a name="l00252"></a>00252     
+<a name="l00253"></a>00253     <span class="comment">// This information will be used by next child tag-method.</span>
+<a name="l00254"></a>00254     <a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a> = [attrib objectForKey:@&quot;id&quot;];
+<a name="l00255"></a>00255     [managedObjectIDs setValue:[s objectID] forKey:keyCache];
+<a name="l00256"></a>00256     
+<a name="l00257"></a>00257     s.<a class="code" href="interface_presentation.html#a4b93d352d2fca75b34e1b5a50e03f587">name</a> = [attrib objectForKey:@&quot;name&quot;];
+<a name="l00258"></a>00258     s.<a class="code" href="interface_presentation.html#a962c78efb82559b96783952a501e2975">comment</a> =[attrib objectForKey:@&quot;comment&quot;];
+<a name="l00259"></a>00259     s.<a class="code" href="interface_presentation.html#ae24e2568d0d3a40bebefe304cb92656c">refId</a> = [<span class="keyword">self</span> getRefId:attrib];
+<a name="l00260"></a>00260 }
+<a name="l00261"></a>00261 
+<a name="l00262"></a><a class="code" href="interface_config.html#ac912dcbfeb62c818e5723b1290067277">00262</a> -(void) addSequenceRef:(NSDictionary *)attrib
+<a name="l00263"></a>00263 {
+<a name="l00264"></a>00264     <span class="comment">// Get the parent presentation.</span>
+<a name="l00265"></a>00265     <a class="code" href="interface_presentation.html">Presentation</a>* p = (<a class="code" href="interface_presentation.html">Presentation</a>*)[<a class="code" href="_config_8m.html#a0c1bdef486a8d1c22b9bc7651b9de79b">context</a> objectWithID:[<a class="code" href="_config_8m.html#a2d70e9fd2bb9a96e09ccc3cd0729f718">managedObjectIDs</a> valueForKey:<a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a>]];
+<a name="l00266"></a>00266     
+<a name="l00267"></a>00267     <span class="comment">// Get the referenced sequence.</span>
+<a name="l00268"></a>00268     NSString* sequenceRef = sequenceRef = [attrib objectForKey:@&quot;ref&quot;];
+<a name="l00269"></a>00269     <span class="keywordflow">@try</span> {
+<a name="l00270"></a>00270         
+<a name="l00271"></a>00271         <a class="code" href="interface_sequence.html">Sequence</a>* s = (<a class="code" href="interface_sequence.html">Sequence</a>*)[<a class="code" href="_config_8m.html#a0c1bdef486a8d1c22b9bc7651b9de79b">context</a> objectWithID:[<a class="code" href="_config_8m.html#a2d70e9fd2bb9a96e09ccc3cd0729f718">managedObjectIDs</a> valueForKey:sequenceRef]];
+<a name="l00272"></a>00272         <span class="comment">// Add sequence to presentation.</span>
+<a name="l00273"></a>00273         [p <a class="code" href="interface_presentation.html#abe0d577eacc5979af6c36f33152bdba1">addSequencesObject</a>:s];
+<a name="l00274"></a>00274         
+<a name="l00275"></a>00275     } <span class="keywordflow">@catch</span> (NSException *exception) {
+<a name="l00276"></a>00276         NSLog(<span class="stringliteral">@&quot;Failed to add SequenceRef (ref = %@, presentation = %@)&quot;</span>, sequenceRef, <a class="code" href="_config_8m.html#ab0e78c28731f0e704011edcd7b6ec40b">keyCache</a>);
+<a name="l00277"></a>00277         <span class="comment">// Ignore this reference in this case.</span>
+<a name="l00278"></a>00278     }
 <a name="l00279"></a>00279     
-<a name="l00280"></a>00280     <a class="code" href="interface_zig_pad_settings.html">ZigPadSettings</a> *s = [<a class="code" href="interface_zig_pad_settings.html">ZigPadSettings</a> <a class="code" href="interface_zig_pad_settings.html#a62b9daa68893a19f9b6a6737fb8f875a">sharedInstance</a>];
-<a name="l00281"></a>00281     
-<a name="l00282"></a>00282     BOOL simulationMode = [type isEqualToString:@&quot;simulator&quot;];
-<a name="l00283"></a>00283     [s <a class="code" href="interface_zig_pad_settings.html#a510ae0a55f24da67a68e8758252ccfda">setIP</a>:[attrib objectForKey:@&quot;ip&quot;] <a class="code" href="interface_zig_pad_settings.html#a510ae0a55f24da67a68e8758252ccfda">simulationMode</a>: simulationMode];
-<a name="l00284"></a>00284     [s <a class="code" href="interface_zig_pad_settings.html#a35d36542dd82b12e24791819092906c5">setPort</a>:[[attrib objectForKey:@&quot;port&quot;] intValue] <a class="code" href="interface_zig_pad_settings.html#a35d36542dd82b12e24791819092906c5">simulationMode</a>: simulationMode];
-<a name="l00285"></a>00285 }
-<a name="l00286"></a>00286 
-<a name="l00287"></a><a class="code" href="interface_config.html#aa2bd6231e65b16b31dc08692a2d9dc12">00287</a> -(void) <a class="code" href="interface_config.html#aa2bd6231e65b16b31dc08692a2d9dc12">saveToDB</a>
-<a name="l00288"></a>00288 {
-<a name="l00289"></a>00289     NSError* err = nil;
-<a name="l00290"></a>00290     [context save:&amp;err];
-<a name="l00291"></a>00291     <span class="keywordflow">if</span> (err != nil) {
-<a name="l00292"></a>00292         NSLog(<span class="stringliteral">@&quot;DB-Save Error %@&quot;</span>, [err localizedDescription]);
-<a name="l00293"></a>00293     }
-<a name="l00294"></a>00294     
-<a name="l00295"></a>00295 }
-<a name="l00296"></a>00296 
-<a name="l00297"></a><a class="code" href="interface_config.html#a7a0b49659ed69b7aabff2908f0208d6c">00297</a> -(void)<a class="code" href="interface_config.html#a7a0b49659ed69b7aabff2908f0208d6c">printDB</a>
-<a name="l00298"></a>00298 {
-<a name="l00299"></a>00299     
-<a name="l00300"></a>00300     NSLog(<span class="stringliteral">@&quot;Context: %@&quot;</span>, <a class="code" href="_config_8m.html#a0c1bdef486a8d1c22b9bc7651b9de79b">context</a>);
-<a name="l00301"></a>00301     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@&quot;Presentation&quot; inManagedObjectContext:context];
-<a name="l00302"></a>00302     
-<a name="l00303"></a>00303     NSFetchRequest *request = [[NSFetchRequest alloc] init] ;
-<a name="l00304"></a>00304     [request setEntity:entityDescription];
-<a name="l00305"></a>00305     
-<a name="l00306"></a>00306     NSError* error = nil;
-<a name="l00307"></a>00307     NSArray *result = [context executeFetchRequest:request error:&amp;error];
-<a name="l00308"></a>00308 
-<a name="l00309"></a>00309     <span class="keywordflow">for</span> (<a class="code" href="interface_presentation.html">Presentation</a> *p in result) {
-<a name="l00310"></a>00310         NSLog(<span class="stringliteral">@&quot;Presentation %@ (id: %@) is a %@ :&quot;</span>, p.<a class="code" href="interface_presentation.html#a4b93d352d2fca75b34e1b5a50e03f587">name</a>, p.<a class="code" href="interface_presentation.html#ae24e2568d0d3a40bebefe304cb92656c">refId</a>, p.<a class="code" href="interface_presentation.html#a962c78efb82559b96783952a501e2975">comment</a>);
-<a name="l00311"></a>00311         <span class="keywordflow">for</span> (<a class="code" href="interface_sequence.html">Sequence</a> *s in p.<a class="code" href="interface_presentation.html#ae43a6a9c4f99b7da4aa3dec09eef7566">orderedSequences</a>)
-<a name="l00312"></a>00312         {
-<a name="l00313"></a>00313             NSLog(<span class="stringliteral">@&quot;    Sequence %@  (id: %@) with icon of size %i and command %@ has:&quot;</span>, s.name, s.refId, [s.icon.picture length], s.command);
-<a name="l00314"></a>00314             <span class="keywordflow">for</span> (<a class="code" href="interface_action.html">Action</a>* a in s.orderedActions)
-<a name="l00315"></a>00315             {
-<a name="l00316"></a>00316                 NSLog(<span class="stringliteral">@&quot;        Action %@  (id: %@) with type: %@  Favorite=%i with:&quot;</span>, a.<a class="code" href="interface_action.html#a4b93d352d2fca75b34e1b5a50e03f587">name</a>, a.<a class="code" href="interface_action.html#ae24e2568d0d3a40bebefe304cb92656c">refId</a>, a.<a class="code" href="interface_action.html#abff6a04d71c2bba87e646615388a1f5c">type</a>, [a.<a class="code" href="interface_action.html#adf700105022080ae6b26ce9ad3369901">favorite</a> intValue]);
-<a name="l00317"></a>00317                 <span class="keywordflow">for</span> (<a class="code" href="interface_param.html">Param</a>* pa in a.<a class="code" href="interface_action.html#a0e40d62a824c738e0c18d38b114cb378">params</a>)
-<a name="l00318"></a>00318                 {
-<a name="l00319"></a>00319                     NSLog(<span class="stringliteral">@&quot;           Param:&quot;</span>);
-<a name="l00320"></a>00320                     NSLog(<span class="stringliteral">@&quot;               key = %@ &quot;</span>, pa.key);
-<a name="l00321"></a>00321                     NSLog(<span class="stringliteral">@&quot;               value = %@ &quot;</span>, pa.value);
-<a name="l00322"></a>00322                     NSLog(<span class="stringliteral">@&quot;               Picture size = %i&quot;</span>, [pa.localPicture.picture length]);
-<a name="l00323"></a>00323                     
-<a name="l00324"></a>00324                 }
-<a name="l00325"></a>00325             }
-<a name="l00326"></a>00326         }
-<a name="l00327"></a>00327     }
-<a name="l00328"></a>00328     [request release];
-<a name="l00329"></a>00329 }
-<a name="l00330"></a>00330 
-<a name="l00331"></a><a class="code" href="interface_config.html#a071de472f6ac976c658e4643f3fb3d0c">00331</a> - (void)<a class="code" href="interface_config.html#a071de472f6ac976c658e4643f3fb3d0c">rollback</a> {
-<a name="l00332"></a>00332     [context rollback];
-<a name="l00333"></a>00333 }
-<a name="l00334"></a>00334 
-<a name="l00335"></a>00335 <span class="keyword">@end</span>
-<a name="l00336"></a>00336 
+<a name="l00280"></a>00280 }
+<a name="l00281"></a>00281 
+<a name="l00282"></a>00282 
+<a name="l00283"></a><a class="code" href="interface_config.html#a58e5d989af8285ae713070e3a6a48d5b">00283</a> -(void) addServer:(NSDictionary *)attrib
+<a name="l00284"></a>00284 {
+<a name="l00285"></a>00285     NSString* type = [attrib objectForKey:@&quot;type&quot;];
+<a name="l00286"></a>00286     
+<a name="l00287"></a>00287     <a class="code" href="interface_zig_pad_settings.html">ZigPadSettings</a> *s = [<a class="code" href="interface_zig_pad_settings.html">ZigPadSettings</a> <a class="code" href="interface_zig_pad_settings.html#a62b9daa68893a19f9b6a6737fb8f875a">sharedInstance</a>];
+<a name="l00288"></a>00288     
+<a name="l00289"></a>00289     BOOL simulationMode = [type isEqualToString:@&quot;simulator&quot;];
+<a name="l00290"></a>00290     [s <a class="code" href="interface_zig_pad_settings.html#a510ae0a55f24da67a68e8758252ccfda">setIP</a>:[attrib objectForKey:@&quot;ip&quot;] <a class="code" href="interface_zig_pad_settings.html#a510ae0a55f24da67a68e8758252ccfda">simulationMode</a>: simulationMode];
+<a name="l00291"></a>00291     [s <a class="code" href="interface_zig_pad_settings.html#a35d36542dd82b12e24791819092906c5">setPort</a>:[[attrib objectForKey:@&quot;port&quot;] intValue] <a class="code" href="interface_zig_pad_settings.html#a35d36542dd82b12e24791819092906c5">simulationMode</a>: simulationMode];
+<a name="l00292"></a>00292 }
+<a name="l00293"></a>00293 
+<a name="l00294"></a><a class="code" href="interface_config.html#aa2bd6231e65b16b31dc08692a2d9dc12">00294</a> -(void) <a class="code" href="interface_config.html#aa2bd6231e65b16b31dc08692a2d9dc12">saveToDB</a>
+<a name="l00295"></a>00295 {
+<a name="l00296"></a>00296     NSError* err = nil;
+<a name="l00297"></a>00297     [context save:&amp;err];
+<a name="l00298"></a>00298     <span class="keywordflow">if</span> (err != nil) {
+<a name="l00299"></a>00299         NSLog(<span class="stringliteral">@&quot;DB-Save Error %@&quot;</span>, [err localizedDescription]);
+<a name="l00300"></a>00300     }
+<a name="l00301"></a>00301     
+<a name="l00302"></a>00302 }
+<a name="l00303"></a>00303 
+<a name="l00304"></a><a class="code" href="interface_config.html#a7a0b49659ed69b7aabff2908f0208d6c">00304</a> -(void)<a class="code" href="interface_config.html#a7a0b49659ed69b7aabff2908f0208d6c">printDB</a>
+<a name="l00305"></a>00305 {
+<a name="l00306"></a>00306     
+<a name="l00307"></a>00307     NSLog(<span class="stringliteral">@&quot;Context: %@&quot;</span>, <a class="code" href="_config_8m.html#a0c1bdef486a8d1c22b9bc7651b9de79b">context</a>);
+<a name="l00308"></a>00308     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@&quot;Presentation&quot; inManagedObjectContext:context];
+<a name="l00309"></a>00309     
+<a name="l00310"></a>00310     NSFetchRequest *request = [[NSFetchRequest alloc] init] ;
+<a name="l00311"></a>00311     [request setEntity:entityDescription];
+<a name="l00312"></a>00312     
+<a name="l00313"></a>00313     NSError* error = nil;
+<a name="l00314"></a>00314     NSArray *result = [context executeFetchRequest:request error:&amp;error];
+<a name="l00315"></a>00315 
+<a name="l00316"></a>00316     <span class="keywordflow">for</span> (<a class="code" href="interface_presentation.html">Presentation</a> *p in result) {
+<a name="l00317"></a>00317         NSLog(<span class="stringliteral">@&quot;Presentation %@ (id: %@) is a %@ :&quot;</span>, p.<a class="code" href="interface_presentation.html#a4b93d352d2fca75b34e1b5a50e03f587">name</a>, p.<a class="code" href="interface_presentation.html#ae24e2568d0d3a40bebefe304cb92656c">refId</a>, p.<a class="code" href="interface_presentation.html#a962c78efb82559b96783952a501e2975">comment</a>);
+<a name="l00318"></a>00318         <span class="keywordflow">for</span> (<a class="code" href="interface_sequence.html">Sequence</a> *s in p.<a class="code" href="interface_presentation.html#ae43a6a9c4f99b7da4aa3dec09eef7566">orderedSequences</a>)
+<a name="l00319"></a>00319         {
+<a name="l00320"></a>00320             NSLog(<span class="stringliteral">@&quot;    Sequence %@  (id: %@) with icon of size %i and command %@ has:&quot;</span>, s.name, s.refId, [s.icon.picture length], s.command);
+<a name="l00321"></a>00321             <span class="keywordflow">for</span> (<a class="code" href="interface_action.html">Action</a>* a in s.orderedActions)
+<a name="l00322"></a>00322             {
+<a name="l00323"></a>00323                 NSLog(<span class="stringliteral">@&quot;        Action %@  (id: %@) with type: %@  Favorite=%i with:&quot;</span>, a.<a class="code" href="interface_action.html#a4b93d352d2fca75b34e1b5a50e03f587">name</a>, a.<a class="code" href="interface_action.html#ae24e2568d0d3a40bebefe304cb92656c">refId</a>, a.<a class="code" href="interface_action.html#abff6a04d71c2bba87e646615388a1f5c">type</a>, [a.<a class="code" href="interface_action.html#adf700105022080ae6b26ce9ad3369901">favorite</a> intValue]);
+<a name="l00324"></a>00324                 <span class="keywordflow">for</span> (<a class="code" href="interface_param.html">Param</a>* pa in a.<a class="code" href="interface_action.html#a0e40d62a824c738e0c18d38b114cb378">params</a>)
+<a name="l00325"></a>00325                 {
+<a name="l00326"></a>00326                     NSLog(<span class="stringliteral">@&quot;           Param:&quot;</span>);
+<a name="l00327"></a>00327                     NSLog(<span class="stringliteral">@&quot;               key = %@ &quot;</span>, pa.key);
+<a name="l00328"></a>00328                     NSLog(<span class="stringliteral">@&quot;               value = %@ &quot;</span>, pa.value);
+<a name="l00329"></a>00329                     NSLog(<span class="stringliteral">@&quot;               Picture size = %i&quot;</span>, [pa.localPicture.picture length]);
+<a name="l00330"></a>00330                     
+<a name="l00331"></a>00331                 }
+<a name="l00332"></a>00332             }
+<a name="l00333"></a>00333         }
+<a name="l00334"></a>00334     }
+<a name="l00335"></a>00335     [request release];
+<a name="l00336"></a>00336 }
 <a name="l00337"></a>00337 
+<a name="l00338"></a><a class="code" href="interface_config.html#a071de472f6ac976c658e4643f3fb3d0c">00338</a> - (void)<a class="code" href="interface_config.html#a071de472f6ac976c658e4643f3fb3d0c">rollback</a> {
+<a name="l00339"></a>00339     [context rollback];
+<a name="l00340"></a>00340 }
+<a name="l00341"></a>00341 
+<a name="l00342"></a>00342 <span class="keyword">@end</span>
+<a name="l00343"></a>00343 
+<a name="l00344"></a>00344 
 </pre></div></div>
 </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_config_8m.html">Config.m</a>      </li>
+      <li class="footer">Generated on Thu Jun 9 2011 10:16:56 for ZigPad by&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -388,8 +425,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 24 2011 13:04:24 for ZigPad by&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+
 </body>
 </html>

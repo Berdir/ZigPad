@@ -5,31 +5,31 @@
 {\ttfamily \#import \char`\"{}Synchronizer.h\char`\"{}}\par
 {\ttfamily \#import \char`\"{}SyncEvent.h\char`\"{}}\par
 {\ttfamily \#import \char`\"{}SynchronizerConnection.h\char`\"{}}\par
-\subsection*{Defines}
+\subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{_synchronizer_8m_a1ba3447447962be3488dcfce1befb17b}{kGameIdentifier}~@\char`\"{}zigpad\char`\"{}
+NSString $\ast$const \hyperlink{_synchronizer_8m_a8b84460fa79a54ec06fcf68611ace3b7}{SERVICE\_\-IDENTIFIER} = @\char`\"{}zigpad\char`\"{}
 \item 
-\#define \hyperlink{_synchronizer_8m_ae5c58237764a3f7d4bdb94956c700cab}{ZIGPAD\_\-SYNC\_\-DOMAIN}~@\char`\"{}local\char`\"{}
+NSString $\ast$const \hyperlink{_synchronizer_8m_a8478bea4a3367de5542b18a0364960c0}{SERVICE\_\-DOMAIN} = @\char`\"{}local\char`\"{}
 \end{DoxyCompactItemize}
 
 
-\subsection{Define Documentation}
-\hypertarget{_synchronizer_8m_a1ba3447447962be3488dcfce1befb17b}{
-\index{Synchronizer.m@{Synchronizer.m}!kGameIdentifier@{kGameIdentifier}}
-\index{kGameIdentifier@{kGameIdentifier}!Synchronizer.m@{Synchronizer.m}}
-\subsubsection[{kGameIdentifier}]{\setlength{\rightskip}{0pt plus 5cm}\#define kGameIdentifier~@\char`\"{}zigpad\char`\"{}}}
-\label{_synchronizer_8m_a1ba3447447962be3488dcfce1befb17b}
+\subsection{Variable Documentation}
+\hypertarget{_synchronizer_8m_a8478bea4a3367de5542b18a0364960c0}{
+\index{Synchronizer.m@{Synchronizer.m}!SERVICE\_\-DOMAIN@{SERVICE\_\-DOMAIN}}
+\index{SERVICE\_\-DOMAIN@{SERVICE\_\-DOMAIN}!Synchronizer.m@{Synchronizer.m}}
+\subsubsection[{SERVICE\_\-DOMAIN}]{\setlength{\rightskip}{0pt plus 5cm}NSString$\ast$ const {\bf SERVICE\_\-DOMAIN} = @\char`\"{}local\char`\"{}}}
+\label{_synchronizer_8m_a8478bea4a3367de5542b18a0364960c0}
+Domain for which the service should be propagated and searched. 
 
+Definition at line 27 of file Synchronizer.m.
 
-Definition at line 20 of file Synchronizer.m.
-
-\hypertarget{_synchronizer_8m_ae5c58237764a3f7d4bdb94956c700cab}{
-\index{Synchronizer.m@{Synchronizer.m}!ZIGPAD\_\-SYNC\_\-DOMAIN@{ZIGPAD\_\-SYNC\_\-DOMAIN}}
-\index{ZIGPAD\_\-SYNC\_\-DOMAIN@{ZIGPAD\_\-SYNC\_\-DOMAIN}!Synchronizer.m@{Synchronizer.m}}
-\subsubsection[{ZIGPAD\_\-SYNC\_\-DOMAIN}]{\setlength{\rightskip}{0pt plus 5cm}\#define ZIGPAD\_\-SYNC\_\-DOMAIN~@\char`\"{}local\char`\"{}}}
-\label{_synchronizer_8m_ae5c58237764a3f7d4bdb94956c700cab}
-
+\hypertarget{_synchronizer_8m_a8b84460fa79a54ec06fcf68611ace3b7}{
+\index{Synchronizer.m@{Synchronizer.m}!SERVICE\_\-IDENTIFIER@{SERVICE\_\-IDENTIFIER}}
+\index{SERVICE\_\-IDENTIFIER@{SERVICE\_\-IDENTIFIER}!Synchronizer.m@{Synchronizer.m}}
+\subsubsection[{SERVICE\_\-IDENTIFIER}]{\setlength{\rightskip}{0pt plus 5cm}NSString$\ast$ const {\bf SERVICE\_\-IDENTIFIER} = @\char`\"{}zigpad\char`\"{}}}
+\label{_synchronizer_8m_a8b84460fa79a54ec06fcf68611ace3b7}
+The Bonjour application protocol, which must: 1) be no longer than 14 characters 2) contain only lower-\/case letters, digits, and hyphens 3) begin and end with lower-\/case letter or digit It should also be descriptive and human-\/readable See the following for more information: \href{http://developer.apple.com/networking/bonjour/faq.html}{\tt http://developer.apple.com/networking/bonjour/faq.html} 
 
 Definition at line 22 of file Synchronizer.m.
 

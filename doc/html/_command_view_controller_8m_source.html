@@ -6,6 +6,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript">
+$(document).ready(initResizable);
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body onload='searchBox.OnSelectItem(0);'>
@@ -20,7 +27,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="00_icon_home_control.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ZigPad</div>
+   <div id="projectname">ZigPad&#160;<span id="projectnumber">1.0</span></div>
   </td>
  </tr>
  </tbody>
@@ -29,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -55,6 +63,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_command_view_controller_8m.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">ZigPad/CommandViewController.m</div>  </div>
@@ -77,72 +99,95 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00015"></a>00015 
 <a name="l00016"></a>00016 <span class="keyword">@implementation </span><a class="code" href="interface_command_view_controller.html">CommandViewController</a>
 <a name="l00017"></a>00017 
-<a name="l00018"></a>00018 
+<a name="l00018"></a>00018 <span class="keyword">@synthesize</span> <a class="code" href="interface_command_view_controller.html#adb87f82a211c38323fee0a176378c464">repeatToggle</a> = _repeatToggle;
 <a name="l00019"></a>00019 
-<a name="l00020"></a>00020  <span class="comment">// The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.</span>
-<a name="l00021"></a>00021 <span class="comment">/*</span>
-<a name="l00022"></a>00022 <span class="comment">- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {</span>
-<a name="l00023"></a>00023 <span class="comment">    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];</span>
-<a name="l00024"></a>00024 <span class="comment">    if (self) {</span>
-<a name="l00025"></a>00025 <span class="comment">        // Custom initialization.</span>
-<a name="l00026"></a>00026 <span class="comment">    }</span>
-<a name="l00027"></a>00027 <span class="comment">    return self;</span>
-<a name="l00028"></a>00028 <span class="comment">}</span>
-<a name="l00029"></a>00029 <span class="comment">*/</span>
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="comment">// Extract command image from action params.</span>
-<a name="l00032"></a>00032 - (UIImage *) getCommandImage {
-<a name="l00033"></a>00033     <a class="code" href="interface_param.html">Param</a> *p = [<span class="keyword">self</span>.presentation.activeAction getParamForKey:@&quot;picture&quot;];
-<a name="l00034"></a>00034     <span class="keywordflow">if</span> (p != nil) {
-<a name="l00035"></a>00035         <span class="keywordflow">return</span> [UIImage imageWithData:p.localPicture.picture];
-<a name="l00036"></a>00036     }
-<a name="l00037"></a>00037     <span class="keywordflow">return</span> nil;
-<a name="l00038"></a>00038 }
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041 <span class="comment">// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.</span>
-<a name="l00042"></a>00042 - (void)viewDidLoad {
-<a name="l00043"></a>00043     
-<a name="l00044"></a>00044     [<span class="keyword">self</span>.imageButton setImage:[<span class="keyword">self</span> getCommandImage] forState:UIControlStateNormal];
-<a name="l00045"></a>00045     [<span class="keyword">super</span> viewDidLoad];
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047    
-<a name="l00048"></a>00048 }
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="comment">//called by button of commandview</span>
-<a name="l00053"></a>00053 - (void)click: (<span class="keywordtype">id</span>) sender {
-<a name="l00054"></a>00054     
-<a name="l00055"></a>00055     [[<a class="code" href="interface_commander.html">Commander</a> <a class="code" href="interface_commander.html#a972c4371ba47e2604a0521f91e099ecf">defaultCommander</a>] <a class="code" href="interface_commander.html#ab8504cc4f3451713d86464e09bf5062c">sendAction</a>:self.presentation.activeAction];
-<a name="l00056"></a>00056     
-<a name="l00057"></a>00057     [<span class="keyword">super</span> click:sender];
-<a name="l00058"></a>00058 }
-<a name="l00059"></a>00059 
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022  <span class="comment">// The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.</span>
+<a name="l00023"></a>00023 <span class="comment">/*</span>
+<a name="l00024"></a>00024 <span class="comment">- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {</span>
+<a name="l00025"></a>00025 <span class="comment">    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];</span>
+<a name="l00026"></a>00026 <span class="comment">    if (self) {</span>
+<a name="l00027"></a>00027 <span class="comment">        // Custom initialization.</span>
+<a name="l00028"></a>00028 <span class="comment">    }</span>
+<a name="l00029"></a>00029 <span class="comment">    return self;</span>
+<a name="l00030"></a>00030 <span class="comment">}</span>
+<a name="l00031"></a>00031 <span class="comment">*/</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="comment">// Extract command image from action params.</span>
+<a name="l00034"></a>00034 - (UIImage *) getCommandImage {
+<a name="l00035"></a>00035     <a class="code" href="interface_param.html">Param</a> *p = [<span class="keyword">self</span>.presentation.activeAction getParamForKey:@&quot;picture&quot;];
+<a name="l00036"></a>00036     <span class="keywordflow">if</span> (p != nil) {
+<a name="l00037"></a>00037         <span class="keywordflow">return</span> [UIImage imageWithData:p.localPicture.picture];
+<a name="l00038"></a>00038     }
+<a name="l00039"></a>00039     <span class="keywordflow">return</span> nil;
+<a name="l00040"></a>00040 }
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="comment">// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.</span>
+<a name="l00044"></a>00044 - (void)viewDidLoad {
+<a name="l00045"></a>00045     
+<a name="l00046"></a>00046     [<span class="keyword">self</span>.imageButton setBackgroundImage:[<span class="keyword">self</span> getCommandImage] forState:UIControlStateNormal];
+<a name="l00047"></a>00047     <span class="comment">//[self.imageButton setBackgroundImage:[self getCommandImage]];</span>
+<a name="l00048"></a>00048     
+<a name="l00049"></a>00049     <span class="keyword">self</span>.imageButton.contentMode = UIViewContentModeScaleToFill;
+<a name="l00050"></a>00050     
+<a name="l00051"></a>00051     <a class="code" href="interface_param.html">Param</a> *p = [<span class="keyword">self</span>.presentation.activeAction getParamForKey:@&quot;stay&quot;];
+<a name="l00052"></a>00052     <span class="comment">// Show repeat icon if we can&#39;t press imagebutton to go next action</span>
+<a name="l00053"></a>00053     <span class="comment">// = if there&#39;s no stay param or the stay param is not 1.</span>
+<a name="l00054"></a>00054     <span class="keywordflow">if</span> (!p || ![p.<a class="code" href="interface_param.html#a450e6764e415b0f430eac319e099ba48">value</a> isEqualToString:<span class="stringliteral">@&quot;1&quot;</span>]) {    
+<a name="l00055"></a>00055         <span class="keyword">self</span>.repeatToggle.hidden = <span class="keyword">true</span>;
+<a name="l00056"></a>00056     } <span class="keywordflow">else</span>
+<a name="l00057"></a>00057         <span class="keyword">self</span>.repeatToggle.hidden = <span class="keyword">false</span>;
+<a name="l00058"></a>00058     
+<a name="l00059"></a>00059     [<span class="keyword">super</span> viewDidLoad];
 <a name="l00060"></a>00060 
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062 - (void)didReceiveMemoryWarning {
-<a name="l00063"></a>00063     <span class="comment">// Releases the view if it doesn&#39;t have a superview.</span>
-<a name="l00064"></a>00064     [<span class="keyword">super</span> didReceiveMemoryWarning];
-<a name="l00065"></a>00065     
-<a name="l00066"></a>00066     <span class="comment">// Release any cached data, images, etc. that aren&#39;t in use.</span>
-<a name="l00067"></a>00067 }
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070 - (void)viewDidUnload {
-<a name="l00071"></a>00071     [<span class="keyword">super</span> viewDidUnload];
-<a name="l00072"></a>00072     <span class="comment">// Release any retained subviews of the main view.</span>
-<a name="l00073"></a>00073     <span class="comment">// e.g. self.myOutlet = nil;</span>
-<a name="l00074"></a>00074 }
+<a name="l00061"></a>00061    
+<a name="l00062"></a>00062 }
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 <span class="comment">//called by button of commandview</span>
+<a name="l00067"></a>00067 - (void)click: (<span class="keywordtype">id</span>) sender {
+<a name="l00068"></a>00068     
+<a name="l00069"></a>00069     [[<a class="code" href="interface_commander.html">Commander</a> <a class="code" href="interface_commander.html#a972c4371ba47e2604a0521f91e099ecf">defaultCommander</a>] <a class="code" href="interface_commander.html#ab8504cc4f3451713d86464e09bf5062c">sendAction</a>:self.presentation.activeAction];
+<a name="l00070"></a>00070     
+<a name="l00071"></a>00071     [<span class="keyword">super</span> click:sender];
+<a name="l00072"></a>00072 }
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 
 <a name="l00075"></a>00075 
-<a name="l00076"></a>00076 - (void)dealloc {
-<a name="l00077"></a>00077     [<span class="keyword">super</span> dealloc];
-<a name="l00078"></a>00078 }
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081 <span class="keyword">@end</span>
+<a name="l00076"></a>00076 - (void)didReceiveMemoryWarning {
+<a name="l00077"></a>00077     <span class="comment">// Releases the view if it doesn&#39;t have a superview.</span>
+<a name="l00078"></a>00078     [<span class="keyword">super</span> didReceiveMemoryWarning];
+<a name="l00079"></a>00079     
+<a name="l00080"></a>00080     <span class="comment">// Release any cached data, images, etc. that aren&#39;t in use.</span>
+<a name="l00081"></a>00081 }
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 - (void)viewDidUnload {
+<a name="l00085"></a>00085     [<span class="keyword">super</span> viewDidUnload];
+<a name="l00086"></a>00086     <span class="comment">// Release any retained subviews of the main view.</span>
+<a name="l00087"></a>00087     <span class="comment">// e.g. self.myOutlet = nil;</span>
+<a name="l00088"></a>00088 }
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 - (void)dealloc {
+<a name="l00091"></a>00091     [_repeatToggle release];
+<a name="l00092"></a>00092     [<span class="keyword">super</span> dealloc];
+<a name="l00093"></a>00093 }
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_command_view_controller_8m.html">CommandViewController.m</a>      </li>
+      <li class="footer">Generated on Thu Jun 9 2011 10:16:56 for ZigPad by&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -157,8 +202,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 24 2011 13:04:24 for ZigPad by&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+
 </body>
 </html>

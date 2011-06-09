@@ -30,6 +30,10 @@ UIColor $\ast$ \hyperlink{interface_zig_pad_settings_a22b7a43d44d562d77d8534e46d
 NSString $\ast$ \hyperlink{interface_zig_pad_settings_ad56edd22bf5c939f2931577a179b55ab}{ip}
 \item 
 int \hyperlink{interface_zig_pad_settings_a63c89c04d1feae07ca35558055155ffb}{port}
+\item 
+BOOL \hyperlink{interface_zig_pad_settings_a1c931b82b4ab31532ef34774f30cb6f1}{vibrationMode}
+\item 
+BOOL \hyperlink{interface_zig_pad_settings_a9fcf30f1031663343ce08b401c8d2a8c}{synchronizationMode}
 \end{DoxyCompactItemize}
 
 
@@ -64,7 +68,7 @@ Allows to set the IP for a specific simulation mode.
 \end{DoxyParams}
 Setter method for the ip property. 
 
-Definition at line 135 of file ZigPadSettings.m.
+Definition at line 128 of file ZigPadSettings.m.
 
 \hypertarget{interface_zig_pad_settings_a35d36542dd82b12e24791819092906c5}{
 \index{ZigPadSettings@{ZigPadSettings}!setPort:simulationMode:@{setPort:simulationMode:}}
@@ -87,7 +91,7 @@ Allows to set the Port for a specific simulation mode.
 \end{DoxyParams}
 Setter method for the port property. 
 
-Definition at line 144 of file ZigPadSettings.m.
+Definition at line 137 of file ZigPadSettings.m.
 
 \hypertarget{interface_zig_pad_settings_a62b9daa68893a19f9b6a6737fb8f875a}{
 \index{ZigPadSettings@{ZigPadSettings}!sharedInstance@{sharedInstance}}
@@ -100,7 +104,7 @@ Definition at line 144 of file ZigPadSettings.m.
 \label{interface_zig_pad_settings_a62b9daa68893a19f9b6a6737fb8f875a}
 Returns the shared instance of this class. 
 
-Definition at line 31 of file ZigPadSettings.m.
+Definition at line 26 of file ZigPadSettings.m.
 
 
 
@@ -159,6 +163,28 @@ Setting for the SimulationMode, YES if on.
 Getter method for the simulationMode property. 
 
 Definition at line 32 of file ZigPadSettings.h.
+
+\hypertarget{interface_zig_pad_settings_a9fcf30f1031663343ce08b401c8d2a8c}{
+\index{ZigPadSettings@{ZigPadSettings}!synchronizationMode@{synchronizationMode}}
+\index{synchronizationMode@{synchronizationMode}!ZigPadSettings@{ZigPadSettings}}
+\subsubsection[{synchronizationMode}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) synchronizationMode\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_zig_pad_settings_a9fcf30f1031663343ce08b401c8d2a8c}
+Setting for synchronization mode, YES if enabled.
+
+Getter method for the simulationMode property. 
+
+Definition at line 62 of file ZigPadSettings.h.
+
+\hypertarget{interface_zig_pad_settings_a1c931b82b4ab31532ef34774f30cb6f1}{
+\index{ZigPadSettings@{ZigPadSettings}!vibrationMode@{vibrationMode}}
+\index{vibrationMode@{vibrationMode}!ZigPadSettings@{ZigPadSettings}}
+\subsubsection[{vibrationMode}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (BOOL) vibrationMode\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, assign\mbox{]}}}}
+\label{interface_zig_pad_settings_a1c931b82b4ab31532ef34774f30cb6f1}
+Setting for the vibration mode, YES if enabled.
+
+Getter method for the vibrationMode property. 
+
+Definition at line 57 of file ZigPadSettings.h.
 
 
 

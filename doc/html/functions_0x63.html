@@ -6,6 +6,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript">
+$(document).ready(initResizable);
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body onload='searchBox.OnSelectItem(0);'>
@@ -20,7 +27,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="00_icon_home_control.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ZigPad</div>
+   <div id="projectname">ZigPad&#160;<span id="projectnumber">1.0</span></div>
   </td>
  </tr>
  </tbody>
@@ -29,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -67,8 +75,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
-      <li><a href="functions.html#index__"><span>_</span></a></li>
-      <li><a href="functions_0x61.html#index_a"><span>a</span></a></li>
+      <li><a href="functions.html#index_a"><span>a</span></a></li>
       <li><a href="functions_0x62.html#index_b"><span>b</span></a></li>
       <li class="current"><a href="functions_0x63.html#index_c"><span>c</span></a></li>
       <li><a href="functions_0x64.html#index_d"><span>d</span></a></li>
@@ -96,6 +103,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('functions.html','');
+</script>
+<div id="doc-content">
 <div class="contents">
 <div class="textblock">Here is a list of all struct and union fields with links to the structures/unions they belong to:</div>
 
@@ -194,8 +214,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="interface_async_t_c_p_socket.html#a5910314780c573d73d483b466020a1ed">AsyncTCPSocket</a>
 , <a class="el" href="interface_async_udp_socket.html#a5910314780c573d73d483b466020a1ed">AsyncUdpSocket</a>
 </li>
-<li>connections
-: <a class="el" href="interface_synchronizer.html#ab614350bf23f5280a2b4bb8df11e893b">Synchronizer</a>
+<li>connection
+: <a class="el" href="interface_sync_event.html#a9e3771e5997eb55dbe39b33090297c78">SyncEvent</a>
 </li>
 <li>connectSocketToAddress:error:
 : <a class="el" href="interface_async_t_c_p_socket.html#a1d6556fc7607459b0a4f59ece23688af">AsyncTCPSocket</a>
@@ -208,8 +228,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="interface_async_t_c_p_socket.html#ae023e135c607e4ad8a7dd86a1be7efe2">AsyncTCPSocket</a>
 </li>
 <li>connectToHost:onPort:error:
-: <a class="el" href="interface_async_t_c_p_socket.html#a4e2b5a931c78d066965bdf235337b462">AsyncTCPSocket</a>
-, <a class="el" href="interface_async_udp_socket.html#a3d9205d70242e9e2547148c6b05b397e">AsyncUdpSocket</a>
+: <a class="el" href="interface_async_udp_socket.html#a3d9205d70242e9e2547148c6b05b397e">AsyncUdpSocket</a>
+, <a class="el" href="interface_async_t_c_p_socket.html#a4e2b5a931c78d066965bdf235337b462">AsyncTCPSocket</a>
 </li>
 <li>connectToHost:onPort:withTimeout:error:
 : <a class="el" href="interface_async_t_c_p_socket.html#adccaaf1127cdb2344954f8c8f764a48c">AsyncTCPSocket</a>
@@ -247,9 +267,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>currentActionIndex
 : <a class="el" href="interface_presentation.html#a7a2aae1312fc647bdfa18374b54186b9">Presentation</a>
 </li>
-<li>currentResolve
-: <a class="el" href="interface_synchronizer.html#a14d57daa103c8eb50b3ad4c7da798ae4">Synchronizer</a>
-</li>
 <li>currentSequenceIndex
 : <a class="el" href="interface_presentation.html#a233ee23f2e44543557f21524d6bbe3d0">Presentation</a>
 </li>
@@ -258,6 +275,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 </ul>
 </div>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="footer">Generated on Thu Jun 9 2011 10:16:56 for ZigPad by&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -272,8 +297,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 24 2011 13:04:24 for ZigPad by&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+
 </body>
 </html>

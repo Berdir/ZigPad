@@ -6,6 +6,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript">
+$(document).ready(initResizable);
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body onload='searchBox.OnSelectItem(0);'>
@@ -20,7 +27,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="00_icon_home_control.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ZigPad</div>
+   <div id="projectname">ZigPad&#160;<span id="projectnumber">1.0</span></div>
   </td>
  </tr>
  </tbody>
@@ -29,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -67,8 +75,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
-      <li><a href="functions.html#index__"><span>_</span></a></li>
-      <li><a href="functions_0x61.html#index_a"><span>a</span></a></li>
+      <li><a href="functions.html#index_a"><span>a</span></a></li>
       <li><a href="functions_0x62.html#index_b"><span>b</span></a></li>
       <li><a href="functions_0x63.html#index_c"><span>c</span></a></li>
       <li><a href="functions_0x64.html#index_d"><span>d</span></a></li>
@@ -96,6 +103,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('functions.html','');
+</script>
+<div id="doc-content">
 <div class="contents">
 <div class="textblock">Here is a list of all struct and union fields with links to the structures/unions they belong to:</div>
 
@@ -103,6 +123,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>name
 : <a class="el" href="interface_action.html#a4b93d352d2fca75b34e1b5a50e03f587">Action</a>
 , <a class="el" href="interface_presentation.html#a4b93d352d2fca75b34e1b5a50e03f587">Presentation</a>
+, <a class="el" href="interface_synchronizer_connection.html#a4b93d352d2fca75b34e1b5a50e03f587">SynchronizerConnection</a>
 , <a class="el" href="interface_sequence.html#a4b93d352d2fca75b34e1b5a50e03f587">Sequence</a>
 </li>
 <li>navController
@@ -111,20 +132,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>navigationController
 : <a class="el" href="interface_zig_pad_app_delegate.html#ac9e552549e66f8099eb374aa8afc8dc5">ZigPadAppDelegate</a>
 </li>
-<li>needsActivityIndicator
-: <a class="el" href="interface_synchronizer.html#ae196d598b6ad72fb9ddb5d46ed2cc9f5">Synchronizer</a>
-</li>
 <li>netService
 : <a class="el" href="interface_t_c_p_server.html#a36376bb50bc0e6bba06d8508dd3bc61b">TCPServer</a>
-</li>
-<li>netServiceBrowser
-: <a class="el" href="interface_synchronizer.html#abf4b3c3bd472b664be35d3bfc58136cf">Synchronizer</a>
 </li>
 <li>next:
 : <a class="el" href="interface_action_view_controller.html#a22edd1eeecdf2f7083df5a807f04cf84">ActionViewController</a>
 </li>
 </ul>
 </div>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="footer">Generated on Thu Jun 9 2011 10:16:56 for ZigPad by&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -139,8 +162,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 24 2011 13:04:24 for ZigPad by&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+
 </body>
 </html>

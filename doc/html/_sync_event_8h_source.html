@@ -6,6 +6,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript">
+$(document).ready(initResizable);
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body onload='searchBox.OnSelectItem(0);'>
@@ -20,7 +27,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="00_icon_home_control.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ZigPad</div>
+   <div id="projectname">ZigPad&#160;<span id="projectnumber">1.0</span></div>
   </td>
  </tr>
  </tbody>
@@ -29,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -55,6 +63,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_sync_event_8h.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">ZigPad/SyncEvent.h</div>  </div>
@@ -69,43 +91,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00007"></a>00007 <span class="comment">//</span>
 <a name="l00008"></a>00008 
 <a name="l00009"></a>00009 <span class="preprocessor">#import &lt;Foundation/Foundation.h&gt;</span>
-<a name="l00010"></a>00010 
-<a name="l00011"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34">00011</a> <span class="keyword">typedef</span> <span class="keyword">enum</span> {
-<a name="l00012"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a1697a91b22c2369eb2ba427c2d193329">00012</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a1697a91b22c2369eb2ba427c2d193329">SELECT</a> = 83,
-<a name="l00013"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a1f28d4392b1c1e7da2af2283632d81e1">00013</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a1f28d4392b1c1e7da2af2283632d81e1">JUMP</a> = 74,
-<a name="l00014"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a691a2430ec26878897b5fbc9c22a4c">00014</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a691a2430ec26878897b5fbc9c22a4c">CONNECTED</a> = 67,
-<a name="l00015"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34ac430318ffe8093a350d85d70daa54cd7">00015</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34ac430318ffe8093a350d85d70daa54cd7">LOST_CONNECTION</a> = 76,
-<a name="l00016"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34abaf6b8e08edf0e9d2eb38551fed1fb39">00016</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34abaf6b8e08edf0e9d2eb38551fed1fb39">REQUEST</a> = 82,
-<a name="l00017"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a0c2c933912b1834f832d17e973cd8100">00017</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a0c2c933912b1834f832d17e973cd8100">ANSWER</a> = 65,
-<a name="l00018"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a10b5d68d31711288e1fe0fa17dbf4f">00018</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a10b5d68d31711288e1fe0fa17dbf4f">EXIT</a> = 69,
-<a name="l00019"></a>00019     
-<a name="l00020"></a>00020 } <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34">SyncEventCommand</a>;
-<a name="l00021"></a>00021 
-<a name="l00022"></a><a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04">00022</a> <span class="keyword">typedef</span> <span class="keyword">enum</span> {
-<a name="l00023"></a><a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04aba595d8bca8bc5e67c37c0a9d89becfa">00023</a>     <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04aec8379af7490bb9eaaf579cf17876f38">RIGHT</a>, <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04adb45120aafd37a973140edee24708065">LEFT</a>, <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04a446112f9fefaf7dff0892523dfc476ef">RIGHT_ANIMATED</a>, <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04a3e5d93a888235c25d4e1ff145faa9f45">LEFT_ANIMATED</a>, <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04aba595d8bca8bc5e67c37c0a9d89becfa">UP</a>
-<a name="l00024"></a>00024 } <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04">SyncEventSwipeDirection</a>;
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 
-<a name="l00027"></a><a class="code" href="interface_sync_event.html">00027</a> <span class="keyword">@interface </span><a class="code" href="interface_sync_event.html">SyncEvent</a> : NSObject {
-<a name="l00028"></a>00028     
-<a name="l00029"></a>00029 }
-<a name="l00030"></a>00030 
-<a name="l00031"></a><a class="code" href="interface_sync_event.html#aa6a5afb0f81c492c56b326c711e72aff">00031</a> <span class="keyword">@property</span> (readwrite) <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34">SyncEventCommand</a> command;
-<a name="l00032"></a>00032 
-<a name="l00033"></a><a class="code" href="interface_sync_event.html#aabc9ba86996bb61d9eb530b84f5a16f9">00033</a> <span class="keyword">@property</span> (readwrite) uint8_t argument_upperByte;
-<a name="l00034"></a><a class="code" href="interface_sync_event.html#a4300b74bd54ca339d5fdbf0187a32d50">00034</a> <span class="keyword">@property</span> (readwrite) uint8_t argument_lowerByte;
-<a name="l00035"></a><a class="code" href="interface_sync_event.html#a74dff7bd5049f91fd54db0388f730206">00035</a> <span class="keyword">@property</span> (readwrite) uint16_t argument;
-<a name="l00036"></a>00036 
-<a name="l00037"></a><a class="code" href="interface_sync_event.html#af2e9a1b1dcae54a6d29d4ab3ea82ac36">00037</a> <span class="keyword">@property</span> (readwrite) <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04">SyncEventSwipeDirection</a> direction;
-<a name="l00038"></a>00038 
-<a name="l00039"></a><a class="code" href="interface_sync_event.html#a539fd2db1da9757b1e4cb56c56313b91">00039</a> <span class="keyword">@property</span> (readonly) <span class="keywordtype">int</span> bytesLength;
+<a name="l00010"></a>00010 <span class="preprocessor">#import &quot;<a class="code" href="_synchronizer_connection_8h.html">SynchronizerConnection.h</a>&quot;</span>
+<a name="l00011"></a>00011 
+<a name="l00016"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34">00016</a> <span class="keyword">typedef</span> <span class="keyword">enum</span> {
+<a name="l00017"></a>00017     <span class="comment">/* Select a presentation */</span>
+<a name="l00018"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a1697a91b22c2369eb2ba427c2d193329">00018</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a1697a91b22c2369eb2ba427c2d193329">SELECT</a> = 83,
+<a name="l00019"></a>00019     <span class="comment">/* Jump to an sequence/action */</span>
+<a name="l00020"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a1f28d4392b1c1e7da2af2283632d81e1">00020</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a1f28d4392b1c1e7da2af2283632d81e1">JUMP</a> = 74,
+<a name="l00021"></a>00021     <span class="comment">/* Connected to a device, not sent to any external device */</span>
+<a name="l00022"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a691a2430ec26878897b5fbc9c22a4c">00022</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a691a2430ec26878897b5fbc9c22a4c">CONNECTED</a> = 67,
+<a name="l00023"></a>00023     <span class="comment">/* Lost connection to a device, not sent to any external device */</span>
+<a name="l00024"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34ac430318ffe8093a350d85d70daa54cd7">00024</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34ac430318ffe8093a350d85d70daa54cd7">LOST_CONNECTION</a> = 76,
+<a name="l00025"></a>00025     <span class="comment">/* Request the current state (running presentation) */</span>
+<a name="l00026"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34abaf6b8e08edf0e9d2eb38551fed1fb39">00026</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34abaf6b8e08edf0e9d2eb38551fed1fb39">REQUEST</a> = 82,
+<a name="l00027"></a>00027     <span class="comment">/* The currently running presentation, in response to a REQUEST */</span>
+<a name="l00028"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a0c2c933912b1834f832d17e973cd8100">00028</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a0c2c933912b1834f832d17e973cd8100">ANSWER</a> = 65,
+<a name="l00029"></a>00029     <span class="comment">/* Sent when closing a presention */</span>
+<a name="l00030"></a><a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a10b5d68d31711288e1fe0fa17dbf4f">00030</a>     <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34a7a10b5d68d31711288e1fe0fa17dbf4f">EXIT</a> = 69,
+<a name="l00031"></a>00031     
+<a name="l00032"></a>00032 } <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34">SyncEventCommand</a>;
+<a name="l00033"></a>00033 
+<a name="l00037"></a><a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04">00037</a> <span class="keyword">typedef</span> <span class="keyword">enum</span> {
+<a name="l00038"></a><a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04aba595d8bca8bc5e67c37c0a9d89becfa">00038</a>     <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04aec8379af7490bb9eaaf579cf17876f38">RIGHT</a>, <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04adb45120aafd37a973140edee24708065">LEFT</a>, <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04a446112f9fefaf7dff0892523dfc476ef">RIGHT_ANIMATED</a>, <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04a3e5d93a888235c25d4e1ff145faa9f45">LEFT_ANIMATED</a>, <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04aba595d8bca8bc5e67c37c0a9d89becfa">UP</a>
+<a name="l00039"></a>00039 } <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04">SyncEventSwipeDirection</a>;
 <a name="l00040"></a>00040 
-<a name="l00041"></a>00041 - (id) initWithBytes: ( const uint8_t *) bytes;
-<a name="l00042"></a>00042 - (const uint8_t *) bytes;
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 <span class="keyword">@end</span>
+<a name="l00044"></a><a class="code" href="interface_sync_event.html">00044</a> <span class="keyword">@interface </span><a class="code" href="interface_sync_event.html">SyncEvent</a> : NSObject {
+<a name="l00045"></a>00045     
+<a name="l00046"></a>00046 }
+<a name="l00047"></a>00047 
+<a name="l00051"></a><a class="code" href="interface_sync_event.html#aa6a5afb0f81c492c56b326c711e72aff">00051</a> <span class="keyword">@property</span> (readwrite) <a class="code" href="_sync_event_8h.html#a20f1caea2d3fefad8cc1d9eb9b8f7d34">SyncEventCommand</a> command;
+<a name="l00052"></a>00052 
+<a name="l00056"></a><a class="code" href="interface_sync_event.html#aabc9ba86996bb61d9eb530b84f5a16f9">00056</a> <span class="keyword">@property</span> (readwrite) uint8_t argument_upperByte;
+<a name="l00057"></a>00057 
+<a name="l00061"></a><a class="code" href="interface_sync_event.html#a4300b74bd54ca339d5fdbf0187a32d50">00061</a> <span class="keyword">@property</span> (readwrite) uint8_t argument_lowerByte;
+<a name="l00062"></a>00062 
+<a name="l00070"></a><a class="code" href="interface_sync_event.html#a74dff7bd5049f91fd54db0388f730206">00070</a> <span class="keyword">@property</span> (readwrite) uint16_t argument;
+<a name="l00071"></a>00071 
+<a name="l00075"></a><a class="code" href="interface_sync_event.html#af2e9a1b1dcae54a6d29d4ab3ea82ac36">00075</a> <span class="keyword">@property</span> (readwrite) <a class="code" href="_sync_event_8h.html#acace9ff8e6c7501a7db172418a364d04">SyncEventSwipeDirection</a> direction;
+<a name="l00076"></a>00076 
+<a name="l00080"></a><a class="code" href="interface_sync_event.html#a539fd2db1da9757b1e4cb56c56313b91">00080</a> <span class="keyword">@property</span> (readonly) <span class="keywordtype">int</span> bytesLength;
+<a name="l00081"></a>00081 
+<a name="l00082"></a><a class="code" href="interface_sync_event.html#a9e3771e5997eb55dbe39b33090297c78">00082</a> <span class="keyword">@property</span> (nonatomic, retain) <a class="code" href="interface_synchronizer_connection.html">SynchronizerConnection</a>* connection;
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 
+<a name="l00088"></a>00088 - (id) initWithBytes: ( const uint8_t *) bytes;
+<a name="l00089"></a>00089 
+<a name="l00093"></a>00093 - (const uint8_t *) bytes;
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_sync_event_8h.html">SyncEvent.h</a>      </li>
+      <li class="footer">Generated on Thu Jun 9 2011 10:16:56 for ZigPad by&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -120,8 +163,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 24 2011 13:04:24 for ZigPad by&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+
 </body>
 </html>

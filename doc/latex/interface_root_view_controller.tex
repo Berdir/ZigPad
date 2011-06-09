@@ -31,16 +31,14 @@ Inheritance diagram for RootViewController:\begin{figure}[H]
 \item 
 NSFetchedResultsController $\ast$ \hyperlink{interface_root_view_controller_a7188ae93e075694ba7b03c301e09f8a2}{fetchedResultsController}
 \item 
-NSManagedObjectContext $\ast$ \hyperlink{interface_root_view_controller_adeebe5deeb50f760daa2b23db0a20d95}{managedObjectContext}
-\item 
 \hyperlink{interface_presentation}{Presentation} $\ast$ \hyperlink{interface_root_view_controller_ae180d02b7737a300a02c7e8de4426e1d}{activePresentation}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+The view controller for the initial table view. 
 
-
-Definition at line 19 of file RootViewController.h.
+Definition at line 18 of file RootViewController.h.
 
 
 
@@ -54,9 +52,16 @@ Definition at line 19 of file RootViewController.h.
 \end{DoxyParamCaption}
 }}
 \label{interface_root_view_controller_a1a3e9ecd465f641cfbe7b3e585abd31a}
+Displays the settings screen.
 
 
-Definition at line 142 of file RootViewController.m.
+\begin{DoxyParams}{Parameters}
+{\em sender} & Indicates the button that is executing this action. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 146 of file RootViewController.m.
 
 \hypertarget{interface_root_view_controller_a3642c277100c7f3c5a1aa625cf7d9c44}{
 \index{RootViewController@{RootViewController}!runUpdate@{runUpdate}}
@@ -67,9 +72,9 @@ Definition at line 142 of file RootViewController.m.
 \end{DoxyParamCaption}
 }}
 \label{interface_root_view_controller_a3642c277100c7f3c5a1aa625cf7d9c44}
+Delegate callback for running the import. 
 
-
-Definition at line 172 of file RootViewController.m.
+Definition at line 176 of file RootViewController.m.
 
 \hypertarget{interface_root_view_controller_afd9e8d3ca0345010f3372d9dd8d77a08}{
 \index{RootViewController@{RootViewController}!update:@{update:}}
@@ -80,9 +85,16 @@ Definition at line 172 of file RootViewController.m.
 \end{DoxyParamCaption}
 }}
 \label{interface_root_view_controller_afd9e8d3ca0345010f3372d9dd8d77a08}
+Starts the configuration import.
 
 
-Definition at line 152 of file RootViewController.m.
+\begin{DoxyParams}{Parameters}
+{\em sender} & Indicates the button that is executing this action. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 156 of file RootViewController.m.
 
 
 
@@ -92,9 +104,9 @@ Definition at line 152 of file RootViewController.m.
 \index{HUD@{HUD}!RootViewController@{RootViewController}}
 \subsubsection[{HUD}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf MBProgressHUD}$\ast$) {\bf HUD}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
 \label{interface_root_view_controller_a62209f8d829db91e9c588dee85158379}
+Reference of the \hyperlink{interface_m_b_progress_h_u_d}{MBProgressHUD} for progress display during import. 
 
-
-Definition at line 20 of file RootViewController.h.
+Definition at line 23 of file RootViewController.h.
 
 
 
@@ -104,27 +116,18 @@ Definition at line 20 of file RootViewController.h.
 \index{activePresentation@{activePresentation}!RootViewController@{RootViewController}}
 \subsubsection[{activePresentation}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf Presentation}$\ast$) activePresentation\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
 \label{interface_root_view_controller_ae180d02b7737a300a02c7e8de4426e1d}
+Reference to the active presentation. 
 
-
-Definition at line 31 of file RootViewController.h.
+Definition at line 58 of file RootViewController.h.
 
 \hypertarget{interface_root_view_controller_a7188ae93e075694ba7b03c301e09f8a2}{
 \index{RootViewController@{RootViewController}!fetchedResultsController@{fetchedResultsController}}
 \index{fetchedResultsController@{fetchedResultsController}!RootViewController@{RootViewController}}
 \subsubsection[{fetchedResultsController}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSFetchedResultsController $\ast$) fetchedResultsController\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
 \label{interface_root_view_controller_a7188ae93e075694ba7b03c301e09f8a2}
+Reference to the results controller for the presentations. 
 
-
-Definition at line 29 of file RootViewController.h.
-
-\hypertarget{interface_root_view_controller_adeebe5deeb50f760daa2b23db0a20d95}{
-\index{RootViewController@{RootViewController}!managedObjectContext@{managedObjectContext}}
-\index{managedObjectContext@{managedObjectContext}!RootViewController@{RootViewController}}
-\subsubsection[{managedObjectContext}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (NSManagedObjectContext$\ast$) managedObjectContext\hspace{0.3cm}{\ttfamily  \mbox{[}read, write, retain\mbox{]}}}}
-\label{interface_root_view_controller_adeebe5deeb50f760daa2b23db0a20d95}
-
-
-Definition at line 30 of file RootViewController.h.
+Definition at line 53 of file RootViewController.h.
 
 
 

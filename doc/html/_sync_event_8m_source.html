@@ -6,6 +6,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript">
+$(document).ready(initResizable);
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body onload='searchBox.OnSelectItem(0);'>
@@ -20,7 +27,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="00_icon_home_control.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ZigPad</div>
+   <div id="projectname">ZigPad&#160;<span id="projectnumber">1.0</span></div>
   </td>
  </tr>
  </tbody>
@@ -29,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -55,6 +63,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_sync_event_8m.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">ZigPad/SyncEvent.m</div>  </div>
@@ -77,45 +99,60 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00015"></a>00015 <span class="keyword">@synthesize</span> <a class="code" href="interface_sync_event.html#aabc9ba86996bb61d9eb530b84f5a16f9">argument_upperByte</a>;
 <a name="l00016"></a>00016 <span class="keyword">@synthesize</span> <a class="code" href="interface_sync_event.html#a4300b74bd54ca339d5fdbf0187a32d50">argument_lowerByte</a>;
 <a name="l00017"></a>00017 <span class="keyword">@synthesize</span> <a class="code" href="interface_sync_event.html#af2e9a1b1dcae54a6d29d4ab3ea82ac36">direction</a>;
-<a name="l00018"></a>00018 
-<a name="l00019"></a><a class="code" href="interface_sync_event.html#a3f7fdc48c3c3cab2371b8adf14de9b99">00019</a> - (id) initWithBytes: (const uint8_t *) bytes {
-<a name="l00020"></a>00020     <span class="keywordflow">if</span>((<span class="keyword">self</span> = [super init])) {
-<a name="l00021"></a>00021         <span class="keyword">self</span>.command = <a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">bytes</a>[0];
-<a name="l00022"></a>00022         <span class="keyword">self</span>.argument_upperByte = <a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">bytes</a>[1];
-<a name="l00023"></a>00023         <span class="keyword">self</span>.argument_lowerByte = <a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">bytes</a>[2];
-<a name="l00024"></a>00024         <span class="keyword">self</span>.direction = <a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">bytes</a>[3];
-<a name="l00025"></a>00025     }
-<a name="l00026"></a>00026     <span class="keywordflow">return</span> <span class="keyword">self</span>;
-<a name="l00027"></a>00027 }
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 - (uint16_t) <a class="code" href="interface_sync_event.html#a74dff7bd5049f91fd54db0388f730206">argument</a> {
-<a name="l00030"></a>00030     <span class="keywordflow">return</span> (<span class="keyword">self</span>.<a class="code" href="interface_sync_event.html#aabc9ba86996bb61d9eb530b84f5a16f9">argument_upperByte</a> &lt;&lt; 8) + self.<a class="code" href="interface_sync_event.html#a4300b74bd54ca339d5fdbf0187a32d50">argument_lowerByte</a>;
+<a name="l00018"></a>00018 <span class="keyword">@synthesize</span> <a class="code" href="interface_sync_event.html#a9e3771e5997eb55dbe39b33090297c78">connection</a>;
+<a name="l00019"></a>00019 
+<a name="l00020"></a><a class="code" href="interface_sync_event.html#a3f7fdc48c3c3cab2371b8adf14de9b99">00020</a> - (id) initWithBytes: (const uint8_t *) bytes {
+<a name="l00021"></a>00021     <span class="keywordflow">if</span>((<span class="keyword">self</span> = [super init])) {
+<a name="l00022"></a>00022         <span class="comment">// First byte is the command.</span>
+<a name="l00023"></a>00023         <span class="keyword">self</span>.command = <a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">bytes</a>[0];
+<a name="l00024"></a>00024         <span class="comment">// Second and third byte are the arguments.</span>
+<a name="l00025"></a>00025         <span class="keyword">self</span>.argument_upperByte = <a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">bytes</a>[1];
+<a name="l00026"></a>00026         <span class="keyword">self</span>.argument_lowerByte = <a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">bytes</a>[2];
+<a name="l00027"></a>00027         <span class="comment">// And the fourth is the direction.</span>
+<a name="l00028"></a>00028         <span class="keyword">self</span>.direction = <a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">bytes</a>[3];
+<a name="l00029"></a>00029     }
+<a name="l00030"></a>00030     <span class="keywordflow">return</span> <span class="keyword">self</span>;
 <a name="l00031"></a>00031 }
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 - (void) setArgument:(uint16_t)argument {
-<a name="l00034"></a>00034     <span class="keyword">self</span>.argument_lowerByte = <a class="code" href="interface_sync_event.html#a74dff7bd5049f91fd54db0388f730206">argument</a>;
-<a name="l00035"></a>00035     <span class="keyword">self</span>.argument_upperByte = <a class="code" href="interface_sync_event.html#a74dff7bd5049f91fd54db0388f730206">argument</a> &gt;&gt; 8;
-<a name="l00036"></a>00036 }
-<a name="l00037"></a>00037 
-<a name="l00038"></a><a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">00038</a> - (const uint8_t *) <a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">bytes</a> {
-<a name="l00039"></a>00039     uint8_t <a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">bytes</a>[4] = {<span class="keyword">self</span>.command, <span class="keyword">self</span>.argument_upperByte, <span class="keyword">self</span>.argument_lowerByte, <span class="keyword">self</span>.direction};
-<a name="l00040"></a>00040     
-<a name="l00041"></a>00041     <span class="comment">// Results in compiler warning.</span>
-<a name="l00042"></a>00042     <span class="comment">//return bytes;</span>
-<a name="l00043"></a>00043     
-<a name="l00044"></a>00044     <span class="comment">// Pass through NSData to avoid that warning.</span>
-<a name="l00045"></a>00045     NSData *data = [[NSData alloc] initWithBytes:bytes length:4];
-<a name="l00046"></a>00046     [data autorelease];
-<a name="l00047"></a>00047     <span class="keywordflow">return</span> [data bytes];
-<a name="l00048"></a>00048 }
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 - (int) <a class="code" href="interface_sync_event.html#a539fd2db1da9757b1e4cb56c56313b91">bytesLength</a> {
-<a name="l00051"></a>00051     <span class="keywordflow">return</span> 4;
-<a name="l00052"></a>00052 }
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <span class="keyword">@end</span>
+<a name="l00038"></a>00038 - (uint16_t) <a class="code" href="interface_sync_event.html#a74dff7bd5049f91fd54db0388f730206">argument</a> {
+<a name="l00039"></a>00039     <span class="keywordflow">return</span> (<span class="keyword">self</span>.<a class="code" href="interface_sync_event.html#aabc9ba86996bb61d9eb530b84f5a16f9">argument_upperByte</a> &lt;&lt; 8) + self.<a class="code" href="interface_sync_event.html#a4300b74bd54ca339d5fdbf0187a32d50">argument_lowerByte</a>;
+<a name="l00040"></a>00040 }
+<a name="l00041"></a>00041 
+<a name="l00047"></a>00047 - (void) setArgument: (uint16_t)argument {
+<a name="l00048"></a>00048     <span class="keyword">self</span>.argument_lowerByte = <a class="code" href="interface_sync_event.html#a74dff7bd5049f91fd54db0388f730206">argument</a>;
+<a name="l00049"></a>00049     <span class="keyword">self</span>.argument_upperByte = <a class="code" href="interface_sync_event.html#a74dff7bd5049f91fd54db0388f730206">argument</a> &gt;&gt; 8;
+<a name="l00050"></a>00050 }
+<a name="l00051"></a>00051 
+<a name="l00052"></a><a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">00052</a> - (const uint8_t *) <a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">bytes</a> {
+<a name="l00053"></a>00053     
+<a name="l00054"></a>00054     <span class="comment">// Create the bytes array.</span>
+<a name="l00055"></a>00055     uint8_t <a class="code" href="interface_sync_event.html#a484f93618ed90870534d4632b0bb811b">bytes</a>[4] = {<span class="keyword">self</span>.command, <span class="keyword">self</span>.argument_upperByte, <span class="keyword">self</span>.argument_lowerByte, <span class="keyword">self</span>.direction};
+<a name="l00056"></a>00056     
+<a name="l00057"></a>00057     <span class="comment">// Results in compiler warning.</span>
+<a name="l00058"></a>00058     <span class="comment">//return bytes;</span>
+<a name="l00059"></a>00059     
+<a name="l00060"></a>00060     <span class="comment">// Pass through NSData to avoid that warning. NSData must either be</span>
+<a name="l00061"></a>00061     <span class="comment">// ignoring that warning or work around it in a unkown way.</span>
+<a name="l00062"></a>00062     NSData *data = [[NSData alloc] initWithBytes:bytes length:4];
+<a name="l00063"></a>00063     [data autorelease];
+<a name="l00064"></a>00064     <span class="keywordflow">return</span> [data bytes];
+<a name="l00065"></a>00065 }
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 - (int) <a class="code" href="interface_sync_event.html#a539fd2db1da9757b1e4cb56c56313b91">bytesLength</a> {
+<a name="l00068"></a>00068     <span class="comment">// All events have a fixed bytes length of 4 bytes.</span>
+<a name="l00069"></a>00069     <span class="keywordflow">return</span> 4;
+<a name="l00070"></a>00070 }
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_sync_event_8m.html">SyncEvent.m</a>      </li>
+      <li class="footer">Generated on Thu Jun 9 2011 10:16:56 for ZigPad by&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -130,8 +167,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 24 2011 13:04:24 for ZigPad by&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+
 </body>
 </html>
